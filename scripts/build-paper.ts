@@ -163,10 +163,12 @@ async function buildPdf(): Promise<string> {
 
   const pdflatex = `pdflatex -interaction=nonstopmode -jobname=${OUTPUT_NAME} ${MAIN_TEX}`;
 
-  // Два прохода: первый для .aux и .toc, второй — для перекрёстных ссылок и TOC.
+  // Три прохода: (1) .aux / .toc; (2) перекрёстные ссылки; (3) финализация
+  // (устраняет "Label(s) may have changed. Rerun" после 2-го прохода).
   // Библиография встроена (thebibliography), BibTeX не нужен.
-  if (!(await run(pdflatex, "Проход 1/2 (генерация .aux / .toc)"))) process.exit(1);
-  if (!(await run(pdflatex, "Проход 2/2 (перекрёстные ссылки + TOC)"))) process.exit(1);
+  if (!(await run(pdflatex, "Проход 1/3 (генерация .aux / .toc)"))) process.exit(1);
+  if (!(await run(pdflatex, "Проход 2/3 (перекрёстные ссылки)"))) process.exit(1);
+  if (!(await run(pdflatex, "Проход 3/3 (финализация cross-refs)"))) process.exit(1);
 
   const pdfPath = path.join(PAPER_DIR, `${OUTPUT_NAME}.pdf`);
   if (!existsSync(pdfPath)) {
@@ -196,8 +198,9 @@ async function buildArxiv(): Promise<void> {
   // Контрольный прогон с jobname по умолчанию (`paper`), чтобы убедиться
   // что исходник компилируется.
   const pdflatex = `pdflatex -interaction=nonstopmode ${MAIN_TEX}`;
-  if (!(await run(pdflatex, "Контрольный проход 1/2"))) process.exit(1);
-  if (!(await run(pdflatex, "Контрольный проход 2/2"))) process.exit(1);
+  if (!(await run(pdflatex, "Контрольный проход 1/3"))) process.exit(1);
+  if (!(await run(pdflatex, "Контрольный проход 2/3"))) process.exit(1);
+  if (!(await run(pdflatex, "Контрольный проход 3/3"))) process.exit(1);
 
   const files = [MAIN_TEX];
 
