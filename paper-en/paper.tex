@@ -1665,6 +1665,16 @@ AFN-T imposes a uniform structural bound on every current foundational programme
 \item \textbf{Categorical logic}: classification of foundational systems by $(\infty, n)$-categories and their meta-structures has an upper bound at $\LCls$, aligning with Barwick--Schommer-Pries~\cite{BarwickSchommerPries2021} unicity.
 \end{itemize}
 
+\paragraph{Diagnostic: which $\LAbs$ condition fails for specific candidates?} For each well-known candidate sometimes informally described as ``absolute'', the precise failure mode within AFN-T's formal framework can be identified.
+\begin{itemize}\setlength{\itemsep}{1pt}
+\item \emph{Univalent Foundations (UF)}: passes $(F_S)$ (formally definable as HoTT + univalence axiom schema), passes $(\Pi_{4, S, n})$ conditionally (not Morita-reducible to $\ZFC$-internal structures, in the forward direction), but \emph{fails $(\Pi_{3\text{-max}, S, n})$}: UF does not classify Rich-foundations outside the HoTT-adjacent family (e.g., it does not classify ZFC-specific cardinal arithmetic or noncommutative-geometric spectral triples by Morita reduction). Hence UF $\in \LCls \setminus \LClsMax$.
+\item \emph{Higher topos theory (Lurie)}: passes $(F_S)$, fails $(\Pi_{3\text{-max}})$ for essentially the same reason: classifies categorical structures of HoTT-compatible shape but does not subsume foundations outside this class.
+\item \emph{Cohesive framework (Schreiber)}: passes $(F_S)$, fails $(\Pi_{3\text{-max}})$; additionally the cohesion axioms specialize to geometric contexts, further restricting the classification image.
+\item \emph{$\infty$-cosmoi (Riehl--Verity)}: passes $(F_S)$ (axiomatized in $\ZFC + 2\text{-inacc}$), fails $(\Pi_{3\text{-max}})$; they classify $(\infty, 1)$-categorical structures, not the full $\fM$.
+\item \emph{Any hypothetical candidate $X$ satisfying $(F_S) \wedge (\Pi_{3\text{-max}})$}: by Theorem~\ref{thm:afnt-alpha}, $X$ then fails $(\Pi_{4, S, n})$: if $X$ were both formally definable (via $(F_S)$) and maximally generative (via $(\Pi_{3\text{-max}})$), then by Lemma~\ref{lem:SS-membership} $X \in \cS_S^{\mathrm{global}}$ and $\id_X$ would realize a Morita reduction to an $\cS_S$-target, contradicting $(\Pi_{4, S, n})$.
+\end{itemize}
+Thus the three conditions cannot all simultaneously hold: current candidates fail $(\Pi_{3\text{-max}})$; any hypothetical stronger candidate satisfying $(F_S) \wedge (\Pi_{3\text{-max}})$ would fail $(\Pi_{4, S, n})$. The diagnostic identifies the precise obstruction in each case rather than merely asserting impossibility.
+
 \subsection{Consequences for downstream practice}
 
 Beyond foundational programmes, MSFS yields concrete consequences for practical activities that aggregate or compare mathematical content.
