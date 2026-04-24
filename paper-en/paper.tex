@@ -180,6 +180,16 @@ The boundary lemma enters as the opening result that fixes the outer edge of $\f
 
 The classical no-go series Cantor, Russell, G\"odel, Tarski, Lawvere, Ernst is subsumed at the boundary, but the technical weight of the paper is carried by the interior results.
 
+\subsection{Meta-theoretic relativity of the results}\label{subsec:meta-relativity}
+
+A structural remark is due on the epistemic status of the results that follow.
+
+All theorems in this paper --- AFN-T, the plurality at $\LCls$, the conditional categoricity of $\LClsMax$, the slice-locality of $\II$, the theory-level stabilization, the AC/OC duality, and the five absoluteness axes --- are theorems of $\ZFC + 2\text{-inacc}$. The moduli space $\fM$ is a $\mathbf{U}_2$-small $(\infty, 2)$-stack constructed inside this ambient metatheory (Convention~\ref{conv:zfc-inacc}); the classification functors, the Grothendieck--Lurie straightenings, and the syntax--semantics adjunctions all live there. An AFN-T-negation of the form ``there exists $X \in \LAbs$'' is accordingly \emph{refutable} in $\ZFC + 2\text{-inacc}$; its consistency with other metatheories (Morse--Kelley, $\ZFC + \text{reflection principles}$, constructive metatheories with different size-taxonomy, or paraconsistent metatheories) is a separate question, partially addressed in the five-axis absoluteness (\S\ref{sec:five-axis}) and in the horizontal axis (Theorem~\ref{thm:horizontal}) insofar as the underlying Rich-metatheories vary, but not resolved absolutely.
+
+The pluralism that MSFS formalizes is accordingly \emph{internal} pluralism among $\RS$-points classified inside $\ZFC + 2\text{-inacc}$. A fully external pluralism --- varying not only the classified foundations but also the classifying metatheory --- would require either (i) a meta-meta-theory above $\ZFC + 2\text{-inacc}$ (introducing a new regress analogous to the one AFN-T closes at its own level), or (ii) a category-theoretic transfer theorem establishing invariance of $\fM$ under change of ambient set-theoretic foundation. The latter is a natural continuation of this work but lies outside the present scope.
+
+The self-reflexive point is this: MSFS does not claim the impossibility of absolute foundations in a metaphysically absolute sense. It claims that, within the ambient Rich-metatheory $\ZFC + 2\text{-inacc}$ (which is itself $\RS$-sized, $r.e.$-axiomatizable, first-order-meta, and satisfies (R1)--(R5)), no internal structure inside $\fM$ satisfies the $\LAbs$ triple. The ambient metatheory is not excluded from being an $\LFnd$-point of its own $\fM$; it is not claimed to be absolute; and its role here is the standard role of a working metatheory in any foundational investigation. The claim that AFN-T is a theorem $\emph{about}$ absolute foundations (rather than merely $\emph{from the point of view of}$ $\ZFC + 2\text{-inacc}$) would require additional philosophical argumentation not conducted here; what is established here is the formal refutability of the $\LAbs$ triple internal to the ambient metatheory, under the plausibility that this metatheory itself satisfies (R1)--(R5).
+
 \subsection{Boundary Statement}\label{subsec:afnt-boundary}
 
 I state the boundary lemma in informal form; the formal version is Theorem~\ref{thm:afnt-alpha}.
@@ -1162,8 +1172,8 @@ A meta-structure $\mathbf{F} \in \Meta_{\mathrm{Cls}}$ is \textbf{maximal} if ad
 I denote the class of maximal meta-structures as $\Meta_{\mathrm{Cls}}^{\top}$.
 \end{definition}
 
-\begin{remark}[(Max-3) as a single-axiom paradox immunity]\label{rem:max3-paradox-immunity}
-The depth-stratification condition (Max-3) is a single axiom with bounded arity (the filtration functor and its depth predicate), hence r.e.-axiomatizable and accessible in the sense of Ad\'amek--Rosick\'y~\cite{AdamekRosicky1994}. It uniformly blocks the standard self-referential paradox families by a single argument: any Russell-, Curry-, Grelling-, Burali-Forti-, or Girard-style construction produces a predicate whose evaluation at depth $n$ requires objects of depth $\geq n$ (circular comprehension), contradicting depth stratification. In particular:
+\begin{remark}[(Max-3) as a single-axiom paradox immunity; scope via Yanofsky-reducibility]\label{rem:max3-paradox-immunity}
+The depth-stratification condition (Max-3) is a single axiom with bounded arity (the filtration functor and its depth predicate), hence r.e.-axiomatizable and accessible in the sense of Ad\'amek--Rosick\'y~\cite{AdamekRosicky1994}. It blocks the standard self-referential paradox families by a single argument: any Russell-, Curry-, Grelling-, Burali-Forti-, or Girard-style construction produces a predicate whose evaluation at depth $n$ requires objects of depth $\geq n$ (circular comprehension), contradicting depth stratification. In particular:
 \begin{itemize}
 \item \emph{Russell} $\{x : x \notin x\}$: membership test at depth $n$ uses the set itself (depth $n$).
 \item \emph{Curry} $(X \to \bot) \in X$: implication involves $X$ at its own depth.
@@ -1171,7 +1181,8 @@ The depth-stratification condition (Max-3) is a single axiom with bounded arity 
 \item \emph{Burali-Forti}: the class of all ordinals at depth $n$ includes its own ordinal.
 \item \emph{Girard $\mathrm{Type} : \mathrm{Type}$}: universe-in-itself violates depth-indexing.
 \end{itemize}
-Thus (Max-3), as a single structural condition, entails immunity from \emph{every} comprehension paradox reducible to depth-circularity --- not only the five listed above, which are subsumed as instances.
+
+\emph{Precise scope of the claim}. (Max-3) entails immunity from every paradox that is \emph{Yanofsky-reducible} in the sense of Yanofsky~\cite{Yanofsky2003}: i.e., every paradox whose categorical core is a diagonal construction $\alpha : Y \to T^Y$ together with an endomorphism $f : T \to T$ without fixed points, in a cartesian-closed or closed-symmetric-monoidal setting where $Y$ and $T^Y$ admit comparable depth-indexing. The five listed classical families are Yanofsky-reducible, as is every standard self-referential paradox known to the author. (Max-3) does \emph{not} automatically block paradoxes that are not Yanofsky-reducible, if any such exist; candidate examples might include paradoxes in genuinely non-classical ambient logics (e.g., paraconsistent metatheories with dialetheia-valid negation) or paradoxes whose self-reference operates through non-categorical machinery (e.g., Berry-type definability paradoxes that depend on the definability predicate of the ambient metatheory rather than on comprehension over categorical objects). Whether every possible self-referential paradox in $\RS$-foundations is Yanofsky-reducible is itself an open meta-theorem conjecture; (Max-3) is formulated to guarantee immunity within the Yanofsky-reducible class, which is the class the paper explicitly targets, and no wider. Accordingly, meta-categoricity of $\LClsMax$ (Theorem~\ref{thm:meta-cat}) is a theorem relative to the Yanofsky-reducibility scope: any hypothetical non-Yanofsky-reducible paradox admitted by $\mathbf{F}$ would lie outside the guarantee and would require a strengthened (Max-3$'$) condition.
 \end{remark}
 
 \subsection{Meta-Categoricity}
