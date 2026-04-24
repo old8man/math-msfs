@@ -1,6 +1,6 @@
 This repository contains two bodies of work under distinct licences:
 
-  A. Preprint content (paper-en/, paper-ru/) — Creative Commons Attribution
+  A. Paper content (paper-en/, paper-ru/) — Creative Commons Attribution
      4.0 International (CC BY 4.0).
   B. Build scripts (scripts/) — MIT License.
 
@@ -41,7 +41,7 @@ permits.
 Recommended citation:
 
     Sereda, M. (2026). The Moduli Space of Formal Systems: Classification,
-    Stabilization, and a No-Go Theorem for Absolute Foundations. Preprint.
+    Stabilization, and a No-Go Theorem for Absolute Foundations.
 
 ================================================================================
 B. BUILD SCRIPTS & Verum code — MIT License
