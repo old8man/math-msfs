@@ -261,7 +261,7 @@ The moduli space $\fM$ and its stratification depend structurally on the choice 
 \begin{itemize}[nosep]
 \item \emph{Definitional equivalence} (Tarski): $F_1 \equiv_{\mathrm{def}} F_2$ if $F_1$ and $F_2$ are conservative extensions of a common sub-theory with the same definable classes.
 \item \emph{Bi-interpretability} (Makkai, Pillay): mutual faithful interpretations composing to identity up to definable isomorphism.
-\item \emph{Morita equivalence} (Tsementzis--Ahrens~\cite{Hofmann1995,Jacobs1999}): equivalence of categories of models at the appropriate $(\infty, n)$-level.
+\item \emph{Morita equivalence}: equivalence of categories of models at the appropriate $(\infty, n)$-level, extending classical ring-Morita~\cite{Hofmann1995} and categorical-logic treatments~\cite{Jacobs1999} to the higher-categorical setting.
 \item \emph{Leibniz equivalence} (Franks): equivalence under structure-preserving bijections of expressively-equivalent formulas.
 \end{itemize}
 These refinements are nested: Morita equivalence at level $(\infty, n)$ refines bi-interpretability, which refines definitional equivalence, which refines Leibniz equivalence. The paper adopts Morita-reducibility at the $(\infty, n)$-level for two structural reasons. First, Morita equivalence is the \emph{natural equivalence} on categories of models, corresponding precisely to the syntactic Lambek--Scott adjunction of (R5b); the syntax--semantics bridge of Lemma~\ref{lem:SS-membership} is definable in exactly this framework. Second, AFN-T's structural content --- the syntax--semantics closure via the identity morphism $\id_X$ --- is stable under refinement: any finer equivalence relation (Morita $\Rightarrow$ bi-interpretability $\Rightarrow$ definitional) would still admit the same syntax--semantics contradiction, since the identity morphism is respected by every equivalence relation in the hierarchy. AFN-T would not be undermined by choosing a different equivalence in this refinement chain; it would simply classify a different (strictly coarser or strictly finer) moduli space. Incompatible equivalence choices outside the Morita chain --- those failing to respect syntax--semantics adjunction, e.g., equivalences peculiar to paraconsistent logics --- are not covered by Theorem~\ref{thm:afnt-alpha} and are addressed in the paraconsistent extension (Appendix~\ref{app:paraconsistent}). In summary: the choice of Morita is not \emph{free}; it is dictated by (R5b), and AFN-T's conclusion is stable across the natural refinement hierarchy.
@@ -482,6 +482,26 @@ The following are \emph{not} R-S:
 \item \emph{Intuitive ``theories of everything''} in physics lacking formal axiomatization: fail (R1) and (R2).
 \item \emph{Strict philosophical ultrafinitism} (Esenin-Volpin~\cite{EseninVolpin1961,EseninVolpin1970}): fails (R1) at the strictest reading --- the totality of the successor function is rejected for ``infeasibly large'' arguments, so full Peano induction is not available. Bounded variants (see Boundary cases below) belong to a different stratum.
 \end{itemize}
+
+\begin{proposition}[Independence of (R1)--(R5)]\label{prop:rs-independence}
+The five conditions (R1)--(R5) defining the class $\RS$ are pairwise independent: for each $i \in \{1, 2, 3, 4, 5\}$ there exists a theory $T_i$ satisfying all conditions except (R$i$).
+\end{proposition}
+
+\begin{proof}[Witnesses]
+The Non-examples listed above, together with standard constructions, supply explicit witnesses.
+\begin{itemize}[nosep]
+\item \emph{(R1)-failure with (R2)--(R5) holding}: \emph{affine logic without exponential $!$} satisfies r.e.-axiomatizability (R2), has consistent models in $\mathbf{U}_1$ (R3), admits G\"odel coding over its formula set (R4), and possesses a standard categorical semantics in symmetric-monoidal categories (R5 at $n_S = 1$); the failure is (R1): without contraction, full Peano induction on the induction hypothesis is unavailable, so Robinson's Q cannot be interpreted in the standard sense.
+\item \emph{(R2)-failure with (R1), (R3)--(R5) holding}: \emph{second-order arithmetic with full (Henkin-external) semantics}. It interprets Q trivially (R1), has full-semantic models (R3), admits G\"odel coding (R4), and has a categorical semantics in $2$-categories (R5). But (R2) fails: the set of theorems valid under full semantics is not r.e.\ (a consequence of second-order incompleteness).
+\item \emph{(R3)-failure with (R1), (R2), (R4), (R5) holding}: any \emph{inconsistent} extension of Q obtained by adjoining $0 = 1$. It is r.e.-axiomatized, interprets Q trivially, admits coding, has a vacuous syntactic category $\Syn(T) \simeq \emptyset$ formally satisfying (R5) (trivially), but has no model (R3 fails).
+\item \emph{(R4)-failure with (R1)--(R3), (R5) holding}: an artificial theory $T$ extending Q in a language whose G\"odel numbering is uncomputable (e.g., using a non-recursive bijection between formulas and natural numbers). (R1)--(R3) and (R5) hold after replaying the Q-interpretation; (R4) fails because the bijection is non-recursive.
+\item \emph{(R5)-failure with (R1)--(R4) holding}: \emph{pure first-order Peano arithmetic $\mathsf{PA}$ equipped with a non-standard comprehension schema} that renders the syntactic category non-accessible (e.g., by enlarging the context objects to a proper class via $\mathbf{U}_2$-sized quantifier domains without corresponding $(\infty, n)$-functorial semantics). (R1)--(R4) are inherited from $\mathsf{PA}$; (R5a) fails because $\Syn(T)$ is no longer $\kappa_1$-accessible. More canonically, any theory whose formal language permits comprehension outside the natural number stratum but fails to admit a Lambek--Scott adjunction to a model category constitutes a witness.
+\end{itemize}
+Hence each (R$i$) is a genuine constraint on $\RS$-membership, and (R1)--(R5) are not redundant.
+\end{proof}
+
+\begin{remark}[Scope of the independence claim]\label{rem:rs-independence-scope}
+Proposition~\ref{prop:rs-independence} establishes pairwise logical independence: no single (R$i$) is implied by the conjunction of the remaining four. Stronger independence claims (e.g., non-redundancy under specific strengthenings of some conditions) are not addressed here. In particular, (R1) can be weakened to \emph{bounded arithmetic interpretations} (Buss $S_2^i$, $I\Delta_0$) to produce the ``weak Rich-metatheory'' sub-stratum discussed in \S\ref{subsec:boundary-cases}, at the cost of restricting the available syntax--semantics bridge to bounded-quantifier fragments. The four remaining conditions (R2)--(R5) remain independent in the weakened regime.
+\end{remark}
 
 \subsection{Boundary cases}
 \label{subsec:boundary-cases}
