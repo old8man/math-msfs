@@ -446,7 +446,7 @@ A theory $S$ formulated in a first-order meta-syntax is a \textbf{reasonable Ric
 \item \textbf{(R4) G\"odel coding}: there exists a recursive injection $\ulcorner \cdot \urcorner : \mathrm{Formulas}(S) \to \mathbb{N}$ for which the predicates ``$n$ is the G\"odel number of a provable formula'' and ``$n$ is the G\"odel number of a well-formed formula'' are $S$-definable.
 \item \textbf{(R5) Categorical semantics}: there exists $n_S \in \mathbb{N} \cup \{\infty\}$, the \emph{intrinsic categorical depth} of $S$, such that
 \begin{itemize}
-\item[\textbf{(R5a)}] the syntactic category $\Syn(S)$ of $S$ (objects: contexts; $1$-morphisms: provable-from-context substitutions; higher morphisms: proofs of equality of substitutions) is a $\kappa_1$-accessible $(\infty, n_S)$-category;
+\item[\textbf{(R5a)}] the syntactic category $\Syn(S)$ of $S$ (objects: contexts; $1$-morphisms: provable-from-context substitutions; higher morphisms: proofs of equality of substitutions) is a $\kappa_S$-accessible $(\infty, n_S)$-category, where $\kappa_S \in \{\kappa_1, \kappa_2\}$ is determined by $S$: for $S$ of consistency strength $\leq \kappa_1$ (e.g., $\ZFC$, $\PA$, $\HoTT$, $\MLTT$, $\CIC$) set $\kappa_S = \kappa_1$; for $S$ of consistency strength requiring the second inaccessible (e.g., $\ZFC$ + inaccessible) set $\kappa_S = \kappa_2$. The accessibility parameter follows the theory's consistency strength; all theorems below are stated uniformly for arbitrary $\kappa_S \in \{\kappa_1, \kappa_2\}$ unless a specific case is flagged;
 \item[\textbf{(R5b)}] the syntax-to-semantics evaluation $\ev : \Syn(S) \to \cM$ for every model $\cM \models S$ is an $S$-preserving $(\infty, n_S)$-functor, and the pair of functors $(\Syn, \Mod)$ constitutes a Lambek--Scott-type adjunction whose unit at $\Syn(S)$ is an $(\infty, n_S)$-equivalence onto the initial $S$-structured $(\infty, n_S)$-category.
 \end{itemize}
 \emph{Note on the intrinsic categorical depth $n_S$.} The parameter $n_S$ denotes the highest $k$ at which $\Syn(S)$ supports structurally non-trivial $k$-morphisms before all higher cells become invertible. For first-order $S$, $n_S = 1$. For Martin-L\"of type theory and HoTT with univalence, the syntactic category is \emph{an} $(\infty, 1)$-category in the standard terminology (Kapulkin--Lumsdaine~\cite{KapulkinLumsdaine2021}); the notation $n_S = \infty$ in this paper refers to the \emph{unbounded iteration of identity-type formation} producing non-trivial higher-equality content at every finite level $k \in \mathbb{N}$, i.e., no $k$ at which all structure becomes $(k-1)$-truncated. This ``unbounded depth'' reading is an iterative notion and is \emph{not} the same as the $(\infty, \infty)$-categorical notion of Rezk / Barwick--Schommer-Pries~\cite{BarwickSchommerPries2021} (where $k$-morphisms at every $k$ are \emph{non-invertible}). Both readings agree on the behaviour of AFN-T (Theorem~\ref{thm:vertical}), and no argument in the paper depends on the distinction.
@@ -1159,6 +1159,16 @@ Intensional refinement adds no new structural axis to AFN-T: the base ($\fM$) is
 Five-axis absoluteness (Theorem~\ref{thm:five-axis}) concerns points of $\fM$. Theorem~\ref{thm:slice-locality}(c) shows intensional refinement acts only on fibers, not base points. No new axis of variation is introduced.
 \end{proof}
 
+\begin{remark}[Scope of non-triviality: $\Sint^{\mathrm{eff}}$ vs.\ full $\Sint$]\label{rem:intensional-eff-transfer}
+The non-triviality of $\mathrm{Int}([F])$ in Theorem~\ref{thm:slice-locality}(b) is established by exhibiting $\II(\MLTT)$ and $\II(\ETT)$ as non-equivalent in the $\mathrm{Eff}$-restricted sub-$2$-category $\Sint^{\mathrm{eff}}$ (Theorem~\ref{thm:I-existence}, Step 7). Whether these two display classes remain non-equivalent in the \emph{full} $\Sint$ (permitting non-computable $2$-equivalences) is a separate question. Three cases are logically exhaustive:
+\begin{enumerate}[nosep,label=(\roman*)]
+\item \emph{$\II(\MLTT) \not\simeq \II(\ETT)$ in full $\Sint$}: slice-locality conclusion (a)--(c) holds as stated, with the intensional fibre $\mathrm{Int}([\MLTT])$ containing at least two non-equivalent classes.
+\item \emph{$\II(\MLTT) \simeq \II(\ETT)$ in full $\Sint$ via a non-computable $2$-equivalence, but not in $\Sint^{\mathrm{eff}}$}: the intensional-refinement bypass is tracked in $\fM$ at the coarser $\Sint^{\mathrm{eff}}$-level; slice-locality still holds (the fibre structure is well-defined), but the fibre non-triviality weakens to ``non-trivial in $\Sint^{\mathrm{eff}}$, potentially trivial in $\Sint$''. AFN-T-preservation under intensional refinement is unaffected because $\fM$-base remains untouched either way.
+\item \emph{$\II(\MLTT) \simeq \II(\ETT)$ in $\Sint^{\mathrm{eff}}$}: excluded by Step 7 via computability argument.
+\end{enumerate}
+The paper's \emph{structural} conclusion --- that intensional refinement fibers over $\fM$ without introducing new base points --- is model-independent: it follows from (I-4) Morita-as-$2$-localization, which holds in full $\Sint$ regardless of computability restriction. The \emph{non-triviality} of fibres is specific to $\Sint^{\mathrm{eff}}$; the transfer of slice-locality from $\Sint^{\mathrm{eff}}$ to $\Sint$ is structural (preserved by inclusion $\Sint^{\mathrm{eff}} \hookrightarrow \Sint$), while the non-triviality witness is not automatically transferred. The AFN-T conclusion (intensional refinement does not escape) holds in either reading.
+\end{remark}
+
 \subsection{Summary: All Three Bypass Paths Closed}
 
 \begin{theorem}[Summary: bypass path closure]\label{thm:bypass-summary}
@@ -1225,9 +1235,11 @@ Let $\mathbf{F}_1, \mathbf{F}_2 \in \Meta_{\mathrm{Cls}}^{\top}$ be parametrized
 \begin{proof}
 I show that each $\mathbf{F}_i$ is canonically $(\infty, \infty)$-equivalent to a common object $\mathbf{F}_S^*$ constructed from $S$, whence $\mathbf{F}_1 \simeq_{(\infty, \infty)} \mathbf{F}_S^* \simeq_{(\infty, \infty)} \mathbf{F}_2$.
 
-\textbf{Step 1: the canonical maximal classifier.} Let $\rho : \cF \to (\infty, n_S)\text{-}\Cat$ be the classification functor of Convention~\ref{conv:notation}. Consider the $(\infty, 2)$-Grothendieck construction~\cite{LurieHTT} \S 3.2 applied to the Cartesian fibration $\int \rho \to S$, with gauge-quotient:
+\textbf{Step 1: the canonical maximal classifier.} Let $\rho : \cF \to (\infty, n_S)\text{-}\Cat$ be the classification functor of Convention~\ref{conv:notation}. Consider the Grothendieck straightening applied to the Cartesian fibration $\int \rho \to S$, with gauge-quotient:
 \[ \mathbf{F}_S^* := \mathbf{St}(\rho) / \mathrm{gauge}, \]
-where $\mathbf{St}(\rho)$ is the straightening of $\rho$. By construction, $\mathbf{F}_S^*$ is a locally small $2$-category, its classification functor $\Cl_{\mathbf{F}_S^*}$ is essentially surjective onto $\fM$ (so (Max-1) is satisfied), and its $2$-automorphism group $\mathrm{Aut}_2(\mathbf{F}_S^*)$ is the canonical gauge action of $\fM$ on itself (so (Max-2) is satisfied).
+where $\mathbf{St}(\rho)$ is the straightening of $\rho$.
+
+\emph{Remark on the straightening in the $(\infty, 2)$-setting.} Lurie HTT~\cite{LurieHTT} \S 3.2 establishes the straightening--unstraightening equivalence in the $(\infty, 1)$-categorical setting, where Cartesian fibrations over a fixed base correspond to functors into the $(\infty, 1)$-category of $(\infty, 1)$-categories. The $(\infty, 2)$-version required here --- straightening of Cartesian fibrations between $(\infty, 2)$-categories into $2$-functors into $(\infty, 2)\text{-}\Cat$ --- is a direct extension obtained by iterated application of the $(\infty, 1)$-straightening to the Hom-spaces of $(\infty, 2)$-categories (each Hom-space is itself an $(\infty, 1)$-category, and Cartesian fibrations of $(\infty, 2)$-categories are equivalently Cartesian fibrations pointwise on Hom-spaces). Alternatively, the Barwick--Schommer-Pries~\cite{BarwickSchommerPries2021} unicity theorem for $(\infty, n)$-categories, combined with the Bergner--Rezk~\cite{BergnerRezk2013} model comparison between complete Segal spaces and Joyal's quasi-category model, transfers the $(\infty, 1)$-straightening results uniformly to the $(\infty, 2)$-setting. The universal property invoked in Step 2 is accordingly model-independent by BSP unicity, and the construction of $\mathbf{F}_S^*$ below proceeds uniformly in whichever model is convenient. By construction, $\mathbf{F}_S^*$ is a locally small $2$-category, its classification functor $\Cl_{\mathbf{F}_S^*}$ is essentially surjective onto $\fM$ (so (Max-1) is satisfied), and its $2$-automorphism group $\mathrm{Aut}_2(\mathbf{F}_S^*)$ is the canonical gauge action of $\fM$ on itself (so (Max-2) is satisfied).
 
 \textbf{Step 2: construction of $\Phi_\mathbf{F}$.} Any $\mathbf{F} \in \Meta_{\mathrm{Cls}}^{\top}$ carries four structures: a classification functor $\Cl_{\mathbf{F}} : \mathbf{F} \to \fM$ essentially surjective onto $\fM$ by (Max-1); a transitive $\mathrm{Aut}_2$-action on gauge classes by (Max-2); a canonical depth filtration $\mathbf{F}^{(\bullet)}$ by (Max-3); a canonical intensional completion $\II_{\mathbf{F}} : \mathbf{F}^{\mathrm{op}} \to \Sint$ with (I-1)--(I-4) by (Max-4).
 
@@ -1295,6 +1307,10 @@ If any two were $2$-equivalent, their classification images would coincide, cont
 
 \textbf{Step 3} (none is maximal). None of the three satisfies (Max-1) (full classification), since their classification images are strict subsets of $\fM$. Therefore, $\mathbf{F}_{\mathrm{univalent}}, \mathbf{F}_{\mathrm{cosmoi}}, \mathbf{F}_{\mathrm{cohesive}} \notin \Meta_{\mathrm{Cls}}^{\top}$, and Theorem~\ref{thm:meta-cat} does not apply.
 \end{proof}
+
+\begin{remark}[Scope of the non-equivalence claim in Step 2]\label{rem:meta-mult-scope}
+The pairwise non-equivalence argument in Step 2 concerns \emph{structure-preserving} $2$-equivalence within $\Meta_{\mathrm{Cls}}$: a $2$-equivalence $\Phi : \mathbf{F}_i \xrightarrow{\simeq_2} \mathbf{F}_j$ in the sense of Definition~\ref{def:meta} is required to preserve the classification functor $\Cl_{\mathbf{F}}$ (up to canonical natural $2$-isomorphism), since $\Cl$ is part of the (M2) structure each $\mathbf{F}$ carries. Under this structure-preservation constraint, $\Phi$ induces a bijection of classification images, and distinct images imply non-equivalence. The argument does \emph{not} rule out bare-$2$-category equivalence between the underlying $2$-categories ignoring classification data; such an equivalence, if it existed, would not be a $\Meta_{\mathrm{Cls}}$-morphism in the sense of Definition~\ref{def:meta} and is therefore not relevant to the claim. The non-equivalence result in Theorem~\ref{thm:meta-mult} is accordingly about non-equivalence within the $\LCls$-stratum with its specified morphism class, not about bare categorical equivalence.
+\end{remark}
 
 \begin{corollary}[Plurality at $\LCls$]\label{cor:plurality}
 $\LCls$ is structurally plural: $\Meta_{\mathrm{Cls}}$ contains multiple non-equivalent members.
@@ -1842,17 +1858,22 @@ Reference: Barwick--Schommer-Pries~\cite{BarwickSchommerPries2021} (unicity of t
 
 \section{Paraconsistent Extension}\label{app:paraconsistent}
 
-AFN-T as stated (Theorem~\ref{thm:afnt}) applies to classical Rich-metatheories. I now sketch the extension to paraconsistent Rich-metatheories.
+AFN-T as stated (Theorem~\ref{thm:afnt}) applies to classical Rich-metatheories. This appendix extends the result to paraconsistent Rich-metatheories \emph{with extractable classical kernel} --- the class of paraconsistent logics in which every theorem admits a classical-inference witness. The extension does \emph{not} cover strongly-dialetheic theories (see Remark~\ref{rem:paraconsistent-scope} below).
 
 \subsection{Paraconsistent R-S}
 
-\begin{definition}[Paraconsistent R-S]\label{def:paraconsistent-rs}
-A theory $S'$ is a \textbf{paraconsistent Rich-metatheory} if it satisfies the classical conditions (R1')--(R5') analogous to (R1)--(R5), together with:
+\begin{definition}[Paraconsistent R-S with extractable classical kernel]\label{def:paraconsistent-rs}
+A theory $S'$ is a \textbf{paraconsistent Rich-metatheory with extractable classical kernel} if it satisfies the classical conditions (R1')--(R5') analogous to (R1)--(R5), together with:
 \begin{itemize}
 \item \textbf{(Explosion-min)}: $\bot \not\vdash \phi$ for every formula $\phi$ (contradictions do not entail everything).
 \item \textbf{(Strong-neg)}: there exists a negation $\sim$ such that $(p \wedge \sim p) \vdash_\sim \bot$ (a specific contradiction principle, though not full explosion).
+\item \textbf{(Classical-kernel extractability)}: the largest fragment $S'^* \subseteq S'$ closed under classical inference rules is itself consistent, non-empty, and a Rich-metatheory in $\RS$. Equivalently: every theorem of $S'$ of foundational significance (in particular, the defining formula of any $\LAbs$ candidate) admits a witness derivable purely by classical inference from $S'$'s classical-only axioms.
 \end{itemize}
 \end{definition}
+
+\begin{remark}[Scope and limitation: strongly-dialetheic theories are outside]\label{rem:paraconsistent-scope}
+The extractability condition in Definition~\ref{def:paraconsistent-rs} is \emph{substantive}: it excludes theories whose foundational content \emph{essentially requires} true contradictions (dialetheia) for its formulation. In such strongly-dialetheic theories --- for instance, na\"ive LP without a consistency theorem, or dialetheic set theories where Russell's class is a legitimate object of study \emph{qua} contradiction --- a $\LAbs$ candidate $X$ might be non-Morita-reducible precisely because its non-reducibility witnesses require dialetheia-valid inferences, which the classical projection $X^*$ loses. The extension developed below does not cover such theories; for them, AFN-T's structural content needs to be re-derived in a genuinely dialetheic categorical framework (e.g., using paraconsistent categorical logic in the sense of Estrada-Gonz\'alez and related programmes), which is beyond the present scope. The condition ``extractable classical kernel'' characterizes precisely the paraconsistent theories for which AFN-T's classical-projection argument is available; the complementary class (strongly-dialetheic R-S) is an open problem.
+\end{remark}
 
 \subsection{Paraconsistent AFN-T}
 
