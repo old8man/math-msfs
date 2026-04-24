@@ -1,0 +1,61 @@
+# macOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Editor swap / temp
+*.swp
+*~
+
+# ----- LaTeX build artefacts (paper-en/, paper-ru/) -----
+# These are regenerable from paper.tex via scripts/build-paper.ts
+paper-en/*.aux
+paper-en/*.log
+paper-en/*.out
+paper-en/*.toc
+paper-en/*.lof
+paper-en/*.lot
+paper-en/*.bbl
+paper-en/*.blg
+paper-en/*.bcf
+paper-en/*.run.xml
+paper-en/*.fls
+paper-en/*.fdb_latexmk
+paper-en/*.synctex.gz
+paper-en/*.nav
+paper-en/*.snm
+paper-en/*.vrb
+
+paper-ru/*.aux
+paper-ru/*.log
+paper-ru/*.out
+paper-ru/*.toc
+paper-ru/*.lof
+paper-ru/*.lot
+paper-ru/*.bbl
+paper-ru/*.blg
+paper-ru/*.bcf
+paper-ru/*.run.xml
+paper-ru/*.fls
+paper-ru/*.fdb_latexmk
+paper-ru/*.synctex.gz
+paper-ru/*.nav
+paper-ru/*.snm
+paper-ru/*.vrb
+
+# Compiled PDFs and packaged outputs (regenerable)
+paper-en/afn-t-paper.pdf
+paper-en/paper.pdf
+paper-en/afn-t-arxiv.tar.gz
+paper-en/zenodo/
+
+paper-ru/afn-t-paper.pdf
+paper-ru/paper.pdf
+paper-ru/afn-t-arxiv.tar.gz
+paper-ru/zenodo/
+
+# Bun runtime
+node_modules/
+bun.lockb
