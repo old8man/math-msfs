@@ -102,7 +102,7 @@ math-msfs/
 Requires TeX Live 2023+ (`pdflatex`) and [Bun](https://bun.sh) for the build script.
 
 ```bash
-# Compile PDF → paper-en/afn-t-paper.pdf
+# Compile PDF → paper-en/msfs-paper.pdf
 bun scripts/build-paper.ts
 
 # Package arXiv tarball → paper-en/afn-t-arxiv.tar.gz

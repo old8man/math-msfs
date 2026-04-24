@@ -82,6 +82,16 @@
 \newcommand{\II}{\mathbf{I}}
 \newcommand{\cU}{\mathcal{U}}
 \newcommand{\tpi}{\widetilde{\pi}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\fME}{\fM_{\cE}}
+\newcommand{\LAbsE}{\LAbs^{\cE}}
+\newcommand{\LClsE}{\LCls^{\cE}}
+\newcommand{\LClsMaxE}{(\LClsMax)^{\cE}}
+\newcommand{\LFndE}{\LFnd^{\cE}}
+\newcommand{\SSE}{\cS_{S}^{\cE}}
+\newcommand{\Eff}{\ensuremath{\mathsf{Eff}}}
+\newcommand{\OWL}{\ensuremath{\mathsf{OWL}}}
+\newcommand{\NCG}{\ensuremath{\mathsf{NCG}}}
 \DeclareMathOperator{\colim}{colim}
 \DeclareMathOperator{\image}{image}
 \DeclareMathOperator{\id}{id}
@@ -114,7 +124,9 @@ I study the $(\infty, n)$-categorical moduli space $\fM$ of formal systems (here
 
 \emph{(iv) Theory-level meta-stabilization.} Iterated meta-classification reproduces the same $(\infty, \infty)$-theory at each step (Barwick--Schommer-Pries unicity), though set-theoretic instantiation ascends the Grothendieck-universe hierarchy $\kappa_1 < \kappa_2 < \cdots$.
 
-\emph{Boundary corollary: the Absolute Foundation No-Go Theorem (AFN-T).} By the syntax--semantics adjunction underlying (R5), $\fM$ has no maximal point: the $\LAbs$ stratum (formally definable, non-reducible, and maximally generative foundation) is empty. AFN-T subsumes the classical no-go series Cantor~\cite{Cantor1891}, Russell~\cite{Russell1903}, G\"odel~\cite{Godel1931}, Tarski~\cite{Tarski1936}, Lawvere~\cite{Lawvere1969}, Ernst~\cite{Ernst2015} uniformly across $\RS$ and all $(\infty, n)$, $n \in \mathbb{N} \cup \{\infty\}$.
+\emph{(v) AC/OC duality.} The Lambek--Scott adjunction $(\Syn, \Mod)$ of (R5b), assembled uniformly across $\RS$ and over $n \in \mathbb{N} \cup \{\infty\}$, induces an $(\infty, \infty)$-equivalence $\fM \simeq \fM_\cE$ between the theory-centric moduli $2$-stack $\fM$ and an enactment-centric moduli $2$-stack $\fM_\cE$ of pointed Rich-enactments. The dual of AFN-T asserts that the enactment-absolute stratum is likewise empty.
+
+\emph{Boundary corollary: the Absolute Foundation No-Go Theorem (AFN-T).} By the syntax--semantics adjunction underlying (R5), $\fM$ has no maximal point: the $\LAbs$ stratum (formally definable, non-reducible, and maximally generative foundation) is empty. AFN-T subsumes the classical no-go series Cantor~\cite{Cantor1891}, Russell~\cite{Russell1903}, G\"odel~\cite{Godel1931}, Tarski~\cite{Tarski1936}, Lawvere~\cite{Lawvere1969}, Ernst~\cite{Ernst2015} uniformly across $\RS$ and all $(\infty, n)$, $n \in \mathbb{N} \cup \{\infty\}$, and extends dually to the enactment-absolute stratum $\LAbs^\cE$.
 
 The treatment is self-contained, using standard categorical-logic apparatus (Lurie, Riehl--Verity, Barwick--Schommer-Pries) in $\ZFC + 2\text{-inacc}$ with consistency strength $\Con(\ZFC + 2\text{-inacc})$.
 
@@ -162,6 +174,7 @@ The tautological nature of the boundary lemma is not the principal mathematical 
 \item \textbf{Slice-locality} of the intensional refinement functor $\II$ (Theorem~\ref{thm:slice-locality}) --- the deepest technical contribution, closing the intensional-escape path through Hyland's effective topos.
 \item \textbf{Theory-level stabilization} with explicit universe-ascent (Theorem~\ref{thm:meta-stab}) --- reconciling Barwick--Schommer-Pries unicity with Grothendieck-universe hierarchy.
 \item \textbf{Five-axis absoluteness} of the boundary (\S\ref{sec:five-axis}) --- horizontal (over $\RS$), vertical (over $(\infty, n)$), meta-vertical (over meta-iterations), lateral (over alternative categorical orderings), and completeness (within Lawvere-scope).
+\item \textbf{AC/OC duality} (Theorem~\ref{thm:ac-oc-duality}) --- the Lambek--Scott adjunction of (R5b), assembled uniformly across $\RS$ and over $n$, induces an $(\infty, \infty)$-equivalence $\fM \simeq \fM_\cE$ between the theory-centric and enactment-centric moduli $2$-stacks; the boundary-lemma conclusion transfers symmetrically, yielding $\LAbs^\cE = \emptyset$ (Theorem~\ref{thm:dual-afnt}).
 \end{itemize}
 The boundary lemma enters as the opening result that fixes the outer edge of $\fM$ and motivates the subsequent classification of what lies inside. For a historical and conceptual discussion of why the triple of $\LAbs$ conditions is structurally necessary rather than artificially rigged, see the paragraph ``Historical and conceptual necessity of the three conditions'' in \S\ref{subsec:afnt-boundary}.
 
@@ -188,7 +201,7 @@ The triple of conditions $(F_S) \wedge (\Pi_{4, S, n}) \wedge (\Pi_{3\text{-max}
 
 \subsection{Structure of the Paper}
 
-\S\ref{sec:hierarchy} introduces the formal stratification into four strata $\LFnd, \LCls, \LClsMax, \LAbs$, fixing the precise target of AFN-T as membership in $\LAbs$. \S\ref{sec:rs} defines the class $\RS$ of Rich-metatheories and the associated $S$-definable class $\cS_S$. \S\ref{sec:conditions} formalizes the three $\LAbs$ conditions $(F_S)$, $(\Pi_{4, S, n})$, $(\Pi_{3\text{-max}, S, n})$ and establishes (Remark~\ref{rem:level6-tautology}) that the triple is structurally self-contradictory via the syntax--semantics bridge of Lemma~\ref{lem:SS-membership}. The main theorem is proved in two complementary halves: \S\ref{sec:afnt-alpha} ($(\alpha)$-part: the syntax--semantics bridge of Lemma~\ref{lem:SS-membership} shows the $\LAbs$ triple is structurally self-contradictory via the sub-pair $(F_S) \wedge (\Pi_{4, S, n})$) and \S\ref{sec:afnt-beta} ($(\beta)$-part: transfinite-limit approximations remain within $\cS_S^{\mathrm{global}}$, and proper-class towers either reduce to the $(\alpha)$-part or fall outside $\RS$). \S\ref{sec:five-axis} establishes absoluteness along five structural axes (horizontal over R-S, vertical over $(\infty, n)$-levels, meta-vertical over meta-iterations, lateral over alternative categorical orderings, and completeness within Lawvere-scope). \S\ref{sec:bypass} formally closes three historical bypass strategies: universe polymorphism, reflective towers bounded by one inaccessible cardinal, and intensional refinement via the display-$2$-class functor $\II : \cF^{\mathrm{op}} \to \Sint$ with slice-locality over $\fM$. \S\ref{sec:meta} develops the meta-classification of $\LCls$ through three structural theorems (conditional categoricity, multiplicity, idempotent stabilization). \S\ref{sec:series} places AFN-T in the classical no-go series and states the subsumption theorem. \S\ref{sec:consequences} records consequences for current foundational programmes and open questions. Appendix~\ref{app:categorical} collects the categorical preliminaries; Appendix~\ref{app:paraconsistent} extends AFN-T to paraconsistent Rich-metatheories.
+\S\ref{sec:hierarchy} introduces the formal stratification into four strata $\LFnd, \LCls, \LClsMax, \LAbs$, fixing the precise target of AFN-T as membership in $\LAbs$. \S\ref{sec:rs} defines the class $\RS$ of Rich-metatheories and the associated $S$-definable class $\cS_S$. \S\ref{sec:conditions} formalizes the three $\LAbs$ conditions $(F_S)$, $(\Pi_{4, S, n})$, $(\Pi_{3\text{-max}, S, n})$ and establishes (Remark~\ref{rem:level6-tautology}) that the triple is structurally self-contradictory via the syntax--semantics bridge of Lemma~\ref{lem:SS-membership}. The main theorem is proved in two complementary halves: \S\ref{sec:afnt-alpha} ($(\alpha)$-part: the syntax--semantics bridge of Lemma~\ref{lem:SS-membership} shows the $\LAbs$ triple is structurally self-contradictory via the sub-pair $(F_S) \wedge (\Pi_{4, S, n})$) and \S\ref{sec:afnt-beta} ($(\beta)$-part: transfinite-limit approximations remain within $\cS_S^{\mathrm{global}}$, and proper-class towers either reduce to the $(\alpha)$-part or fall outside $\RS$). \S\ref{sec:five-axis} establishes absoluteness along five structural axes (horizontal over R-S, vertical over $(\infty, n)$-levels, meta-vertical over meta-iterations, lateral over alternative categorical orderings, and completeness within Lawvere-scope). \S\ref{sec:bypass} formally closes three historical bypass strategies: universe polymorphism, reflective towers bounded by one inaccessible cardinal, and intensional refinement via the display-$2$-class functor $\II : \cF^{\mathrm{op}} \to \Sint$ with slice-locality over $\fM$. \S\ref{sec:meta} develops the meta-classification of $\LCls$ through three structural theorems (conditional categoricity, multiplicity, idempotent stabilization). \S\ref{sec:ac-oc-duality} introduces the $2$-category of Rich-enactments $\cE$ and establishes the AC/OC Morita duality $\fM \simeq_{(\infty, \infty)} \fM_\cE$ together with the dual boundary lemma $\LAbs^\cE = \emptyset$. \S\ref{sec:series} places AFN-T and its dual in the classical no-go series and states the subsumption theorem. \S\ref{sec:consequences} records consequences for current foundational programmes and open questions. Appendix~\ref{app:categorical} collects the categorical preliminaries; Appendix~\ref{app:paraconsistent} extends AFN-T to paraconsistent Rich-metatheories.
 
 \subsection{Apparatus versus Theorem: A Structural Asymmetry}\label{sec:apparatus-vs-theorem}
 
@@ -261,7 +274,7 @@ The target of AFN-T is membership in $\LAbs$. Figure~\ref{fig:hierarchy} display
 \draw[red, very thick] ($(L6.north west)+(0.4,-0.2)$) -- ($(L6.south east)+(-0.4,0.2)$);
 \draw[red, very thick] ($(L6.north east)+(-0.4,-0.2)$) -- ($(L6.south west)+(0.4,0.2)$);
 \end{tikzpicture}
-\caption{The formal stratification of $\fM$. The blue dashed arrow $\mathrm{Cls}$ denotes the \emph{horizontal meta-operation} (classification without generation; see \S\ref{sec:indexing-scheme}), taking $\LFnd$ to $\LCls$. The maximality restriction selects the sub-class $\LClsMax$. The red dashed arrow $\mathrm{Gen}$ denotes the \emph{vertical meta-operation} (maximal generativity), whose image $\LAbs$ is empty by AFN-T (Theorem~\ref{thm:afnt}). $\LFnd$ includes $\ZFC$, $\MLTT$, $\HoTT$, $(\infty, 1)$-topos theory, and noncommutative geometry. $\LCls$ partitions into the maximal sub-class $\Meta_{\mathrm{Cls}}^{\top}$ (categorical by Theorem~\ref{thm:meta-cat}) and a plural complement of \emph{partial} classifiers (Theorem~\ref{thm:meta-mult}; $\infty$-cosmoi, Univalent Foundations, cohesive $(\infty, 1)$-topoi), each classifying a strict sub-stack of $\fM$.}
+\caption{The formal stratification of $\fM$. The blue dashed arrow $\mathrm{Cls}$ denotes the \emph{horizontal meta-operation} (classification without generation; see \S\ref{sec:indexing-scheme}), taking $\LFnd$ to $\LCls$. The maximality restriction selects the sub-class $\LClsMax$. The red dashed arrow $\mathrm{Gen}$ denotes the \emph{vertical meta-operation} (maximal generativity), whose image $\LAbs$ is empty by AFN-T (Theorem~\ref{thm:afnt}). $\LFnd$ includes $\ZFC$, $\MLTT$, $\HoTT$, $(\infty, 1)$-topos theory, and noncommutative geometry. $\LCls$ partitions into the maximal sub-class $\Meta_{\mathrm{Cls}}^{\top}$ (categorical by Theorem~\ref{thm:meta-cat}) and a plural complement of \emph{partial} classifiers (Theorem~\ref{thm:meta-mult}; $\infty$-cosmoi, Univalent Foundations, cohesive $(\infty, 1)$-topoi), each classifying a strict sub-stack of $\fM$. By Theorem~\ref{thm:ac-oc-duality}, the diagram applies verbatim to the enactment-centric moduli stack $\fM_\cE$ via the $(\infty, \infty)$-equivalence $\fM \simeq \fM_\cE$: the dual strata $\LFndE \to \LClsE \supsetneq \LClsMaxE \to \LAbsE$ mirror the strata above, with $\LAbsE$ likewise empty (Theorem~\ref{thm:dual-afnt}).}
 \label{fig:hierarchy}
 \end{figure}
 
@@ -334,6 +347,8 @@ Non-commutative geom.\ & 1980s & Connes & Spectral triples \\
 Cohesive $(\infty, 1)$-topos & 2013 & Schreiber & Cohesion modalities \\
 Motivic $\mathrm{SH}(k)$ & 1999 & Voevodsky, Morel & Motivic homotopy \\
 Realizability (Eff) & 1982 & Hyland & Effective topos \\
+Markov constructive math & 1950s--1980s & A.A.~Markov, Nagornyj & Constructive analysis + Markov's principle \\
+Bishop constructive analysis & 1967 & Bishop, Bridges & Choice-free constructive real analysis \\
 Synthetic diff.~geom.\ & 1970s & Kock, Lawvere & Infinitesimals as axioms \\
 Elementary higher topos & 2021 & Rasekh & Elementary $(\infty, 1)$-topos \\
 \bottomrule
@@ -352,7 +367,7 @@ Synthetic mathematics & 2000s+ & Taylor, Shulman & Axiomatic synthetic foundatio
 \bottomrule
 \end{longtable}
 
-Whether the maximal sub-class $\Meta_{\mathrm{Cls}}^{\top}$ is non-empty is an existence question separate from AFN-T; Theorem~\ref{thm:meta-cat} asserts only that if two such meta-frameworks exist they are $(\infty, \infty)$-equivalent. A construction of a concrete member of $\Meta_{\mathrm{Cls}}^{\top}$ lies beyond the scope of the present preprint (see \S\ref{sec:consequences}, Question~5).
+Whether the maximal sub-class $\Meta_{\mathrm{Cls}}^{\top}$ is non-empty is an existence question separate from AFN-T; Theorem~\ref{thm:meta-cat} asserts only that if two such meta-frameworks exist they are $(\infty, \infty)$-equivalent. A construction of a concrete member of $\Meta_{\mathrm{Cls}}^{\top}$ lies beyond the scope of the present preprint (see \S\ref{sec:consequences}, Question~1 and Remark~\ref{rem:diakrisis-witness}).
 
 \paragraph{Stratum $\LAbs$.} Empty, by AFN-T.
 
@@ -411,14 +426,14 @@ A first-order theory $S$ is a \textbf{reasonable Rich-metatheory} (or \textbf{R-
 \item[\textbf{(R5a)}] the syntactic category $\Syn(S)$ of $S$ (objects: contexts; $1$-morphisms: provable-from-context substitutions; higher morphisms: proofs of equality of substitutions) is a $\kappa_1$-accessible $(\infty, n_S)$-category;
 \item[\textbf{(R5b)}] the syntax-to-semantics evaluation $\ev : \Syn(S) \to \cM$ for every model $\cM \models S$ is an $S$-preserving $(\infty, n_S)$-functor, and the pair of functors $(\Syn, \Mod)$ constitutes a Lambek--Scott-type adjunction whose unit at $\Syn(S)$ is an $(\infty, n_S)$-equivalence onto the initial $S$-structured $(\infty, n_S)$-category.
 \end{itemize}
-Instances verifying (R5a)--(R5b): first-order $S$ at $n_S = 1$ (Lambek--Scott~\cite{Lawvere1964}); Martin-L\"of type theory at $n_S = \infty$ (Awodey--Warren~\cite{AwodeyWarren2009}); HoTT at $n_S = \infty$ (Kapulkin--Lumsdaine~\cite{KapulkinLumsdaine2021}); dependent type theories (Jacobs~\cite{Jacobs1999}); $(\infty, 1)$-topoi (Lurie HTT~\cite{LurieHTT} \S 5--\S 6). The condition (R5) does not fix $n_S$: different R-S may have different intrinsic depths, and AFN-T is absolute over this choice (Theorem~\ref{thm:vertical}).
+Instances verifying (R5a)--(R5b): first-order $S$ at $n_S = 1$ (Lambek--Scott~\cite{LambekScott1986}); Martin-L\"of type theory at $n_S = \infty$ (Awodey--Warren~\cite{AwodeyWarren2009}); HoTT at $n_S = \infty$ (Kapulkin--Lumsdaine~\cite{KapulkinLumsdaine2021}); dependent type theories (Jacobs~\cite{Jacobs1999}); $(\infty, 1)$-topoi (Lurie HTT~\cite{LurieHTT} \S 5--\S 6). The condition (R5) does not fix $n_S$: different R-S may have different intrinsic depths, and AFN-T is absolute over this choice (Theorem~\ref{thm:vertical}).
 \end{itemize}
 Denote the class of R-S as $\mathrm{R\text{-}S}$. When $F \subseteq S$ in the subtheory-inclusion sense of Definition~\ref{def:F} (formal pair $(\iota_F, \iota_F^*)$), the inclusion induces a conservative faithful functor $\Syn(F) \hookrightarrow \Syn(S)$ preserving the categorical structure.
 \end{definition}
 
 \subsection{Examples of R-S}
 
-The following are reasonable Rich-metatheories: $\ZFC$; $\ZFC$ + inaccessible cardinals; $\NBG$; Morse--Kelley; $\NBG + \AFA$ (Aczel); the intuitionistic type theories $\MLTT$ and $\CIC$; $\HoTT$ with univalence; universe-polymorphic $\HoTT$; linear logic with exponential $!$; the higher topos theories of Lurie; cohesive higher topos theory; motivic homotopy theory; the realizability topos $\mathrm{Eff}$.
+The following are reasonable Rich-metatheories: $\ZFC$; $\ZFC$ + inaccessible cardinals; $\NBG$; Morse--Kelley; $\NBG + \AFA$ (Aczel); the intuitionistic type theories $\MLTT$ and $\CIC$; $\HoTT$ with univalence; universe-polymorphic $\HoTT$; linear logic with exponential $!$; the higher topos theories of Lurie; cohesive higher topos theory; motivic homotopy theory; the realizability topos $\mathrm{Eff}$; \emph{Markov constructive mathematics} (Markov, Nagornyj~\cite{MarkovNagornyj1988}: $\mathsf{HA}$ + Markov's principle, with categorical semantics in $\mathrm{Eff}$); \emph{Bishop constructive analysis}~\cite{Bishop1967,BridgesVita2006} (choice-free constructive real analysis with full categorical semantics in any topos with natural number object); \emph{Feferman predicative analysis}~\cite{Feferman1964} ($\mathsf{ATR}_0$-strength systems with predicative comprehension).
 
 \subsection{Non-examples}
 
@@ -428,7 +443,24 @@ The following are \emph{not} R-S:
 \item \emph{Inconsistent theories}: fail (R3).
 \item \emph{Second-order arithmetic with full semantics}: fails (R2) --- the full set of valid formulas is not recursively enumerable.
 \item \emph{Intuitive ``theories of everything''} in physics lacking formal axiomatization: fail (R1) and (R2).
+\item \emph{Strict philosophical ultrafinitism} (Esenin-Volpin~\cite{EseninVolpin1961,EseninVolpin1970}): fails (R1) at the strictest reading --- the totality of the successor function is rejected for ``infeasibly large'' arguments, so full Peano induction is not available. Bounded variants (see Boundary cases below) belong to a different stratum.
 \end{itemize}
+
+\subsection{Boundary cases}
+\label{subsec:boundary-cases}
+
+Several formal systems sit on the boundary between R-S and Non-examples; their exact placement depends on the formalisation chosen. The treatment of these boundary cases is conservative: a system enters $\RS$ only when its formal axiomatisation explicitly satisfies (R1)--(R5).
+
+\begin{itemize}
+\item \emph{Bounded arithmetic and feasibility calculi.} The systems $\mathsf{I\Delta_0}$, $\mathsf{S}_2^i$ / $\mathsf{T}_2^i$ of Buss~\cite{Buss1986}, $\mathsf{V}_0$, polynomial-time computable arithmetics, and proof-theoretic feasibility calculi formalise restricted fragments of the ultrafinitist intuition. They satisfy (R2)--(R5) but realise (R1) only in a restricted form: the ambient arithmetic interprets a bounded-quantifier fragment of $\mathsf{PA}$, not full $\mathsf{PA}$. They are admissible into $\RS$ as \emph{weak Rich-metatheories}, classifying a corresponding sub-stack of $\fM$ at restricted intrinsic categorical depth $n_S$. Their Morita-relation to standard $\RS$-points is studied via reverse mathematics~\cite{Simpson2009}.
+\item \emph{Strict ultrafinitism (Esenin-Volpin tradition).} The strictest philosophical ultrafinitism, which rejects the totality of successor for ``infeasibly large'' arguments, falls outside $\RS$ at any standard reading of (R1) (above, Non-examples). The bounded-arithmetic and polynomial-time variants above provide formal reconstructions admissible into $\RS$ as weak Rich-metatheories.
+\item \emph{Paraconsistent theories.} Treated separately in Appendix~\ref{app:paraconsistent}: an additional \emph{classical-kernel} construction admits paraconsistent $S$ into $\RS$ via Routley--Meyer semantics, with AFN-T re-derived in this extended setting.
+\end{itemize}
+
+\begin{remark}[Soviet / Russian foundational tradition]
+\label{rem:soviet-tradition}
+The Soviet and Russian foundational tradition contributes three points to $\fM$ recorded above: Markov constructive mathematics (Markov, Nagornyj), Aczel's non-well-founded set theory $\NBG + \AFA$ (developed in part through Soviet-era anti-foundation-axiom investigations), and the bounded-arithmetic / feasibility-calculus formalisations descended from the Esenin-Volpin tradition. Each represents a distinct $\LFnd$-point in the moduli space; none is privileged; none is foreclosed. The plurality theorem (Theorem~\ref{thm:meta-mult}) ensures that these points retain non-trivial coordinates in $\fM$ alongside the western set-theoretic and type-theoretic mainstreams. AFN-T applies uniformly (\S\ref{sec:five-axis}, horizontal axis): no individual school within this tradition --- nor any school within any tradition --- can occupy the $\LAbs$-stratum. The philosophical reading of categorical foundations as an axiomatic plurality, advanced in the Russian categorical-philosophy programme of Rodin~\cite{Rodin2014}, is consonant with the formal pluralism established here.
+\end{remark}
 
 \subsection{\texorpdfstring{The Class $\cS_S$}{The Class S\_S}}
 
@@ -1262,6 +1294,258 @@ For every $k \geq 1$, $\fM^{(\mathrm{Cls}\cdot k)}$ realizes the same $(\infty, 
 The class $\Meta_{\mathrm{Cls}}$ is closed under classification iteration: iterated meta-classification of $\LCls$ meta-structures remains at $\LCls$.
 \end{corollary}
 
+\section{AC/OC Duality and the Dual Boundary Lemma}\label{sec:ac-oc-duality}
+
+Condition (R5b) of Definition~\ref{def:rs} asserts, for every Rich-metatheory $S \in \RS$, a Lambek--Scott-type adjunction $(\Syn, \Mod)$ whose unit at $\Syn(S)$ is an $(\infty, n_S)$-equivalence onto the initial $S$-structured $(\infty, n_S)$-category. This adjunction is not merely a technical tool internal to a single $S$; assembled uniformly across $\RS$ and over $n \in \mathbb{N} \cup \{\infty\}$ it expresses a \emph{$2$-categorical duality} between the theory-centric viewpoint embodied in $\cF$ --- foundations considered as formal theories up to Morita-equivalence --- and a dual \emph{enactment-centric} viewpoint in which foundations are considered as concrete model-categorical implementations up to gauge. I introduce the corresponding $2$-category of enactments $\cE$, establish (Theorem~\ref{thm:ac-oc-duality}) that $\cF$ and $\cE$ realize $(\infty, \infty)$-equivalent moduli stacks, and derive (Theorem~\ref{thm:dual-afnt}) the direct dual of Theorem~\ref{thm:afnt-alpha}: the enactment-absolute stratum $\LAbsE$ is likewise empty. Figure~\ref{fig:ac-oc-duality} diagrams the overall structure: the adjoint pair $\varepsilon \dashv \alpha$ at the $2$-category level induces the moduli equivalence $\fM \simeq_{(\infty, \infty)} \fME$ at the classifying level, with strata corresponding bijectively. The duality organizes the classical opposition between object-centric and action-centric views of foundations as a symmetry, rather than a choice between alternatives; the shared emptiness of the two $\LAbs$-strata expresses the structural indifference of AFN-T to this choice.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  cat/.style={draw, rounded corners=2pt, minimum width=3.6cm, minimum height=0.85cm, align=center, font=\small},
+  stack/.style={draw, rounded corners=2pt, minimum width=3.6cm, minimum height=0.85cm, align=center, font=\small, fill=blue!6},
+  strat/.style={draw, rounded corners=1.5pt, minimum width=3.2cm, minimum height=0.55cm, align=center, font=\footnotesize, fill=violet!8},
+  emptybox/.style={draw, dashed, rounded corners=1.5pt, minimum width=3.2cm, minimum height=0.55cm, align=center, font=\footnotesize, fill=red!6},
+  func/.style={-{Stealth[length=2.2mm]}, thick},
+  equiv/.style={thick, double, double distance=1.5pt},
+  node distance=0.4cm
+]
+% Top row: 2-categories
+\node[cat, fill=yellow!12] (F) at (-3.6,3.2) {$\cF$ \\[-1pt] \scriptsize\itshape Rich-foundations (R1--R5)};
+\node[cat, fill=green!12] (E) at (3.6,3.2) {$\cE$ \\[-1pt] \scriptsize\itshape pointed reflective enactments};
+\draw[func] ([yshift=5pt]F.east) -- node[midway, above, font=\footnotesize] {$\varepsilon$} ([yshift=5pt]E.west);
+\draw[func] ([yshift=-5pt]E.west) -- node[midway, below, font=\footnotesize] {$\alpha$} ([yshift=-5pt]F.east);
+\node[font=\scriptsize] at (0, 3.2) {$\dashv$};
+
+% Middle row: moduli stacks
+\node[stack] (M) at (-3.6, 1.6) {$\fM$ \\[-1pt] \scriptsize\itshape $= \cF / \mathrm{gauge}$};
+\node[stack] (ME) at (3.6, 1.6) {$\fME$ \\[-1pt] \scriptsize\itshape $= \cE / \mathrm{gauge}_\cE$};
+\draw[func, dashed, gray!60!black] (F) -- node[midway, left, font=\scriptsize, gray!60!black] {quotient} (M);
+\draw[func, dashed, gray!60!black] (E) -- node[midway, right, font=\scriptsize, gray!60!black] {quotient} (ME);
+\draw[equiv] (M.east) -- node[midway, above, font=\footnotesize] {$\simeq_{(\infty, \infty)}$} node[midway, below, font=\scriptsize, gray!60!black] {Thm.~\ref{thm:ac-oc-duality}} (ME.west);
+
+% Bottom rows: strata correspondence
+\node[strat] (L5F) at (-3.6, 0.3) {$\LFnd$};
+\node[strat] (L5E) at (3.6, 0.3) {$\LFndE$};
+\node[strat] (LCF) at (-3.6, -0.4) {$\LCls$};
+\node[strat] (LCE) at (3.6, -0.4) {$\LClsE$};
+\node[strat] (LMF) at (-3.6, -1.1) {$\LClsMax$};
+\node[strat] (LME) at (3.6, -1.1) {$\LClsMaxE$};
+\node[emptybox] (L6F) at (-3.6, -1.8) {$\LAbs = \emptyset$};
+\node[emptybox] (L6E) at (3.6, -1.8) {$\LAbsE = \emptyset$};
+
+\draw[equiv, gray!50!black, shorten >=2pt, shorten <=2pt] (L5F) -- (L5E);
+\draw[equiv, gray!50!black, shorten >=2pt, shorten <=2pt] (LCF) -- (LCE);
+\draw[equiv, gray!50!black, shorten >=2pt, shorten <=2pt] (LMF) -- (LME);
+\draw[equiv, red!60!black, shorten >=2pt, shorten <=2pt] (L6F) -- node[midway, above, font=\scriptsize, red!60!black] {Thm.~\ref{thm:dual-afnt}} (L6E);
+
+% Connect stacks to strata
+\draw[gray!40, densely dotted] (M.south) -- (L5F.north);
+\draw[gray!40, densely dotted] (ME.south) -- (L5E.north);
+\draw[gray!40, densely dotted] (L5F.south) -- (LCF.north);
+\draw[gray!40, densely dotted] (L5E.south) -- (LCE.north);
+\draw[gray!40, densely dotted] (LCF.south) -- (LMF.north);
+\draw[gray!40, densely dotted] (LCE.south) -- (LME.north);
+\draw[gray!40, densely dotted] (LMF.south) -- (L6F.north);
+\draw[gray!40, densely dotted] (LME.south) -- (L6E.north);
+
+\end{tikzpicture}
+\caption{AC/OC duality and the induced bijection of strata. At the $2$-category level (top row), the adjoint pair $\varepsilon \dashv \alpha$ (Definition~\ref{def:enactments}) relates the theory-centric $\cF$ to the enactment-centric $\cE$: $\varepsilon$ is the syntactic self-enactment section $F \mapsto (F, \Syn(F), \id, \id)$; $\alpha$ is the forgetful functor $(F, \cC, \iota, r) \mapsto F$. Passing to gauge-classes (middle row) yields an $(\infty, \infty)$-equivalence of classifying $2$-stacks $\fM \simeq \fME$ (Theorem~\ref{thm:ac-oc-duality}), via full faithfulness of $\varepsilon$ and essential surjectivity through the chosen reflector $r$. Under this equivalence the four strata correspond bijectively (bottom rows): $\LFnd \leftrightarrow \LFndE$, $\LCls \leftrightarrow \LClsE$, $\LClsMax \leftrightarrow \LClsMaxE$, and $\LAbs = \emptyset \leftrightarrow \LAbsE = \emptyset$ (Theorem~\ref{thm:dual-afnt}). The symmetry formalises the reconciliation of the object-centric and action-centric viewpoints on mathematical foundations: neither is primary; both describe the same classifying stack.}
+\label{fig:ac-oc-duality}
+\end{figure}
+
+\subsection{The $2$-Category of Rich-Enactments}
+
+\begin{definition}[$2$-category of enactments $\cE$]\label{def:enactments}
+The \emph{$2$-category of Rich-enactments} $\cE$ has:
+\begin{itemize}
+\item \textbf{Objects}: quadruples $(F, \cC, \iota, r)$, called \emph{pointed reflective enactments over $F$}, where $F \in \cF$, $\cC \in \mathbf{StrCat}_{S, n_F}$ (Definition~\ref{def:strcat}) is a $\kappa_1$-accessible $S$-model-category with an $F$-model structure, $\iota : \Syn(F) \to \cC$ is an $F$-preserving fully faithful $(\infty, n_F)$-functor onto a replete sub-$(\infty, n_F)$-category, and $r : \cC \to \Syn(F)$ is a \emph{chosen} left adjoint (reflector) to $\iota$ with unit $\eta_r : \id_\cC \Rightarrow \iota \circ r$ and counit $\varepsilon_r : r \circ \iota \Rightarrow \id_{\Syn(F)}$ satisfying the triangle identities in $\mathbf{StrCat}_{S, n_F}$. The reflector $r$ is part of the data; it is uniquely determined by $\iota$ up to unique invertible $2$-cell (Riehl--Verity~\cite{RiehlVerity2022} Prop.~2.1.11; Ad\'amek--Rosick\'y~\cite{AdamekRosicky1994} Thm.~1.26).
+\item \textbf{$1$-morphisms} $(\phi, \Phi) : (F_1, \cC_1, \iota_1, r_1) \to (F_2, \cC_2, \iota_2, r_2)$: a pair consisting of a $1$-morphism $\phi : F_1 \to F_2$ in $\cF$ (faithful interpretation) and an $S$-preserving $(\infty, n)$-functor $\Phi : \cC_1 \to \cC_2$ equipped with an invertible $2$-cell $\Phi \circ \iota_1 \Rightarrow \iota_2 \circ \Syn(\phi)$;
+\item \textbf{$2$-morphisms}: coherent natural transformations $(\phi, \Phi) \Rrightarrow (\phi', \Phi')$ compatible with the structure cells, i.e., pairs $(\tau, T)$ with $\tau : \phi \Rightarrow \phi'$ in $\cF$ and $T : \Phi \Rrightarrow \Phi'$ satisfying the evident pentagon with $\iota_1, \iota_2, \Syn(\tau)$.
+\end{itemize}
+There is a canonical forgetful $2$-functor and a canonical section:
+\[
+  \alpha : \cE \to \cF, \quad (F, \cC, \iota, r) \mapsto F; \qquad
+  \varepsilon : \cF \to \cE, \quad F \mapsto \bigl(F,\, \Syn(F),\, \id_{\Syn(F)},\, \id_{\Syn(F)}\bigr).
+\]
+By construction $\alpha \circ \varepsilon = \id_\cF$ strictly. For readability I occasionally write $(F, \cC, \iota)$ for $(F, \cC, \iota, r)$ when the reflector is understood.
+\end{definition}
+
+\begin{remark}[Size of $\cE$; admissibility in $\ZFC + 2\text{-inacc}$]\label{rem:E-size}
+Each $\cC$ in an object of $\cE$ lies in $\mathbf{StrCat}_{S, n_F} \subset \mathbf{U}_2$; the class of $\kappa_1$-accessible $S$-model-categories over $\mathbf{U}_1$-sized signatures is bounded by $2^{\kappa_1}$ in $\mathbf{U}_2$. Since $\cF$ is $\mathbf{U}_2$-small by Convention~\ref{conv:notation}, the class of isomorphism types of quadruples is bounded by $2^{\kappa_1} \cdot |\Ob \cF / {\simeq}| < \kappa_2$, so $\cE$ is $\mathbf{U}_2$-small and locally small. All $(\infty, 2)$-categorical constructions on $\cE$ are therefore legitimate within $\ZFC + 2\text{-inacc}$.
+\end{remark}
+
+\begin{remark}[Meaning of the data]\label{rem:E-meaning}
+An object of $\cE$ is a theory \emph{together with} a chosen reflective enactment (``how the theory is implemented as a category of models, with a canonical extraction of its syntactic core''); objects of $\cF$ are theories considered up to the Lambek--Scott adjunction. The canonical section $\varepsilon$ selects the \emph{syntactic self-enactment}, in which the model-category of the theory is its own syntactic category and the reflector is the identity. Reflectiveness of $\iota$ is part of the \emph{data} of a Rich-enactment and is not a consequence of (R5b) alone: (R5b) supplies the universality of $\Syn(S)$ among $S$-structured categories, but reflectiveness inside a specific ambient $\cC$ is a design choice of $\cE$ --- namely, the restriction of $\cE$'s object class to those model-categorical implementations admitting a canonical syntactic retraction. The gauge structure on $\cE$ is induced from the $2$-cells of $\mathbf{StrCat}_{S, n}$: an $\cE$-gauge transformation is a pair $(\tau, T)$ whose component $T$ is an $S$-preserving $(\infty, n_F)$-equivalence, coherent with the chosen reflectors up to invertible $2$-cell.
+\end{remark}
+
+\subsection{The Enactment Syntax--Semantics Lemma}
+
+Before stating the main equivalence I isolate, as a lemma, the enactment-side analogue of Lemma~\ref{lem:SS-membership}: a pointed enactment that is formally $S$-definable belongs to the enrichment $\SSE$ of the $S$-definable class.
+
+\begin{definition}[The class $\SSE$]\label{def:SSE}
+Given $S \in \RS$, the class $\SSE \subseteq \Ob \cE$ of \emph{$S$-definable pointed enactments} is the closure of the base class
+\[
+  \SSE^{\mathrm{base}} = \bigl\{ (F', \cM, \iota_\cM, r_\cM) : \cM \models S,\ F' \in \cF,\ \iota_\cM := \ev_\cM,\ r_\cM := (\ev_\cM)^L \bigr\},
+\]
+where $\ev_\cM : \Syn(F') \to \cM$ is the syntax-to-semantics evaluation of (R5b) and $(\ev_\cM)^L$ is its left adjoint (Lambek--Scott), under componentwise application of the operations of Definition~\ref{def:SS}: the $F$-component by Definition~\ref{def:SS}; the $\cC$-component via the forgetful $\mathbf{StrCat}_{S, n} \to (\infty, n)\text{-}\Cat$; the $(\iota, r)$-components by functoriality of adjunctions under $S$-preserving $(\infty, n)$-functors. The sub-class $\SSE^{\mathrm{global}} \subseteq \SSE$ is the corresponding closure of $\SSE^{\mathrm{base}}$ using only those operations of Definition~\ref{def:SS} defining $\cS_S^{\mathrm{global}}$ (Kan extensions, Grothendieck constructions, derived functors).
+\end{definition}
+
+\begin{lemma}[Enactment syntax--semantics lemma]\label{lem:SS-membership-E}
+Let $(F, \cC, \iota, r) \in \cE$ be a pointed reflective enactment such that the quadruple is formally $S$-definable, i.e., there exist formulas $\phi_F, \psi_\cC, \chi_\iota, \chi_r$ in some $F' \in \cF$ with $F' \hookrightarrow S$ specifying $F, \cC, \iota, r$ respectively, with the triangle identities and reflectiveness of $\iota$ provable in $F'$. Then $(F, \cC, \iota, r) \in \SSE^{\mathrm{global}}$.
+\end{lemma}
+
+\begin{proof}
+By hypothesis, $F$ is formally $S$-definable via $\phi_F$; Lemma~\ref{lem:SS-membership} gives $F \in \cS_S^{\mathrm{global}}$. The model-category $\cC$ is specified by $\psi_\cC$ within $F'$; as an $S$-structured $(\infty, n)$-category the underlying $(\infty, n)$-category of $\cC$ lies in $\cS_S^{\mathrm{global}}$ by the same argument applied to the $\cS_S^{\mathrm{global}}$-closure of Definition~\ref{def:SS}. The pointing $\iota$ and the reflector $r$, specified by $\chi_\iota$ and $\chi_r$ in $F'$, are morphisms between $\cS_S^{\mathrm{global}}$-objects definable in $F' \hookrightarrow S$; by functoriality of adjunctions (the Lambek--Scott $\Syn \dashv \Mod$ extends to adjunctions in the syntactic $2$-category, which commutes with $S$-definable functorial operations), the adjoint pair $(\iota, r)$ with triangle identities belongs to the natural-transformation / Kan-extension closure of Definition~\ref{def:SS}. Assembled componentwise, $(F, \cC, \iota, r) \in \SSE^{\mathrm{global}}$.
+\end{proof}
+
+\subsection{AC/OC Morita Duality}
+
+\begin{theorem}[AC/OC Morita Duality]\label{thm:ac-oc-duality}
+The adjoint pair $\varepsilon \dashv \alpha$ of Definition~\ref{def:enactments} induces an $(\infty, \infty)$-equivalence of classifying $2$-stacks
+\[
+  \fM \;\simeq_{(\infty, \infty)}\; \fM_\cE, \qquad \fM_\cE := \cE / \mathrm{gauge}_\cE,
+\]
+where the left-hand moduli stack is the classifying $2$-stack of $\cF$ from Convention~\ref{conv:notation} and $\fM_\cE$ is the corresponding classifying $2$-stack of $\cE$. Concretely:
+\begin{enumerate}[label=(\alph*)]
+\item $\varepsilon : \cF \to \cE$ is fully faithful;
+\item the unit $\id_\cF \Rightarrow \alpha \circ \varepsilon$ is an equality; the counit $\varepsilon \circ \alpha \Rightarrow \id_\cE$ is a gauge-equivalence, i.e., an equivalence after passing to $\fM_\cE$;
+\item the strata $\LFnd, \LCls, \LClsMax, \LAbs$ of $\fM$ correspond bijectively to strata $\LFnd^\cE, \LCls^\cE, (\LClsMax)^\cE, \LAbs^\cE$ of $\fM_\cE$ via the induced equivalence, preserving the meta-operations $\mathrm{Cls}$ and $\mathrm{Gen}$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{(a) Full faithfulness of $\varepsilon$.} Let $F_1, F_2 \in \cF$. Unpacking Definition~\ref{def:enactments}, a $1$-morphism $\varepsilon(F_1) \to \varepsilon(F_2)$ is a pair $(\phi, \Phi)$ with $\phi : F_1 \to F_2$ in $\cF$ and $\Phi : \Syn(F_1) \to \Syn(F_2)$ an $S$-preserving $(\infty, n)$-functor equipped with an invertible $2$-cell $\Phi \Rightarrow \Syn(\phi)$. The $2$-functoriality of $\Syn : \cF \to \mathbf{StrCat}_{S, n}$, guaranteed by Lambek--Scott for $n = 1$ (Lurie HTT~\cite{LurieHTT} \S 5.1) and for general $n$ by the Kapulkin--Lumsdaine~\cite{KapulkinLumsdaine2021} assembly of $\Syn \dashv \Mod$ as a $2$-functor on syntactic $(\infty, n)$-categories, ensures that every $S$-preserving $(\infty, n)$-functor $\Syn(F_1) \to \Syn(F_2)$ arises, up to an invertible $2$-cell, from $\Syn(\phi)$ for a unique $\phi : F_1 \to F_2$. Hence the forgetful map of hom-$2$-categories
+\[
+  \Hom_{\cE}(\varepsilon F_1, \varepsilon F_2) \longrightarrow \Hom_{\cF}(F_1, F_2), \qquad (\phi, \Phi) \mapsto \phi,
+\]
+is an $(\infty, 2)$-equivalence. This establishes full faithfulness of $\varepsilon$ at every hom-$2$-category.
+
+\emph{(b) Essential surjectivity at gauge level.} Let $(F, \cC, \iota, r) \in \cE$. The reflector $r$ is part of the object data and, being left adjoint to a fully faithful functor, has invertible counit $\varepsilon_r : r \circ \iota \Rightarrow \id_{\Syn(F)}$ (standard: Riehl--Verity~\cite{RiehlVerity2022} Prop.~2.1.11). Define an $\cE$-morphism $(\id_F, r) : (F, \cC, \iota, r) \to \varepsilon(F) = (F, \Syn(F), \id, \id)$ using $r$ as the underlying functor $\cC \to \Syn(F)$; its structure cell $r \circ \iota \Rightarrow \id \circ \Syn(\id_F) = \id_{\Syn(F)}$ is precisely $\varepsilon_r$. The reverse $(\id_F, \iota) : \varepsilon(F) \to (F, \cC, \iota, r)$ is the pointing. The composite
+\[
+  (\id_F, \iota) \circ (\id_F, r) = (\id_F, \iota \circ r)
+\]
+satisfies $\iota \circ r \simeq \id_\cC$ via the unit $\eta_r$ of the adjunction, hence is gauge-equivalent to $\id$ in $\cE$; conversely, $(\id_F, r) \circ (\id_F, \iota) = (\id_F, r \circ \iota) \simeq (\id_F, \id_{\Syn(F)}) = \id_{\varepsilon(F)}$ via $\varepsilon_r$. This yields a canonical gauge-equivalence
+\[
+  (F, \cC, \iota, r) \;\simeq_{\mathrm{gauge}_\cE}\; \varepsilon(F) \quad\text{in } \fM_\cE.
+\]
+Uniqueness of $r$ up to unique invertible $2$-cell given $\iota$ (Remark~\ref{rem:E-meaning}) makes this equivalence natural in the object. Hence $\varepsilon$ is essentially surjective after passing to gauge-classes.
+
+Combined with (a), the pair $(\varepsilon, \alpha)$ induces an equivalence $\fM \simeq \fM_\cE$ at the $(\infty, 2)$-level.
+
+\emph{Lift to $(\infty, \infty)$.} The argument above is parametric in $n \in \mathbb{N} \cup \{\infty\}$: it uses only (R5b), the $2$-functoriality of $\Syn$ over $n$, and the uniqueness of reflectors at $(\infty, n)$. The first is (R5b); the second is Kapulkin--Lumsdaine~\cite{KapulkinLumsdaine2021} combined with Barwick--Schommer-Pries~\cite{BarwickSchommerPries2021}; the third is Ad\'amek--Rosick\'y~\cite{AdamekRosicky1994} Thm.~1.26 applied slice-wise via Lurie HTT~\cite{LurieHTT} \S 5.4 ($\lambda$-filtered-colimit preservation by accessible adjunctions). Stabilization of the equivalence at $n = \infty$ follows from Theorem~\ref{thm:bergner-lurie-stab}.
+
+\emph{(c) Stratum correspondence.} The classification meta-operation $\mathrm{Cls}$ on $\fM$ sends $F \in \LFnd$ to its class of classifiable sub-stacks. Under the equivalence $\fM \simeq \fM_\cE$, the enactment $\varepsilon(F) = (F, \Syn(F), \id, \id)$ inherits the classification structure via $\iota = \id$, i.e., $\mathrm{Cls}^\cE(\varepsilon F)$ coincides with $\varepsilon$ applied to $\mathrm{Cls}(F)$. Analogously for $\mathrm{Gen}$. The strata $\LClsE \supsetneq \LClsMaxE \supseteq \LAbsE$ on $\fM_\cE$ are defined by the $\cE$-analogues of Definition~\ref{def:hierarchy}: a gauge-class $[(F, \cC, \iota, r)] \in \LClsE$ iff $[F] \in \LCls$; similarly for the finer strata. Under this translation, the equivalence of (a)--(b) restricts to a bijection of strata.
+\end{proof}
+
+\begin{corollary}[Conservativity; consistency strength]\label{cor:ac-oc-conservativity}
+The extension of the MSFS framework by $\cE$ and the structure maps $(\alpha, \varepsilon)$ is a conservative extension of the $\cF$-based framework. In particular,
+\[
+  \Con(\cF \cup \cE) \;=\; \Con(\cF) \;=\; \Con(\ZFC + 2\text{-inacc}).
+\]
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:ac-oc-duality}, every statement about $\fM_\cE$ translates to an equivalent statement about $\fM$ via the equivalence. No new axioms are introduced; by Remark~\ref{rem:E-size}, $\cE$ is $\mathbf{U}_2$-small and is constructed inside $\ZFC + 2\text{-inacc}$ from $\cF$ and $\mathbf{StrCat}_{S, n}$ (Definition~\ref{def:strcat}) using only Lambek--Scott adjunctions guaranteed by (R5b) and reflectors given as object data (Definition~\ref{def:enactments}).
+\end{proof}
+
+\subsection{Dual Strata and the Enactment-Absolute Condition}
+
+The equivalence of Theorem~\ref{thm:ac-oc-duality} transfers the $\LAbs$ conditions of \S\ref{sec:conditions} to the enactment side. Informally, an \emph{enactment-absolute} triple $(F, \cC, \iota)$ is one whose enactment-side description simultaneously admits formal specification, admits no non-trivial coordination with other enactments in the $S$-definable class, and is maximally receptive (every other enactment factors through it).
+
+\begin{definition}[$\LAbsE$ conditions]\label{def:level6-cE}
+Given $S \in \RS$ and $n \in \mathbb{N} \cup \{\infty\}$, a pointed reflective enactment $(F, \cC, \iota, r) \in \cE$ is \textbf{enactment-absolute} if it satisfies the triple:
+\begin{itemize}
+\item[$(\tilde{F}_S)$] \emph{Enactment-definability}: the quadruple $(F, \cC, \iota, r)$ is formally $S$-definable in the sense of Lemma~\ref{lem:SS-membership-E}, i.e., specified by formulas $(\phi_F, \psi_\cC, \chi_\iota, \chi_r)$ in some $F' \in \cF$ with $F' \hookrightarrow S$ (this refines $(F_S)$ by additionally specifying the model-category presentation, the pointing, and the reflector).
+\item[$(\tilde{\Pi}_{4, S, n})$] \emph{Non-coordination}: there is no $1$-morphism $(\phi, \Phi) : (F, \cC, \iota, r) \to (F', \cC', \iota', r')$ in $\cE$ with target quadruple in $\SSE$ (Definition~\ref{def:SSE}) such that $\Phi$ is an $(\infty, n)$-equivalence onto its image.
+\item[$(\tilde{\Pi}_{3\text{-max}, S, n})$] \emph{Maximal receptivity}: for every enactment $(F', \cC', \iota', r') \in \cE$ there exists a $1$-morphism $(\phi, \Phi) : (F', \cC', \iota', r') \to (F, \cC, \iota, r)$ realizing a Morita reduction at the $(\infty, n)$-level.
+\end{itemize}
+The \emph{$\LAbsE$ stratum} is the class of $\mathrm{gauge}_\cE$-equivalence classes in $\fM_\cE$ with an enactment-absolute representative.
+\end{definition}
+
+\subsection{Dual Boundary Lemma}
+
+\begin{theorem}[Dual Boundary Lemma; Dual-AFN-T $(\alpha)$-part]\label{thm:dual-afnt}
+For every Rich-metatheory $S \in \RS$ and every categorical level $n \in \mathbb{N} \cup \{\infty\}$, no pointed reflective enactment $(F, \cC, \iota, r) \in \cE$ satisfies the $\LAbsE$ triple $(\tilde{F}_S) \wedge (\tilde{\Pi}_{4, S, n}) \wedge (\tilde{\Pi}_{3\text{-max}, S, n})$. Already the sub-pair $(\tilde{F}_S) \wedge (\tilde{\Pi}_{4, S, n})$ is structurally self-contradictory.
+\end{theorem}
+
+\begin{proof}
+\emph{Route 1 (direct syntax--semantics bridge on $\cE$).} Suppose, for contradiction, that $(F, \cC, \iota, r) \in \cE$ satisfies $(\tilde{F}_S) \wedge (\tilde{\Pi}_{4, S, n})$. By $(\tilde{F}_S)$ and Lemma~\ref{lem:SS-membership-E}, $(F, \cC, \iota, r) \in \SSE^{\mathrm{global}} \subseteq \SSE$. The identity enactment $1$-morphism
+\[
+  (\id_F, \id_\cC) : (F, \cC, \iota, r) \longrightarrow (F, \cC, \iota, r)
+\]
+has $\Phi = \id_\cC$ trivially an $(\infty, n)$-equivalence onto its image, and its target quadruple $(F, \cC, \iota, r)$ lies in $\SSE$. This is precisely a coordination of the form forbidden by $(\tilde{\Pi}_{4, S, n})$: a $1$-morphism with target in $\SSE$ and $\Phi$ an $(\infty, n)$-equivalence onto image. Contradiction.
+
+\emph{Route 2 (via duality; independent of Lemma~\ref{lem:SS-membership-E}).} Assume $(F, \cC, \iota, r) \in \LAbsE$. I claim $F \in \LAbs$, contradicting Corollary~\ref{cor:level6-empty-alpha}. Three reductions are needed.
+
+\emph{(i) $(\tilde{F}_S) \Rightarrow (F_S)(F)$:} Projecting the defining formula $(\phi_F, \psi_\cC, \chi_\iota, \chi_r)$ to $\phi_F$ gives an $F$-specification within $F' \hookrightarrow S$, hence $(F_S)(F)$.
+
+\emph{(ii) $(\tilde{\Pi}_{4, S, n}) \Rightarrow (\Pi_{4, S, n})(F)$:} Suppose, for contradiction, that there exists a $1$-morphism $\phi : F \to F''$ in $\cF$ realising a Morita reduction with $F'' \in \cS_S$. I lift this to a $1$-morphism in $\cE$ with target in $\SSE$, contradicting $(\tilde{\Pi}_{4, S, n})$. The section $\varepsilon$ of Definition~\ref{def:enactments} gives $\varepsilon(F'') = (F'', \Syn(F''), \id, \id)$; composing with the canonical gauge-equivalence $(F, \cC, \iota, r) \simeq_{\mathrm{gauge}_\cE} \varepsilon(F)$ established in Theorem~\ref{thm:ac-oc-duality}(b) yields a $1$-morphism in $\cE$:
+\[
+  (F, \cC, \iota, r) \xrightarrow{(\id_F, r)} \varepsilon(F) \xrightarrow{\varepsilon(\phi)} \varepsilon(F'') = (F'', \Syn(F''), \id, \id).
+\]
+Since $F'' \in \cS_S$ there exists $\cM \models S$ and an $F''$-preserving interpretation making $F''$ Morita-reducible to the model component; applying the base clause of Definition~\ref{def:SSE} with $(F'', \Syn(F''), \id, \id)$ (which is $\cE$-gauge-equivalent to some base-class element via $\ev_\cM$) gives $\varepsilon(F'') \in \SSE$ up to gauge. The resulting composite $\cE$-morphism has target quadruple in $\SSE$ and underlying $\Phi$ an $(\infty, n)$-equivalence onto image (since both $r$ and $\Syn(\phi)$ are such: the former by Theorem~\ref{thm:ac-oc-duality}(b), the latter because $\phi$ is a Morita reduction in $\cF$ and $\Syn$ preserves this by $2$-functoriality). This contradicts $(\tilde{\Pi}_{4, S, n})(F, \cC, \iota, r)$.
+
+\emph{(iii) $(\tilde{\Pi}_{3\text{-max}, S, n}) \Rightarrow (\Pi_{3\text{-max}, S, n})(F)$:} Given any $F' \in \cF$, apply the receptivity of $(F, \cC, \iota, r)$ to $\varepsilon(F')$; the resulting $\cE$-morphism $(\phi, \Phi) : \varepsilon(F') \to (F, \cC, \iota, r)$ projects under $\alpha$ to a Morita reduction $F' \to F$ in $\cF$, establishing $(\Pi_{3\text{-max}, S, n})(F)$.
+
+Combining (i)--(iii), $F \in \LAbs$, contradicting Corollary~\ref{cor:level6-empty-alpha}. Hence $\LAbsE = \emptyset$.
+
+Either route yields $\LAbsE = \emptyset$; the maximality condition $(\tilde{\Pi}_{3\text{-max}})$ is, as on the $\cF$ side (Remark~\ref{rem:max-generativity-role}), subsumed by the sub-pair contradiction of Route 1.
+\end{proof}
+
+\begin{corollary}[$\LAbsE$ emptiness]\label{cor:level6-empty-cE}
+$\LAbsE = \emptyset$.
+\end{corollary}
+
+\subsection{Dual Five-Axis Absoluteness and Bypass Closures}
+
+\begin{theorem}[Dual five-axis absoluteness]\label{thm:dual-five-axis}
+Theorem~\ref{thm:five-axis} transfers to $\LAbs^\cE$: the emptiness of $\LAbs^\cE$ is absolute along the five structural axes
+\begin{center}
+\emph{horizontal} (over $\RS$), \quad \emph{vertical} (over $n$), \quad \emph{meta-vertical}, \quad \emph{lateral}, \quad \emph{completeness} (within Lawvere-scope).
+\end{center}
+In particular, the three standard bypass paths (Theorems~\ref{thm:universe}, \ref{thm:reflective}, \ref{thm:slice-locality}) foreclose their $\cE$-analogues.
+\end{theorem}
+
+\begin{proof}
+I verify each axis separately; each reduces to a specific mechanism of Theorem~\ref{thm:five-axis} whose transfer through the equivalence of Theorem~\ref{thm:ac-oc-duality} requires explicit check.
+
+\emph{Horizontal (over $\RS$).} The class $\RS$ is a property of metatheories $S$; $\cE$ is parametric in $S$ via the $F$-component of its objects and via $\mathbf{StrCat}_{S, n}$ (Definition~\ref{def:strcat}). For each $S \in \RS$ the proof of Theorem~\ref{thm:dual-afnt} is uniform in $S$ (Routes 1 and 2 are parametric), so $\LAbsE(S) = \emptyset$ for all $S \in \RS$.
+
+\emph{Vertical (over $n \in \mathbb{N} \cup \{\infty\}$).} Theorem~\ref{thm:vertical} uses truncation--lifting of $\Syn^{(\infty, n)}(S)$ across categorical depths (Convention~\ref{conv:notation}). Theorem~\ref{thm:ac-oc-duality} is established parametrically in $n$; the truncation operator $\tau_{\leq n}$ commutes with the Lambek--Scott adjunction (standard: Lurie HTT~\cite{LurieHTT} \S 5.5), hence with the pair $(\alpha, \varepsilon)$. Vertical absoluteness transfers.
+
+\emph{Meta-vertical.} Theorem~\ref{thm:meta-vertical} asserts theory-level stabilization of iterated meta-classification with universe-ascent $\kappa_k$. Iteration on $\fM_\cE$ proceeds by Grothendieck--Lurie straightening (Lurie HTT~\cite{LurieHTT} \S 3.2) applied to $\alpha^{-1}(\mathrm{Cls}_k)$; the universe-ascent sequence $\kappa_1 < \kappa_2 < \ldots$ is common to $\fM$ and $\fM_\cE$ because both live in the same Grothendieck-universe hierarchy. Stabilization on $\fM$ implies stabilization on $\fM_\cE$ by the equivalence.
+
+\emph{Lateral.} Theorem~\ref{thm:lateral} uses the Ara--Maltsiniotis~\cite{AraMaltsiniotis2017} globular/cubical comparison and the Bergner--Rezk~\cite{BergnerRezk2013} model comparison, acting on the ambient $(\infty, n)$-categorical ordering. Both act componentwise on quadruples $(F, \cC, \iota, r)$: on the $F$-component through the underlying $\cF$-action, on the $\cC$-component via Bergner--Rezk's comparison of model structures in $\mathbf{StrCat}_{S, n}$, and on $(\iota, r)$ by naturality of the Lambek--Scott adjunction under $S$-preserving transformations of the model-comparison framework. Lateral absoluteness is therefore componentwise.
+
+\emph{Completeness (within Lawvere-scope).} Theorem~\ref{thm:completeness} asserts the Lawvere-type completeness argument inside Lawvere-scope for $\cF$. For $\cE$ I define Lawvere-scope
+\[
+  \mathrm{LS}(\cE) \;=\; \bigl\{ (F, \cC, \iota, r) \in \cE : F \in \mathrm{LS}(\cF) \ \text{and}\ \cC\ \text{is closed symmetric monoidal}\bigr\},
+\]
+where ``closed symmetric monoidal'' includes both the Cartesian-closed case (diagonal $\Delta : A \to A \otimes A$ is the Cartesian product diagonal) and the weaker closed-monoidal / $*$-autonomous cases (diagonal obtained via the internal hom $[A, A]$ or the involutive dual $(-)^\perp$). This broadening is essential, not optional: the enactment-centric traditions most native to this framework --- Girard's linear logic and ludics~\cite{Girard2001}, resource-sensitive type theories, and the quantum-logical enactments of finite-dimensional Hilbert categories --- live in closed symmetric monoidal or $*$-autonomous settings where global contraction is unavailable and Cartesian-closure fails, but where Yanofsky's~\cite{Yanofsky2003} universal diagonal construction applies uniformly. Within $\mathrm{LS}(\cE)$, Yanofsky's generalized Lawvere diagonal establishes the fixed-point / self-reference obstruction in $\cC$; the reflective adjunction $\iota \dashv r$ transports the diagonal from $\cC$ to $\Syn(F)$, and $\alpha$ reduces completeness on $\cE$ to completeness on $\cF$. Hence completeness is preserved by Theorem~\ref{thm:ac-oc-duality}(b) across the full Lawvere-scope of $\cE$, which includes the genuinely action-centric enactments.
+
+The three standard bypass paths transfer analogously:
+\begin{itemize}\setlength{\itemsep}{1pt}
+\item \textbf{Universe polymorphism} (Theorem~\ref{thm:universe}): acts on the $F$-component, preserved by $\alpha$ and lifted by $\varepsilon$.
+\item \textbf{Reflective-tower boundedness} (Theorem~\ref{thm:reflective}): Ad\'amek--Rosick\'y accessibility applied to the $\cC$-component, preserved componentwise under $(\alpha, \varepsilon)$.
+\item \textbf{Intensional slice-locality} (Theorem~\ref{thm:slice-locality}): fibres over $\fM$ via the display-$2$-class functor $\II : \cF^{\mathrm{op}} \to \Sint$. By Theorem~\ref{thm:ac-oc-duality}, it fibres equivalently over $\fM_\cE$ via $\II \circ \alpha$; slice-locality is preserved by the $(\infty, \infty)$-equivalence.
+\end{itemize}
+\end{proof}
+
+\subsection{Philosophical Reading and Relation to Prior Action-Centric Programmes}
+
+\begin{remark}[Object-centric vs.\ action-centric viewpoints reconciled]\label{rem:oc-ac}
+Theorem~\ref{thm:ac-oc-duality} formalizes, within the MSFS setting, the reconciliation of two classically opposed viewpoints on mathematical foundations:
+\begin{itemize}
+\item the \emph{object-centric} viewpoint, under which a foundation is a formal theory and mathematics is a class of such theories organized by interpretation and equivalence;
+\item the \emph{action-centric} viewpoint, under which a foundation is a structured family of practices or enactments (constructions, derivations, model-specific implementations) and mathematics is the study of such families and their composition.
+\end{itemize}
+The Lambek--Scott adjunction of (R5b), assembled into the pair $(\varepsilon, \alpha)$, exhibits these two viewpoints as $(\infty, \infty)$-equivalent descriptions of a single moduli stack. Neither is primary; the choice between $\cF$ and $\cE$ is a choice of presentation of the same underlying classifying $2$-stack. Theorem~\ref{thm:dual-afnt} accordingly expresses the \emph{symmetry} of the no-go conclusion of AFN-T across this duality: the absence of an absolute foundation is insensitive to whether foundations are regarded as theories or as enactments.
+\end{remark}
+
+\begin{remark}[Relation to constructive and enactive traditions]\label{rem:enactive-traditions}
+The action-centric viewpoint has precedents spanning several mathematical and philosophical traditions: Brouwer's intuitionism~\cite{Brouwer1907} (proofs as constructions), the Brouwer--Heyting--Kolmogorov interpretation of intuitionistic logic (Heyting~\cite{Heyting1930}, Kolmogorov~\cite{Kolmogorov1932}; propositions interpreted via their witnesses-as-acts), Martin-L\"of's meanings-as-practices~\cite{MartinLof1984}, Girard's ludics~\cite{Girard2001} (designs and dialogue-based semantics), Lorenzen's dialogical logic~\cite{Lorenzen1960}, Hintikka's game-theoretic semantics~\cite{Hintikka1973}, and, within denotational semantics, Plotkin's structural-operational semantics~\cite{Plotkin1981}. Common to these programmes is the treatment of a theory as a class of structured enactments rather than a class of statements. Theorem~\ref{thm:ac-oc-duality} suggests that each such programme admits a candidate categorical formalization as a restriction of $\cE$ to a sub-$2$-category of enactments satisfying a corresponding structural property (for instance, constructivity of $\iota$ for Brouwer--Heyting--Kolmogorov; linear-logic-monoidal structure on $\cC$ for Girard's ludics; dialogue-categorical structure for Lorenzen--Hintikka). Explicit embeddings of these programmes into $\cE$ are a natural direction for further work, not established here. If obtained, Theorem~\ref{thm:dual-afnt} applied to such restrictions would give the uniform no-go statement corresponding to AFN-T across them.
+\end{remark}
+
 \section{Placement in the No-Go Series}\label{sec:series}
 
 AFN-T occupies a position in the structural series of foundational no-go theorems. All such results instantiate a single categorical schema: \emph{a system sufficiently expressive to formulate a candidate maximal object is unable to contain that object without contradiction}, realized through a self-referential embedding that turns the purported maximal object into an element of the very class it was supposed to transcend. Each specializes the schema through a distinct maximality aspect and diagonal step:
@@ -1277,6 +1561,7 @@ Tarski~\cite{Tarski1936} & 1936 & semantic truth & ``this sentence is not true''
 Lawvere FP~\cite{Lawvere1969} & 1969 & categorical fixed-point & cartesian-closed + weakly surjective $\Rightarrow$ every $f$ has a fixed point \\
 Ernst~\cite{Ernst2015} & 2015 & unlimited category theory & Lawvere diagonal at $n = 1$ under Feferman (R1)--(R3) \\
 AFN-T & --- & foundational (definable + non-reducible + generative) & syntax--semantics bridge: $(F_S) \Rightarrow X \in \cS_S^{\mathrm{global}}$ via Lemma~\ref{lem:SS-membership}, contradicting $(\Pi_4)$ by $\id_X$ (Theorem~\ref{thm:afnt-alpha}) \\
+Dual-AFN-T & --- & enactment-absolute (definable + non-coordination + receptive) & identity enactment $(\id_F, \id_\cC)$ with target in $\SSE$ (Lemma~\ref{lem:SS-membership-E}) contradicts $(\tilde{\Pi}_4)$ (Theorem~\ref{thm:dual-afnt}); equivalently via $\alpha$ + AFN-T \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -1309,7 +1594,7 @@ For each row, the maximality aspect defines a restricted $\LAbs$ candidate $X$ s
 
 \subsection{Consequences for Foundational Programmes}
 
-AFN-T imposes a uniform structural bound on every current foundational programme: each is confined to one of the formal levels $\LFnd$, $\LCls$, or $\LClsMax$, with $\LAbs$ empty. Specifically:
+AFN-T imposes a uniform structural bound on every current foundational programme: each inhabits $\LFnd$, or $\LCls$ (possibly with membership in the maximal sub-class $\LClsMax \subseteq \LCls$), with $\LAbs$ empty. Specifically:
 \begin{itemize}\setlength{\itemsep}{1pt}
 \item \textbf{Univalent Foundations} (Voevodsky~\cite{VoevodskyFoundations2010}; HoTT Book~\cite{HoTTBook2013}) is a $\LCls$ partial meta-framework (Theorem~\ref{thm:meta-mult}) classifying $\HoTT$-extensions; it cannot be elevated to $\LAbs$.
 \item \textbf{Higher topos theory} (Lurie~\cite{LurieHTT}) and \textbf{cohesive framework} (Schreiber~\cite{Schreiber2013}) occupy Levels 5 and 5+ respectively.
@@ -1318,15 +1603,47 @@ AFN-T imposes a uniform structural bound on every current foundational programme
 \item \textbf{Categorical logic}: classification of foundational systems by $(\infty, n)$-categories and their meta-structures has an upper bound at $\LCls$, aligning with Barwick--Schommer-Pries~\cite{BarwickSchommerPries2021} unicity.
 \end{itemize}
 
+\subsection{Consequences for downstream practice}
+
+Beyond foundational programmes, MSFS yields concrete consequences for practical activities that aggregate or compare mathematical content.
+
+\begin{itemize}[nosep]
+\item \textbf{Proof-assistant ecosystems.} Plurality at $\LFnd$ (Theorem~\ref{thm:meta-mult}) implies that no single proof assistant is or can be the universal one. Cross-assistant translation (Coq $\leftrightarrow$ Lean $\leftrightarrow$ Agda $\leftrightarrow$ Isabelle) is structurally a Morita / gauge transformation in $\fM$, with witness obligations on coherence; partial automation of such translations through tools such as Dedukti or COSMOS becomes a categorical task with explicit deliverables.
+
+\item \textbf{Mathematical knowledge bases (Wikipedia of mathematics, the nLab, Mathlib, the Stacks project).} Each entry implicitly inhabits some $\LFnd$-point; cross-entry references implicitly assume Morita-compatibility. MSFS clarifies which assumptions are structurally licit and which silently smuggle in absoluteness claims foreclosed by AFN-T.
+
+\item \textbf{AI training corpora for mathematics.} Corpora that mix theorems originating in different foundations risk implicit foundational confusion. The MSFS coordinate $(\mathrm{Fw}, \nu, \tau)$, formalised in the companion Verum-integration paper's corpus-coordinate theorem, supplies a per-statement metadata schema that records the foundational provenance of each assertion, allowing downstream models to reason about cross-foundation transfer rather than assume absolute compatibility.
+
+\item \textbf{Knowledge-representation infrastructure.} \OWL{} description logics, modal / epistemic / temporal calculi, probabilistic / fuzzy / possibilistic extensions are specific $\LFnd$-points (or weak Rich-metatheories per \S\ref{subsec:boundary-cases}); MSFS gives the categorical setting in which their cross-paradigm translations and combined reasoning become first-class certified objects rather than ad hoc inter-system bridges.
+\end{itemize}
+
+\subsection{Worked example: the MSFS coordinate of standard real analysis}
+\label{subsec:worked-example}
+
+To illustrate the framework concretely, consider the corpus $P_{\mathrm{RA}}$ of standard undergraduate real analysis (Dedekind cuts, $\varepsilon$-$\delta$ convergence, Lebesgue measure, sequences and series, classical analysis on $\mathbb{R}^n$). Its MSFS coordinate $(\mathrm{Fw}, \nu, \tau)$ is computable as follows.
+\begin{itemize}[nosep]
+\item \textbf{Framework footprint $\mathrm{Fw}(P_{\mathrm{RA}}) \subset \LFnd$:} the corpus admits formalisation in $\ZFC$ (textbook Cantor--Dedekind real line), in $\NBG$ (equivalent to $\ZFC$ for the relevant fragment), in $\HoTT$ via Dedekind reals or Cauchy reals (with constructive variants), in $\mathsf{Eff}$ (computable analysis), and in Bishop's constructive analysis (intuitionistic real line). The framework footprint is consequently $\mathrm{Fw}(P_{\mathrm{RA}}) = \{[\ZFC], [\HoTT], [\mathsf{Eff}], [\mathrm{Bishop}], \ldots\}$, a non-singleton sub-stack reflecting that real analysis is not foundation-rigid.
+\item \textbf{Categorical depth $\nu(P_{\mathrm{RA}}) = \omega$:} the corpus organises through countable inductive constructions ($\sigma$-algebras, sequence convergence, function-space limits) without intrinsically requiring higher categorical depth; its $\mathsf{M}$-iteration depth saturates at the first infinite ordinal in the Diakrisis stratification.
+\item \textbf{Intensional refinement $\tau(P_{\mathrm{RA}}) = 1$:} the corpus admits an effective-topos normaliser at the metatheoretic level (computable analysis is the intensional refinement; Bishop reals make this explicit), so $\tau(\II(P_{\mathrm{RA}})) = 1$ in the sense of the $\MLTT$-slice classification developed in the companion Verum-integration paper.
+\end{itemize}
+The triple $(\mathrm{Fw}, \nu, \tau)(P_{\mathrm{RA}}) = (\{[\ZFC], [\HoTT], [\Eff], [\mathrm{Bishop}], \ldots\},\; \omega,\; 1)$ records that real analysis lives in the multi-foundation, $\omega$-deep, intensionally refinable region of $\fM$ (at the level of $\sigma$-algebras; the full Borel / projective hierarchy would raise $\nu$ to $\omega_1$ and is excluded here). Automated cross-foundation transfer of $P_{\mathrm{RA}}$ between any two members of $\mathrm{Fw}(P_{\mathrm{RA}})$ is a structural Morita gauge, not a re-formalisation. The same procedure assigns coordinates to other corpora (number theory: $(\{[\ZFC], [\mathsf{PA}], \ldots\}, \omega, 1)$; algebraic topology: $(\{[\ZFC], [\HoTT]\}, \omega \cdot 2, 1)$; non-commutative geometry: $(\{[\NCG]\}, \omega \cdot 2, ?)$).
+
 \subsection{Open Questions}
 
-\paragraph{(Q1) Existence of a maximal meta-framework.} Theorem~\ref{thm:meta-cat} asserts categoricity of $\Meta_{\mathrm{Cls}}^{\top}$ conditional on its non-emptiness. Is there a concrete $\mathbf{F} \in \Meta_{\mathrm{Cls}}^{\top}$ constructible in $\ZFC + 2\text{-inacc}$? A positive answer would identify the canonical $\LCls$ meta-framework up to $(\infty, \infty)$-equivalence.
+\paragraph{(Q1) Existence of a maximal meta-framework.} Theorem~\ref{thm:meta-cat} asserts categoricity of $\Meta_{\mathrm{Cls}}^{\top}$ conditional on its non-emptiness. Is there a concrete $\mathbf{F} \in \Meta_{\mathrm{Cls}}^{\top}$ constructible in $\ZFC + 2\text{-inacc}$? A positive answer would identify the canonical $\LCls$ meta-framework up to $(\infty, \infty)$-equivalence. The construction of such a witness lies outside the scope of this preprint; a candidate framework is the subject of separate ongoing work (see Remark~\ref{rem:diakrisis-witness}).
+
+\begin{remark}[Candidate witness: forthcoming work]
+\label{rem:diakrisis-witness}
+In a forthcoming manuscript, the author proposes a candidate meta-structural framework intended to satisfy conditions (Max-1)--(Max-4) and thereby populate $\Meta_{\mathrm{Cls}}^{\top}$ with an explicit representative. That work is in preparation and remains external to the present preprint; the claims made here do not depend on it. If such a candidate is constructed and verified, Theorem~\ref{thm:meta-cat} delivers categoricity: any other claimant $\mathbf{F}' \in \Meta_{\mathrm{Cls}}^{\top}$ would then be $(\infty, \infty)$-equivalent to it. Until such independent verification is public, MSFS treats non-emptiness of $\Meta_{\mathrm{Cls}}^{\top}$ as open (Question~1).
+\end{remark}
 
 \paragraph{(Q2) Completeness of the meta-framework list.} How complete is the list $\{\mathbf{F}_{\mathrm{univalent}},\allowbreak \mathbf{F}_{\mathrm{cosmoi}},\allowbreak \mathbf{F}_{\mathrm{cohesive}},\allowbreak \mathbf{F}_{\mathrm{HA}},\allowbreak \mathbf{F}_{\mathrm{synthetic}}\}$ of currently identified $\LCls$ meta-structures ($\mathbf{F}_{\mathrm{HA}}$ denotes Lurie's Higher Algebra programme~\cite{LurieHA})? Are there further natural meta-frameworks?
 
 \paragraph{(Q3) Exhaustiveness of bypass paths.} Theorems~\ref{thm:universe}, \ref{thm:reflective}, \ref{thm:I-existence}, \ref{thm:slice-locality} close three standard bypass paths, and Appendix~\ref{app:paraconsistent} treats the paraconsistent case. Candidates for additional independent paths include modal or temporal logic extensions, substructural logics without exponential $!$, realizability and constructive-only foundations, and foundations grounded in non-classical computability models. Each of these appears to reduce to one of the closed paths within R-S; a formal exhaustiveness theorem is not given here and remains open.
 
 \paragraph{(Q4) Consistency-strength minimality.} The proof uses $\ZFC + 2\text{-inacc}$ (Convention~\ref{conv:zfc-inacc}). Can a weaker consistency strength suffice for the full theorem, or does the meta-classification stabilization (Theorem~\ref{thm:meta-stab}) genuinely require the second inaccessible?
+
+\paragraph{(Q5) Sub-stack of weak Rich-metatheories.} Boundary cases (\S\ref{subsec:boundary-cases}) admit bounded-arithmetic and feasibility-calculus formalisations as \emph{weak Rich-metatheories} satisfying (R2)--(R5) and a restricted form of (R1). Do these weak points form a separate stratum $\LFnd^{\mathrm{weak}} \subset \LFnd$ with its own meta-categoricity behaviour, or are they Morita-dense in $\LFnd$ via reverse-mathematics correspondences (Simpson~\cite{Simpson2009})? Resolution would clarify the structural status of finitism / ultrafinitism within $\fM$.
 
 \subsection{Broader Significance}
 
@@ -1545,6 +1862,16 @@ A.~Connes,
 \newblock \emph{Noncommutative Geometry},
 \newblock Academic Press, 1994.
 
+\bibitem{Brouwer1907}
+L.E.J.~Brouwer,
+\newblock \emph{Over de Grondslagen der Wiskunde} (On the Foundations of Mathematics),
+\newblock PhD thesis, University of Amsterdam, 1907.
+
+\bibitem{Heyting1930}
+A.~Heyting,
+\newblock Die formalen Regeln der intuitionistischen Logik,
+\newblock \emph{Sitzungsberichte der Preussischen Akademie der Wissenschaften} (1930), 42--56.
+
 \bibitem{Ernst2015}
 M.~Ernst,
 \newblock The prospects of unlimited category theory: doing what remains to be done,
@@ -1564,6 +1891,11 @@ S.~Feferman,
 J.D.~Hamkins,
 \newblock The set-theoretic multiverse,
 \newblock \emph{Review of Symbolic Logic} 5 (2012), no.~3, 416--449; arXiv:1108.4223.
+
+\bibitem{Hintikka1973}
+J.~Hintikka,
+\newblock \emph{Logic, Language-Games and Information: Kantian Themes in the Philosophy of Logic},
+\newblock Clarendon Press, 1973.
 
 \bibitem{Shulman2019}
 M.A.~Shulman,
@@ -1599,6 +1931,62 @@ J.M.E.~Hyland,
 B.~Jacobs,
 \newblock \emph{Categorical Logic and Type Theory},
 \newblock Studies in Logic 141, Elsevier, 1999.
+
+\bibitem{Kolmogorov1932}
+A.N.~Kolmogorov,
+\newblock Zur Deutung der intuitionistischen Logik,
+\newblock \emph{Mathematische Zeitschrift} 35 (1932), 58--65.
+
+\bibitem{Bishop1967}
+E.~Bishop,
+\newblock \emph{Foundations of Constructive Analysis},
+\newblock McGraw-Hill, 1967.
+
+\bibitem{BridgesVita2006}
+D.S.~Bridges and L.S.~Vita,
+\newblock \emph{Techniques of Constructive Analysis},
+\newblock Universitext, Springer, 2006.
+
+\bibitem{Buss1986}
+S.R.~Buss,
+\newblock \emph{Bounded Arithmetic},
+\newblock Bibliopolis, Naples, 1986.
+
+\bibitem{EseninVolpin1961}
+A.S.~Esenin-Volpin,
+\newblock Le programme ultra-intuitionniste des fondements des math\'ematiques,
+\newblock in: \emph{Infinitistic Methods}, Pergamon Press / PWN, Warsaw, 1961, pp.~201--223.
+
+\bibitem{EseninVolpin1970}
+A.S.~Esenin-Volpin,
+\newblock The ultra-intuitionistic criticism and the antitraditional program for foundations of mathematics,
+\newblock in: A.~Kino, J.~Myhill, R.E.~Vesley (eds.), \emph{Intuitionism and Proof Theory}, North-Holland, 1970, pp.~3--45.
+
+\bibitem{Rodin2014}
+A.~Rodin,
+\newblock \emph{Axiomatic Method and Category Theory},
+\newblock Synthese Library 364, Springer, 2014.
+
+\bibitem{MarkovNagornyj1988}
+A.A.~Markov and N.M.~Nagornyj,
+\newblock \emph{The Theory of Algorithms},
+\newblock Mathematics and its Applications (Soviet Series), Kluwer, 1988 (English translation of Nauka, Moscow, 1984).
+
+
+\bibitem{Simpson2009}
+S.G.~Simpson,
+\newblock \emph{Subsystems of Second Order Arithmetic},
+\newblock 2nd ed., Cambridge University Press, 2009.
+
+\bibitem{LambekScott1986}
+J.~Lambek and P.J.~Scott,
+\newblock \emph{Introduction to Higher-Order Categorical Logic},
+\newblock Cambridge Studies in Advanced Mathematics 7, Cambridge University Press, 1986.
+
+\bibitem{Lorenzen1960}
+P.~Lorenzen,
+\newblock Logik und Agon,
+\newblock \emph{Atti del XII Congresso Internazionale di Filosofia} (Venezia 1958), vol.~IV, Sansoni, Firenze, 1960, pp.~187--194.
 
 \bibitem{KapulkinLumsdaine2021}
 K.~Kapulkin and P.L.~Lumsdaine,
@@ -1645,15 +2033,30 @@ J.~Lurie,
 \newblock \emph{Higher Algebra},
 \newblock Preprint, 2017.
 
+\bibitem{Diakrisis}
+M.~Sereda,
+\newblock \emph{Diakrisis: A Meta-Structural Mathematical Programme.}
+\newblock Unpublished manuscript in preparation, 2026.
+
 \bibitem{MartinLof1984}
 P.~Martin-L\"of,
 \newblock \emph{Intuitionistic Type Theory},
 \newblock Bibliopolis, 1984.
 
+\bibitem{Girard2001}
+J.-Y.~Girard,
+\newblock Locus solum: from the rules of logic to the logic of rules,
+\newblock \emph{Mathematical Structures in Computer Science} 11 (2001), no.~3, 301--506.
+
 \bibitem{Priest2006}
 G.~Priest,
 \newblock \emph{In Contradiction: A Study of the Transconsistent},
 \newblock 2nd edition, Oxford University Press, 2006.
+
+\bibitem{Plotkin1981}
+G.D.~Plotkin,
+\newblock A structural approach to operational semantics,
+\newblock Aarhus University Technical Report DAIMI FN-19, 1981; reprinted in \emph{J. Log. Algebr. Program.} 60--61 (2004), 17--139.
 
 \bibitem{Pronk1996}
 D.~Pronk,

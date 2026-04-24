@@ -7,7 +7,7 @@
  *   verum  — Verum × MSFS integration (verum/en/paper.tex)
  *
  * Использование:
- *   bun scripts/build-paper.ts                         PDF → paper-en/afn-t-paper.pdf
+ *   bun scripts/build-paper.ts                         PDF → paper-en/msfs-paper.pdf
  *   bun scripts/build-paper.ts --paper verum           PDF → verum/en/verum-msfs-paper.pdf
  *   bun scripts/build-paper.ts --arxiv                 arXiv-тарболл MSFS
  *   bun scripts/build-paper.ts --paper verum --arxiv   arXiv-тарболл Verum
@@ -51,8 +51,8 @@ type PaperConfig = {
 
 const MSFS_CONFIG: PaperConfig = {
   paperDir: "paper-en",
-  outputName: "afn-t-paper",
-  arxivTarball: "afn-t-arxiv.tar.gz",
+  outputName: "msfs-paper",
+  arxivTarball: "msfs-arxiv.tar.gz",
   shortLabel: "MSFS / AFN-T",
   title:
     "The Moduli Space of Formal Systems: Classification, Stabilization, and a No-Go Theorem for Absolute Foundations",

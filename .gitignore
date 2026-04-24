@@ -46,15 +46,37 @@ paper-ru/*.snm
 paper-ru/*.vrb
 
 # Compiled PDFs and packaged outputs (regenerable)
-paper-en/afn-t-paper.pdf
+paper-en/msfs-paper.pdf
 paper-en/paper.pdf
-paper-en/afn-t-arxiv.tar.gz
+paper-en/msfs-arxiv.tar.gz
 paper-en/zenodo/
 
-paper-ru/afn-t-paper.pdf
+paper-ru/msfs-paper.pdf
 paper-ru/paper.pdf
-paper-ru/afn-t-arxiv.tar.gz
+paper-ru/msfs-arxiv.tar.gz
 paper-ru/zenodo/
+
+# Verum companion paper — regenerable PDFs
+verum/en/*.pdf
+verum/ru/*.pdf
+verum/en/*.aux
+verum/en/*.log
+verum/en/*.out
+verum/en/*.toc
+verum/en/*.bbl
+verum/en/*.blg
+verum/en/*.fls
+verum/en/*.fdb_latexmk
+verum/en/*.synctex.gz
+verum/ru/*.aux
+verum/ru/*.log
+verum/ru/*.out
+verum/ru/*.toc
+verum/ru/*.bbl
+verum/ru/*.blg
+verum/ru/*.fls
+verum/ru/*.fdb_latexmk
+verum/ru/*.synctex.gz
 
 # Bun runtime
 node_modules/
