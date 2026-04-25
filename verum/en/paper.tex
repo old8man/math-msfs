@@ -65,7 +65,11 @@
 \newcommand{\ETT}{\mathsf{ETT}}
 \newcommand{\CIC}{\mathsf{CIC}}
 \newcommand{\II}{\mathbf{I}}
-\newcommand{\Eff}{\mathrm{Eff}}
+\newcommand{\Eff}{\ensuremath{\mathrm{Eff}}}
+\newcommand{\cE}{\mathcal{E}}
+\DeclareMathOperator{\Syn}{Syn}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Ob}{Ob}
 \newcommand{\Verum}{\textsc{Verum}}
 \newcommand{\Coq}{\textsc{Coq}}
 \newcommand{\Lean}{\textsc{Lean}}
@@ -133,29 +137,7 @@ The proof assistant \Verum{} is analysed as a \emph{foundation-neutral host} for
 \section{Introduction}
 \label{sec:intro}
 
-Proof assistants have accumulated for six decades. Each embodies a specific foundation: \Coq{} / \textsc{Rocq} realises the Calculus of Inductive Constructions; \Lean{} 4 realises a dependent type theory with proof irrelevance; \Agda{} ships cubical type theory natively; \Isabelle{} / HOL implements a weakly classical higher-order logic; \Fstar{} couples refinement types with monadic effects; Dafny targets SMT-discharged contracts; Liquid Haskell decorates Haskell with refinement predicates; Mizar formalises Tarski--Grothendieck set theory; Metamath hosts a minimal substitution calculus over ZFC.
-
-Every one of these systems \emph{is} a foundation. The user who imports \Coq{} imports CIC; the user who imports \Lean{} imports Lean's dependent type theory; no separation is available. This architectural choice --- inherited from the LCF tradition of 1972 --- has forty years of accumulated libraries behind it, but it ties every corpus to a single $\LFnd$-point forever.
-
-\Verum{}~\cite{VerumRepo,VerumDocs} breaks the tie. Its standard library is not a foundation; it is a \emph{classifier apparatus} that hosts foundations as external inputs. Framework axioms (\texttt{@framework(name, "citation")}) supply $\LFnd$-points explicitly; the \texttt{core.theory\_interop} module provides a generic Yoneda / Kan / descent machinery applicable to any theory; the \texttt{verum\_kernel} trusted base operates uniformly across foundations. A user importing \Verum{} does not import a foundation; she imports a mechanism for classifying foundations. This is the MSFS programme~\cite{Sereda2026MSFS} realised in code.
-
-The paper establishes this claim formally (four correspondence theorems, \S\ref{sec:correspondences}), demonstrates it compositionally (theory-interop as generic $\LCls$ machinery, \S\ref{sec:theory-interop}), and positions it competitively (the foundation-neutrality gap no extant system can close, \S\ref{sec:competitive}).
-
-\subsection{The refactor as architectural orthodoxy}
-\label{subsec:refactor-orthodoxy}
-
-An early \Verum{} contained a \texttt{core.mathesis} module specialised to the Mathesis meta-mathematical programme, and documentation positioned UHM (Unitary Holonomic Monism) as ``Verum's flagship proof corpus.'' Both commitments have been retired. The rename of \texttt{core.mathesis} to \texttt{core.theory\_interop} --- and the replacement of the UHM-specific documentation page with a generic \texttt{proof-corpora.md} --- are not cosmetic; they reflect an MSFS-structural principle that the paper articulates as the main thesis.
-
-\begin{proposition}[Classifier neutrality under MSFS]
-\label{prop:classifier-neutrality}
-A member $\mathbf{F} \in \LCls$ is required by (M5) of~\cite[Definition \texttt{def:meta}]{Sereda2026MSFS} to be \emph{metatheory-parametrised}: $\mathbf{F}$ must resolve against an external Rich-metatheory parameter $S \in \RS$, not against one fixed internally. Consequently, any implementation aspiring to $\LCls$ membership must avoid privileging a specific $\LFnd$-point or application corpus.
-\end{proposition}
-
-\begin{proof}
-(M5) is a defining condition of $\LCls$. Violating it means the candidate classifier fails (M5), hence is not in $\LCls$.
-\end{proof}
-
-The refactor enforces Proposition \ref{prop:classifier-neutrality} operationally: \Verum{}'s stdlib is now (M5)-compliant by construction. Specific applications (UHM, HoTT book, physical corpora, genomics ontologies) are external cogs that \emph{consume} \Verum{}, not sub-modules \Verum{} privileges.
+This paper analyses the proof assistant \Verum{}~\cite{VerumRepo,VerumDocs} as a foundation-neutral host for the moduli space $\fM$ of Rich-foundations classified by MSFS~\cite{Sereda2026MSFS}. The standard library is architected as a classifier apparatus, not a foundation; framework axioms (\texttt{@framework}) supply $\LFnd$-points as external inputs, \texttt{core.theory\_interop} provides domain-neutral Yoneda/Kan/descent machinery, and the kernel operates uniformly across foundations. Four correspondence theorems (\S\ref{sec:correspondences}) formalise the alignment with MSFS strata.
 
 \subsection{Contribution}
 \label{subsec:contribution}
@@ -171,7 +153,7 @@ The refactor enforces Proposition \ref{prop:classifier-neutrality} operationally
 
 \item \textbf{Domain-neutrality theorem} (\S\ref{sec:theory-interop}): the \texttt{core.theory\_interop} module realises generic Yoneda / Kan / descent operations uniformly across all \Verum{}-hosted foundations (Theorem \ref{thm:interop-domain-neutral}).
 
-\item \textbf{Intensional self-positioning}: via the \Eff{}-topos invariant $\tau$ (MSFS \S 8.3), \Verum{} lies inside the $\MLTT$-slice of $\fM$, explaining the asymmetry of export compatibility (\S\ref{sec:mltt-ett}).
+\item \textbf{Intensional self-positioning}: via the \Eff{}-topos invariant $\tau$ (\cite[Theorem \texttt{thm:slice-locality}]{Sereda2026MSFS}), \Verum{} lies inside the $\MLTT$-slice of $\fM$, explaining the asymmetry of export compatibility (\S\ref{sec:mltt-ett}).
 
 \item \textbf{Corpus-neutrality}: proof corpora are external \Verum{} cogs whose MSFS coordinate is computed, not assumed (\S\ref{sec:corpora}).
 
@@ -182,8 +164,6 @@ The refactor enforces Proposition \ref{prop:classifier-neutrality} operationally
 
 \subsection{Competitive map}
 \label{subsec:competitive-map}
-
-Table~\ref{tab:competitive} summarises MSFS-level capabilities. The blank cell in \Verum{}'s row is the substance of this paper.
 
 \begin{table}[ht]
 \centering
@@ -207,21 +187,19 @@ Metamath       & $\times$   & $\times$   & $\times$   & $\times$   & $\times$   
 \end{tabular}
 \end{table}
 
-The FN column is the new post-refactor invariant --- the one no competitor has because no competitor architecturally separates language from foundation. The other seven columns follow from public documentation of each system.
-
-\subsection{Paper organisation}
-\label{subsec:organisation}
-
-\S\ref{sec:msfs-recalled} recalls MSFS strata. \S\ref{sec:verum-architecture} summarises \Verum{}'s architecture after the classifier-neutrality refactor. \S\ref{sec:correspondences} proves the four correspondence theorems. \S\ref{sec:theory-interop} establishes domain-neutrality of theory interop. \S\ref{sec:mltt-ett} fixes \Verum{}'s intensional coordinate. \S\ref{sec:corpora} discusses proof corpora as external $\LFnd$-consumers. \S\ref{sec:kr} develops knowledge-processing subsumption: \OWL{} and the wider KR landscape as \texttt{@framework}-hosted foundations, with certification dominance over industrial reasoners. \S\ref{sec:competitive} delivers the strict qualitative and structural competitive analysis across proof assistants, OWL2 reasoners, and HOL-based ontologies. \S\ref{sec:roadmap} sketches a dominance roadmap. \S\ref{sec:conclusion} concludes.
-
 \section{MSFS stratification recalled}
 \label{sec:msfs-recalled}
 
-We recall from~\cite{Sereda2026MSFS} the four strata and their defining conditions, sufficient for self-contained reading.
-
 \begin{definition}[Rich-metatheory]
 \label{def:rs-recalled}
-A metatheory $S$ is a \emph{Rich-foundation}, written $S \in \RS$, if it satisfies (R1) Peano interpretation, (R2) r.e.-axiomatisation, (R3) internal metatheory of sufficient strength, (R4) totality of recursive functions, and (R5) Morita-stability of the admissible model class.
+A metatheory $S$ is a \emph{Rich-foundation}, written $S \in \RS$, if it satisfies (recalled from~\cite[Definition \texttt{def:rs}]{Sereda2026MSFS}):
+\begin{description}[nosep]
+\item[(R1) Arithmetic completeness.] $S$ interprets Robinson arithmetic $\mathsf{Q}$.
+\item[(R2) Recursive enumerability.] The set of axioms of $S$ is r.e.
+\item[(R3) Model existence.] $S$ has at least one model $\cM$ in the ambient set-theoretic meta-universe $\mathbf{U}_2$ (Convention ZFC + 2-inacc).
+\item[(R4) G\"odel coding.] A recursive injection $\ulcorner \cdot \urcorner : \mathrm{Formulas}(S) \to \mathbb{N}$ exists with $S$-definable provability and well-formedness predicates.
+\item[(R5) Categorical semantics.] There is $n_S \in \mathbb{N} \cup \{\infty\}$ such that (R5a) $\Syn(S)$ is a $\kappa_S$-accessible $(\infty, n_S)$-category with $\kappa_S \in \{\kappa_1, \kappa_2\}$; (R5b) the $(\Syn, \Mod)$ adjunction's unit at $\Syn(S)$ is an $(\infty, n_S)$-equivalence onto the initial $S$-structured $(\infty, n_S)$-category.
+\end{description}
 \end{definition}
 
 \begin{definition}[The four strata]
@@ -232,7 +210,7 @@ A metatheory $S$ is a \emph{Rich-foundation}, written $S \in \RS$, if it satisfi
 \LClsMax  &= \{ \mathbf{F} \in \LCls : \mathbf{F} \text{ also satisfies (Max-1)--(Max-4)} \} \quad \text{(maximal classifiers)}. \\
 \LAbs     &= \{ X : X \text{ satisfies } (F_S) \wedge (\Pi_{4,S,n}) \wedge (\Pi_{3\text{-max},S,n}) \} \quad \text{(absolute foundations)}.
 \end{align*}
-AFN-T (MSFS Theorem 5.1) establishes $\LAbs = \emptyset$, with uniform five-axis absoluteness in $(S, n, \mu, \xi, \pi)$.
+AFN-T (\cite[Theorem \texttt{thm:afnt-alpha}]{Sereda2026MSFS}) establishes $\LAbs = \emptyset$, with uniform five-axis absoluteness in $(S, n, \mu, \xi, \pi)$.
 \end{definition}
 
 The conditions defining $\LCls$ are:
@@ -256,8 +234,6 @@ Three constructions from the Diakrisis programme~\cite{Diakrisis} are invoked:
 
 \section{\Verum{} architecture: classifier-neutrality by construction}
 \label{sec:verum-architecture}
-
-\Verum{} is a statically-typed compiled systems language with three reserved keywords (\texttt{let}, \texttt{fn}, \texttt{is}); all further syntax is contextual. The architecture after the classifier-neutrality refactor has six layers, each domain-neutral.
 
 \subsection{Core language}
 \label{subsec:core-language}
@@ -324,8 +300,6 @@ Both are domain-neutral: they operate against whatever foundation the user's \te
 \section{Four correspondence theorems}
 \label{sec:correspondences}
 
-We establish the four correspondences. Each correspondence is stated in a form free of specific-instance bias: the theorems quantify over all \Verum{} users, not over a privileged application.
-
 \subsection{Correspondence I: framework axioms $\leftrightarrow$ $\LFnd$}
 \label{subsec:corr1}
 
@@ -348,7 +322,7 @@ These are \emph{examples}, not privileged: $\mathrm{Fw}$ is defined uniformly on
 \end{theorem}
 
 \begin{proof}
-Each \texttt{@framework(name, "cit")} declaration asserts a (R1)--(R5)-satisfying metatheoretic assumption. Faithfulness: distinct \texttt{@framework} identifiers with different citations induce distinct $\LFnd$-points because the underlying metatheories differ in at least one (R1)--(R5) datum. Functoriality: citation-inclusion morphisms (cases where one framework is a sub-collection of another) are preserved. The functor makes no reference to stdlib versus user-cog provenance of the declaration.
+Each \texttt{@framework(name, "cit")} declaration asserts a metatheoretic assumption satisfying (R1)--(R5) of Definition~\ref{def:rs-recalled}. Faithfulness: distinct \texttt{@framework} identifiers with different citations induce distinct $\LFnd$-points (their underlying $\Syn$-categories differ in at least one (R5a) structural datum). Functoriality: citation-inclusion morphisms are preserved. The functor is stdlib/user-cog-blind.
 \end{proof}
 
 \begin{corollary}[Audit command as $\LFnd$-classifier]
@@ -377,13 +351,8 @@ Let $\mathbf{P}$ be a \Verum{} \texttt{protocol} declaration and $\cF_{\mathbf{P
 \end{proof}
 
 \begin{example}
-Stdlib protocols such as \texttt{Functor}, \texttt{Monad}, \texttt{Category}, \texttt{Topos} are classifiers in $\LCls$. The \texttt{core.math.cohesive} module is a full \Verum{}-internal realisation of Schreiber's cohesive framework~\cite{Schreiber2013} --- one of the three partial classifiers established by MSFS Theorem \texttt{thm:meta-mult}.
+Stdlib protocols such as \texttt{Functor}, \texttt{Monad}, \texttt{Category}, \texttt{Topos} are classifiers in $\LCls$. The \texttt{core.math.cohesive} module is a full \Verum{}-internal realisation of Schreiber's cohesive framework~\cite{Schreiber2013} --- one of the three partial classifiers of \cite[Theorem \texttt{thm:meta-mult}]{Sereda2026MSFS}.
 \end{example}
-
-\begin{remark}[No single protocol reaches $\LClsMax$]
-\label{rem:no-max-at-protocol-level}
-No individual \Verum{} protocol satisfies all of (Max-1)--(Max-4): no single protocol classifies every Rich-foundation. Reaching $\LClsMax$ requires the composite of the protocol-family together with the kernel's depth-stratification and the framework-axiom registry (see \S\ref{sec:roadmap}, R1).
-\end{remark}
 
 \subsection{Correspondence III: kernel $\leftrightarrow$ T-2f* + universal paradox-immunity}
 \label{subsec:corr3}
@@ -410,11 +379,6 @@ Let $\mathrm{Kernel}(\Verum)$ be the closed subcategory of \texttt{CoreTerm}s ac
 \label{cor:verum-universal-immunity}
 No proof corpus accepted by the kernel contains a Yanofsky-reducible paradoxical term. The immunity holds for every such paradox, not only the five historical families (Russell, Curry, Grelling, Burali-Forti, Girard).
 \end{corollary}
-
-\begin{remark}[Contrast with Coq / Lean universe hierarchies]
-\label{rem:universe-comparison}
-\Coq{} and \Lean{} implement universe levels with cumulativity rules that partially realise depth-stratification. The decisive difference: in \Coq{} and \Lean{} universe consistency is an \emph{engineering outcome}; in \Verum{} it is a \emph{theorem} about the kernel via Diakrisis 105.T. The transport from engineering claim to theorem is exactly what MSFS-native design buys.
-\end{remark}
 
 \subsection{Correspondence IV: verification strategies $\leftrightarrow$ $\nu$-invariant}
 \label{subsec:corr4}
@@ -470,19 +434,12 @@ The operations are defined entirely in terms of the \texttt{Theory} / \texttt{Cl
 \texttt{core.theory\_interop} together with the kernel realises a $\LCls$ classifier that accepts any theory in $\mathcal{T}$ as input. The classifier is (M5)-compliant by Theorem \ref{thm:interop-domain-neutral}: the ambient R-S is the input theory's own metatheory, not an internally fixed one.
 \end{corollary}
 
-\begin{remark}[The refactor payoff]
-\label{rem:refactor-payoff}
-Pre-refactor, the module was tied to Mathesis theories specifically, which would have failed (M5) and violated classifier-neutrality (Proposition \ref{prop:classifier-neutrality}). The rename and decoupling restore (M5)-compliance and make the correspondences I--IV hold without reference to any specific application.
-\end{remark}
-
 \section{\Verum{}'s intensional coordinate: the $\MLTT$-slice}
 \label{sec:mltt-ett}
 
-\Verum{} implements cubical path types natively (\texttt{core.math.hott}, \texttt{core.math.cubical}) with CCHM normalisation and propositional identity. It does not implement definitional-equality reflection, which would place it in the $\ETT$ slice~\cite{Hofmann1995}.
-
 \begin{proposition}[\Verum{} lies in the $\MLTT$-slice]
 \label{prop:verum-in-mltt-slice}
-With respect to the intensional refinement functor $\II : \cF^{\mathrm{op}} \to \Sint$ of MSFS Theorem 8.1:
+With respect to the intensional refinement functor $\II : \cF^{\mathrm{op}} \to \Sint$ of \cite[Theorem \texttt{thm:I-existence}]{Sereda2026MSFS}:
 \[
 \tau(\II(\Verum)) = 1,
 \]
@@ -500,8 +457,6 @@ Certified export (\verb|verum export --to|) is structurally lossless to \Coq, \L
 
 \section{Proof corpora as external $\LFnd$-consumers}
 \label{sec:corpora}
-
-A \Verum{} proof corpus is an external cog (package) satisfying a generic pattern documented in~\cite{VerumCorpora}. It is \emph{not} a stdlib extension. This is the architectural counterpart of Proposition \ref{prop:classifier-neutrality}: corpora consume \Verum{}, they do not privilege it.
 
 \begin{definition}[Proof corpus pattern]
 \label{def:corpus-pattern}
@@ -532,14 +487,8 @@ $\mathrm{Fw}(P)$ is computed by \verb|verum audit --framework-axioms|. The per-t
 No specific corpus is privileged by \Verum{}. Any cog meeting Definition \ref{def:corpus-pattern} receives an MSFS coordinate on the same footing as any other. The architecture does not distinguish mathematical, physical, engineering, or cross-domain corpora.
 \end{corollary}
 
-This is the operational meaning of the refactor. The former commitment to UHM as ``\Verum{}'s flagship corpus'' is incompatible with Corollary \ref{cor:corpus-neutrality}: a host that flags one corpus violates classifier-neutrality. The refactor eliminated the privilege; the resulting architecture is the one the paper describes.
-
 \section{Knowledge Processing: Ontologies and Reasoning as MSFS-Hosted Foundations}
 \label{sec:kr}
-
-The Semantic Web standard \OWL~\cite{OWL2Primer,OWL2Spec} defines a description-logic fragment (\textsf{SROIQ}) whose industrial reasoners --- \Pellet~\cite{Pellet2007}, \HermiT~\cite{HermiT2014}, \FactPP~\cite{FactPP2006}, \ELK~\cite{ELK2014}, \Konclude~\cite{Konclude2014} --- provide tableau-based consistency, classification, and instance-checking. Classical upper-ontology projects --- \SUMO~\cite{SUMO2004}, \Cyc~\cite{Cyc1995}, \DOLCE~\cite{DOLCE2003}, \BFO~\cite{BFO2015} --- embed knowledge in higher-order classical logic. Between them lies a structured zoo: \SWRL{} rules~\cite{SWRL2004}, Common Logic (ISO 24707), \RDF / \textsc{RDF\,S}, modal / epistemic / temporal / dynamic logics, default / circumscription / answer-set programming, probabilistic / fuzzy / possibilistic extensions.
-
-In MSFS terms, each paradigm is a point of $\LFnd$. The totality forms a sub-stack $\fM^{\mathrm{KR}} \subset \fM$; each entry satisfies (R1)--(R5) of Definition~\ref{def:rs-recalled} with a specific decidability-by-fragment profile and categorical semantics. This section establishes that \Verum{} is the first system to host this entire sub-stack uniformly, with kernel-verified certification on decidable fragments and interactive extension to undecidable ones --- a capability structurally unavailable to every industrial reasoner and every existing proof assistant.
 
 \subsection{The knowledge-representation landscape as $\LFnd$ sub-stack}
 \label{subsec:kr-landscape}
@@ -566,7 +515,7 @@ Each paradigm in Definition~\ref{def:kr-substack} satisfies (R1)--(R5) of Defini
 \end{proposition}
 
 \begin{proof}[Sketch]
-Each paradigm provides: (R1) Peano interpretation via its arithmetic sub-fragment (trivially for FOL-reducible DLs; through HOL for upper ontologies); (R2) r.e.-axiomatisation (finite or decidably r.e.\ axiom schemata in every listed case); (R3) standard model-class in a metatheory $S$ (ZFC for classical DL, Kripke-frame models for modal families, probability space models for probabilistic extensions); (R4) recursive totality of well-formed-formula checkers; (R5) Morita-stability via the standard translation zoo. Morita-closure of $\fM^{\mathrm{KR}}$ under the cited translations is well-known in description-logic theory~\cite{BaaderHandbook2017}.
+Each paradigm provides: (R1) $\mathsf{Q}$-interpretation via arithmetic sub-fragment (FOL-reducible DLs directly; upper ontologies through HOL); (R2) r.e.-axiomatisation (finite or decidable schemata in all listed cases); (R3) model in $\mathbf{U}_2$ (ZFC-models for classical DL, Kripke frames for modal, probability spaces for probabilistic); (R4) G\"odel coding of the formula set; (R5) syntactic $(\infty, n)$-category at $n = 1$ for FOL-fragment DLs, $n = 2$ for HOL-embedded upper ontologies, with Lambek--Scott adjunction via the standard-translation zoo. Morita-closure of $\fM^{\mathrm{KR}}$ under cited translations is well-known~\cite{BaaderHandbook2017}.
 \end{proof}
 
 \subsection{OWL\,2 as \texttt{@framework}-hosted foundation}
@@ -582,12 +531,12 @@ Let \texttt{core.kr.owl2} be a stdlib cog containing \texttt{@framework(owl2\_dl
 \begin{lstlisting}[caption={Illustrative skeleton of \texttt{core.kr.owl2}.}]
 module core.kr.owl2
 
-@framework(owl2_dl, "W3C OWL 2 Rec 2012, §9 SROIQ")
+@framework(owl2_dl, "W3C OWL 2 Rec 2012, sec.9 SROIQ")
 axiom Concept : Type;
 axiom Role    : Type;
 axiom Ind     : Type;  // individuals
 
-@framework(owl2_dl, "W3C OWL 2 Rec 2012, §3 Class Expressions")
+@framework(owl2_dl, "W3C OWL 2 Rec 2012, sec.3 Class Expressions")
 axiom Intersection : Concept -> Concept -> Concept;
 axiom Union        : Concept -> Concept -> Concept;
 axiom Complement   : Concept -> Concept;
@@ -597,7 +546,7 @@ axiom AtLeast      : Int -> Role -> Concept -> Concept;
 axiom AtMost       : Int -> Role -> Concept -> Concept;
 // ... full SROIQ operator set (nominals, inverse roles, transitive roles, etc.)
 
-@framework(owl2_dl, "W3C OWL 2 Rec 2012, §9 Semantics")
+@framework(owl2_dl, "W3C OWL 2 Rec 2012, sec.9 Semantics")
 axiom models : Interpretation -> Axiom -> Bool;
 
 @verify(certified)
@@ -624,11 +573,6 @@ Let $P$ be any reasoning task (consistency, classification, realisation, conjunc
 \begin{proof}
 (a) By Construction~\ref{constr:owl2-pkg} each $P$ admits a \Verum{} implementation whose proof of soundness against \texttt{core.kr.owl2}'s \texttt{@framework(owl2\_dl, ...)} axioms is a \texttt{@verify(certified)}-attributed \texttt{CoreTerm}, kernel-checked by Theorem~\ref{thm:kernel-paradox-immune}. (b) Publicly documented testing methodologies of the named reasoners rely on the W3C conformance corpus~\cite{OWL2Tests} and internal regression testing; no formal soundness proof of the implementation is available for any of them.
 \end{proof}
-
-\begin{remark}[Speed parity as an engineering deliverable]
-\label{rem:kr-cert-tradeoff}
-Theorem~\ref{thm:kr-cert-dominance} is a structural claim about \emph{correctness guarantee}; speed is a separate engineering concern with no architectural ceiling on \Verum's side. The tableau algorithm is the same across implementations; \Pellet{} and \HermiT{} run it in Java, \FactPP{} and \Konclude{} in C++. \Verum{} owns its compiler, runtime, and kernel end-to-end (current codebase: $\sim 3{,}937$ LOC kernel, $\sim 107{,}000$ LOC SMT infrastructure across Z3 / CVC5 / refinement / exhaustiveness backends via a shipped \texttt{backend\_trait} / \texttt{backend\_switcher} plugin interface, $\sim 59{,}859$ LOC verification and tactics, and certificate emission to Dedukti / Coq / Lean / OpenTheory / Metamath). A dedicated Rust-native \textsf{SROIQ} tableau reasoner is therefore an additional backend within the existing plugin architecture: native tableau speed (at or below the per-step cost of current industrial reasoners, given Rust's performance profile), emitting \texttt{CoreTerm}-certificates that the kernel re-checks in a single polynomial-time final pass. \emph{Speed parity with} \Pellet{} / \HermiT{} \emph{is an engineering deliverable of R6; kernel-verified correctness is already architectural}. The two advantages compose rather than trade: a user chooses between \emph{an empirically-validated fast opinion} (\Pellet) and \emph{an equally-fast formally-verified certificate} (\Verum{} post-R6). On speed today, the generic-SMT \texttt{@verify(formal)} path is slower than specialised tableau; this reflects the current absence of \texttt{core.kr.owl2\_tableau}, not an architectural constraint on \Verum.
-\end{remark}
 
 \subsection{Cross-paradigm translation via \texttt{core.theory\_interop}}
 \label{subsec:kr-cross-paradigm}
@@ -725,12 +669,11 @@ The $\nu$-invariant is the minimal $\mathsf{M}$-iteration depth at which the par
 \subsection{AC/OC duality: ontologies-as-articulations versus ontologies-as-practices}
 \label{subsec:kr-ac-oc}
 
-By the AC/OC duality of \cite[§11]{Sereda2026MSFS}, each KR paradigm $K \in \fM^{\mathrm{KR}}$ has a dual enactment-centric description: if $K$ is an \emph{ontology as articulation} (a theory with signature and axioms), its dual $\varepsilon(K)$ is an \emph{ontology-in-use-as-practice} (a structured family of reasoning acts, with pointing $\iota$ identifying syntactic core and reflector $r$ extracting it). On the KR sub-stack this gives a principled separation between:
+By the AC/OC duality of \cite[\S ac-oc-duality]{Sereda2026MSFS}, each KR paradigm $K \in \fM^{\mathrm{KR}}$ has a dual enactment-centric description: if $K$ is an \emph{ontology as articulation} (a theory with signature and axioms), its dual $\varepsilon(K)$ is an \emph{ontology-in-use-as-practice} (a structured family of reasoning acts, with pointing $\iota$ identifying syntactic core and reflector $r$ extracting it). On the KR sub-stack this gives a principled separation between:
 \begin{itemize}[nosep]
 \item static ontological content (articulation side: signature, axioms, models);
 \item reasoning practice (enactment side: tableau expansion, rule firing, model-construction).
 \end{itemize}
-\Verum{}'s \texttt{core.action.*} sketch (see the Diakrisis Актика corpus~\cite{Diakrisis}) hosts the enactment side symmetrically with the articulation side. This is relevant to the AFN-T / Dual-AFN-T statement of \S\ref{subsec:kr-afnt-consequence} below.
 
 \subsection{AFN-T and Dual-AFN-T specialised to knowledge representation}
 \label{subsec:kr-afnt-consequence}
@@ -742,14 +685,13 @@ No ontology $X \in \fM^{\mathrm{KR}}$ satisfies the absolute-foundation triple $
 
 \begin{corollary}[No absolute reasoning practice]
 \label{cor:kr-dual-afnt}
-Dually, no reasoning practice $\varepsilon \in \fM^{\mathrm{KR}}_{\cE}$ is enactment-absolute. Claims of a \emph{universal inference engine} are structurally foreclosed by Dual-AFN-T~\cite[§11]{Sereda2026MSFS}.
+Dually, no reasoning practice $\varepsilon \in \fM^{\mathrm{KR}}_{\cE}$ is enactment-absolute. Claims of a \emph{universal inference engine} are structurally foreclosed by Dual-AFN-T~\cite[\S ac-oc-duality]{Sereda2026MSFS}.
 \end{corollary}
 
-\begin{remark}[The constructive reading]
-Corollaries~\ref{cor:kr-afnt} and~\ref{cor:kr-dual-afnt} are not dismissive of upper-ontology projects. They state precisely what such projects can and cannot claim: a partial classifier at $\LCls$ is achievable; maximality at $\LClsMax$ requires explicit constraints; absoluteness at $\LAbs$ is structurally impossible. The upper-ontology enterprise is redirected from an impossible quest to a well-defined target within MSFS.
-\end{remark}
-
 No extant proof assistant is foundation-neutral. This section establishes the claim by examining each major system.
+
+\section{Competitive analysis}
+\label{sec:competitive}
 
 \subsection{Formal criteria of comparison}
 \label{subsec:comparison-criteria}
@@ -771,7 +713,7 @@ To avoid rhetorical comparison, we fix fifteen formal criteria that partition th
 \item[C\textsubscript{12} Non-monotonic / epistemic / probabilistic hosting.] First-class support for default logic, circumscription, ASP, modal families, probabilistic / fuzzy DL.
 \item[C\textsubscript{13} Computable MSFS coordinate.] A corpus's position in $\fM$ (triple $(\mathrm{Fw}(P), \nu(P), \tau(P))$) is computed by a shipped command, not assumed.
 \item[C\textsubscript{14} Yanofsky-universal paradox-immunity.] Every self-referential term reducible to a Yanofsky diagonal is kernel-rejected (not just the five historical families).
-\item[C\textsubscript{15} AC/OC dual hosting.] Ontologies-as-practices (\cite[§11]{Sereda2026MSFS} enactment side) hosted symmetrically with ontologies-as-theories via \texttt{core.action.*}.
+\item[C\textsubscript{15} AC/OC dual hosting.] Ontologies-as-practices (\cite[\S ac-oc-duality]{Sereda2026MSFS} enactment side) hosted symmetrically with ontologies-as-theories via \texttt{core.action.*}.
 \end{description}
 
 \subsection{Strict comparison matrix}
@@ -807,88 +749,8 @@ Metamath          & ZFC & $\times$ & $\times$ & \checkmark & $\times$ & $\times$
 \end{tabular}
 \end{table}
 
-\begin{remark}[Reading the matrix]
-Only \Verum{} is $\checkmark$ across C\textsubscript{1}, C\textsubscript{2}, C\textsubscript{8}, C\textsubscript{10}, C\textsubscript{11}, C\textsubscript{13}, C\textsubscript{14}, C\textsubscript{15} --- the eight criteria that define post-MSFS classifier-neutrality. Proof assistants recover most of C\textsubscript{3}--C\textsubscript{7} but uniformly lack C\textsubscript{1}. OWL\,2 reasoners recover C\textsubscript{9} but nothing else. No non-\Verum{} system has $\checkmark$ in even half the criteria simultaneously.
-\end{remark}
-
-\subsection{Transient engineering surface area}
-\label{subsec:transient-surface}
-
-Verum owns its compiler, runtime, kernel, SMT integration, verification tactics, and certificate emission end-to-end: there is no upstream dependency or external commitment that limits what the system can implement. The residual engineering gaps relative to established systems are therefore \emph{transient}: they enumerate the work not yet done, not work that is architecturally blocked. Each entry below is a development target with a concrete upper bar.
-
-\paragraph{Tableau-speed parity for \OWL-\textsc{DL}.} Industrial reasoners run a well-known tableau algorithm in Java (\Pellet, \HermiT) or C++ (\FactPP, \Konclude). The algorithm is public; Rust performance is on a par with C++ and strictly above Java for this class of workload. A dedicated \texttt{core.kr.owl2\_tableau} crate within \Verum's existing \texttt{backend\_trait} / \texttt{backend\_switcher} plugin architecture (\texttt{crates/verum\_smt}) emits \texttt{CoreTerm}-certificates re-checked once at the kernel level. \textbf{Upper target:} match or exceed \Pellet{} / \HermiT{} wall-clock on the ORE-2015 and W3C conformance suites; first formally-verified OWL\,2 reasoner at industrial throughput (R6).
-
-\paragraph{Large mathematical corpora.} Verum's corpora are currently early-stage; \textsc{Mathcomp}, \textsc{Mathlib}, and the \textsc{AFP} each represent tens of person-years. The \texttt{verum export} bridge (R2) makes these libraries addressable from \Verum{} as external \texttt{@framework}-certificate imports; new native corpora accumulate monotonically. \textbf{Upper target:} a \Verum-native corpus of Mathcomp scale within three years, with all imported \textsc{Mathlib} / \textsc{AFP} theorems accessible as certified external claims.
-
-\paragraph{Industrial tool-chain maturity.} The \texttt{crates/verum\_lsp} language server, \texttt{crates/verum\_dap} debug adapter, and \texttt{crates/verum\_interactive} REPL are present; editor modes, proof-search heuristics, and IDE integrations are in active development. \textbf{Upper target:} IDE UX at parity with \Lean{} / \Coq{} within two release cycles; tactic-suggestion heuristics trained on the post-R7 KR corpora.
-
-\paragraph{Kernel audit surface.} \Coq's kernel benefits from twenty-plus years of public scrutiny. \Verum's kernel is architected around Yanofsky-immunity by construction (Theorem~\ref{thm:kernel-paradox-immune}) and is open-sourced for inspection. \textbf{Upper target:} independent audit by an external category-theoretic review team and mechanised self-verification (R5, where \Verum{} proves the four correspondence theorems about itself inside itself).
-
-\paragraph{Scope of the transient surface.} The pattern is uniform: every engineering gap is a bounded development target within an architecture that already exists. None of the transient gaps above is structural; none requires redesigning kernel, typechecker, or foundation layer.
-
-\subsection{Architectural dominance, engineering trajectory}
-
-Table~\ref{tab:strict-comparison} records \Verum's architectural dominance across all fifteen criteria. The engineering trajectory is monotone and bounded: every transient gap closes through code delivered within the existing architecture. The two categories are complementary rather than competing: architectural criteria define what the system is; engineering criteria define how much of its own capability is currently realised. \Verum{}'s architecture sets the capability frontier; its engineering trajectory populates it, with explicit upper targets (\S\ref{sec:roadmap}). Competing systems face the inverse problem: their engineering maturity is high but their architectural frontier is fixed at a single $\LFnd$-point.
-
-\subsection{System-by-system (foundation-entanglement)}
-\label{subsec:system-by-system}
-
-\paragraph{\Coq / \textsc{Rocq}.} CIC is the foundation; any corpus written in \Coq{} is a CIC corpus. No mechanism separates language from foundation. No \texttt{@framework}-style citation layer. Cross-universe proofs require coercions encoded explicitly. No nine-strategy ladder.
-
-\textbf{Foundation-neutrality}: fails structurally.
-
-\paragraph{\Lean 4.} A dependent type theory variant with proof irrelevance and classical axioms. Similar entanglement to \Coq: the foundation is built-in, not hosted. No citation layer for external axioms.
-
-\textbf{Foundation-neutrality}: fails structurally.
-
-\paragraph{\Agda.} Cubical type theory native. The foundation is the type theory; no separation. No framework-axiom attribution.
-
-\textbf{Foundation-neutrality}: fails structurally.
-
-\paragraph{\Isabelle{}/HOL.} Simple-type theory with polymorphism; $\ETT$-slice system (Corollary \ref{cor:export-compat}). Foundation is fixed as HOL. Locale mechanism achieves partial parametrisation within HOL but does not admit alternative foundations.
-
-\textbf{Foundation-neutrality}: fails structurally.
-
-\paragraph{\Fstar{}.} Refinement types over a monadic effects system with Z3. Foundation is F$^\ast$'s internal type theory. No framework citation layer.
-
-\textbf{Foundation-neutrality}: fails structurally.
-
-\paragraph{Dafny, Liquid Haskell.} SMT-only verification over an imperative or Haskell base language. Not meta-foundational systems: they target industrial code verification, not foundational research.
-
-\textbf{Foundation-neutrality}: not attempted.
-
-\paragraph{Mizar, Metamath.} Tarski--Grothendieck set theory (Mizar) and a minimal substitution calculus over ZFC (Metamath). Large libraries built on a fixed foundation; no mechanism to host alternatives.
-
-\textbf{Foundation-neutrality}: fails structurally.
-
-\paragraph{\Pellet{}~\cite{Pellet2007}.} Java tableau reasoner for \OWL-\textsc{DL} (\textsf{SROIQ}). Consistency, classification, realisation via optimised tableau expansion with blocking strategies. SWRL-extension plugin. No proof of soundness against W3C semantics; correctness claim rests on W3C conformance-test conformance. No framework-axiom layer; no cross-paradigm translation; no $\nu$-graded verification ladder; reasoning scope fixed at \textsf{SROIQ}.
-
-\textbf{Foundation-neutrality}: fails structurally (class is \OWL-\textsc{DL} only, no $\LFnd$ hosting).
-
-\paragraph{\HermiT{}~\cite{HermiT2014}.} Java hypertableau reasoner with anywhere-blocking; typically faster than \Pellet{} on classification of large ontologies. Same fundamental scope (\OWL-\textsc{DL}) and the same structural limitations: no certified soundness, no cross-paradigm, no classifier-neutrality.
-
-\textbf{Foundation-neutrality}: fails structurally.
-
-\paragraph{\FactPP{}~\cite{FactPP2006}.} C++ tableau reasoner; engineered for raw performance. Scope and limitations match \Pellet{} / \HermiT{}; no certification layer.
-
-\textbf{Foundation-neutrality}: fails structurally.
-
-\paragraph{\ELK{}~\cite{ELK2014}.} Java consequence-based reasoner restricted to \OWL-\textsc{EL} (polynomial-time fragment). Highly efficient classification on biomedical ontologies such as SNOMED CT. Restricted to \textsf{EL}; cannot reason over \textsf{SROIQ} features (inverse roles, nominals, qualified number restrictions).
-
-\textbf{Foundation-neutrality}: fails structurally (single sub-fragment of \OWL-\textsc{DL}).
-
-\paragraph{\Konclude{}~\cite{Konclude2014}.} Commercial/research C++ tableau and consequence-based hybrid reasoner; often competitive on ORE benchmarks. Same architectural class as \Pellet{} / \HermiT{}.
-
-\textbf{Foundation-neutrality}: fails structurally.
-
-\paragraph{HOL-based upper ontologies (\SUMO, \Cyc, \DOLCE, \BFO).} Not reasoners but ontology corpora encoded in higher-order logic (with HOL-reasoners such as \textsc{Leo-III} or with inference-engine plugins). Each corpus commits to its own HOL variant and its own world-view axiomatisation; no uniform classifier-layer; no MSFS coordinate mechanism; the corpus-as-ontology is itself the foundation.
-
-\textbf{Foundation-neutrality}: not attempted (each corpus \emph{is} a foundation).
-
 \subsection{The structural gap}
 \label{subsec:structural-gap}
-
-Every competing system entangles language with foundation at the deepest level. This was the LCF tradition: choose a type theory, build everything else on top. \Verum{} breaks the tradition by exposing the foundation as an input, not a commitment.
 
 \begin{theorem}[Foundation-entanglement as MSFS-opacity]
 \label{thm:entanglement}
@@ -929,84 +791,10 @@ Adding foundation-neutrality to \Coq, \Lean, \Agda, \Isabelle, \Fstar, Dafny, Li
 (1) alone typically doubles kernel complexity and invalidates existing library compatibility. No such retrofit has been publicly undertaken.
 \end{theorem}
 
-The burden is not incidental. It reflects the forty-year-old LCF commitment to language-foundation entanglement, which \Verum{} rejects from the start.
-
-\section{Roadmap}
-\label{sec:roadmap}
-
-Five research directions complete the dominance claim.
-
-\subsection{R1 --- Kernel realises 106.T maximality}
-
-Theorem \ref{thm:mathesis-diakrisis-like} (see below) establishes \Verum{} + \texttt{core.theory\_interop} + kernel as a \emph{candidate} for $\LClsMax$ membership. Progressing to theorem requires formalising (Max-1)--(Max-4) in \Verum{} itself as refinement predicates on the kernel structure and proving each from the \texttt{CoreTerm} calculus + framework-axiom registry. Completion yields $\Verum \in \LClsMax$ as mechanised theorem.
-
-\begin{theorem}[Composite candidature]
-\label{thm:mathesis-diakrisis-like}
-The composite $\Verum + \mathtt{core.theory\_interop} + \mathrm{kernel}$ satisfies (Max-1)--(Max-3) on the class of \Verum{}-expressible theories, with (Max-4) inherited from Proposition \ref{prop:verum-in-mltt-slice}.
-\end{theorem}
-
-\begin{proof}[Sketch]
-(Max-1): any R-S importable via \texttt{@framework} is in $\cF$, so the classification image covers all \Verum{}-reachable $\LFnd$-points. (Max-2): gauge-fullness is realised by the module-system's alias-and-reference mechanism. (Max-3): T-2f* is Theorem \ref{thm:kernel-paradox-immune}(b). (Max-4): slice-locality inherited from $\tau(\II(\Verum)) = 1$.
-\end{proof}
-
-\subsection{R2 --- Cross-foundation certified-export layer}
-
-Corollary \ref{cor:export-compat} establishes $\MLTT$-slice export compatibility. A full \verb|verum export --to dedukti| implementation realising the Dedukti universal-logic translation scheme gives \Verum{} a uniform bridge to every downstream system. Mathematical content: each export is a gauge-transformation in $\fM$; the computation is a coherent 2-functor between $\LFnd$-points.
-
-\subsection{R3 --- Extended framework-axiom packages}
-
-The six current stdlib packages form a partial $\LCls$-cover of the physics/higher-category corner of $\fM$. Extension to Voevodsky motivic homotopy, Hyland effective topos, operad theory (Boardman--Vogt), derived algebraic geometry (To\"en--Vezzosi), reverse-mathematics boundaries (Simpson), and computable analysis (Weihrauch) gives \Verum{} the broadest catalogued $\LFnd$-index of any proof assistant.
-
-\subsection{R4 --- First cross-foundation corpus}
-
-A corpus conforming to Definition \ref{def:corpus-pattern} that legitimately depends on two \emph{distinct} $\LFnd$-points simultaneously --- e.g., a category-theoretic fact that requires both Lurie HTT and Schreiber DCCT --- is not constructible in any non-\Verum{} system. Building the first such corpus demonstrates foundation-composability in practice.
-
-\subsection{R5 --- \Verum{} as formally verified in \Verum{}}
-
-The ultimate self-reference: a \Verum{} corpus formalising the four correspondence theorems of this paper, kernel re-checked. This closes the meta-loop: \Verum{}'s MSFS position is not only stated but mechanised inside \Verum{} itself. Theorem \ref{thm:kernel-paradox-immune}(c) ensures this self-reference is Yanofsky-immune by construction.
-
-\subsection{R6 --- Complete \OWL{} integration with certification and speed parity}
-\label{subsec:r6-owl2}
-
-Full \texttt{core.kr.owl2} stdlib package realised as a dedicated Rust-native tableau backend within \Verum's existing \texttt{backend\_trait} / \texttt{backend\_switcher} plugin architecture: full \textsf{SROIQ} operator set, W3C model-theoretic semantics, standard translation to FOL, certified tableau algorithm, consequence-based \textsf{EL} reasoner for tractable sub-profiles.
-
-\paragraph{Performance upper targets.}
-\begin{enumerate}[label=(\roman*), nosep]
-\item Wall-clock consistency, classification, and realisation on the W3C OWL\,2 conformance suite~\cite{OWL2Tests} at or below \Pellet{} / \HermiT{} latency, measured on standard hardware;
-\item ORE-2015 competition benchmark coverage at or below \HermiT{} wall-clock for ontology classification tasks in $\textsf{SROIQ}$ and at or below \ELK{} for \textsf{EL}-profile tasks;
-\item SNOMED\,CT, GALEN, and NCI Thesaurus classification at biomedical-production throughput;
-\item Kernel re-check of emitted \texttt{CoreTerm}-certificates in polynomial final-pass time, independent of ABox size.
-\end{enumerate}
-
-\paragraph{Correctness upper targets.}
-\begin{enumerate}[label=(\roman*), nosep]
-\item Formal soundness of the tableau algorithm against the W3C model-theoretic semantics, kernel-verified via Theorem~\ref{thm:kr-cert-dominance};
-\item First formally-verified OWL\,2 reasoner in the literature;
-\item Completeness certificate for decidable fragments with automated counterexample extraction on failure.
-\end{enumerate}
-
-\paragraph{Architectural consequence.} Upon completion, industrial reasoners are superseded on \emph{both} axes: \Verum{} matches throughput while owning correctness. The historical speed-vs-certification trade-off is dissolved, not bargained.
-
-\subsection{R7 --- KR-paradigm federation}
-\label{subsec:r7-kr-federation}
-
-A \texttt{core.kr.*} namespace federating all paradigms of Definition~\ref{def:kr-substack}: \texttt{core.kr.owl2}, \texttt{core.kr.swrl}, \texttt{core.kr.common\_logic}, \texttt{core.kr.modal}, \texttt{core.kr.epistemic}, \texttt{core.kr.temporal}, \texttt{core.kr.dynamic}, \texttt{core.kr.mu\_calculus}, \texttt{core.kr.default}, \texttt{core.kr.circumscription}, \texttt{core.kr.asp}, \texttt{core.kr.probabilistic}, \texttt{core.kr.fuzzy}, \texttt{core.kr.possibilistic}. Each package declares \texttt{@framework}-axioms, Kripke-style or probability-space semantics, and standard translation to a coarser paradigm. Cross-package translation uses \texttt{core.theory\_interop} with certified gauge-witnesses (Theorem~\ref{thm:kr-cross-paradigm}). Result: the first system delivering certified cross-paradigm knowledge reasoning.
-
-\subsection{R8 --- Upper-ontology adaptation as MSFS corpora}
-\label{subsec:r8-upper-ontologies}
-
-\SUMO, \Cyc{}L, \DOLCE, \BFO{} formalised as \Verum{} proof corpora conforming to Definition~\ref{def:corpus-pattern}. Each corpus receives its MSFS coordinate (Theorem~\ref{thm:corpus-msfs-coordinate}); mutual gauge-equivalences (e.g., \DOLCE{} $\sim$ \BFO{} modulo ontological-commitment differences) become \Verum{} theorems; ontological incompatibilities become formally-witnessed non-equivalences in $\fM^{\mathrm{KR}}$. Result: upper ontologies repositioned from \emph{absolute-ontology candidates} (foreclosed by Corollary~\ref{cor:kr-afnt}) to \emph{partial classifiers at $\LCls$} with explicit MSFS coordinates.
-
 \section{Conclusion}
 \label{sec:conclusion}
 
-\Verum{} is the first proof assistant whose architecture was composed after MSFS, and the only one whose stdlib is structured as a classifier rather than as a foundation. Four correspondence theorems establish the alignment with MSFS strata (Theorems \ref{thm:fnd-correspondence}--\ref{thm:verify-ladder}). The \texttt{core.theory\_interop} refactor is not cosmetic: it enforces (M5)-classifier-neutrality operationally (Proposition \ref{prop:classifier-neutrality}, Theorem \ref{thm:interop-domain-neutral}). Proof corpora inherit computable MSFS coordinates (Theorem \ref{thm:corpus-msfs-coordinate}) on equal footing (Corollary \ref{cor:corpus-neutrality}).
-
-The competitive analysis (\S\ref{sec:competitive}) establishes that no extant proof assistant can close the gap without dismantling its kernel. The advantages that follow --- multi-foundation corpora (A1), foundation-as-data (A2), universal paradox-immunity (A3), cross-foundation gauge witnesses (A4) --- are structurally inaccessible to systems that entangle language with foundation.
-
-The roadmap (\S\ref{sec:roadmap}) identifies five directions whose completion establishes \Verum{} as categorially dominant --- the unique computable realisation of the maximal classifier stratum $\LClsMax$. The path is concrete; the research programme is well-defined.
-
-\Verum{} is not a proof assistant that happens to be structurally clean. It is the first proof assistant for which \emph{structural cleanliness is the theorem of the system about itself}, and the first whose separation of language from foundation makes MSFS grounding an architectural invariant rather than a feature list.
+The correspondence theorems (Theorems~\ref{thm:fnd-correspondence}--\ref{thm:verify-ladder}) align \Verum{} architectural constructs with MSFS strata: \texttt{@framework} with $\LFnd$, \texttt{protocol} with $\LCls$, kernel with T-2f* depth-stratification, \texttt{@verify(strategy)} with the Diakrisis $\nu$-invariant. Corollaries~\ref{cor:verum-universal-immunity}, \ref{cor:export-compat}, \ref{cor:corpus-neutrality}, \ref{cor:kr-afnt}, \ref{cor:kr-dual-afnt} specialise AFN-T and its dual to \Verum{} corpora and knowledge-representation.
 
 \begin{thebibliography}{99}
 
@@ -1030,11 +818,6 @@ The Verum Team (2026).
 \newblock \emph{Verum Language Documentation.}
 \newblock \url{https://verum-lang.org/docs/intro}.
 
-\bibitem{VerumCorpora}
-The Verum Team (2026).
-\newblock \emph{Verum Proof Corpora: layout, stratification, status tracking, release gates.}
-\newblock \url{https://verum-lang.org/docs/verification/proof-corpora}.
-
 \bibitem{CCHM2015}
 Cohen, C., Coquand, T., Huber, S., M\"ortberg, A. (2018).
 \newblock Cubical type theory: a constructive interpretation of the univalence axiom.
@@ -1045,139 +828,21 @@ Huber, S. (2019).
 \newblock Canonicity for cubical type theory.
 \newblock \emph{Journal of Automated Reasoning}, 63(2):173--210.
 
-\bibitem{Hofmann1995}
-Hofmann, M. (1995).
-\newblock \emph{Extensional Concepts in Intensional Type Theory.}
-\newblock PhD thesis, University of Edinburgh.
-
 \bibitem{Yanofsky2003}
 Yanofsky, N.~S. (2003).
 \newblock A universal approach to self-referential paradoxes, incompleteness and fixed points.
 \newblock \emph{Bulletin of Symbolic Logic}, 9(3):362--386.
-
-\bibitem{LurieHTT}
-Lurie, J. (2009).
-\newblock \emph{Higher Topos Theory.}
-\newblock Annals of Mathematics Studies 170. Princeton University Press.
 
 \bibitem{Schreiber2013}
 Schreiber, U. (2013).
 \newblock Differential cohomology in a cohesive $\infty$-topos.
 \newblock \url{https://ncatlab.org/schreiber/show/differential+cohomology+in+a+cohesive+topos}.
 
-\bibitem{Connes1994}
-Connes, A. (1994).
-\newblock \emph{Noncommutative Geometry.}
-\newblock Academic Press.
-
-\bibitem{Hyland1982}
-Hyland, J.~M.~E. (1982).
-\newblock The effective topos.
-\newblock In \emph{The L.E.J.~Brouwer Centenary Symposium}, pp.~165--216. North-Holland.
-
-\bibitem{Gonthier2012}
-Gonthier, G., et al. (2012).
-\newblock \emph{A Machine-Checked Proof of the Odd Order Theorem.}
-\newblock Coq formalisation; cited as representative large-scale Coq corpus.
-
-\bibitem{deMoura2021}
-de Moura, L., Ullrich, S. (2021).
-\newblock The Lean 4 Theorem Prover and Programming Language.
-\newblock \emph{Automated Deduction — CADE 28}, pp.~625--635. Springer.
-
-\bibitem{Norell2007}
-Norell, U. (2007).
-\newblock \emph{Towards a Practical Programming Language Based on Dependent Type Theory.}
-\newblock PhD thesis, Chalmers University of Technology.
-
-\bibitem{Paulson1994}
-Paulson, L.~C. (1994).
-\newblock \emph{Isabelle: A Generic Theorem Prover.}
-\newblock LNCS 828. Springer.
-
-\bibitem{Swamy2016}
-Swamy, N., et al. (2016).
-\newblock Dependent types and multi-monadic effects in F$^\ast$.
-\newblock \emph{POPL 2016}, pp.~256--270. ACM.
-
-\bibitem{Leino2010}
-Leino, K.~R.~M. (2010).
-\newblock Dafny: An automatic program verifier for functional correctness.
-\newblock \emph{LPAR-16}, pp.~348--370. Springer.
-
-\bibitem{Vazou2014}
-Vazou, N., et al. (2014).
-\newblock Refinement types for Haskell.
-\newblock \emph{ICFP 2014}, pp.~269--282. ACM.
-
-\bibitem{Trybulec2007}
-Trybulec, A., et al. (2007).
-\newblock Mizar: State and perspectives.
-\newblock \emph{Journal of Automated Reasoning}, 41(4).
-
-\bibitem{Megill2019}
-Megill, N., Wheeler, D.~A. (2019).
-\newblock \emph{Metamath: A Computer Language for Mathematical Proofs.}
-\newblock \url{http://us.metamath.org/}.
-
-\bibitem{RiehlVerity2022}
-Riehl, E., Verity, D. (2022).
-\newblock \emph{Elements of $\infty$-Category Theory.}
-\newblock Cambridge University Press.
-
-\bibitem{HoTTBook2013}
-Univalent Foundations Program (2013).
-\newblock \emph{Homotopy Type Theory: Univalent Foundations of Mathematics.}
-\newblock Institute for Advanced Study.
-
-\bibitem{OWL2Primer}
-Hitzler, P., Kr\"otzsch, M., Parsia, B., Patel-Schneider, P.F., Rudolph, S. (eds.) (2012).
-\newblock \emph{OWL\,2 Web Ontology Language Primer (Second Edition).}
-\newblock W3C Recommendation.
-\newblock \url{https://www.w3.org/TR/owl2-primer/}.
-
-\bibitem{OWL2Spec}
-Motik, B., Patel-Schneider, P.F., Parsia, B. (eds.) (2012).
-\newblock \emph{OWL\,2 Web Ontology Language Structural Specification and Functional-Style Syntax (Second Edition).}
-\newblock W3C Recommendation.
-\newblock \url{https://www.w3.org/TR/owl2-syntax/}.
-
 \bibitem{OWL2Tests}
 W3C OWL Working Group (2012).
 \newblock \emph{OWL\,2 Test Cases.}
 \newblock W3C Recommendation.
 \newblock \url{https://www.w3.org/TR/owl2-test/}.
-
-\bibitem{SWRL2004}
-Horrocks, I., Patel-Schneider, P.F., Boley, H., Tabet, S., Grosof, B., Dean, M. (2004).
-\newblock \emph{SWRL: A Semantic Web Rule Language Combining OWL and RuleML.}
-\newblock W3C Member Submission.
-\newblock \url{https://www.w3.org/Submission/SWRL/}.
-
-\bibitem{Pellet2007}
-Sirin, E., Parsia, B., Grau, B.C., Kalyanpur, A., Katz, Y. (2007).
-\newblock Pellet: a practical OWL-DL reasoner.
-\newblock \emph{Journal of Web Semantics}, 5(2):51--53.
-
-\bibitem{HermiT2014}
-Glimm, B., Horrocks, I., Motik, B., Stoilos, G., Wang, Z. (2014).
-\newblock HermiT: an OWL\,2 reasoner.
-\newblock \emph{Journal of Automated Reasoning}, 53(3):245--269.
-
-\bibitem{FactPP2006}
-Tsarkov, D., Horrocks, I. (2006).
-\newblock FaCT++ description logic reasoner: system description.
-\newblock \emph{IJCAR 2006}, LNCS 4130, pp.~292--297.
-
-\bibitem{ELK2014}
-Kazakov, Y., Kr\"otzsch, M., Simančík, F. (2014).
-\newblock The incredible ELK: from polynomial procedures to efficient reasoning with EL ontologies.
-\newblock \emph{Journal of Automated Reasoning}, 53(1):1--61.
-
-\bibitem{Konclude2014}
-Steigmiller, A., Liebig, T., Glimm, B. (2014).
-\newblock Konclude: system description.
-\newblock \emph{Journal of Web Semantics}, 27:78--85.
 
 \bibitem{BaaderHandbook2017}
 Baader, F., Horrocks, I., Lutz, C., Sattler, U. (2017).
@@ -1188,26 +853,6 @@ Baader, F., Horrocks, I., Lutz, C., Sattler, U. (2017).
 Rudolph, S., Horrocks, I. (2019).
 \newblock \emph{OWL\,2 Functional-Style operators from HOL point of view.}
 \newblock Technical report; ResearchGate preprint 336363623.
-
-\bibitem{SUMO2004}
-Niles, I., Pease, A. (2001).
-\newblock Towards a standard upper ontology.
-\newblock \emph{FOIS 2001}, ACM, pp.~2--9; subsequent elaborations in IEEE SUMO papers.
-
-\bibitem{Cyc1995}
-Lenat, D.B. (1995).
-\newblock CYC: a large-scale investment in knowledge infrastructure.
-\newblock \emph{Communications of the ACM}, 38(11):33--38.
-
-\bibitem{DOLCE2003}
-Masolo, C., Borgo, S., Gangemi, A., Guarino, N., Oltramari, A. (2003).
-\newblock \emph{WonderWeb Deliverable D18: Ontology Library (final).}
-\newblock Laboratory for Applied Ontology, CNR.
-
-\bibitem{BFO2015}
-Arp, R., Smith, B., Spear, A.D. (2015).
-\newblock \emph{Building Ontologies with Basic Formal Ontology.}
-\newblock MIT Press.
 
 \end{thebibliography}
 
