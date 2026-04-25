@@ -1,0 +1,204 @@
+\documentclass[11pt]{article}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{microtype}
+
+\emergencystretch=2em
+\tolerance=1500
+\hbadness=10000
+\binoppenalty=700
+\relpenalty=500
+
+\usepackage{amsmath,amssymb,amsthm,mathtools,bm,mathrsfs}
+\usepackage{longtable,booktabs,array,multirow}
+\usepackage{textcomp}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{framed}
+\usepackage{fancyvrb}
+\usepackage{ragged2e}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta, positioning, calc, shapes.geometric, fit, decorations.pathreplacing}
+\usepackage{caption}
+
+% Theorem environments (Russian)
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}[section]
+\newtheorem{lemma}[theorem]{Лемма}
+\newtheorem{proposition}[theorem]{Предложение}
+\newtheorem{corollary}[theorem]{Следствие}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Определение}
+\newtheorem{example}[theorem]{Пример}
+\newtheorem{remark}[theorem]{Замечание}
+\newtheorem{convention}[theorem]{Соглашение}
+
+% Custom commands (same as English)
+\newcommand{\RS}{\mathrm{R\text{-}S}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cL}{\mathcal{L}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\fM}{\mathfrak{M}}
+\newcommand{\Meta}{\mathfrak{Meta}}
+\newcommand{\LFnd}{\mathcal{L}_{\mathrm{Fnd}}}
+\newcommand{\LCls}{\mathcal{L}_{\mathrm{Cls}}}
+\newcommand{\LClsMax}{\mathcal{L}_{\mathrm{Cls}}^{\top}}
+\newcommand{\LAbs}{\mathcal{L}_{\mathrm{Abs}}}
+\newcommand{\Sint}{\cS_{\mathrm{int}}}
+\newcommand{\Ob}{\mathrm{Ob}}
+\newcommand{\Mor}{\mathrm{Mor}}
+\newcommand{\Hom}{\mathrm{Hom}}
+\newcommand{\Fun}{\mathrm{Fun}}
+\newcommand{\Cl}{\mathrm{Cl}}
+\newcommand{\Lan}{\mathrm{Lan}}
+\newcommand{\Ran}{\mathrm{Ran}}
+\newcommand{\Set}{\mathrm{Set}}
+\newcommand{\Cat}{\mathrm{Cat}}
+\newcommand{\Syn}{\mathrm{Syn}}
+\newcommand{\Mod}{\mathrm{Mod}}
+\newcommand{\Con}{\mathrm{Con}}
+\newcommand{\PA}{\mathsf{PA}}
+\newcommand{\ZFC}{\mathsf{ZFC}}
+\newcommand{\MLTT}{\mathsf{MLTT}}
+\newcommand{\HoTT}{\mathsf{HoTT}}
+\newcommand{\ETT}{\mathsf{ETT}}
+\newcommand{\CIC}{\mathsf{CIC}}
+\newcommand{\NBG}{\mathsf{NBG}}
+\newcommand{\AFA}{\mathsf{AFA}}
+\newcommand{\CZF}{\mathsf{CZF}}
+\newcommand{\II}{\mathbf{I}}
+\newcommand{\cU}{\mathcal{U}}
+\newcommand{\tpi}{\widetilde{\pi}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\fME}{\fM_{\cE}}
+\newcommand{\LAbsE}{\LAbs^{\cE}}
+\newcommand{\LClsE}{\LCls^{\cE}}
+\newcommand{\LClsMaxE}{(\LClsMax)^{\cE}}
+\newcommand{\LFndE}{\LFnd^{\cE}}
+\newcommand{\SSE}{\cS_{S}^{\cE}}
+\newcommand{\Eff}{\ensuremath{\mathsf{Eff}}}
+\newcommand{\NCG}{\ensuremath{\mathsf{NCG}}}
+\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator{\image}{image}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\Trace}{Trace}
+\DeclareMathOperator{\dep}{depth}
+
+\title{Пространство модулей формальных систем:\\
+Классификация, стабилизация и no-go-теорема для абсолютных оснований}
+
+\author{%
+  \footnotesize Макс Середа \\[-3pt]
+  \scriptsize\textit{Независимый исследователь} \\[-3pt]
+  \scriptsize\texttt{\href{mailto:max@gst.st}{max@gst.st}}%
+}
+
+\date{\scriptsize\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Я изучаю $(\infty, n)$-категорное пространство модулей $\fM$ формальных систем (далее \textbf{MSFS}): классифицирующий $2$-стек Морита-классов эквивалентности Rich-оснований ($\LFnd$ — теории, удовлетворяющие условиям (R1)--(R5)). Я устанавливаю пять структурных результатов и одно граничное следствие.
+
+\emph{(i) Плюрализм в $\LCls$.} $\infty$-космои (Риль--Верити), Унивалентные основания (Воеводский) и когезивные высшие топосы (Шрайбер) — попарно $2$-неэквивалентные частичные мета-фреймворки, каждый классифицирующий собственный строгий под-стек $\fM$; они лежат вне жёсткого максимального подкласса $\Meta_{\mathrm{Cls}}^{\top}$.
+
+\emph{(ii) Условная мета-категоричность.} Любые два члена $\Meta_{\mathrm{Cls}}^{\top}$ над одной и той же Rich-метатеорией являются $(\infty, \infty)$-эквивалентными согласно Гротендик--Люри-выпрямке с совместной точностью экстенсионального и интенсионального классификационных функторов.
+
+\emph{(iii) Срез-локальное интенсиональное уточнение.} Функтор отображённого $2$-класса $\II : \cF^{\mathrm{op}} \to \Sint$ срез-локален над $\fM$: интенсиональные различия ($\MLTT$ против $\ETT$) расслаиваются над одиночными точками $\fM$, инвариантно разделяясь внутренне-языковой вычислимостью в эффективном топосе $\mathrm{Eff}$ Хайланда.
+
+\emph{(iv) Мета-стабилизация на теоретическом уровне.} Итерированная мета-классификация воспроизводит ту же $(\infty, \infty)$-теорию на каждом шаге (унитарность Барвика--Шоммер-Приса), хотя теоретико-множественная инстанциация поднимается по иерархии универсумов Гротендика $\kappa_1 < \kappa_2 < \cdots$.
+
+\emph{(v) AC/OC-двойственность.} Сопряжение Ламбека--Скотта $(\Syn, \Mod)$ из (R5b), собранное равномерно по $\RS$ и над $n \in \mathbb{N} \cup \{\infty\}$, индуцирует $(\infty, \infty)$-эквивалентность $\fM \simeq \fM_\cE$ между теоретико-центричным $2$-стеком модулей $\fM$ и актом-центричным $2$-стеком модулей $\fM_\cE$ заострённых Rich-актов. Дуал AFN-T утверждает, что акт-абсолютный стратум также пуст.
+
+\emph{Граничное следствие: No-go-теорема для абсолютных оснований (AFN-T).} По синтаксис-семантическому сопряжению, лежащему в основе (R5), $\fM$ не имеет максимальной точки: страта $\LAbs$ (формально определимое, нередуцируемое и максимально порождающее основание) пуста. AFN-T обобщает классическую no-go-серию Кантор~\cite{Cantor1891}, Рассел~\cite{Russell1903}, Гёдель~\cite{Godel1931}, Тарский~\cite{Tarski1936}, Ловер~\cite{Lawvere1969}, Эрнст~\cite{Ernst2015} равномерно по $\RS$ и всем $(\infty, n)$, $n \in \mathbb{N} \cup \{\infty\}$, и расширяется двойственно на акт-абсолютную страту $\LAbs^\cE$.
+
+\smallskip
+\noindent\textbf{Ключевые слова:} пространство модулей формальных систем, классифицирующие $2$-стеки, категорная логика, $(\infty, n)$-категории, теория высших топосов, интенсиональная теория типов, мета-классификация, эффективный топос, no-go-теоремы.
+
+\smallskip
+\noindent\textbf{MSC2020:} 03A05, 03B30, 03C45, 03F40, 18A05, 18N10, 18N50, 18N60, 18N65.
+
+\end{abstract}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{Введение}
+
+Эта статья изучает \emph{пространство модулей формальных систем} $\fM$ — классифицирующий $(\infty, 2)$-стек, точки которого — Морита-классы эквивалентности Rich-оснований (формальных теорий $F$, удовлетворяющих условиям (R1)--(R5) Определения~\ref{def:rs}), а $k$-морфизмы — точные интерпретации и доказуемые естественные эквивалентности. Главные результаты касаются структуры $\fM$:
+\begin{itemize}
+\item \textbf{Стратификация} (\S\ref{sec:hierarchy}): $\LFnd \supsetneq \LCls \supsetneq \LClsMax \supsetneq \LAbs$.
+\item \textbf{Структурный плюрализм в $\LCls$} (Теорема~\ref{thm:meta-mult}).
+\item \textbf{Условная категоричность $\LClsMax$} (Теорема~\ref{thm:meta-cat}).
+\item \textbf{Стабилизация на теоретическом уровне с восхождением по универсумам} (Теорема~\ref{thm:meta-stab}).
+\item \textbf{Срез-локальность интенсионального уточнения} (Теорема~\ref{thm:slice-locality}).
+\item \textbf{Пятиосевая абсолютность} (\S\ref{sec:five-axis}).
+\item \textbf{AC/OC Морита-двойственность} (Теорема~\ref{thm:ac-oc-duality}, Теорема~\ref{thm:dual-afnt}).
+\item \textbf{Внешняя граница: $\LAbs = \emptyset$} --- No-go-теорема для абсолютных оснований (Теорема~\ref{thm:afnt-alpha}, Теорема~\ref{thm:afnt-beta}).
+\end{itemize}
+
+\subsection{Обозначения и соглашения}
+
+\begin{convention}\label{conv:zfc-inacc}
+Я работаю всюду в $\ZFC$, дополненной двумя недостижимыми кардиналами $\kappa_1 < \kappa_2$, дающими универсумы Гротендика $\mathbf{U}_1 \subset \mathbf{U}_2$, достаточные для применяемой $2$-категорной техники. Категорный аппарат следует Келли~\cite{Kelly1982} для обогащённых и $2$-категорий, Люри~\cite{LurieHTT} для $(\infty, 1)$-категорий, Люри~\cite{LurieHA} для высшей алгебры, и Риль--Верити~\cite{RiehlVerity2022} для $\infty$-космоев. Для теории доступных функторов следую Адамеку--Росицкому~\cite{AdamekRosicky1994}.
+\end{convention}
+
+\begin{convention}[Ключевые символы]\label{conv:notation}
+\begin{itemize}
+\item $\cF$ обозначает $2$-категорию \emph{Rich-оснований} ($\LFnd$): объекты — основополагающие теории в смысле, формализованном в \S\ref{sec:rs} ниже (условия (R1)--(R5)); $1$-морфизмы — точные интерпретации; $2$-морфизмы — доказуемые естественные эквивалентности между интерпретациями.
+\item $\rho : \cF \to (\infty, n)\text{-}\Cat$ обозначает \emph{классификационный функтор}, сопоставляющий каждому $F \in \cF$ его категорию моделей (или, для теоретико-типовых $F$, синтаксическую $(\infty, n)$-категорию $\Syn(F)$).
+\item \emph{Калибровочное преобразование} $\tau : F_1 \to F_2$ — это $1$-морфизм в $\cF$, сопровождаемый выделенной $2$-эквивалентностью $\rho(F_1) \simeq \rho(F_2)$ на модельно-категорном уровне. Два основания \emph{калибровочно эквивалентны}, если между ними существует обратимое калибровочное преобразование.
+\item $\fM$ обозначает \emph{классифицирующий $2$-стек} над $\cF$: фактор $\fM := \cF / \text{калибровка}$, рассматриваемый как $(\infty, 2)$-стек Морита-классов эквивалентности Rich-оснований.
+\item Для $2$-категории $\mathbf{F}$ обозначение $\mathrm{Aut}_2(\mathbf{F})$ — $2$-группа $2$-автоэквивалентностей $\mathbf{F} \xrightarrow{\simeq_2} \mathbf{F}$.
+\item $\Sint$ обозначает $2$-категорию отображённых $2$-категорий (строгое определение отнесено в Приложение~\ref{app:categorical}).
+\item Все $2$-категории локально малы и $\kappa_1$-доступны, если иное не оговорено. (Для специфических Rich-оснований $S$, чья сила непротиворечивости требует второго недостижимого, параметр доступности $\Syn(S)$ обобщается до $\kappa_S \in \{\kappa_1, \kappa_2\}$ согласно условию доступности (R5a) определения Rich-метатеории.)
+\end{itemize}
+\end{convention}
+
+% TODO Phase E2: §2 Stratified Hierarchy + §3 Reasonable Rich-Metatheory + §4..§7 Five-Axis Absoluteness
+% TODO Phase E3: §8..§13 + Appendices
+
+\section*{Статус перевода}
+
+\textbf{Это пилот русского перевода (Phase E1)}. Текущий файл содержит:
+\begin{itemize}
+\item Полный преамбул (соглашения, theorem-окружения, символы).
+\item Аннотацию (полностью переведена).
+\item §1 Введение с подразделом «Обозначения и соглашения» (полностью переведено).
+\end{itemize}
+
+Остающиеся секции (§2 Стратифицированная иерархия, §3 Rich-метатеория, §4--§7 Пятиосевая абсолютность, §8--§12 ОО-вопросы и приложения) — предмет последующих фаз E2 (§2--§7) и E3 (§8--§13 + приложения).
+
+Английский оригинал: \texttt{paper-en/paper.tex} (1692 строки, 40 страниц после Pass 20).
+
+% Bibliography placeholder
+\begin{thebibliography}{99}
+\bibitem{Cantor1891} Cantor G. \"Uber eine elementare Frage der Mannigfaltigkeitslehre. \emph{Jahresbericht der DMV}, 1891.
+\bibitem{Russell1903} Russell B. \emph{The Principles of Mathematics}. Cambridge UP, 1903.
+\bibitem{Godel1931} G\"odel K. \"Uber formal unentscheidbare S\"atze... \emph{Monatshefte f\"ur Math.}, 1931.
+\bibitem{Tarski1936} Tarski A. Der Wahrheitsbegriff in den formalisierten Sprachen. \emph{Studia Phil.}, 1936.
+\bibitem{Lawvere1969} Lawvere F.W. Diagonal arguments and Cartesian closed categories. \emph{Lecture Notes Math.}, 1969.
+\bibitem{Ernst2015} Ernst M. The prospects of unlimited category theory. \emph{Rev. Symb. Logic}, 2015.
+\bibitem{Kelly1982} Kelly G.M. \emph{Basic Concepts of Enriched Category Theory}. CUP, 1982.
+\bibitem{LurieHTT} Lurie J. \emph{Higher Topos Theory}. Princeton UP, 2009.
+\bibitem{LurieHA} Lurie J. \emph{Higher Algebra}. 2017.
+\bibitem{RiehlVerity2022} Riehl E., Verity D. \emph{Elements of $\infty$-Category Theory}. CUP, 2022.
+\bibitem{AdamekRosicky1994} Ad\'amek J., Rosick\'y J. \emph{Locally Presentable and Accessible Categories}. CUP, 1994.
+\end{thebibliography}
+
+\end{document}
