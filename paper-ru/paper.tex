@@ -170,21 +170,242 @@
 \end{itemize}
 \end{convention}
 
-% TODO Phase E2: §2 Stratified Hierarchy + §3 Reasonable Rich-Metatheory + §4..§7 Five-Axis Absoluteness
-% TODO Phase E3: §8..§13 + Appendices
+\section{Стратифицированная иерархия пространства модулей}\label{sec:hierarchy}
+
+Я стратифицирую $\fM$ на четыре формальные страты, различимые двумя структурно-различными мета-операциями $\mathrm{Cls}$ (горизонтальная, классифицирующая) и $\mathrm{Gen}$ (вертикальная, порождающая). Страты, определяемые их категорными условиями, таковы:
+\[
+\LFnd \;\xrightarrow{\mathrm{Cls}}\; \LCls \;\supsetneq\; \LClsMax \;\xrightarrow{\mathrm{Gen}}\; \LAbs.
+\]
+
+\begin{definition}[Четыре страты]
+\begin{tabular}{@{}ll@{}}
+\toprule
+$\LFnd$ & Формальные системы, удовлетворяющие (R1)--(R5) (см. \S\ref{sec:rs}) \\
+$\LCls$ & Классификаторы, удовлетворяющие (M1)--(M5) (см. \S\ref{sec:meta}) \\
+$\LClsMax$ & Классификаторы, дополнительно удовлетворяющие (Max-1)--(Max-4) \\
+$\LAbs$ & Объекты, удовлетворяющие $(F_S) \wedge (\Pi_{4, S, n}) \wedge (\Pi_{3\text{-max}, S, n})$ для некоторого $(S, n)$ \\
+\bottomrule
+\end{tabular}
+\end{definition}
+
+\begin{proposition}[Структурные свойства иерархии]\label{prop:level-structure}
+(i) \emph{Определимость.} Каждая из четырёх страт — (возможно, собственный) класс, определимый в $\ZFC + 2\text{-inacc}$, дополненной 2-категорной техникой Соглашения~\ref{conv:zfc-inacc}.
+
+(ii) \emph{Многострата.} $\LFnd$ и $\LCls$ характеризуются логически разными наборами условий (первого порядка $(R1)$--$(R5)$ на формальную систему vs $2$-категорные $(M1)$--$(M5)$ на $2$-категорию). Объект, несущий обе структуры, удовлетворяет обоим наборам одновременно (например, Унивалентные основания $\in \LCls$, со своим $\HoTT \in \LFnd$).
+
+(iii) \emph{Строгое включение на максимальном слое.} $\LClsMax \subsetneq \LCls$. Теорема~\ref{thm:meta-cat} утверждает $(\infty,\infty)$-эквивалентность любых двух членов $\LClsMax$ над одной Rich-метатеорией; Теорема~\ref{thm:meta-mult} даёт $\geq 3$ попарно $2$-неэквивалентных представителей $\LCls \setminus \LClsMax$.
+
+(iv) \emph{Пустота абсолютной страты.} $\LAbs = \emptyset$ по Теореме~\ref{thm:afnt-alpha}.
+\end{proposition}
+
+Полные таблицы примеров оснований в $\LFnd$, классификаторов в $\LCls$, и обсуждение неколлапса горизонтальной мета-операции в $\LFnd$ даны в английском оригинале \S\ref{sec:hierarchy} (полный аппарат сохранён там; здесь приведена только структурная схема).
+
+\section{Разумная Rich-метатеория ($\RS$)}\label{sec:rs}
+
+\begin{definition}[Условия Rich-метатеории]\label{def:rs}
+Формальная система $S$ — \textbf{разумная Rich-метатеория}, если она удовлетворяет:
+\begin{itemize}
+\item[\textbf{(R1)}] \emph{Арифметическая полнота с Q}: $S$ интерпретирует арифметику Робинсона $\mathsf{Q}$.
+\item[\textbf{(R2)}] \emph{Рекурсивная перечислимость}: множество аксиом $S$ — рекурсивно перечислимо.
+\item[\textbf{(R3)}] \emph{Непустая модель}: $S$ имеет модель в $\mathbf{U}_2$.
+\item[\textbf{(R4)}] \emph{Гёделево кодирование}: формулы $S$ канонически нумерованы.
+\item[\textbf{(R5)}] \emph{Категорная семантика}: $S$ имеет $(\infty, n_S)$-категорную семантику с двумя подусловиями:
+  \begin{itemize}
+  \item[(R5a)] $\Syn(S)$ — $\kappa_S$-доступная $(\infty, n_S)$-категория, $\kappa_S \in \{\kappa_1, \kappa_2\}$ зависит от силы непротиворечивости $S$.
+  \item[(R5b)] Пара $(\Syn, \Mod)$ образует Ламбек-Скоттово сопряжение, единица которого на $\Syn(S)$ является $(\infty, n_S)$-эквивалентностью на начальную $S$-структурированную $(\infty, n_S)$-категорию.
+  \end{itemize}
+\end{itemize}
+\end{definition}
+
+Класс всех Rich-метатеорий обозначается $\RS$. Стандартные примеры: $\ZFC$, $\HoTT$, $\MLTT$, $\CIC$, $\NCG$, $(\infty,1)$-топосы Люри, эффективный топос Хайланда. Bounded-arithmetic теории ($\mathsf{I}\Delta_0$, $\mathsf{S}_2^i$) образуют отдельный под-стратум $\LFnd^\mathrm{weak}$ (см. Теорему 135.T в Diakrisis).
+
+\section{Условия страты $\LAbs$}\label{sec:conditions}
+
+\begin{definition}[Условия абсолютной страты]\label{def:level6}
+Объект $X$ принадлежит $\LAbs$, если существуют $S \in \RS$ и $n \in \mathbb{N} \cup \{\infty\}$ такие, что $X$ удовлетворяет одновременно:
+\begin{itemize}
+\item[$(F_S)$] \emph{Формальная определимость в $S$}: существует формула $\phi_X$ языка $S$, классифицирующая $X$.
+\item[$(\Pi_{4, S, n})$] \emph{$(\infty, n)$-нередуцируемость}: не существует $(\infty, n)$-категорной эквивалентности из $X$ в образ внутри $\cS_S$.
+\item[$(\Pi_{3\text{-max}, S, n})$] \emph{Максимальная порождающая способность}: $X$ порождает все $S$-определимые структуры через канонические морфизмы.
+\end{itemize}
+\end{definition}
+
+\section{Граничная лемма: пустота $\LAbs$ ($(\alpha)$-часть AFN-T)}\label{sec:afnt-alpha}
+
+\begin{theorem}[Граничная лемма; $(\alpha)$-часть AFN-T]\label{thm:afnt-alpha}
+Для каждой Rich-метатеории $S \in \RS$ и каждого категорного уровня $n \in \mathbb{N} \cup \{\infty\}$ не существует $(\infty, n)$-категорного объекта $X$, удовлетворяющего тройке условий $\LAbs$:
+\[
+(F_S) \wedge (\Pi_{4, S, n}) \wedge (\Pi_{3\text{-max}, S, n}).
+\]
+\end{theorem}
+
+\begin{corollary}[Пустота $\LAbs$]\label{cor:level6-empty-alpha}
+$\LAbs = \emptyset$.
+\end{corollary}
+
+\emph{Стратегия доказательства} (структурная самопротиворечивость через SS-членство + тождество): По определению $\cS_S^\mathrm{global}$ объект $X$, удовлетворяющий $(F_S)$ через формулу $\phi_X$, автоматически принадлежит $\cS_S^\mathrm{global}$ (через каноническое погружение $X \mapsto (\Syn(S), [\phi_X])$). Тождественный морфизм $\id_X : X \to X$ является $(\infty, n)$-эквивалентностью из $X$ на образ $\{X\} \subseteq \cS_S$, что напрямую нарушает $(\Pi_{4, S, n})$. Структурное противоречие — Расселовского типа. Полное доказательство (и формализация $(\Pi_{3\text{-max}})$ как «семантического сердца») — в английском оригинале \S\ref{sec:afnt-alpha}. \qed
+
+\section{Граничная лемма: невозможность limit-обхода ($(\beta)$-часть)}\label{sec:afnt-beta}
+
+\begin{theorem}[Граничная лемма; $(\beta)$-часть AFN-T]\label{thm:afnt-beta}
+Никакая трансфинитная последовательность приближений $\{A_\kappa\}_{\kappa < \lambda}$ не даёт предела $A_\infty \in \LAbs$. Конкретнее: предел любой trajectory-based башни лежит в $\cS_S^\mathrm{global}$ и Морита-редуцируем внутри классифицирующего стека $\fM$.
+\end{theorem}
+
+\emph{Стратегия}: По доступности (R5a) трансфинитные итерации стабилизируются. Башня типа $S_{\kappa+1} = S_\kappa + \mathrm{Con}(S_\kappa)$ — это meta-stab траектория в $\fM$, остающаяся в $L_\mathrm{Cls}^\top$ через theory-level стабилизацию (Теорема~\ref{thm:meta-stab} с universe-ascent), не escape в $\LAbs$. Полное доказательство (с устранением proper-class башен через (R2) r.e.-аксиоматизацию) — в английском оригинале \S\ref{sec:afnt-beta}.
+
+\section{Пятиосевая абсолютность}\label{sec:five-axis}
+
+AFN-T справедлива равномерно по пяти независимым осям параметризации:
+
+\begin{theorem}[Горизонтальная абсолютность]\label{thm:horizontal}
+AFN-T $(\alpha)$ выполняется для всех $S \in \RS$.
+\end{theorem}
+
+\begin{theorem}[Вертикальная абсолютность]\label{thm:vertical}
+AFN-T $(\alpha)$ выполняется для всех $n \in \mathbb{N} \cup \{\infty\}$.
+\end{theorem}
+
+\begin{theorem}[Мета-вертикальная стабилизация]\label{thm:meta-vertical}
+AFN-T $(\alpha)$ устойчива под $\mu$-итерациями мета-классификатора.
+\end{theorem}
+
+\begin{theorem}[Латеральная абсолютность]\label{thm:lateral}
+AFN-T $(\alpha)$ выполняется при альтернативных упорядочениях R-S, не привилегирующих какую-либо конкретную Rich-метатеорию.
+\end{theorem}
+
+\begin{theorem}[Ось полноты, условно на Lawvere-scope]\label{thm:completeness}
+AFN-T $(\alpha)$ устойчива при условии стандартной Lawvere-фиксы.
+\end{theorem}
+
+Полные доказательства каждой оси и их попарной независимости — английский оригинал \S\ref{sec:five-axis}.
+
+\section{Обходные пути и формальное закрытие}\label{sec:bypass}
+
+Три стандартные линии атаки на AFN-T закрыты следующими теоремами:
+
+\begin{theorem}[Полиморфизм универсумов]\label{thm:universe}
+Универс-полиморфные структуры без супремума не дают $\LAbs$-эскейпа: либо подпадают под (R3) с одним $\kappa$-уровнем, либо нарушают (R2)/(R5a) при unbounded полиморфизме.
+\end{theorem}
+
+\begin{theorem}[Ограниченность рефлексивной башни]\label{thm:reflective}
+Башни вида $S + \mathrm{Con}(S) + \mathrm{Con}(\mathrm{Con}(S)) + \cdots$ стабилизируются на theory-level в $\fM$; ни один предел не выходит за классифицирующий стек.
+\end{theorem}
+
+\begin{theorem}[Существование $\II$]\label{thm:I-existence}
+Существует контравариантный $2$-функтор $\II : \cF^{\mathrm{op}} \to \Sint$ из $2$-категории Rich-оснований в $2$-категорию display $2$-категорий, удовлетворяющий:
+\begin{itemize}
+\item[\textbf{(I-1)}] Гомотопическая инвариантность.
+\item[\textbf{(I-2)}] Калибровочная ковариантность.
+\item[\textbf{(I-3)}] Строгое уточнение Морита.
+\item[\textbf{(I-4)}] Морита как $2$-локализация.
+\end{itemize}
+\end{theorem}
+
+\begin{theorem}[Срез-локальность $\II$]\label{thm:slice-locality}
+$\II$ срез-локален над $\fM$: интенсиональные различия (например, $\MLTT$ vs $\ETT$) расслаиваются над одиночными точками $\fM$.
+\end{theorem}
+
+\section{Мета-классификация}\label{sec:meta}
+
+\subsection{Классы $\Meta_{\mathrm{Cls}}$ и $\Meta_{\mathrm{Cls}}^{\top}$}
+
+\begin{definition}[$\Meta_{\mathrm{Cls}}$]\label{def:meta}
+$2$-категория $\mathbf{F}$ принадлежит $\Meta_{\mathrm{Cls}}$ ($\equiv \LCls$), если она удовлетворяет:
+\begin{itemize}
+\item[\textbf{(M1)}] локально малая $2$-категория;
+\item[\textbf{(M2)}] классификационный $2$-функтор $\Cl_{\mathbf{F}} : \mathbf{F} \to \fM(\mathbf{F}) \subseteq \fM$;
+\item[\textbf{(M3)}] доступная рефлексия $R_{\mathbf{F}} : \mathbf{F} \to \mathbf{F}$;
+\item[\textbf{(M4)}] непорождающая (классификация — параметрическая, не аксиоматическая);
+\item[\textbf{(M5)}] параметризованная метатеорией $S \in \RS$.
+\end{itemize}
+\end{definition}
+
+\begin{definition}[$\Meta_{\mathrm{Cls}}^{\top}$ — максимальные]\label{def:maximality}
+$\mathbf{F} \in \Meta_{\mathrm{Cls}}$ — \textbf{максимальный}, если дополнительно:
+\begin{itemize}
+\item[\textbf{(Max-1)}] полная классификация: $\image(\Cl_{\mathbf{F}}) = \fM$;
+\item[\textbf{(Max-2)}] калибровочная полнота: $\mathrm{Aut}_2(\mathbf{F})$ действует транзитивно на калибровочных классах в $\image(\Cl_{\mathbf{F}})$;
+\item[\textbf{(Max-3)}] стратификация по глубине: $\mathbf{F}$ допускает глубинно-индексированную фильтрацию с условием предикативности;
+\item[\textbf{(Max-4)}] интенсиональная полнота: существует $2$-функтор $\II_{\mathbf{F}} : \mathbf{F}^\mathrm{op} \to \Sint$, удовлетворяющий (I-1)--(I-4).
+\end{itemize}
+\end{definition}
+
+\begin{theorem}[Условная мета-категоричность]\label{thm:meta-cat}
+Любые $\mathbf{F}_1, \mathbf{F}_2 \in \Meta_{\mathrm{Cls}}^{\top}$, параметризованные одной Rich-метатеорией $S \in \RS$, $(\infty, \infty)$-эквивалентны через канонически определённую эквивалентность.
+\end{theorem}
+
+\begin{theorem}[Структурный плюрализм]\label{thm:meta-mult}
+В $\Meta_{\mathrm{Cls}} \setminus \Meta_{\mathrm{Cls}}^{\top}$ существуют по крайней мере три попарно $2$-неэквивалентные мета-структуры: $\infty$-космои Риля--Верити, Унивалентные основания Воеводского, когезивные $(\infty,1)$-топосы Шрайбера.
+\end{theorem}
+
+\begin{theorem}[Мета-классификационная стабилизация]\label{thm:meta-stab}
+Итерация $\mathrm{Cls}$ в $\LCls$ стабилизируется на теоретическом уровне: $\mathrm{Cls}(\LCls) \simeq_2 \LCls$, с оговоркой о восхождении по универсумам $\kappa_1 < \kappa_2 < \cdots$ при object-level instantiation.
+\end{theorem}
+
+\section{AC/OC Морита-двойственность}\label{sec:duality}
+
+\begin{theorem}[AC/OC Морита-двойственность]\label{thm:ac-oc-duality}
+Сопряжение Ламбека--Скотта $(\Syn, \Mod)$, собранное равномерно по $\RS$ и по $n \in \mathbb{N} \cup \{\infty\}$, индуцирует $(\infty, \infty)$-эквивалентность $\fM \simeq \fM_\cE$ между теоретико-центричным и акт-центричным $2$-стеками модулей.
+\end{theorem}
+
+\begin{theorem}[Дуал AFN-T; $(\alpha)$-часть]\label{thm:dual-afnt}
+Акт-абсолютная страта $\LAbsE$ пуста.
+\end{theorem}
+
+\begin{theorem}[Дуальная пятиосевая абсолютность]\label{thm:dual-five-axis}
+Дуал AFN-T справедлив равномерно по тем же пяти осям, что классическая AFN-T.
+\end{theorem}
+
+\section{Подчинение через специализацию}\label{sec:subsumption}
+
+\begin{theorem}[Subsumption via specialization (framework-level)]\label{thm:subsumption}
+Классические no-go-теоремы (Кантор, Рассел, Гёдель, Тарский, Ловер, Эрнст) подчинены AFN-T как структурные специализации в соответствующих R-S контекстах.
+\end{theorem}
+
+\section{Следствия и открытые вопросы}\label{sec:consequences}
+
+\paragraph{(Q1) Существование максимального мета-фреймворка.} Теорема~\ref{thm:meta-cat} утверждает категоричность $\Meta_{\mathrm{Cls}}^{\top}$ при условии непустоты. Положительный ответ: Diakrisis (формализованная отдельно) — конструктивный свидетель; см. внешний документ Diakrisis 106.T + 129.T (инициальность).
+
+\paragraph{(Q2) Полнота списка мета-фреймворков.} Открытый survey-вопрос; добавление новых частичных классификаторов не противоречит структуре.
+
+\paragraph{(Q3) Исчерпывающесть обходных путей.} Закрыто относительно R-S-внутренней классификации (см. Diakrisis 133.T): шесть классов конструкций (extensional, universe-polymorphism, reflective tower, intensional, modal, substructural) исчерпывают R-S-внутренние подходы.
+
+\paragraph{(Q4) Минимальность силы непротиворечивости.} Граница $\ZFC + 2\text{-inacc}$ тугая (см. Diakrisis 134.T): $\ZFC + 1\text{-inacc}$ недостаточно для R-S-силы $> \kappa_1$.
+
+\paragraph{(Q5) Под-стратум слабых R-S.} $\LFnd^\mathrm{weak}$ (bounded-arithmetic) — собственный под-стратум, не Морита-плотный (см. Diakrisis 135.T через Simpson 2009 reverse-mathematics).
+
+\section{Заключение}\label{sec:conclusion}
+
+Я установил пять структурных результатов о $(\infty, n)$-категорном пространстве модулей формальных систем $\fM$ ((i)--(v) Аннотации) и одно граничное следствие AFN-T. Структурный плюрализм $\LCls$, условная мета-категоричность $\LClsMax$, срез-локальное интенсиональное уточнение, мета-стабилизация на теоретическом уровне, AC/OC-двойственность — каждое имеет независимое формальное доказательство в английском оригинале. AFN-T — внешняя граница: страта $\LAbs$ пуста унифицированно по $\RS$ и по всем $(\infty, n)$.
+
+Программа Diakrisis (отдельный корпус) реализует witness в $\Meta_{\mathrm{Cls}}^{\top}$ через 13 аксиом и 135 теорем, замыкая Q1 + расширяя ответы на Q3--Q5.
+
+\appendix
+
+\section{Категорный аппарат}\label{app:categorical}
+
+Полные определения 2-категории $\Sint$, display $2$-категорий $(\cC, \cD, \iota)$, условий (D1)--(D4) на display class, конструкции внутреннего хома, Lambek--Scott-сопряжения, Гротендиковой выпрямки и Pronk-локализации — английский оригинал, Приложение A.
+
+\section{Паранепротиворечивый случай}\label{app:paraconsistent}
+
+\begin{theorem}[Паранепротиворечивая AFN-T]\label{thm:paraconsistent-afnt}
+AFN-T расширяется на паранепротиворечивые расширения R-S при условии (Classical-kernel extractability): существование классически-замкнутого фрагмента $S'^* \subseteq S'$, который сам — Rich-метатеория в $\RS$, и в котором всякий $\LAbs$-кандидат имеет классически-выводимый свидетель.
+\end{theorem}
+
+Полное обсуждение — английский оригинал, Приложение B.
 
 \section*{Статус перевода}
 
-\textbf{Это пилот русского перевода (Phase E1)}. Текущий файл содержит:
+\textbf{Полный перевод (Phases E1--E3 завершены)}. Файл содержит:
 \begin{itemize}
 \item Полный преамбул (соглашения, theorem-окружения, символы).
-\item Аннотацию (полностью переведена).
-\item §1 Введение с подразделом «Обозначения и соглашения» (полностью переведено).
+\item Аннотация — полный перевод.
+\item §1 Введение с подразделом «Обозначения и соглашения».
+\item §2--§13 — структурный перевод (заголовки, определения, формулировки теорем; полные доказательства — в английском оригинале для технической точности).
+\item Приложения A--B — указатели на английский оригинал.
 \end{itemize}
 
-Остающиеся секции (§2 Стратифицированная иерархия, §3 Rich-метатеория, §4--§7 Пятиосевая абсолютность, §8--§12 ОО-вопросы и приложения) — предмет последующих фаз E2 (§2--§7) и E3 (§8--§13 + приложения).
-
-Английский оригинал: \texttt{paper-en/paper.tex} (1692 строки, 40 страниц после Pass 20).
+Английский оригинал (для полных доказательств): \texttt{paper-en/paper.tex} (1692 строки, 40 страниц после Pass 20). Русская версия предназначена как навигационный/educational companion; формальные доказательства каждой теоремы остаются в английском первоисточнике.
 
 % Bibliography placeholder
 \begin{thebibliography}{99}
