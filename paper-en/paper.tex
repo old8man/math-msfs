@@ -417,7 +417,7 @@ where $\mathcal{O}$ is the closure under the following fixed list of $(\infty, n
 \item Grothendieck constructions $\int F$ for Cartesian fibrations $F : I \to \cS_S^{(k)}$ with $I \in \cS_S^{(k)}$;
 \item Limits and colimits of $\cS_S^{(k)}$-small diagrams;
 \item Slice/comma/opposite categories built from $\cS_S^{(k)}$-data;
-\item Derived functors (in the Quillen sense) between $\cS_S^{(k)}$-objects presented as model categories;
+\item Derived functors (Quillen sense) between $\cS_S^{(k)}$-objects equipped with model-category structure (when applicable; vacuous on objects without model structure);
 \item Symmetric monoidal tensor products and internal hom in closed monoidal $\cS_S^{(k)}$-objects.
 \end{enumerate}
 Set $\cS_S^{\mathrm{global}} := \bigcup_{k < \omega} \cS_S^{(k)}$ and $\cS_S := \cS_S^{\mathrm{local}} \cup \cS_S^{\mathrm{global}}$. All operations (O1)--(O6) are $\kappa_1$-accessible (Ad\'amek--Rosick\'y~\cite{AdamekRosicky1994}); $\cS_S^{\mathrm{global}}$ is $\kappa_1$-accessible and $\mathbf{U}_2$-small.
@@ -1223,8 +1223,8 @@ Dual-AFN-T & --- & enactment-absolute (definable + non-coordination + receptive)
 
 \subsection{Subsumption}
 
-\begin{theorem}[Subsumption via specialization]\label{thm:subsumption}
-For each classical no-go theorem $T$ below, there exists a triple $(S_T, n_T, X_T)$ with $S_T \in \RS$, $n_T \in \mathbb{N} \cup \{\infty\}$, and $X_T$ the purported maximal object of $T$, such that (i) $X_T \models (F_{S_T})$; (ii) $X_T$ under the hypothesis of $T$ would satisfy $(\Pi_{4, S_T, n_T})$; (iii) Theorem~\ref{thm:afnt-alpha} applied at $(S_T, n_T)$ yields $\neg T$:
+\begin{theorem}[Subsumption via specialization (framework-level)]\label{thm:subsumption}
+For each classical no-go theorem $T$ below, there exists a triple $(S_T, n_T, X_T)$ with $S_T \in \RS$, $n_T \in \mathbb{N} \cup \{\infty\}$, and $X_T$ the purported maximal object of $T$, such that (i) $X_T \models (F_{S_T})$; (ii) $X_T$ under the hypothesis of $T$ would satisfy $(\Pi_{4, S_T, n_T})$; (iii) Theorem~\ref{thm:afnt-alpha} applied at $(S_T, n_T)$ yields a structural contradiction with the existence of $X_T$ as $\LAbs$-candidate. The theorem provides the \emph{framework} in which each classical no-go inhabits; the row-specific diagonals (Cantor's $|X|<|\cP(X)|$, Russell's $R \in R \leftrightarrow R \notin R$, etc.)\ are independent classical proofs that refine the abstract $\id_{X_T}$-template into the specific witness used by $T$, and are not derived from AFN-T~$\alpha$ alone.
 \begin{center}\small
 \begin{tabular}{@{}l@{\ \ }l@{\ \ }l@{\ \ }l@{\ \ }l@{}}
 \toprule
@@ -1239,7 +1239,7 @@ Ernst~\cite{Ernst2015} & Feferman's (R1)--(R3) & UCT object & $1$ & Feferman unl
 \bottomrule
 \end{tabular}
 \end{center}
-In each row, AFN-T at $(S_T, n_T)$ yields $\LAbs = \emptyset$ restricted to the row's maximality aspect; the row's classical diagonal is a specific witness refinement of $\id_{X_T}$.
+In each row, AFN-T at $(S_T, n_T)$ yields $\LAbs(S_T, n_T) = \emptyset$ at the row's maximality aspect; the classical diagonal of $T$ is the specific witness refinement establishing $T$ within the framework.
 \end{theorem}
 
 \begin{proof}
