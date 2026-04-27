@@ -1,0 +1,22 @@
+# Build artifacts
+/target/
+*.o
+*.so
+*.dylib
+*.dll
+
+# Verum bytecode
+*.vbc
+
+# Cache
+.verum_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db

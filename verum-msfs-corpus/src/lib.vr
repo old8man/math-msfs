@@ -1,0 +1,26 @@
+// =============================================================================
+// verum-msfs-corpus — entry point
+// =============================================================================
+//
+// This crate is a *proof corpus*, not a runtime library. The verified content
+// lives under:
+//
+//   • theorems/msfs/      — 27 MSFS theorems by section.
+//   • theorems/diakrisis/ — 142 Diakrisis theorems by chapter.
+//   • src/math/           — corpus-local stdlib extensions (strata, rich_s,
+//                           absolute_layer, frameworks/{msfs,diakrisis}).
+//
+// `lib.vr` exists so the project type-checks as a cog and so `verum check`,
+// `verum build`, `verum test`, `verum audit`, `verum export` operate at the
+// project level.
+//
+// Verification status and stage progress live in README.md.
+// See https://verum.lang/docs/verification/proof-corpora for the workflow.
+// =============================================================================
+
+/// Probe used by smoke tests to confirm the cog is type-checkable.
+/// Returns the corpus identifier as a stable boolean witness — the actual
+/// identification metadata travels through verum.toml.
+public fn corpus_probe() -> Bool {
+    true
+}
