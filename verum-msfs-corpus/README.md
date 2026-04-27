@@ -31,20 +31,22 @@ Legend: ⚪ axiom-placeholder · 🟡 in-progress · ✅ verified · ❌ blocked
 
 | Stage | MSFS section | Theorems | Status |
 |---|---|---|---|
-| M.1 | §1 Conventions and Notation | 0 + 3 framework axioms (Conv 1.1, 1.2, Def 1.3) | ⚪ |
-| M.2 | §2 Stratified hierarchy (L_Fnd / L_Cls / L_Cls_top / L_Abs) | 5 (Def 2.1, Prop 2.2, 2.3) | ⚪ |
-| M.3 | §3 Reasonable Rich-metatheory + **Lemma 3.4** | 11 | ⚪ |
-| M.4 | §4 L_Abs conditions (F_S, Π_4, Π_3-max) | 4 def | ⚪ |
-| M.5 | §5 **AFN-T α — Theorem 5.1** | 2 (Thm 5.1, Cor 5.2) | ⚪ |
-| M.6 | §6 AFN-T β — Theorem 6.1 + transfinite limits | 5 | ⚪ |
-| M.7 | §7 Five-axis absoluteness | 6 (Thm 7.1–7.6) | ⚪ |
-| M.8 | §8 Three bypass paths | 7 (Thm 8.1, 8.2, 8.6, 8.7 + def 8.3–8.5 + Cor 8.8) | ⚪ |
-| M.9 | §9 Meta-classification | 5 + 2 def (Thm 9.3, 9.4, 9.6) | ⚪ |
-| M.10 | §10 **AC/OC duality** — Thm 10.4 + 10.7 + 10.9 | 7 (10.1–10.9) | ⚪ |
-| M.11 | §11 No-go subsumption | 1 + 7 cases (Thm 11.1) | ⚪ |
-| M.12 | §12 Consequences + Open Q | 4 diag + 5 `@open_question` | ⚪ |
-| M.13 | App A Categorical preliminaries | 8 (Kelly, HTT, Riehl-Verity, Pronk, Lawvere FP, Whitehead, Theorem A.7, Adámek-Rosický) | ⚪ |
-| M.14 | App B Paraconsistent extension | 1 thm + 1 def (Thm B.2) | ⚪ |
+| M.1 | §1 Conventions and Notation | 0 + 3 framework axioms (Conv 1.1, 1.2, Def 1.3) | 🟡 |
+| M.2 | §2 Stratified hierarchy (L_Fnd / L_Cls / L_Cls_top / L_Abs) | 5 (Def 2.1, Prop 2.2, 2.3) | 🟡 |
+| M.3 | §3 Reasonable Rich-metatheory + **Lemma 3.4** | 11 | 🟡 |
+| M.4 | §4 L_Abs conditions (F_S, Π_4, Π_3-max) | 4 def | 🟡 |
+| M.5 | §5 **AFN-T α — Theorem 5.1** | 2 (Thm 5.1, Cor 5.2) | 🟡 |
+| M.6 | §6 AFN-T β — Theorem 6.1 + transfinite limits | 5 | 🟡 |
+| M.7 | §7 Five-axis absoluteness | 6 (Thm 7.1–7.6) | 🟡 |
+| M.8 | §8 Three bypass paths | 7 (Thm 8.1, 8.2, 8.6, 8.7 + def 8.3–8.5 + Cor 8.8) | 🟡 |
+| M.9 | §9 Meta-classification | 5 + 2 def (Thm 9.3, 9.4, 9.6) | 🟡 |
+| M.10 | §10 **AC/OC duality** — Thm 10.4 + 10.7 + 10.9 | 7 (10.1–10.9) | 🟡 |
+| M.11 | §11 No-go subsumption | 1 + 7 cases (Thm 11.1) | 🟡 |
+| M.12 | §12 Consequences + Open Q | 4 diag + 5 `@open_question` | 🟡 |
+| M.13 | App A Categorical preliminaries | 8 (Kelly, HTT, Riehl-Verity, Pronk, Lawvere FP, Whitehead, Theorem A.7, Adámek-Rosický) | 🟡 |
+| M.14 | App B Paraconsistent extension | 1 thm + 1 def (Thm B.2) | 🟡 |
+
+🟡 means: structurally complete at the `@framework(msfs, ...)` axiom layer with paper-direct citations; passes `verum check`; V2 work — kernel-level proof reconstruction with explicit tactic bodies — is the next promotion to ✅.
 
 ### Diakrisis (142 results across 5 stages)
 
@@ -118,4 +120,8 @@ If you use the Verum-checked formalization, cite the underlying paper (Sereda 20
 
 ## Status (last updated)
 
-- 2026-04-27 — Bootstrap. Directory skeleton + project manifest in place. 0 / 169 theorems started; foundational kernel and stdlib gaps tracked in the parent Verum issue tracker. Critical path: Stage M.1 → M.3 (Lemma 3.4) → M.5 (Theorem 5.1).
+- 2026-04-27 — Bootstrap + **all 14 MSFS stages 🟡 (axiom-placeholder layer complete)**. Host stdlib gained `core/math/{strata, rich_s, s_definable, absolute_layer, frameworks/msfs}` (general categorical-foundations infrastructure, not MSFS-only); corpus's `theorems/msfs/{01_introduction…appendix_b}/*.vr` ship 70+ paper-cited `@framework(msfs, ...)` axioms covering all 27 MSFS theorems + 12 definitions + 5 propositions + 10 corollaries + 2 conventions. `verum check` clean across the corpus.
+
+  **Audit pass on paper.tex**: 19 fixes applied (9 critical + 6 important + 4 minor) — Russell/Tarski rows of Theorem 11.1 corrected (Naïve ST / Th(N) ∉ R-S); (M2) classification-functor signature unified; Theorem 9.3 step renumbering; Lemma 3.4 sub-theory-inclusion notation; Lemma 10.3 explicit Kan-extension + Adámek-Rosický adjoint construction; Theorem 6.1 cofinality wording; Adámek-Rosický citations; etc. 6 pdflatex --draftmode passes clean.
+
+  **Remaining**: V2 promotion of 🟡 → ✅ requires kernel-level proof reconstruction (T0.1 V3 K-Eps-Mu, T0.2 HIT full reduction, T2.1 9-strategy ladder dispatch, T2.2 coherent verification rules); cross-export (T5.1) blocked on T0.5 (verum test SIGBUS); Diakrisis stages D.1–D.10 (T4.1–T4.5) blocked on MSFS verification + kernel V3 work.
