@@ -1,0 +1,43 @@
+// =============================================================================
+// MSFS Stage M.1 — Conventions and Notation (paper §1)
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, §1 — Conventions and Notation.
+//
+// Stage M.1's content (Convention 1.1, 1.2, Definition 1.3) lives
+// in the host stdlib `core.math.frameworks.msfs.{baseline,
+// key_symbols, strcat}`. This file is the corpus-side index of
+// the framework axioms shipped at the stdlib layer; downstream
+// theorems of the corpus mount the host modules directly.
+//
+// The corpus presence is needed so `verum audit --coord
+// theorems/msfs/01_introduction/` enumerates the (Fw, ν, τ)
+// coordinates per theorem-area, not only at stdlib granularity.
+// =============================================================================
+
+module lib.theorems.msfs.introduction;
+
+mount core.math.frameworks.msfs.baseline.{
+    msfs_baseline_zfc_2inacc,
+    msfs_grothendieck_universes,
+    msfs_categorical_machinery_baseline,
+};
+mount core.math.frameworks.msfs.key_symbols.{
+    msfs_F_is_2_category,
+    msfs_rho_is_classification_functor,
+    msfs_gauge_is_morita,
+    msfs_M_stack_quotient,
+    msfs_Aut_2_is_2_group,
+    msfs_S_int_is_2_category,
+    msfs_Syn_truncation,
+};
+mount core.math.frameworks.msfs.strcat.{
+    msfs_strcat_total_definition,
+    msfs_strcat_object_kappa_1_accessible,
+};
+
+/// Stage M.1 marker — `verum audit --coord` uses this as a stable
+/// anchor for the section's (Fw, ν, τ) coordinate.
+@framework(msfs, "MSFS Stage M.1 — Conventions and Notation (§1) anchor")
+public axiom msfs_stage_m_1_anchor() -> Bool
+    ensures true;

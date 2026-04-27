@@ -1,0 +1,29 @@
+// =============================================================================
+// MSFS Stage M.4 — L_Abs Conditions (paper §4)
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, §4 — Definitions 4.1–4.4.
+//
+// Stage M.4's content (F_S, Π_4, Π_3-max, L_Abs membership) lives
+// in host stdlib `core.math.absolute_layer`. This file is the
+// corpus-side anchor.
+// =============================================================================
+
+module lib.theorems.msfs.l_abs_conditions;
+
+mount core.math.absolute_layer.{
+    ConditionFS,
+    ConditionPi4,
+    ConditionPi3Max,
+    LAbsCandidate,
+    msfs_definition_4_1_f_s,
+    msfs_definition_4_2_pi_4,
+    msfs_definition_4_3_pi_3_max,
+    msfs_definition_4_4_l_abs,
+    msfs_f_s_implies_formal_s_definable,
+};
+
+/// Stage M.4 marker — `verum audit --coord` anchor.
+@framework(msfs, "MSFS Stage M.4 — L_Abs Conditions (§4) anchor")
+public axiom msfs_stage_m_4_anchor() -> Bool
+    ensures true;

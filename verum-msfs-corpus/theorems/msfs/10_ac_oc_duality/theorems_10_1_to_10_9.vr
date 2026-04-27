@@ -1,0 +1,98 @@
+// =============================================================================
+// MSFS §10 — AC/OC Morita Duality (FLAGSHIP)
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, §10 — AC/OC Morita Duality.
+//
+// **Centrepiece result of the dual side: parallels Theorem 5.1 + 6.1
+// on the enactment-centric (DC) side.**
+//
+//   Definition 10.1 — 2-category `\cE` of pointed reflective enactments
+//                      `(F, \cC, ι, r)`; ε ⊣ α adjoint pair
+//                      (Diakrisis 108.T premise).
+//   Definition 10.2 — class `\cS_S^\cE` of S-definable enactments.
+//   Lemma 10.3      — enactment syntax–semantics: formal-S-definable
+//                      enactment ⟹ in `\cS_S^\cE^{global}` (post-audit
+//                      C-7 explicit construction of (ι, r) via Kan
+//                      extension + Adámek–Rosický adjoint-functor
+//                      existence).
+//   Theorem 10.4    — **AC/OC Morita Duality**: `𝔐 ≃_{(∞,∞)} 𝔐_\cE`
+//                      via ε ⊣ α biadjunction. Centrepiece, parallels
+//                      Theorem 5.1 / 6.1 / 9.3 on dual side.
+//   Corollary 10.5  — `Con(\cF ∪ \cE) = Con(\cF) = Con(\ZFC + 2-inacc)`.
+//                      Post-audit M-20 fix: "by construction" full clause.
+//   Theorem 10.7    — Dual Boundary Lemma (109.T): `\LAbs^\cE = ∅`.
+//   Corollary 10.8  — `\LAbs^\cE = ∅` headline.
+//   Theorem 10.9    — Dual five-axis absoluteness. Post-audit M-21
+//                      fix: "Theorems 7.1–7.6 transfer" (plural agreement).
+// =============================================================================
+
+module lib.theorems.msfs.ac_oc_duality;
+
+mount core.math.absolute_layer.{LAbsCandidate};
+mount core.math.s_definable.lemma_3_4.{FormallySDefinable};
+
+/// MSFS Definition 10.1 — 2-category `\cE` of pointed reflective
+/// enactments + adjoint pair `α : \cE → \cF` (forgetful) ⊣
+/// `ε : \cF → \cE` (syntactic self-enactment). Strict section:
+/// `α ∘ ε = id_\cF`.
+@framework(msfs, "MSFS Definition 10.1 — 2-category cE + α ⊣ ε adjoint pair")
+public axiom msfs_definition_10_1_E_category() -> Bool
+    ensures true;
+
+/// MSFS Definition 10.2 — class `\cS_S^\cE` of S-definable
+/// pointed reflective enactments + global sub-class
+/// `\cS_S^\cE^{global}`.
+@framework(msfs, "MSFS Definition 10.2 — class cS_S^cE")
+public axiom msfs_definition_10_2_S_S_E() -> Bool
+    ensures true;
+
+/// **MSFS Lemma 10.3 — Enactment syntax–semantics lemma.** Formally
+/// S-definable enactment ⟹ in `\cS_S^\cE^{global}`. Post-audit C-7
+/// explicit construction of (ι, r): ι via Kan extension along
+/// `Syn(F') ↪ \cC`; left reflector r via Adámek–Rosický adjoint-
+/// functor existence for accessible functors between locally
+/// `κ_S`-presentable categories. Triangle identities transported
+/// from `χ_r`.
+@framework(msfs, "MSFS Lemma 10.3 — enactment syntax–semantics (componentwise via Kan ext + AR adjoint)")
+public axiom msfs_lemma_10_3_enactment_syntax_semantics() -> Bool
+    ensures true;
+
+/// **MSFS Theorem 10.4 — AC/OC Morita Duality (FLAGSHIP).**
+///
+/// `𝔐 ≃_{(∞,∞)} 𝔐_\cE`. The adjoint pair ε ⊣ α induces an
+/// `(∞,∞)`-equivalence of classifying 2-stacks. Four-step proof:
+///   (a) ε is fully faithful.
+///   (b) ε is essentially surjective at the gauge level.
+///   (c) lift to (∞,∞) via Theorem A.7 stabilization.
+///   (d) strata correspondence preserved.
+@framework(msfs, "MSFS Theorem 10.4 — AC/OC Morita Duality (FLAGSHIP)")
+public axiom msfs_theorem_10_4_ac_oc_morita_duality() -> Bool
+    ensures true;
+
+/// MSFS Corollary 10.5 — Conservativity. `Con(\cF ∪ \cE) = Con(\cF)
+/// = Con(\ZFC + 2-inacc)`. Post-audit M-20 fix applied.
+@framework(msfs, "MSFS Corollary 10.5 — Con(F ∪ E) = Con(F) = Con(ZFC + 2-inacc)")
+public axiom msfs_corollary_10_5_conservativity() -> Bool
+    ensures true;
+
+/// **MSFS Theorem 10.7 — Dual Boundary Lemma (Diakrisis 109.T).**
+///
+/// `¬∃ q ∈ \cE. F̃_S(q) ∧ Π̃_4(S, n, q) ∧ Π̃_{3-max}(S, n, q)`.
+/// Operationally: no enactment can simultaneously satisfy the
+/// dual triple. Hence `\LAbs^\cE = ∅`.
+@framework(msfs, "MSFS Theorem 10.7 — Dual Boundary Lemma (Diakrisis 109.T)")
+public axiom msfs_theorem_10_7_dual_boundary_lemma() -> Bool
+    ensures true;
+
+/// MSFS Corollary 10.8 — `\LAbs^\cE = ∅` headline.
+@framework(msfs, "MSFS Corollary 10.8 — L_Abs^cE = ∅")
+public axiom msfs_corollary_10_8_l_abs_E_empty() -> Bool
+    ensures true;
+
+/// MSFS Theorem 10.9 — Dual five-axis absoluteness. Theorems
+/// 7.1–7.6 transfer to `\LAbs^\cE` componentwise via Theorem 10.4.
+/// Post-audit M-21 fix applied (subject-verb agreement).
+@framework(msfs, "MSFS Theorem 10.9 — Dual five-axis absoluteness")
+public axiom msfs_theorem_10_9_dual_five_axis() -> Bool
+    ensures true;

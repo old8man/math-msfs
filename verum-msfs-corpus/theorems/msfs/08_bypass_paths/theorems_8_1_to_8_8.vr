@@ -1,0 +1,91 @@
+// =============================================================================
+// MSFS §8 — Three Bypass Paths (Theorems 8.1, 8.2, 8.6, 8.7 + Cor 8.8)
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, §8 — Three bypass paths
+// (universe polymorphism, reflective tower, intensional refinement
+// via display 2-categories).
+//
+// Seven results closing historical bypass attempts against AFN-T:
+//
+//   Theorem 8.1 — universe polymorphism absoluteness.
+//   Theorem 8.2 — reflective tower boundedness (Con(S_∞) ≤ Con(S)
+//                  + κ_inacc).
+//   Definitions 8.3 / 8.4 / 8.5 — display class, display 2-category,
+//                                  S_int (2-category of display 2-cats).
+//   Theorem 8.6 — existence of `I : F^op → S_int` (8-step
+//                  construction; intensional-refinement functor).
+//   Theorem 8.7 — slice-locality of `I` via gauge-quotient.
+//   Corollary 8.8 — intensional refinement adds *no* new
+//                    structural axis to AFN-T.
+//
+// Theorem 8.6 is the most technically demanding — 8 construction
+// steps (objects, 1-morphisms, 2-morphisms, functoriality, I_1
+// homotopy invariance, I_2 gauge covariance, I_3 strict refinement
+// of Morita through Eff topos τ-invariant, I_4 Morita 2-localization
+// via Pronk's bicategory of fractions).
+// =============================================================================
+
+module lib.theorems.msfs.bypass_paths;
+
+mount core.math.s_definable.class_s_s.{SSMembership};
+mount core.math.absolute_layer.{ConditionPi4};
+
+/// MSFS Theorem 8.1 — universe polymorphism absoluteness. A
+/// universe-polymorphic structure `X = Π_ℓ F(ℓ)` is a section of
+/// the Grothendieck fibration `\int \cU → \mathrm{Level}`, hence
+/// `X ≃ \lim_ℓ \Fun(\cU_ℓ, \cU_ℓ) ∈ \cS_S^{global}` and ¬(Π_4).
+@framework(msfs, "MSFS Theorem 8.1 — universe-polymorphism Morita-reduces to S_S^global")
+public axiom msfs_theorem_8_1_universe_polymorphism() -> Bool
+    ensures true;
+
+/// MSFS Theorem 8.2 — reflective tower boundedness.
+/// `Con(\text{reflective tower over } S) = Con(S) + κ_{inacc}`.
+/// One additional inaccessible cardinal — no further escape.
+@framework(msfs, "MSFS Theorem 8.2 — reflective tower bounded by Con(S) + κ_inacc")
+public axiom msfs_theorem_8_2_reflective_tower() -> Bool
+    ensures true;
+
+/// MSFS Definition 8.3 — display class of morphisms (closed under
+/// equivalences, pullback-stable, composition-closed, 2-cell
+/// coherent).
+@framework(msfs, "MSFS Definition 8.3 — display class")
+public axiom msfs_definition_8_3_display_class() -> Bool
+    ensures true;
+
+/// MSFS Definition 8.4 — display 2-category as a triple
+/// `(\cC, \cD, ι : \cD ↪ \mathrm{Mor}_1(\cC))`.
+@framework(msfs, "MSFS Definition 8.4 — display 2-category")
+public axiom msfs_definition_8_4_display_2_category() -> Bool
+    ensures true;
+
+/// MSFS Definition 8.5 — `S_int` as the 2-category of display
+/// 2-categories with coherent natural transformations as 2-cells.
+@framework(msfs, "MSFS Definition 8.5 — S_int")
+public axiom msfs_definition_8_5_s_int() -> Bool
+    ensures true;
+
+/// MSFS Theorem 8.6 — existence of `\II : \cF^{op} → S_int`
+/// satisfying (I-1) homotopy invariance, (I-2) gauge covariance,
+/// (I-3) strict refinement of Morita (witnessed by Eff topos
+/// τ-invariant: τ(I(MLTT)) = 1, τ(I(ETT)) = 0), (I-4) Morita
+/// 2-localization via Pronk's bicategory of fractions.
+@framework(msfs, "MSFS Theorem 8.6 — existence of intensional-refinement functor I : F^op → S_int")
+public axiom msfs_theorem_8_6_I_existence() -> Bool
+    ensures true;
+
+/// MSFS Theorem 8.7 — slice-locality of `\II`. There is a 2-functor
+/// `\tilde{π} : S_int → 𝔐` making the gauge-quotient diagram
+/// 2-commute; intensional fibres lie *inside* gauge-classes already
+/// existing in `𝔐`.
+@framework(msfs, "MSFS Theorem 8.7 — slice-locality of I via gauge-quotient")
+public axiom msfs_theorem_8_7_slice_locality() -> Bool
+    ensures true;
+
+/// MSFS Corollary 8.8 — intensional refinement adds **no** new
+/// structural axis to AFN-T. Foundations distinguishable only at
+/// the intensional level (MLTT / ETT, HoTT / cubical HoTT) inhabit
+/// the *same* point of `𝔐`; AFN-T applies unchanged.
+@framework(msfs, "MSFS Corollary 8.8 — intensional refinement adds no new axis to AFN-T")
+public axiom msfs_corollary_8_8_intensional_no_new_axis() -> Bool
+    ensures true;

@@ -1,0 +1,95 @@
+// =============================================================================
+// MSFS §9 — L_Cls Meta-Classification (Theorems 9.3, 9.4, 9.6)
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, §9.
+//
+// Five results + 2 definitions on the structure of L_Cls
+// (classifiers of Rich-foundations):
+//
+//   Definition 9.1 — Meta_Cls trait (M1-M5).
+//   Definition 9.2 — maximality predicate (Max-1) … (Max-4).
+//   Theorem 9.3  — Meta-Categoricity: any two F_1, F_2 ∈ Meta_Cls^⊤
+//                   over the same `S ∈ \RS` are canonically
+//                   `(∞, ∞)`-equivalent (proof in 5 steps:
+//                   canonical maximal classifier F_S^*; construct
+//                   Φ_F; ess. surj.; fully faithful; lift to (∞,∞)).
+//   Theorem 9.4  — Structural multiplicity: ≥3 pairwise non-2-
+//                   equivalent meta-structures in Meta_Cls \ Meta_Cls^⊤
+//                   (Univalent Foundations / ∞-cosmoi / cohesive).
+//   Corollary 9.5 — L_Cls is structurally plural.
+//   Theorem 9.6  — Meta-classification stabilization. The classifying
+//                   2-stack `𝔐^(Cls)` realises the same (∞,∞)-theory
+//                   at every iteration; set-theoretic ascent up the
+//                   Grothendieck-universe hierarchy.
+//
+// Theorem 9.3 is the *categoricity* result: maximal meta-structures
+// over the same metatheory are unique up to canonical (∞,∞)-equiv.
+// Theorem 9.6 is the *stabilization* / *no-escalation* result:
+// iterated meta-classification doesn't break out of L_Cls.
+// =============================================================================
+
+module lib.theorems.msfs.meta_classification;
+
+mount core.math.strata.{MathObject, msfs_proper_inclusion_cls_clsmax};
+mount core.math.rich_s.conditions.{RichS};
+
+/// MSFS Definition 9.1 — `Meta_Cls`. A 2-category `\mathbf{F}`
+/// satisfying (M1) locally small 2-cat, (M2) classification 2-functor
+/// `Cl_F : F → 𝔐` with `image(Cl_F) =: 𝔐(F) ⊆ 𝔐` (post-audit C-3
+/// fix), (M3) accessible reflection, (M4) non-generative,
+/// (M5) S-parametrized.
+@framework(msfs, "MSFS Definition 9.1 — Meta_Cls (M1)–(M5)")
+public axiom msfs_definition_9_1_meta_cls() -> Bool
+    ensures true;
+
+/// MSFS Definition 9.2 — Maximality predicates (Max-1) full
+/// classification; (Max-2) gauge-fullness; (Max-3) depth
+/// stratification; (Max-4) intensional completeness.
+/// `Meta_Cls^⊤` = maximal meta-structures.
+@framework(msfs, "MSFS Definition 9.2 — Meta_Cls^⊤ (Max-1)..(Max-4)")
+public axiom msfs_definition_9_2_meta_cls_top() -> Bool
+    ensures true;
+
+/// **MSFS Theorem 9.3 — Meta-Categoricity.**
+///
+/// Let `F_1, F_2 ∈ Meta_Cls^⊤` be parametrized by the same
+/// `S ∈ \RS`. Then `F_1 ≃_{(∞,∞)} F_2` via a canonical equivalence
+/// constructed via a common object `F_S^*` (Grothendieck
+/// straightening + gauge quotient). Five proof steps (post-audit C-4
+/// renumbering): Step 1 canonical maximal classifier; Step 2
+/// construct Φ_F; Step 3 ess. surj.; Step 4 fully faithful;
+/// Step 5 lift to (∞,∞) via Whitehead criterion + Theorem A.7.
+@framework(msfs, "MSFS Theorem 9.3 — Meta-Categoricity (canonical (∞,∞)-equivalence)")
+public axiom msfs_theorem_9_3_meta_categoricity() -> Bool
+    ensures true;
+
+/// **MSFS Theorem 9.4 — Structural multiplicity.**
+///
+/// `Meta_Cls \ Meta_Cls^⊤` contains at least 3 pairwise non-2-
+/// equivalent meta-structures: Univalent Foundations (Voevodsky),
+/// ∞-cosmoi (Riehl–Verity), cohesive higher topos theory (Schreiber).
+/// Each violates (Max-1) by classifying only a strict sub-stack of `𝔐`.
+@framework(msfs, "MSFS Theorem 9.4 — ≥3 pairwise non-2-equivalent meta-structures")
+public axiom msfs_theorem_9_4_structural_multiplicity() -> Bool
+    ensures true;
+
+/// MSFS Corollary 9.5 — `L_Cls` is structurally plural. Direct
+/// from Theorem 9.4.
+@framework(msfs, "MSFS Corollary 9.5 — L_Cls is structurally plural")
+public axiom msfs_corollary_9_5_plurality() -> Bool
+    ensures true;
+
+/// **MSFS Theorem 9.6 — Meta-classification stabilization.**
+///
+/// (a) `𝔐^(Cls) := Meta_Cls / meta_gauge ∈ Meta_Cls`.
+/// (b) Theory-level idempotence: `𝔐^(Cls·k)` realises the *same*
+///     (∞,∞)-theory as `𝔐^(Cls)` at every k ≥ 1, modulo
+///     Grothendieck-universe ascent κ_1 < κ_2 < … (post-audit C-3
+///     justification of the Π_(∞,∞) lift via accessible-functor
+///     equivalence transfer).
+/// (c) No L_Abs escalation through meta-iteration. (post-audit
+///     I-13 fix: full triple `(F_S) ∧ (Π_4) ∧ (Π_3-max)` cited).
+@framework(msfs, "MSFS Theorem 9.6 — Meta-classification stabilization (theory idempotent, set-theoretic ascends)")
+public axiom msfs_theorem_9_6_meta_classification_stabilization() -> Bool
+    ensures true;

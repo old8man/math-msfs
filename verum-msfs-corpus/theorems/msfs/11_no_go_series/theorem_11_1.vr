@@ -1,0 +1,55 @@
+// =============================================================================
+// MSFS §11 — No-Go Series Subsumption (Theorem 11.1)
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, §11 — Theorem 11.1.
+//
+// **Single subsumption framework**: every classical no-go theorem
+// (Cantor 1891, Russell 1903, Gödel I+II 1931, Tarski 1936, Lawvere
+// FP 1969, Ernst 2015) inhabits the AFN-T-α framework as a triple
+// `(S_T, n_T, X_T)` with `S_T ∈ \RS`, `n_T ∈ ℕ ∪ {∞}`, and `X_T`
+// the purported maximal object.
+//
+// Each row's classical diagonal (Cantor's |X|<|P(X)|, Russell's
+// R∈R↔R∉R, Gödel's G ↔ ¬Prov(⌜G⌝), Tarski's liar, Lawvere's
+// f(x_0)=x_0, Ernst's UCT-axiom) refines the universal id_{X_T}
+// template of Theorem 5.1 into the row-specific witness.
+//
+// The Russell + Tarski rows now properly cite (post-audit C-1, C-2
+// fixes): Russell at ZFC with putative-set witness (Naïve ST not in
+// R-S); Tarski at PA with putative truth predicate (Th(N) not r.e.,
+// not in R-S).
+// =============================================================================
+
+module lib.theorems.msfs.no_go_subsumption;
+
+mount core.math.rich_s.conditions.{RichS};
+mount core.math.absolute_layer.{LAbsCandidate};
+
+/// **MSFS Theorem 11.1 — Subsumption via specialization.**
+///
+/// For each classical no-go `T ∈ {Cantor, Russell, Gödel I, Gödel II,
+/// Tarski, Lawvere FP, Ernst}`, there exists a triple
+/// `(S_T, n_T, X_T)` with `S_T ∈ \RS`, `n_T ∈ ℕ ∪ {∞}`, and `X_T`
+/// the purported maximal object satisfying:
+///
+///   (i)   `X_T ⊨ (F_{S_T})`.
+///   (ii)  `X_T` would satisfy `(Π_{4, S_T, n_T})` under `T`'s hypothesis.
+///   (iii) Theorem 5.1 at `(S_T, n_T)` yields a structural contradiction
+///         with the existence of `X_T` as L_Abs candidate.
+///
+/// Each row's classical diagonal *refines* the universal
+/// id_{X_T} template into the row-specific witness — the diagonals
+/// are independent classical arguments, not derived from AFN-T α.
+///
+/// Witness table (post-audit C-1, C-2 fixes applied):
+///   - Cantor 1891      — ZFC, n=1, X=Powerset functor; φ_P(X,Y) ≡ Y={Z:Z⊆X}
+///   - Russell 1903     — ZFC, n=1, X=putative-set witness of {x : x∉x}; φ_R(x) ≡ x∉x
+///   - Gödel I 1931     — PA, n=1, X=G; φ_G ≡ ¬Prov(⌜G⌝)
+///   - Gödel II 1931    — PA, n=1, X=putative PA-internal proof of Con(PA); φ_Con
+///   - Tarski 1936      — PA, n=1, X=putative arithmetic truth pred T; T(φ)≡φ
+///   - Lawvere FP 1969  — CCC ext. of ZFC, n=1, X=weakly-surj X→X^X
+///   - Ernst 2015       — Feferman (R1)–(R3), n=1, X=UCT object
+@framework(msfs, "MSFS Theorem 11.1 — subsumption of 7 classical no-go results under AFN-T α")
+public axiom msfs_theorem_11_1_subsumption() -> Bool
+    ensures true;

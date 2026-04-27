@@ -1,0 +1,28 @@
+// =============================================================================
+// MSFS Stage M.2 — Stratified Hierarchy (paper §2)
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, §2.
+//
+// Stage M.2's structural content (Definition 2.1 strata enum +
+// Proposition 2.2 + Proposition 2.3) lives in the host stdlib
+// `core.math.strata`. This file is the corpus-side anchor.
+// =============================================================================
+
+module lib.theorems.msfs.strata;
+
+mount core.math.strata.{
+    Stratum,
+    msfs_strata_class_definable,
+    msfs_proper_inclusion_fnd_cls,
+    msfs_proper_inclusion_cls_clsmax,
+    msfs_proper_inclusion_clsmax_abs,
+    msfs_L_abs_empty,
+    msfs_no_horizontal_collapse,
+    msfs_cls_not_in_l_abs,
+};
+
+/// Stage M.2 marker — `verum audit --coord` anchor.
+@framework(msfs, "MSFS Stage M.2 — Stratified Hierarchy (§2) anchor")
+public axiom msfs_stage_m_2_anchor() -> Bool
+    ensures true;

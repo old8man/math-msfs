@@ -1,0 +1,75 @@
+// =============================================================================
+// MSFS §12 — Consequences and Open Questions
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, §12.
+//
+// Four diagnostic theorems + five explicit open-question registrations.
+//
+// Diagnostics determine which member of `(F_S), (Π_4), (Π_3-max)` is
+// the actual obstruction for each candidate L_Cls meta-structure:
+//   - Univalent Foundations  — passes (F_S), passes (Π_4) conditional,
+//                              fails (Π_3-max) (limited to HoTT-adjacent).
+//   - Higher Topos Theory    — passes (F_S), fails (Π_3-max).
+//   - Cohesive ∞-Topos       — passes (F_S), fails (Π_3-max).
+//   - ∞-Cosmoi               — passes (F_S), fails (Π_3-max).
+//
+// Open questions (Q1–Q5) — Q1, Q3, Q4, Q5 closed in the Diakrisis
+// extension corpus; Q2 remains open.
+// =============================================================================
+
+module lib.theorems.msfs.consequences;
+
+/// MSFS Consequence 12.1 — Univalent Foundations (Voevodsky)
+/// passes (F_S) ∧ conditional (Π_4); fails (Π_3-max).
+@framework(msfs, "MSFS §12 — Univalent Foundations diagnostic: passes (F_S, Π_4 cond.); fails (Π_3-max)")
+public axiom msfs_consequence_univalent_foundations() -> Bool
+    ensures true;
+
+/// MSFS Consequence 12.2 — Higher Topos Theory passes (F_S); fails
+/// (Π_3-max).
+@framework(msfs, "MSFS §12 — Higher Topos Theory diagnostic")
+public axiom msfs_consequence_higher_topos() -> Bool
+    ensures true;
+
+/// MSFS Consequence 12.3 — Cohesive ∞-Topos passes (F_S); fails
+/// (Π_3-max).
+@framework(msfs, "MSFS §12 — Cohesive ∞-Topos diagnostic")
+public axiom msfs_consequence_cohesive() -> Bool
+    ensures true;
+
+/// MSFS Consequence 12.4 — ∞-Cosmoi passes (F_S); fails (Π_3-max).
+@framework(msfs, "MSFS §12 — ∞-Cosmoi diagnostic")
+public axiom msfs_consequence_infinity_cosmoi() -> Bool
+    ensures true;
+
+/// MSFS Q1 — Existence of maximal meta-framework. **Closed in
+/// Diakrisis** (Theorems 103.T–106.T: universal articulation
+/// witness; Diakrisis ∈ L_Cls^⊤).
+@framework(msfs, "MSFS Q1 — closed in Diakrisis 103.T-106.T")
+public axiom msfs_open_question_Q1_closed_in_diakrisis() -> Bool
+    ensures true;
+
+/// MSFS Q2 — Completeness of the meta-framework list. **Open**.
+@framework(msfs, "MSFS Q2 — completeness of meta-framework list — OPEN")
+public axiom msfs_open_question_Q2_open() -> Bool
+    ensures true;
+
+/// MSFS Q3 — Exhaustiveness of bypass paths. **Closed in Diakrisis**
+/// (Theorem 133.T).
+@framework(msfs, "MSFS Q3 — closed in Diakrisis 133.T")
+public axiom msfs_open_question_Q3_closed_in_diakrisis() -> Bool
+    ensures true;
+
+/// MSFS Q4 — Consistency strength minimality (ZFC + 2-inacc tight?).
+/// **Closed in Diakrisis** (Theorem 134.T: ZFC + 1-inacc
+/// counterexample).
+@framework(msfs, "MSFS Q4 — closed in Diakrisis 134.T")
+public axiom msfs_open_question_Q4_closed_in_diakrisis() -> Bool
+    ensures true;
+
+/// MSFS Q5 — Sub-stack of weak R-S. **Closed in Diakrisis**
+/// (Theorem 137.T).
+@framework(msfs, "MSFS Q5 — closed in Diakrisis 137.T")
+public axiom msfs_open_question_Q5_closed_in_diakrisis() -> Bool
+    ensures true;

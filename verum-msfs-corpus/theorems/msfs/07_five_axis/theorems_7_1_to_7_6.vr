@@ -1,0 +1,71 @@
+// =============================================================================
+// MSFS §7 — Five-Axis Absoluteness (Theorems 7.1–7.6)
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, §7 — Five-axis absoluteness.
+//
+// Six structural absoluteness theorems showing AFN-T is uniform along
+// five axes of variation:
+//
+//   Theorem 7.1 — horizontal: ∀ S ∈ \RS, AFN-T holds uniformly.
+//   Theorem 7.2 — vertical: ∀ n ∈ ℕ ∪ {∞}, AFN-T holds uniformly.
+//   Theorem 7.3 — meta-vertical: meta-iterations don't escape AFN-T
+//                  via Theorem A.7's (∞,∞)-stabilization.
+//   Theorem 7.4 — lateral: alternative categorical orderings reduce
+//                  to (∞, n)-Cat ⟹ AFN-T transfers.
+//   Definition 7.5 — Lawvere-scope LS.
+//   Theorem 7.6 — completeness: any structural variation in LS
+//                  reduces to one of (horizontal, vertical, meta-
+//                  vertical, lateral) ⟹ five-axis absoluteness.
+//
+// All five theorems descend from Theorem 5.1 + Lemma 3.4 plus
+// auxiliary stabilization / Lawvere-scope technology.
+// =============================================================================
+
+module lib.theorems.msfs.five_axis;
+
+mount core.math.rich_s.conditions.{RichS};
+mount core.math.absolute_layer.{LAbsCandidate};
+mount core.math.s_definable.lemma_3_4.{FormallySDefinable};
+
+/// MSFS Theorem 7.1 — horizontal axis. AFN-T holds uniformly over
+/// all `S ∈ \RS` because Lemma 3.4 + the id_X-violates-Π_4 template
+/// (Theorem 5.1 proof) use only (R1)-(R5), nothing S-specific.
+@framework(msfs, "MSFS Theorem 7.1 — horizontal axis: AFN-T uniform over R-S")
+public axiom msfs_theorem_7_1_horizontal() -> Bool
+    ensures true;
+
+/// MSFS Theorem 7.2 — vertical axis. AFN-T holds uniformly over
+/// all `n ∈ ℕ ∪ {∞}` because (R5b) Lambek–Scott applies levelwise
+/// + Barwick–Schommer-Pries unicity at limit n = ∞.
+@framework(msfs, "MSFS Theorem 7.2 — vertical axis: AFN-T uniform over n ∈ ℕ ∪ {∞}")
+public axiom msfs_theorem_7_2_vertical() -> Bool
+    ensures true;
+
+/// MSFS Theorem 7.3 — meta-vertical axis. Meta-iteration
+/// `(∞, ∞ + 1)-Cat = (∞, ∞)-Cat` (Theorem A.7) ⟹ no escape via
+/// meta-stratum elevation.
+@framework(msfs, "MSFS Theorem 7.3 — meta-vertical axis: meta-iterations stabilise via Theorem A.7")
+public axiom msfs_theorem_7_3_meta_vertical() -> Bool
+    ensures true;
+
+/// MSFS Theorem 7.4 — lateral axis. Alternative categorical
+/// orderings (operadic, double-cat, globular, opetopic, stable
+/// (∞,1), fusion) reduce to `(∞, n)`-Cat ⟹ AFN-T transfers.
+@framework(msfs, "MSFS Theorem 7.4 — lateral axis: alt orderings reduce to (∞, n)")
+public axiom msfs_theorem_7_4_lateral() -> Bool
+    ensures true;
+
+/// MSFS Definition 7.5 — Lawvere-scope `LS`. Foundations admitting
+/// syntactic 1-categorical and semantic 2-categorical structure
+/// connected by a Lambek-style adjunction realisable as `(∞, n)`-cats.
+@framework(msfs, "MSFS Definition 7.5 — Lawvere-scope LS")
+public axiom msfs_definition_7_5_lawvere_scope() -> Bool
+    ensures true;
+
+/// MSFS Theorem 7.6 — completeness axis (conditional on LS). Any
+/// structural variation of `F ∈ LS` reduces to one of the four
+/// preceding axes ⟹ AFN-T is *five-axis absolute* within LS.
+@framework(msfs, "MSFS Theorem 7.6 — completeness axis (within Lawvere-scope)")
+public axiom msfs_theorem_7_6_completeness() -> Bool
+    ensures true;

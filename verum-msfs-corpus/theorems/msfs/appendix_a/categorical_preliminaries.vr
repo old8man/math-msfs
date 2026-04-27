@@ -1,0 +1,88 @@
+// =============================================================================
+// MSFS Appendix A — Categorical Preliminaries (8 results)
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, Appendix A.
+//
+// Standard categorical infrastructure cited from authoritative
+// works. Most lemmas are *admissions* of external results; only
+// Theorem A.7 (Bergner–Lurie (∞,∞)-stabilization) is reconstructed
+// in the paper because its multiple-citation chain (Barwick–Schommer-
+// Pries unicity + Bergner–Rezk model comparison + Ara–Maltsiniotis
+// globular/cubical equivalence) is essential for §6 / §7 / §9.
+//
+// The stratified-citation pattern: each external work is admitted
+// once at the framework layer; downstream theorems cite by lineage
+// name (`lurie_htt`, `riehl_verity`, `pronk_1996`, `kelly_1982`,
+// `adamek_rosicky_1994`, `barwick_schommer_pries_2021`).
+// =============================================================================
+
+module lib.theorems.msfs.categorical_preliminaries;
+
+/// Lemma A.1 — Kelly 1982 §1-§2: 2-categorical infrastructure
+/// (2-categories, 2-functors, lax / pseudo / strict natural
+/// transformations, modifications).
+@framework(msfs, "MSFS Lemma A.1 — Kelly 1982 §1-§2 (2-categorical infrastructure)")
+public axiom msfs_lemma_A_1_kelly_2_categorical() -> Bool
+    ensures true;
+
+/// Lemma A.2 — Lurie HTT 2009: ∞-categorical infrastructure
+/// (quasi-categories, simplicial categories, Joyal model structure,
+/// straightening / unstraightening, ∞-Kan extensions).
+@framework(msfs, "MSFS Lemma A.2 — Lurie HTT 2009 (∞-categorical infrastructure)")
+public axiom msfs_lemma_A_2_lurie_htt() -> Bool
+    ensures true;
+
+/// Lemma A.3 — Riehl–Verity 2022: synthetic (∞, 1)-category theory
+/// via ∞-cosmoi. Used in §10 for the construction of E.
+@framework(msfs, "MSFS Lemma A.3 — Riehl–Verity 2022 (synthetic (∞,1)-category theory)")
+public axiom msfs_lemma_A_3_riehl_verity() -> Bool
+    ensures true;
+
+/// Lemma A.4 — Pronk 1996 Theorem 21: bicategory of fractions.
+/// 2-localization of a 2-category along a class of 1-morphisms
+/// satisfying the Bousfield-Pronk calculus (BF1)–(BF5). Used in
+/// Theorem 8.6 Step 8 for the Morita 2-localization.
+@framework(msfs, "MSFS Lemma A.4 — Pronk 1996 Theorem 21 (bicategory of fractions)")
+public axiom msfs_lemma_A_4_pronk_bicat_fractions() -> Bool
+    ensures true;
+
+/// Lemma A.5 — Lawvere 1969: fixed-point theorem at the 2-categorical
+/// level. Weakly point-surjective `e : A → Y^A` ⟹ every `f : Y → Y`
+/// has fixed point. Yanofsky's universal diagonal subsumes this.
+@framework(msfs, "MSFS Lemma A.5 — Lawvere 1969 (fixed-point theorem, 2-categorical)")
+public axiom msfs_lemma_A_5_lawvere_fp() -> Bool
+    ensures true;
+
+/// Lemma A.6 — Whitehead-type criterion. `Φ : C_1 → C_2` between
+/// accessible (∞,∞)-categories is an `(∞,∞)`-equivalence iff
+/// `τ_{≤n}(Φ)` is an `(∞,n)`-equivalence for every `n ∈ ℕ`. Used
+/// in Theorem 9.6 Step 5 lift to (∞,∞).
+@framework(msfs, "MSFS Lemma A.6 — Whitehead-type criterion for (∞,∞)-equivalences")
+public axiom msfs_lemma_A_6_whitehead() -> Bool
+    ensures true;
+
+/// **MSFS Theorem A.7 — Bergner–Lurie (∞,∞)-stabilization.**
+///
+/// The canonical inclusion `(∞, ∞)\text{-}\Cat \hookrightarrow
+/// (∞, ∞ + 1)\text{-}\Cat` is an `(∞, ∞)`-equivalence. Three-source
+/// argument: Barwick–Schommer-Pries 2021 unicity + Bergner–Rezk 2013
+/// model comparison + Ara–Maltsiniotis 2017 globular/cubical
+/// equivalence.
+///
+/// Used as forward reference in Theorem 6.1 (β-part), Theorem 7.3
+/// (meta-vertical axis), Theorem 9.6 (b.4) inclusions
+/// `Π_{(∞,∞)} ↪ Π_{(∞,∞+1)}` (post-audit I-18 justification: lifts
+/// via accessible-functor preservation).
+@framework(msfs, "MSFS Theorem A.7 — Bergner–Lurie (∞,∞)-stabilization (CRITICAL forward ref)")
+public axiom msfs_theorem_A_7_bergner_lurie_stabilization() -> Bool
+    ensures true;
+
+/// Lemma A.8 — Adámek–Rosický 1994: accessible-categories
+/// infrastructure. Filtered-colimit closure for κ-accessible
+/// categories under regular `λ ≤ κ`-filtered colimits +
+/// preservation under accessible reindexing. Used in Theorem 6.1
+/// (β-part Step 4) and Lemma 10.3 (post-audit C-9 + C-7 fixes).
+@framework(msfs, "MSFS Lemma A.8 — Adámek–Rosický 1994 (accessible-categories infrastructure)")
+public axiom msfs_lemma_A_8_adamek_rosicky() -> Bool
+    ensures true;
