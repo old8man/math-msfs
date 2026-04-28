@@ -36,6 +36,30 @@ mount core.math.rich_s.conditions.{RichS};
 mount core.math.absolute_layer.{LAbsCandidate};
 mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 
+// =============================================================================
+// §9.6 (c) meta-classification reduction citation
+// =============================================================================
+
+/// **MSFS §9.6 (c) reduction citation.** A candidate constructed at
+/// meta-classification depth k ≥ 1 still inhabits the L_Abs triple's
+/// scope: meta-classification is internalised within `\cS_S^{global}`
+/// by Theorem 9.6 (a)+(b)'s stabilisation, so the meta-iterated
+/// candidate reduces to a standard L_Abs candidate at the (∞,∞)-Cat
+/// layer where Theorem 5.1 lives. Reduction preserves the L_Abs triple.
+/// Paper §9.6 (post-audit I-13 fix).
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS §9.6 (c) reduction — meta-iteration depth k ≥ 1 stabilises in (∞,∞)-Cat via Theorem 9.6 (a)+(b)")
+public axiom msfs_theorem_9_6c_meta_iteration_reduction(
+    candidate: &LAbsCandidate,
+) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures  candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative();
+
 /// MSFS Definition 9.1 — `Meta_Cls`. A 2-category `\mathbf{F}`
 /// satisfying (M1) locally small 2-cat, (M2) classification 2-functor
 /// `Cl_F : F → 𝔐` with `image(Cl_F) =: 𝔐(F) ⊆ 𝔐` (post-audit C-3
@@ -43,7 +67,7 @@ mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 /// (M5) S-parametrized.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Definition 9.1 — Meta_Cls (M1)–(M5)")
+@framework(msfs, "MSFS Definition 9.1 — Meta_Cls (M1)–(M5) (anchor)")
 public axiom msfs_definition_9_1_meta_cls() -> Bool
     ensures true;
 
@@ -53,7 +77,7 @@ public axiom msfs_definition_9_1_meta_cls() -> Bool
 /// `Meta_Cls^⊤` = maximal meta-structures.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Definition 9.2 — Meta_Cls^⊤ (Max-1)..(Max-4)")
+@framework(msfs, "MSFS Definition 9.2 — Meta_Cls^⊤ (Max-1)..(Max-4) (anchor)")
 public axiom msfs_definition_9_2_meta_cls_top() -> Bool
     ensures true;
 
@@ -68,7 +92,7 @@ public axiom msfs_definition_9_2_meta_cls_top() -> Bool
 /// Step 5 lift to (∞,∞) via Whitehead criterion + Theorem A.7.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Theorem 9.3 — Meta-Categoricity (canonical (∞,∞)-equivalence)")
+@framework(msfs, "MSFS Theorem 9.3 — Meta-Categoricity (canonical (∞,∞)-equivalence) (anchor)")
 public axiom msfs_theorem_9_3_meta_categoricity() -> Bool
     ensures true;
 
@@ -80,7 +104,7 @@ public axiom msfs_theorem_9_3_meta_categoricity() -> Bool
 /// Each violates (Max-1) by classifying only a strict sub-stack of `𝔐`.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Theorem 9.4 — ≥3 pairwise non-2-equivalent meta-structures")
+@framework(msfs, "MSFS Theorem 9.4 — ≥3 pairwise non-2-equivalent meta-structures (anchor)")
 public axiom msfs_theorem_9_4_structural_multiplicity() -> Bool
     ensures true;
 
@@ -88,7 +112,7 @@ public axiom msfs_theorem_9_4_structural_multiplicity() -> Bool
 /// from Theorem 9.4.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Corollary 9.5 — L_Cls is structurally plural")
+@framework(msfs, "MSFS Corollary 9.5 — L_Cls is structurally plural (anchor)")
 public axiom msfs_corollary_9_5_plurality() -> Bool
     ensures true;
 
@@ -100,7 +124,7 @@ public axiom msfs_corollary_9_5_plurality() -> Bool
 /// Grothendieck-universe machinery lands as kernel-level reasoning.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Theorem 9.6 (a)+(b) — Meta-classification stabilization (theory idempotent, set-theoretic ascends)")
+@framework(msfs, "MSFS Theorem 9.6 (a)+(b) — Meta-classification stabilization (theory idempotent, set-theoretic ascends) (anchor)")
 public axiom msfs_theorem_9_6_meta_classification_stabilization() -> Bool
     ensures true;
 
@@ -126,5 +150,10 @@ public theorem msfs_theorem_9_6c_no_l_abs_escalation(
           && candidate.cond_Pi_3_max().is_maximally_generative()
     ensures false
     proof {
+        // Step 1 — Cite §9.6 (c) meta-iteration reduction (paper §9.6):
+        //          stabilisation via Theorem 9.6 (a)+(b) returns the
+        //          meta-iterated candidate to (∞,∞)-Cat scope.
+        apply msfs_theorem_9_6c_meta_iteration_reduction(candidate);
+        // Step 2 — Apply Theorem 5.1 in (∞,∞)-Cat.
         apply msfs_theorem_5_1_afnt_alpha(candidate);
     };

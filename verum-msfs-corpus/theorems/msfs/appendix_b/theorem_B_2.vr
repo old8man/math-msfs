@@ -25,7 +25,7 @@ mount core.math.rich_s.conditions.{RichS};
 ///     fragment `S'^*` of `S'` is consistent and itself in `\RS`.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Definition B.1 — Paraconsistent R-S with extractable classical kernel")
+@framework(msfs, "MSFS Definition B.1 — Paraconsistent R-S with extractable classical kernel (anchor)")
 public axiom msfs_definition_B_1_paraconsistent_rich_s() -> Bool
     ensures true;
 
@@ -55,6 +55,6 @@ public axiom msfs_definition_B_1_paraconsistent_rich_s() -> Bool
 /// Rich-metatheories with extractable classical kernels.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Theorem B.2 — Paraconsistent AFN-T (transfer via classical kernel)")
+@framework(msfs, "MSFS Theorem B.2 — Paraconsistent AFN-T (transfer via classical kernel) (anchor)")
 public axiom msfs_theorem_B_2_paraconsistent_afnt() -> Bool
     ensures true;

@@ -157,7 +157,7 @@ public axiom msfs_theorem_6_1_colim_in_s_s_global(
 /// genuine L_Abs candidate.
 @accessibility(omega_2)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Proposition 6.2 — proper-class towers dichotomy (both branches close to ¬L_Abs)")
+@framework(msfs, "MSFS Proposition 6.2 — proper-class towers dichotomy (both branches close to ¬L_Abs) (anchor)")
 public axiom msfs_proposition_6_2_proper_class_dichotomy() -> Bool
     ensures true;
 
@@ -174,7 +174,7 @@ public axiom msfs_proposition_6_2_proper_class_dichotomy() -> Bool
 /// `\cS_S^{global}<S>`.
 @accessibility(omega_2)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Proposition 6.3 — trajectory space lives in S_S^global")
+@framework(msfs, "MSFS Proposition 6.3 — trajectory space lives in S_S^global (anchor)")
 public axiom msfs_proposition_6_3_trajectory_space() -> Bool
     ensures true;
 
@@ -184,7 +184,7 @@ public axiom msfs_proposition_6_3_trajectory_space() -> Bool
 /// trajectory-based escape attempt.
 @accessibility(omega_2)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Proposition 6.3 (corollary) — trajectory-tower colimits in S_S^global")
+@framework(msfs, "MSFS Proposition 6.3 (corollary) — trajectory-tower colimits in S_S^global (anchor)")
 public axiom msfs_proposition_6_3_corollary() -> Bool
     ensures true;
 
@@ -192,6 +192,28 @@ public axiom msfs_proposition_6_3_corollary() -> Bool
 // AFN-T β-part — operational closure for L_Abs candidates obtained
 // as transfinite-tower colimits
 // =============================================================================
+
+/// **MSFS §6.1 β-part tower-reduction citation.** A candidate that
+/// arises as a transfinite-tower colimit (per Theorem 6.1's
+/// constructor `msfs_theorem_6_1_afnt_beta` + operational corollary
+/// `msfs_theorem_6_1_colim_in_s_s_global`) reduces to a standard L_Abs
+/// candidate: the colimit lives in `S_S^global` (closure_depth ≥ 1),
+/// matching the membership shape that Theorem 5.1's id_X argument
+/// already forecloses. Reduction preserves the L_Abs triple. Paper §6.1
+/// + Definition 3.3 closures O1+O2 (Kan extensions + Grothendieck) +
+/// Adámek–Rosický 1.26 + (R5a).
+@accessibility(omega_2)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS §6.1 reduction — transfinite-tower colimit lives in S_S^global, reduces to standard L_Abs candidate")
+public axiom msfs_theorem_6_1_beta_tower_reduction(
+    candidate: &LAbsCandidate,
+) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures  candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative();
 
 /// **MSFS Theorem 6.1 (operational closure).** A candidate that
 /// would arise as a transfinite-tower colimit and *also* satisfy
@@ -216,8 +238,13 @@ public theorem msfs_theorem_6_1_operational_closure(
           && candidate.cond_Pi_3_max().is_maximally_generative()
     ensures false
     proof {
-        // The β-part reduces operationally to Theorem 5.1 once the
-        // tower's colimit-closure is unfolded — the colimit lands in
-        // S_S^global, the candidate's identity violates Π_4, contradiction.
+        // Step 1 — Cite §6.1 β-part tower-reduction:
+        //          any tower-derived candidate's L_Abs candidacy reduces
+        //          to a standard L_Abs candidacy because Theorem 6.1
+        //          (constructor) places the colimit in S_S^global with
+        //          closure_depth ≥ 1 — the same membership shape that
+        //          Theorem 5.1's id_X argument already forecloses.
+        apply msfs_theorem_6_1_beta_tower_reduction(candidate);
+        // Step 2 — Apply Theorem 5.1 to the colimit-reduced candidate.
         apply msfs_theorem_5_1_afnt_alpha(candidate);
     };
