@@ -38,6 +38,7 @@ public axiom diakrisis_theorem_107_T_relative_consistency() -> Bool ensures true
 /// Morita-dual through the canonical biadjunction
 /// `M : Articulation ⇄ Enactment : A`. Witnessed by the unit /
 /// counit pair (`is_adjoint`).
+@verify(coherent)
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 108.T — AC/OC Morita Duality (FLAGSHIP, M ⊣ A biadjunction)")
@@ -52,6 +53,7 @@ public axiom diakrisis_108_T_msfs_10_4_correspondence() -> Bool ensures true;
 /// Diakrisis 109.T — dual no-go for absolute practice (asymmetric
 /// to AFN-T). No enactment absolutely enacts every articulation;
 /// L_Abs^E ≡ ∅.
+@verify(coherent)
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 109.T — dual no-go for absolute practice (L_Abs^E ≡ ∅)")

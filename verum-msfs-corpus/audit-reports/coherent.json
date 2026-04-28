@@ -1,4 +1,74 @@
 {
   "theorems": [
+    {
+      "name": "msfs_theorem_10_4_ac_oc_morita_duality",
+      "kind": "axiom",
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "verify_level": "coherent",
+      "status": "Pending"
+    },
+    {
+      "name": "msfs_theorem_10_7_dual_boundary_lemma",
+      "kind": "axiom",
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "verify_level": "coherent",
+      "status": "Pending"
+    },
+    {
+      "name": "msfs_theorem_10_9_dual_five_axis",
+      "kind": "axiom",
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "verify_level": "coherent",
+      "status": "Pending"
+    },
+    {
+      "name": "diakrisis_theorem_108_T_ac_oc_morita_duality",
+      "kind": "axiom",
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "verify_level": "coherent",
+      "status": "Pending"
+    },
+    {
+      "name": "diakrisis_theorem_109_T_dual_no_go",
+      "kind": "axiom",
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "verify_level": "coherent",
+      "status": "Pending"
+    },
+    {
+      "name": "diakrisis_theorem_18_T1_alpha_epsilon_duality",
+      "kind": "axiom",
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
+      "verify_level": "coherent",
+      "status": "Pending"
+    },
+    {
+      "name": "diakrisis_18_T1_verum_coherent_ground",
+      "kind": "axiom",
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
+      "verify_level": "coherent",
+      "status": "Pending"
+    },
+    {
+      "name": "diakrisis_theorem_18_T2_finite_decidability",
+      "kind": "axiom",
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
+      "verify_level": "coherent",
+      "status": "Pending"
+    },
+    {
+      "name": "diakrisis_theorem_18_T3_corpus_coherence",
+      "kind": "axiom",
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
+      "verify_level": "coherent",
+      "status": "Pending"
+    },
+    {
+      "name": "diakrisis_18_T3_audit_coherent_gate",
+      "kind": "axiom",
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
+      "verify_level": "coherent",
+      "status": "Pending"
+    }
   ]
 }

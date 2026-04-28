@@ -31,6 +31,7 @@ module lib.theorems.diakrisis.operational_coherence;
 /// For every articulation α with certificate α-cert, the canonical
 /// enactment ε(α) admits an ε-cert that is bidirectionally
 /// equivalent (modulo gauge) to α-cert.
+@verify(coherent)
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 18.T1 — α-cert ⟺ ε-cert duality (operational coherence foundation)")
@@ -38,6 +39,7 @@ public axiom diakrisis_theorem_18_T1_alpha_epsilon_duality() -> Bool ensures tru
 
 /// Diakrisis 18.T1 grounds Verum @verify(coherent) — provides the
 /// Axi-9 biadjunction premise the kernel-rule consumes.
+@verify(coherent)
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 18.T1 grounds @verify(coherent) — Axi-9 biadjunction premise")
@@ -47,6 +49,7 @@ public axiom diakrisis_18_T1_verum_coherent_ground() -> Bool ensures true;
 /// bidirectionally in single-exponential time. The decision
 /// procedure runs through Nieuwenhuis-Oliveras canonicalisation
 /// + Lurie HTT §5.1.4 round-trip.
+@verify(coherent)
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 18.T2 — finitely-axiomatised α/ε decidability in single-exponential time")
@@ -57,6 +60,7 @@ public axiom diakrisis_theorem_18_T2_finite_decidability() -> Bool ensures true;
 /// Decidable α-cert ⟺ ε-cert correspondence. Closes the
 /// `verum audit --coherent` 100% gate for finitely-axiomatised
 /// theorems.
+@verify(coherent)
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 18.T3 — corpus-wide coherence 100% on finitely-axiomatised theorems")
@@ -64,6 +68,7 @@ public axiom diakrisis_theorem_18_T3_corpus_coherence() -> Bool ensures true;
 
 /// Diakrisis 18.T3 ↔ MSFS audit acceptance: closes the
 /// audit-reports/coherent.json acceptance gate (T5.2).
+@verify(coherent)
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 18.T3 closes audit-reports/coherent.json acceptance gate")

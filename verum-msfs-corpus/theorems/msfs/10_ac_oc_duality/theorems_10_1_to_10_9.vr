@@ -72,6 +72,7 @@ public axiom msfs_lemma_10_3_enactment_syntax_semantics() -> Bool
 ///   (b) ε is essentially surjective at the gauge level.
 ///   (c) lift to (∞,∞) via Theorem A.7 stabilization.
 ///   (d) strata correspondence preserved.
+@verify(coherent)
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 10.4 — AC/OC Morita Duality (FLAGSHIP)")
@@ -91,6 +92,7 @@ public axiom msfs_corollary_10_5_conservativity() -> Bool
 /// `¬∃ q ∈ \cE. F̃_S(q) ∧ Π̃_4(S, n, q) ∧ Π̃_{3-max}(S, n, q)`.
 /// Operationally: no enactment can simultaneously satisfy the
 /// dual triple. Hence `\LAbs^\cE = ∅`.
+@verify(coherent)
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 10.7 — Dual Boundary Lemma (Diakrisis 109.T)")
@@ -107,6 +109,7 @@ public axiom msfs_corollary_10_8_l_abs_E_empty() -> Bool
 /// MSFS Theorem 10.9 — Dual five-axis absoluteness. Theorems
 /// 7.1–7.6 transfer to `\LAbs^\cE` componentwise via Theorem 10.4.
 /// Post-audit M-21 fix applied (subject-verb agreement).
+@verify(coherent)
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 10.9 — Dual five-axis absoluteness")
