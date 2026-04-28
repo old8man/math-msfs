@@ -20,20 +20,24 @@ module lib.theorems.diakrisis.actica_extended;
 /// Diakrisis 138.T (re-export from core stdlib): kernel of the
 /// dual gauge surjection. Gauge-equivalent enactments share their
 /// articulation under `alpha_of`.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 138.T — kernel of the dual gauge surjection")
 public axiom diakrisis_theorem_138_T_dual_gauge_kernel() -> Bool ensures true;
 
 /// Diakrisis 139.T (re-export from core stdlib): initiality of the
 /// dual primitive in Meta_Cls^⊤,E.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 139.T — initiality of dual primitive in Meta_Cls^⊤,E")
 public axiom diakrisis_theorem_139_T_dual_primitive_initial() -> Bool ensures true;
 
 /// Diakrisis 140.T — (∞,∞)-invariant for the canonical-primitive
 /// system. Foundation for the VVA-4 stack-model semantics.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 140.T — (∞,∞)-invariant for canonical-primitive (VVA-4 foundation)")
 public axiom diakrisis_theorem_140_T_infty_infty_invariant() -> Bool ensures true;
 
 /// Diakrisis 141.T — constructive autopoiesis. Provides the BHK
 /// proof-extraction foundation (VVA-5).
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 141.T — constructive autopoiesis (BHK / VVA-5 foundation)")
 public axiom diakrisis_theorem_141_T_constructive_autopoiesis() -> Bool ensures true;

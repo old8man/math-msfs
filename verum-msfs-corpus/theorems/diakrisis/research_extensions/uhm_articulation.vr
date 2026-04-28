@@ -31,30 +31,36 @@ module lib.theorems.diakrisis.uhm;
 
 /// Diakrisis uhm.T1 — α_uhm ∈ L_Cls. Instantiates Diakrisis 103.T's
 /// universal articulation as UHM.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis uhm.T1 — α_uhm ∈ L_Cls (universal-articulation instantiation)")
 public axiom diakrisis_theorem_uhm_T1_in_l_cls() -> Bool ensures true;
 
 /// Diakrisis uhm.T2 — ε(α_uhm) = ω · 3 + 1 (corpus-supremum
 /// ε-coordinate).
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis uhm.T2 — ε(α_uhm) = ω · 3 + 1 (Path-B supremum ε)")
 public axiom diakrisis_theorem_uhm_T2_epsilon_omega3_plus_1() -> Bool ensures true;
 
 /// Diakrisis uhm.T3 — Path-B baseline. Every Path-B theorem
 /// transitively cites uhm.T1 + uhm.T2 through the noesis layer.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis uhm.T3 — UHM as Path-B baseline (every Path-B theorem cites it)")
 public axiom diakrisis_theorem_uhm_T3_path_b_baseline() -> Bool ensures true;
 
 /// Diakrisis uhm.T4 — UHM ∈ L_Cls^⊤ (universal articulation
 /// membership; consequence of Diakrisis 106.T witnessing).
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis uhm.T4 — UHM ∈ L_Cls^⊤ via Diakrisis 106.T")
 public axiom diakrisis_theorem_uhm_T4_in_l_cls_top() -> Bool ensures true;
 
 /// Diakrisis uhm.T4 ↔ MSFS L_Cls^⊤ + Diakrisis 106.T joint witness.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "UHM = explicit Diakrisis-side witness for L_Cls^⊤ ≠ ∅ (paired with Diakrisis 106.T)")
 public axiom diakrisis_uhm_msfs_l_cls_top_witness() -> Bool ensures true;
 
 /// UHM noesis-corpus expansion (223 Path-B theorems) tracked as a
 /// downstream extension; this anchor establishes the trust boundary
 /// for the corpus-wide noesis layer.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis uhm — noesis-corpus 223 Path-B theorems anchor")
 public axiom diakrisis_uhm_noesis_223_path_b_anchor() -> Bool ensures true;

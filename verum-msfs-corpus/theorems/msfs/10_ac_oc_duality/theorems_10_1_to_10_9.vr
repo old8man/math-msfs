@@ -36,6 +36,7 @@ mount core.math.s_definable.lemma_3_4.{FormallySDefinable};
 /// enactments + adjoint pair `α : \cE → \cF` (forgetful) ⊣
 /// `ε : \cF → \cE` (syntactic self-enactment). Strict section:
 /// `α ∘ ε = id_\cF`.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Definition 10.1 — 2-category cE + α ⊣ ε adjoint pair")
 public axiom msfs_definition_10_1_E_category() -> Bool
     ensures true;
@@ -43,6 +44,7 @@ public axiom msfs_definition_10_1_E_category() -> Bool
 /// MSFS Definition 10.2 — class `\cS_S^\cE` of S-definable
 /// pointed reflective enactments + global sub-class
 /// `\cS_S^\cE^{global}`.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Definition 10.2 — class cS_S^cE")
 public axiom msfs_definition_10_2_S_S_E() -> Bool
     ensures true;
@@ -54,6 +56,7 @@ public axiom msfs_definition_10_2_S_S_E() -> Bool
 /// functor existence for accessible functors between locally
 /// `κ_S`-presentable categories. Triangle identities transported
 /// from `χ_r`.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Lemma 10.3 — enactment syntax–semantics (componentwise via Kan ext + AR adjoint)")
 public axiom msfs_lemma_10_3_enactment_syntax_semantics() -> Bool
     ensures true;
@@ -66,12 +69,14 @@ public axiom msfs_lemma_10_3_enactment_syntax_semantics() -> Bool
 ///   (b) ε is essentially surjective at the gauge level.
 ///   (c) lift to (∞,∞) via Theorem A.7 stabilization.
 ///   (d) strata correspondence preserved.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 10.4 — AC/OC Morita Duality (FLAGSHIP)")
 public axiom msfs_theorem_10_4_ac_oc_morita_duality() -> Bool
     ensures true;
 
 /// MSFS Corollary 10.5 — Conservativity. `Con(\cF ∪ \cE) = Con(\cF)
 /// = Con(\ZFC + 2-inacc)`. Post-audit M-20 fix applied.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Corollary 10.5 — Con(F ∪ E) = Con(F) = Con(ZFC + 2-inacc)")
 public axiom msfs_corollary_10_5_conservativity() -> Bool
     ensures true;
@@ -81,11 +86,13 @@ public axiom msfs_corollary_10_5_conservativity() -> Bool
 /// `¬∃ q ∈ \cE. F̃_S(q) ∧ Π̃_4(S, n, q) ∧ Π̃_{3-max}(S, n, q)`.
 /// Operationally: no enactment can simultaneously satisfy the
 /// dual triple. Hence `\LAbs^\cE = ∅`.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 10.7 — Dual Boundary Lemma (Diakrisis 109.T)")
 public axiom msfs_theorem_10_7_dual_boundary_lemma() -> Bool
     ensures true;
 
 /// MSFS Corollary 10.8 — `\LAbs^\cE = ∅` headline.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Corollary 10.8 — L_Abs^cE = ∅")
 public axiom msfs_corollary_10_8_l_abs_E_empty() -> Bool
     ensures true;
@@ -93,6 +100,7 @@ public axiom msfs_corollary_10_8_l_abs_E_empty() -> Bool
 /// MSFS Theorem 10.9 — Dual five-axis absoluteness. Theorems
 /// 7.1–7.6 transfer to `\LAbs^\cE` componentwise via Theorem 10.4.
 /// Post-audit M-21 fix applied (subject-verb agreement).
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 10.9 — Dual five-axis absoluteness")
 public axiom msfs_theorem_10_9_dual_five_axis() -> Bool
     ensures true;

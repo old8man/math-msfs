@@ -28,6 +28,7 @@ module lib.theorems.diakrisis.actica;
 /// Diakrisis 107.T (re-export from core stdlib): relative-consistency
 /// baseline. The canonical-primitive system has consistency strength
 /// bounded above by Con(ZFC + 2-inacc).
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 107.T — relative consistency over ZFC + 2-inacc")
 public axiom diakrisis_theorem_107_T_relative_consistency() -> Bool ensures true;
 
@@ -36,20 +37,24 @@ public axiom diakrisis_theorem_107_T_relative_consistency() -> Bool ensures true
 /// Morita-dual through the canonical biadjunction
 /// `M : Articulation ⇄ Enactment : A`. Witnessed by the unit /
 /// counit pair (`is_adjoint`).
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 108.T — AC/OC Morita Duality (FLAGSHIP, M ⊣ A biadjunction)")
 public axiom diakrisis_theorem_108_T_ac_oc_morita_duality() -> Bool ensures true;
 
 /// Diakrisis 108.T ↔ MSFS Theorem 10.4 correspondence.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 108.T = MSFS Theorem 10.4 (AC/OC Morita Duality)")
 public axiom diakrisis_108_T_msfs_10_4_correspondence() -> Bool ensures true;
 
 /// Diakrisis 109.T — dual no-go for absolute practice (asymmetric
 /// to AFN-T). No enactment absolutely enacts every articulation;
 /// L_Abs^E ≡ ∅.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 109.T — dual no-go for absolute practice (L_Abs^E ≡ ∅)")
 public axiom diakrisis_theorem_109_T_dual_no_go() -> Bool ensures true;
 
 /// Diakrisis 109.T ↔ MSFS Theorem 10.7 correspondence.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 109.T = MSFS Theorem 10.7 (Dual Boundary Lemma)")
 public axiom diakrisis_109_T_msfs_10_7_correspondence() -> Bool ensures true;
 
@@ -58,34 +63,41 @@ public axiom diakrisis_109_T_msfs_10_7_correspondence() -> Bool ensures true;
 /// closure, ε-induction, ρ canonicity invariants. Detail-level
 /// theorems consolidated under a single anchor; per-theorem
 /// breakouts exist in §12-actic/ for downstream exports.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 110.T..120.T — Aктика supporting structural lemmata")
 public axiom diakrisis_theorems_110_to_120() -> Bool ensures true;
 
 /// Diakrisis 121.T..123.T (compound) — Aктика closure under
 /// activation + ε-bridge + α-bridge.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 121.T..123.T — Aктика closure (activation + ε / α bridges)")
 public axiom diakrisis_theorems_121_to_123() -> Bool ensures true;
 
 /// Diakrisis 124.T — M ⊣ A biadjunction full witness with explicit
 /// unit / counit + triangle identities. Operational layer of
 /// 108.T's existence claim.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 124.T — M ⊣ A biadjunction explicit unit/counit + triangle identities")
 public axiom diakrisis_theorem_124_T_biadjunction_witness() -> Bool ensures true;
 
 /// Diakrisis 124.T ↔ MSFS Theorem 10.4 step-(c) correspondence
 /// (lift to (∞,∞) via 2-functoriality of Syn).
+@enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 124.T = MSFS Theorem 10.4 step-c (biadjunction lift to (∞,∞))")
 public axiom diakrisis_124_T_msfs_10_4_step_c_correspondence() -> Bool ensures true;
 
 /// Diakrisis 125.T — α + ε universal pair characterization.
 /// `(α, ε(α))` is the canonical universal-pair witness.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 125.T — α + ε universal-pair characterization")
 public axiom diakrisis_theorem_125_T_universal_pair() -> Bool ensures true;
 
 /// Diakrisis 126.T — gauge-equivalence on E preserves α-projection.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 126.T — gauge_E preserves α-projection")
 public axiom diakrisis_theorem_126_T_gauge_alpha_projection() -> Bool ensures true;
 
 /// Diakrisis 127.T — Aктика completeness within Lawvere-scope.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 127.T — Aктика completeness within Lawvere-scope")
 public axiom diakrisis_theorem_127_T_actica_completeness() -> Bool ensures true;

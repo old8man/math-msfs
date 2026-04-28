@@ -52,6 +52,7 @@ mount super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 /// over all `S ∈ \RS`: Lemma 3.4 + the id_X-violates-Π_4 template
 /// (Theorem 5.1 proof) use only (R1)-(R5), nothing S-specific.
 @verify(formal)
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 7.1 — horizontal axis: AFN-T uniform over R-S")
 public theorem msfs_theorem_7_1_horizontal<S: RichS>(
     s: &S,
@@ -69,6 +70,7 @@ public theorem msfs_theorem_7_1_horizontal<S: RichS>(
 /// all `n ∈ ℕ ∪ {∞}`: (R5b) Lambek–Scott applies levelwise +
 /// Barwick–Schommer-Pries unicity at limit n = ∞.
 @verify(formal)
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 7.2 — vertical axis: AFN-T uniform over n ∈ ℕ ∪ {∞}")
 public theorem msfs_theorem_7_2_vertical(
     candidate: &LAbsCandidate,
@@ -88,6 +90,7 @@ public theorem msfs_theorem_7_2_vertical(
 /// `(∞, ∞ + 1)-Cat = (∞, ∞)-Cat` (Theorem A.7) ⟹ no escape via
 /// meta-stratum elevation.
 @verify(formal)
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 7.3 — meta-vertical axis: meta-iterations stabilise via Theorem A.7")
 public theorem msfs_theorem_7_3_meta_vertical(
     candidate: &LAbsCandidate,
@@ -106,6 +109,7 @@ public theorem msfs_theorem_7_3_meta_vertical(
 /// orderings (operadic, double-cat, globular, opetopic, stable
 /// (∞,1), fusion) reduce to `(∞, n)`-Cat ⟹ AFN-T transfers.
 @verify(formal)
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 7.4 — lateral axis: alt orderings reduce to (∞, n)")
 public theorem msfs_theorem_7_4_lateral(
     candidate: &LAbsCandidate,
@@ -125,6 +129,7 @@ public theorem msfs_theorem_7_4_lateral(
 /// connected by a Lambek-style adjunction realisable as `(∞, n)`-cats.
 /// Definitional anchor — kept as `@axiom` because it introduces a
 /// new mathematical object rather than asserting a deductive claim.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Definition 7.5 — Lawvere-scope LS")
 public axiom msfs_definition_7_5_lawvere_scope() -> Bool
     ensures true;
@@ -133,6 +138,7 @@ public axiom msfs_definition_7_5_lawvere_scope() -> Bool
 /// Any structural variation of `F ∈ LS` reduces to one of the four
 /// preceding axes ⟹ AFN-T is *five-axis absolute* within LS.
 @verify(formal)
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 7.6 — completeness axis (within Lawvere-scope)")
 public theorem msfs_theorem_7_6_completeness(
     candidate: &LAbsCandidate,

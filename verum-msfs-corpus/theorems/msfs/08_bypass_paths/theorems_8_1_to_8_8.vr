@@ -42,6 +42,7 @@ mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 /// reduction to S_S^global is precisely the Π_4 violation that
 /// Theorem 5.1 forecloses.
 @verify(formal)
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 8.1 — universe-polymorphism Morita-reduces to S_S^global")
 public theorem msfs_theorem_8_1_universe_polymorphism(
     candidate: &LAbsCandidate,
@@ -64,6 +65,7 @@ public theorem msfs_theorem_8_1_universe_polymorphism(
 /// cannot inhabit L_Abs; the consistency-bounded ascent does not
 /// open a new structural axis, so Theorem 5.1 still applies.
 @verify(formal)
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 8.2 — reflective tower bounded by Con(S) + κ_inacc")
 public theorem msfs_theorem_8_2_reflective_tower(
     candidate: &LAbsCandidate,
@@ -79,18 +81,21 @@ public theorem msfs_theorem_8_2_reflective_tower(
 /// MSFS Definition 8.3 — display class of morphisms (closed under
 /// equivalences, pullback-stable, composition-closed, 2-cell
 /// coherent).
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Definition 8.3 — display class")
 public axiom msfs_definition_8_3_display_class() -> Bool
     ensures true;
 
 /// MSFS Definition 8.4 — display 2-category as a triple
 /// `(\cC, \cD, ι : \cD ↪ \mathrm{Mor}_1(\cC))`.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Definition 8.4 — display 2-category")
 public axiom msfs_definition_8_4_display_2_category() -> Bool
     ensures true;
 
 /// MSFS Definition 8.5 — `S_int` as the 2-category of display
 /// 2-categories with coherent natural transformations as 2-cells.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Definition 8.5 — S_int")
 public axiom msfs_definition_8_5_s_int() -> Bool
     ensures true;
@@ -100,6 +105,7 @@ public axiom msfs_definition_8_5_s_int() -> Bool
 /// (I-3) strict refinement of Morita (witnessed by Eff topos
 /// τ-invariant: τ(I(MLTT)) = 1, τ(I(ETT)) = 0), (I-4) Morita
 /// 2-localization via Pronk's bicategory of fractions.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 8.6 — existence of intensional-refinement functor I : F^op → S_int")
 public axiom msfs_theorem_8_6_I_existence() -> Bool
     ensures true;
@@ -108,6 +114,7 @@ public axiom msfs_theorem_8_6_I_existence() -> Bool
 /// `\tilde{π} : S_int → 𝔐` making the gauge-quotient diagram
 /// 2-commute; intensional fibres lie *inside* gauge-classes already
 /// existing in `𝔐`.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 8.7 — slice-locality of I via gauge-quotient")
 public axiom msfs_theorem_8_7_slice_locality() -> Bool
     ensures true;
@@ -121,6 +128,7 @@ public axiom msfs_theorem_8_7_slice_locality() -> Bool
 /// Theorem 5.1's scope because the slice maps gauge-equivalently to
 /// `𝔐` (Theorem 8.7).
 @verify(formal)
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Corollary 8.8 — intensional refinement adds no new axis to AFN-T")
 public theorem msfs_corollary_8_8_intensional_no_new_axis(
     candidate: &LAbsCandidate,

@@ -41,6 +41,7 @@ mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 /// `Cl_F : F → 𝔐` with `image(Cl_F) =: 𝔐(F) ⊆ 𝔐` (post-audit C-3
 /// fix), (M3) accessible reflection, (M4) non-generative,
 /// (M5) S-parametrized.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Definition 9.1 — Meta_Cls (M1)–(M5)")
 public axiom msfs_definition_9_1_meta_cls() -> Bool
     ensures true;
@@ -49,6 +50,7 @@ public axiom msfs_definition_9_1_meta_cls() -> Bool
 /// classification; (Max-2) gauge-fullness; (Max-3) depth
 /// stratification; (Max-4) intensional completeness.
 /// `Meta_Cls^⊤` = maximal meta-structures.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Definition 9.2 — Meta_Cls^⊤ (Max-1)..(Max-4)")
 public axiom msfs_definition_9_2_meta_cls_top() -> Bool
     ensures true;
@@ -62,6 +64,7 @@ public axiom msfs_definition_9_2_meta_cls_top() -> Bool
 /// renumbering): Step 1 canonical maximal classifier; Step 2
 /// construct Φ_F; Step 3 ess. surj.; Step 4 fully faithful;
 /// Step 5 lift to (∞,∞) via Whitehead criterion + Theorem A.7.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 9.3 — Meta-Categoricity (canonical (∞,∞)-equivalence)")
 public axiom msfs_theorem_9_3_meta_categoricity() -> Bool
     ensures true;
@@ -72,12 +75,14 @@ public axiom msfs_theorem_9_3_meta_categoricity() -> Bool
 /// equivalent meta-structures: Univalent Foundations (Voevodsky),
 /// ∞-cosmoi (Riehl–Verity), cohesive higher topos theory (Schreiber).
 /// Each violates (Max-1) by classifying only a strict sub-stack of `𝔐`.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 9.4 — ≥3 pairwise non-2-equivalent meta-structures")
 public axiom msfs_theorem_9_4_structural_multiplicity() -> Bool
     ensures true;
 
 /// MSFS Corollary 9.5 — `L_Cls` is structurally plural. Direct
 /// from Theorem 9.4.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Corollary 9.5 — L_Cls is structurally plural")
 public axiom msfs_corollary_9_5_plurality() -> Bool
     ensures true;
@@ -88,6 +93,7 @@ public axiom msfs_corollary_9_5_plurality() -> Bool
 /// Meta_Cls` and (b) theory-level idempotence — are definitional /
 /// post-audit-C3 justified and remain `@axiom` until the
 /// Grothendieck-universe machinery lands as kernel-level reasoning.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 9.6 (a)+(b) — Meta-classification stabilization (theory idempotent, set-theoretic ascends)")
 public axiom msfs_theorem_9_6_meta_classification_stabilization() -> Bool
     ensures true;
@@ -103,6 +109,7 @@ public axiom msfs_theorem_9_6_meta_classification_stabilization() -> Bool
 /// requires clause; the proof body is a one-step apply of
 /// Theorem 5.1 — no novel meta-iteration reasoning needed.
 @verify(formal)
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 9.6 (c) — No L_Abs escalation via meta-iteration (reduces to Theorem 5.1)")
 public theorem msfs_theorem_9_6c_no_l_abs_escalation(
     candidate: &LAbsCandidate,

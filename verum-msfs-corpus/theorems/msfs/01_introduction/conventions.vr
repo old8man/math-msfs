@@ -38,6 +38,7 @@ mount core.math.frameworks.msfs.strcat.{
 
 /// Stage M.1 marker — `verum audit --coord` uses this as a stable
 /// anchor for the section's (Fw, ν, τ) coordinate.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Stage M.1 — Conventions and Notation (§1) anchor")
 public axiom msfs_stage_m_1_anchor() -> Bool
     ensures true;

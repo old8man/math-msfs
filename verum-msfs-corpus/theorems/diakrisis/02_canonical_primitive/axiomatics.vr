@@ -42,6 +42,7 @@ module lib.theorems.diakrisis.canonical_primitive;
 // =============================================================================
 
 /// Diakrisis Axi-0 — non-emptiness of ⟪⟫.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis Axi-0 — ⟪⟫ ≠ ∅ (non-emptiness of the articulation 2-category)")
 public axiom diakrisis_axi_0_non_empty() -> Bool ensures true;
 
@@ -49,11 +50,13 @@ public axiom diakrisis_axi_0_non_empty() -> Bool ensures true;
 /// 2-category. Internal closure (objects-of-endo-operations
 /// representable inside ⟪⟫) is the structure-defining feature
 /// distinguishing Diakrisis from standard 2-categories.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis Axi-1 — ⟪⟫ is locally-small + internally-closed 2-category")
 public axiom diakrisis_axi_1_internal_closure() -> Bool ensures true;
 
 /// Diakrisis Axi-2 — 𝖬 ∈ End(⟪⟫) is a 2-functor; by Axi-1 internal
 /// closure, 𝖬 has a representative α_𝖬 := ι(𝖬) ∈ ⟪⟫.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis Axi-2 — 𝖬 is a 2-functor with internal representative α_𝖬 = ι(𝖬)")
 public axiom diakrisis_axi_2_M_is_2_functor() -> Bool ensures true;
 
@@ -61,6 +64,7 @@ public axiom diakrisis_axi_2_M_is_2_functor() -> Bool ensures true;
 /// (the canonical mathematical-articulation primitive). Axi-3 is
 /// the logical strengthening of Axi-0 — picks a *specific*
 /// distinguished object.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis Axi-3 — ∃ distinguished α_math ∈ ⟪⟫ (canonical mathematical articulation)")
 public axiom diakrisis_axi_3_alpha_math_exists() -> Bool ensures true;
 
@@ -73,23 +77,27 @@ public axiom diakrisis_axi_3_alpha_math_exists() -> Bool ensures true;
 /// λ-accessibility is required by Adámek–Rosický 1994 for the
 /// existence of M-iterations 𝖬^κ at limit ordinals (Fix(𝖬)
 /// existence — Diakrisis 10.T5).
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis Axi-4 — ρ via internal hom; 𝖬 is λ-accessible (Adámek-Rosický 1994)")
 public axiom diakrisis_axi_4_rho_internal_hom() -> Bool ensures true;
 
 /// Diakrisis Axi-5 — ρ is non-trivial: ∃ α, β ∈ ⟪⟫ with ρ(α) ≄ ρ(β).
 /// Without Axi-5 ρ would collapse all articulations into one.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis Axi-5 — ρ is non-trivial (distinguishes articulations)")
 public axiom diakrisis_axi_5_rho_nontrivial() -> Bool ensures true;
 
 /// Diakrisis Axi-6 — ρ ∘ 𝖬 ≄ ρ (𝖬-action visible through ρ). Axi-6
 /// guarantees 𝖬 is *content-bearing*: ρ distinguishes M-applied
 /// from non-M-applied articulations.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis Axi-6 — ρ ∘ 𝖬 ≄ ρ (𝖬 visible through ρ)")
 public axiom diakrisis_axi_6_rho_M_non_commute() -> Bool ensures true;
 
 /// Diakrisis Axi-7 (M-5w) — self-articulability via α_𝖬 = ι(𝖬).
 /// Axi-1 internal closure gives the existence; Axi-7 *explicitly
 /// identifies* the representative.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis Axi-7 (M-5w) — self-articulability via α_𝖬 = ι(𝖬)")
 public axiom diakrisis_axi_7_self_articulability() -> Bool ensures true;
 
@@ -99,6 +107,7 @@ public axiom diakrisis_axi_7_self_articulability() -> Bool ensures true;
 /// internal closure structure rather than Yoneda. Defect ratified
 /// at the model layer (V3 #181 — preprint-blocked at the kernel
 /// layer pending τ-witness construction).
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis Axi-8 — α_𝖬 non-Yoneda-representable in any LP-model")
 public axiom diakrisis_axi_8_alpha_M_non_LP_representable() -> Bool ensures true;
 
@@ -107,6 +116,7 @@ public axiom diakrisis_axi_8_alpha_M_non_LP_representable() -> Bool ensures true
 /// and the enactment 2-category \cE; this is the *premise* of
 /// Diakrisis Theorem 108.T (AC/OC Morita Duality), which proves
 /// the resulting equivalence at the (∞,∞) level.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis Axi-9 — AC/OC duality premise (108.T): canonical M ⊣ A biadjunction")
 public axiom diakrisis_axi_9_ac_oc_biadjunction_premise() -> Bool ensures true;
 
@@ -119,6 +129,7 @@ public axiom diakrisis_axi_9_ac_oc_biadjunction_premise() -> Bool ensures true;
 /// each M-application + meta-iteration. The supremum of α-ranks
 /// over the canonical-primitive corpus is ω·3 + 1 (UHM articulation,
 /// Diakrisis 142.T).
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis T-α — depth function α-rank: Ord(⟪⟫) → Ord")
 public axiom diakrisis_T_alpha_depth_function() -> Bool ensures true;
 
@@ -127,10 +138,12 @@ public axiom diakrisis_T_alpha_depth_function() -> Bool ensures true;
 /// occurrence of `M`, `⊏•` in P sits at strictly smaller α-rank
 /// than the selected element's rank. This is the kernel of
 /// Yanofsky paradox-immunity and the source of MSFS K-Refine.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis T-2f* — comprehension-by-predicate strict-rank stratification")
 public axiom diakrisis_T_2f_star_comprehension_stratification() -> Bool ensures true;
 
 /// Diakrisis T-2f** — strengthened transfinite stratification at
 /// limit ordinals (extends T-2f* through ω-iterates of M).
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis T-2f** — transfinite-stratification extension of T-2f*")
 public axiom diakrisis_T_2f_star_star() -> Bool ensures true;

@@ -35,56 +35,68 @@
 module lib.theorems.diakrisis.open_q_closures;
 
 /// Diakrisis 128.T — bypass-path exhaustiveness within R-S.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 128.T — exhaustiveness of (universe-poly | reflective | intensional) bypasses")
 public axiom diakrisis_theorem_128_T_bypass_exhaustive() -> Bool ensures true;
 
 /// Diakrisis 129.T — Lawvere-scope index combinatorial inventory.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 129.T — Lawvere-scope index combinatorial inventory")
 public axiom diakrisis_theorem_129_T_lawvere_scope_inventory() -> Bool ensures true;
 
 /// Diakrisis 130.T — Axi-9 biadjunction completeness over the
 /// Lawvere-scope index.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 130.T — Axi-9 biadjunction completeness over LS")
 public axiom diakrisis_theorem_130_T_axi_9_completeness() -> Bool ensures true;
 
 /// Diakrisis 131.T — Stack-model existence in ZFC + 2-inacc.
 /// Required premise for 134.T tightness counterexample.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 131.T — stack-model exists in ZFC + 2-inacc")
 public axiom diakrisis_theorem_131_T_stack_model() -> Bool ensures true;
 
 /// Diakrisis 131.T grounds the Verum K-Universe-Ascent kernel rule.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 131.T grounds Verum K-Universe-Ascent (Drake-reflection retract)")
 public axiom diakrisis_131_T_kernel_K_universe_ascent_ground() -> Bool ensures true;
 
 /// Diakrisis 132.T — supporting lemma for the canonical primitive's
 /// universal-articulation existence (precursor to 103.T).
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 132.T — universal-articulation existence precursor")
 public axiom diakrisis_theorem_132_T_universal_precursor() -> Bool ensures true;
 
 /// Diakrisis 133.T — Q3 closure: bypass-path exhaustiveness.
 /// Combinatorial enumeration over Lawvere-scope variations +
 /// Axi-9 biadjunction proof.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 133.T — Q3 closure (bypass-path exhaustiveness)")
 public axiom diakrisis_theorem_133_T_q3_closure() -> Bool ensures true;
 
 /// Diakrisis 133.T ↔ MSFS Q3 closure correspondence.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 133.T closes MSFS Q3 (bypass-path exhaustiveness)")
 public axiom diakrisis_133_T_msfs_q3_closure() -> Bool ensures true;
 
 /// Diakrisis 134.T — Q4 closure: ZFC + 2-inacc tightness via
 /// counterexample in ZFC + 1-inacc.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 134.T — Q4 closure (ZFC + 2-inacc tightness)")
 public axiom diakrisis_theorem_134_T_q4_closure() -> Bool ensures true;
 
 /// Diakrisis 134.T ↔ MSFS Q4 closure correspondence.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 134.T closes MSFS Q4 (consistency-strength minimality)")
 public axiom diakrisis_134_T_msfs_q4_closure() -> Bool ensures true;
 
 /// Diakrisis 135.T — Q5 closure: weak-stratum sub-stack via
 /// complexity-typed Bounded-arithmetic verification.
+@enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 135.T — Q5 closure (weak-stratum sub-stack)")
 public axiom diakrisis_theorem_135_T_q5_closure() -> Bool ensures true;
 
 /// Diakrisis 135.T ↔ MSFS Q5 closure correspondence.
+@enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 135.T closes MSFS Q5 (sub-stack of weak R-S)")
 public axiom diakrisis_135_T_msfs_q5_closure() -> Bool ensures true;
