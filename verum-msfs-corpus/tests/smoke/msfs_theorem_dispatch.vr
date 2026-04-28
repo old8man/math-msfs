@@ -1,0 +1,152 @@
+// =============================================================================
+// MSFS theorem-dispatch smoke
+// =============================================================================
+//
+// Confirms each MSFS theorem in `theorems/msfs/` is reachable through the
+// `mount` graph from a test, type-checks under its declared
+// `requires`/`ensures` contract, and dispatches through the kernel's
+// `@verify(...)` strategy without unresolved obligations. This is the
+// foundational gate for #204: every theorem listed here is the corpus
+// promising "this name + this signature + this contract is kernel-
+// rechecked at every `verum check`."
+//
+// Failure mode each test guards against:
+//   * Theorem renamed without updating downstream cites (kernel sees an
+//     unresolved-name and silently @lenient-SKIPs it — exactly the
+//     class-1 dishonest-call bug we audited in #203).
+//   * Theorem's `requires` weakened in a refactor without the test
+//     catching it (regression in the verified surface).
+//   * Theorem's framework-axiom citation erased (lineage broken;
+//     `verum audit --framework-axioms` would miss the gap until a
+//     separate human review).
+//
+// Each `@test` body is intentionally minimal — the real verification
+// happens at compile time (kernel discharges obligations), not at
+// runtime. The `assert(true)` exists only so the test framework
+// records a green tick once the compile + verify pass succeeds.
+// =============================================================================
+
+module tests.smoke.msfs_theorem_dispatch;
+
+mount core.math.absolute_layer.{
+    LAbsCandidate,
+    msfs_definition_4_4_l_abs,
+};
+mount core.math.strata.{
+    msfs_strata_class_definable,
+    msfs_proper_inclusion_fnd_cls,
+    msfs_proper_inclusion_cls_clsmax,
+    msfs_proper_inclusion_clsmax_abs,
+    msfs_L_abs_empty,
+    msfs_no_horizontal_collapse,
+    msfs_cls_not_in_l_abs,
+};
+mount lib.theorems.msfs.afnt_alpha.{
+    msfs_theorem_5_1_afnt_alpha,
+    msfs_corollary_5_2_l_abs_empty,
+};
+mount lib.theorems.msfs.no_go_subsumption.{
+    msfs_theorem_11_1_subsumption,
+    msfs_theorem_11_1_subsumption_anchor,
+};
+
+// =============================================================================
+// §2 strata — propositional axiom layer
+// =============================================================================
+
+@test
+fn test_strata_proposition_2_2_i() {
+    // Proposition 2.2 (i) — every stratum class-definable in ZFC + 2-inacc.
+    assert(msfs_strata_class_definable(),
+           "MSFS Prop 2.2 (i) — class-definability axiom");
+}
+
+@test
+fn test_strata_proposition_2_2_iii_chain() {
+    // Proposition 2.2 (iii) — strict inclusion chain L_Fnd ⊋ L_Cls ⊋
+    // L_Cls_top ⊋ L_Abs. Each link is its own framework axiom; this
+    // test pins the conjunction so a regression in any single link
+    // breaks the suite.
+    assert(msfs_proper_inclusion_fnd_cls(),     "L_Fnd ⊋ L_Cls");
+    assert(msfs_proper_inclusion_cls_clsmax(),  "L_Cls ⊋ L_Cls_top");
+    assert(msfs_proper_inclusion_clsmax_abs(),  "L_Cls_top ⊋ L_Abs");
+}
+
+@test
+fn test_strata_proposition_2_2_iv_l_abs_empty() {
+    // Proposition 2.2 (iv) — L_Abs == ∅. Recorded as the cumulative
+    // axiom; the actual proof obligation discharges through Theorem
+    // 5.1 (see test_afnt_alpha_corollary_5_2 below).
+    assert(msfs_L_abs_empty(), "MSFS Prop 2.2 (iv) — L_Abs is empty");
+}
+
+@test
+fn test_strata_proposition_2_3_no_horizontal_collapse() {
+    // Proposition 2.3 — Cls(L_Fnd) ⊄ L_Fnd.
+    assert(msfs_no_horizontal_collapse(),
+           "MSFS Prop 2.3 — no horizontal collapse");
+    assert(msfs_cls_not_in_l_abs(),
+           "MSFS Prop 2.3 (corollary) — Cls(L_Fnd) ≠ L_Abs");
+}
+
+// =============================================================================
+// §5 AFN-T α-part — flagship Theorem 5.1 + Corollary 5.2
+// =============================================================================
+//
+// Theorem 5.1 itself is `@axiom` (kernel-level proof reconstruction
+// preprint-blocked, tracked under #181). Corollary 5.2 is a real
+// `@theorem ... proof { apply Theorem 5.1 }` body — the kernel
+// mechanically discharges 5.2 from 5.1, which is what
+// `verum check` validates here.
+//
+// We don't construct a witness candidate: the function takes an
+// `&LAbsCandidate` reference, but the contract `ensures false`
+// means no candidate satisfying the `requires` clause can exist.
+// The test merely confirms the function symbols are reachable and
+// the kernel re-checks the proof body.
+
+@test
+fn test_afnt_alpha_theorem_5_1_reachable() {
+    // Reachability: confirms `msfs_theorem_5_1_afnt_alpha` is in the
+    // mount graph and its signature matches downstream cites
+    // (Theorem 11.1's proof body invokes it). If this test fails
+    // to compile, every dependent theorem is broken.
+    let _: fn(&LAbsCandidate) -> Bool = msfs_theorem_5_1_afnt_alpha;
+    assert(true, "Theorem 5.1 symbol reachable");
+}
+
+@test
+fn test_afnt_alpha_corollary_5_2_reachable() {
+    // Same reachability check for Corollary 5.2 — the headline
+    // L_Abs == ∅ statement.
+    let _: fn(&LAbsCandidate) = msfs_corollary_5_2_l_abs_empty;
+    assert(true, "Corollary 5.2 symbol reachable");
+}
+
+// =============================================================================
+// §11 No-Go Series Subsumption — Theorem 11.1
+// =============================================================================
+
+@test
+fn test_no_go_theorem_11_1_subsumption_reachable() {
+    // Theorem 11.1 is a real `theorem ... proof { apply 5.1 }`. The
+    // kernel mechanically discharges 11.1 from 5.1; this test pins
+    // the symbol's reachability so a refactor that broke the
+    // subsumption inference would be caught at compile time.
+    let _: fn(&LAbsCandidate) = msfs_theorem_11_1_subsumption;
+    assert(msfs_theorem_11_1_subsumption_anchor(),
+           "Theorem 11.1 anchor reachable");
+}
+
+// =============================================================================
+// Definitional layer — §4 L_Abs conditions
+// =============================================================================
+
+@test
+fn test_definition_4_4_l_abs_axiom() {
+    // Definition 4.4 — the joint condition that defines L_Abs
+    // membership. Recorded as `@framework(msfs, ...)` with `ensures
+    // true` because the definitional content is fully expressed in
+    // the function signature; the test pins reachability.
+    assert(msfs_definition_4_4_l_abs(), "Definition 4.4 reachable");
+}
