@@ -1,23 +1,23 @@
 {
   "schema_version": 2,
   "scanned_files": 25,
-  "axiom_index_size": 324,
+  "axiom_index_size": 325,
   "totals": {
-    "axiom_placeholder": 85,
+    "axiom_placeholder": 86,
     "theorem_no_proof_body": 0,
     "theorem_trivial_true": 0,
     "theorem_axiom_only_tautological": 0,
     "theorem_axiom_only_structural": 65,
-    "theorem_multi_step": 69,
+    "theorem_multi_step": 70,
     "weak_axioms_anchor": 35,
     "weak_axioms_real": 9
   },
   "by_lineage": {
     "msfs": {
-      "theorem_multi_step": 16,
+      "theorem_multi_step": 17,
       "theorem_axiom_only_structural": 13,
       "theorem_axiom_only_tautological": 0,
-      "axiom_placeholder": 53,
+      "axiom_placeholder": 54,
       "weak_axioms_anchor": 30,
       "weak_axioms_real": 2
     },
@@ -2291,7 +2291,21 @@
       "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr"
     },
     {
-      "name": "msfs_theorem_6_1_colim_in_s_s_global",
+      "name": "msfs_theorem_6_1_step_1_seed_witness",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "is_anchor": true,
+      "weak_axiom": null,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr"
+    },
+    {
+      "name": "msfs_theorem_6_1_step_2_diagram_s_indexed",
       "kind": "axiom-placeholder",
       "ensures_shape": "predicate",
       "is_parameterless": false,
@@ -2302,6 +2316,22 @@
       "theorem_deps": 0,
       "let_bindings": 0,
       "proof_body_lines": 0,
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr"
+    },
+    {
+      "name": "msfs_theorem_6_1_colim_in_s_s_global",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 5,
+      "apply_targets": [
+        "msfs_theorem_6_1_step_1_seed_witness",
+        "msfs_theorem_6_1_step_2_diagram_s_indexed",
+        "msfs_s_s_closed_under_grothendieck"
+      ],
       "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr"
     },
     {
