@@ -1,0 +1,85 @@
+// =============================================================================
+// Diakrisis Stage D.3 — Five-Axis Absoluteness (Diakrisis-internal)
+// =============================================================================
+//
+// Source: A. Sereda, Diakrisis preprint, §06-limits/06-absoluteness.md +
+// 07-final-theorems.md.
+//
+// Diakrisis re-establishes the MSFS five-axis absoluteness using its
+// own canonical-primitive infrastructure (Axi-0..9 + T-α + T-2f*).
+// Five theorems plus their cross-correspondence to MSFS Theorems
+// 7.1–7.6:
+//
+//   55.T  — Diakrisis horizontal absoluteness; ∀ S ∈ R-S, the no-go
+//            holds uniformly. Maps to MSFS Theorem 7.1.
+//   59.T.1 — Diakrisis vertical absoluteness through n-iterations of M.
+//             Maps to MSFS Theorem 7.2.
+//   69.T  — Diakrisis meta-vertical absoluteness via the
+//            (∞,∞)-stabilization of M's image at limit ordinals.
+//            Maps to MSFS Theorem 7.3.
+//   84.T  — Diakrisis lateral absoluteness across alternative
+//            categorical orderings (operadic / globular / opetopic /
+//            stable / fusion).  Maps to MSFS Theorem 7.4.
+//   87.T  — Diakrisis completeness (Lawvere-scope conditional). Maps
+//            to MSFS Theorem 7.6.
+//
+// Each Diakrisis theorem in this file is a `@framework(diakrisis,
+// "...")` axiom placeholder; the cross-MSFS correspondence is
+// recorded as a separate axiom so `verum audit --framework-axioms`
+// emits both lineages on the same theorem.
+// =============================================================================
+
+module lib.theorems.diakrisis.five_axis_internal;
+
+/// Diakrisis 55.T — Horizontal absoluteness: ∀ S ∈ R-S, the
+/// AFN-T α-part holds uniformly. Proof reuses Diakrisis's
+/// T-2f* selection rule + Lemma 3.4 image of the
+/// canonical-primitive functor.
+@framework(diakrisis, "Diakrisis 55.T — horizontal absoluteness over R-S")
+public axiom diakrisis_theorem_55_T_horizontal() -> Bool ensures true;
+
+/// Diakrisis 55.T ↔ MSFS Theorem 7.1 correspondence.
+@framework(msfs, "Diakrisis 55.T = MSFS Theorem 7.1 (horizontal axis)")
+public axiom diakrisis_55_T_msfs_7_1_correspondence() -> Bool ensures true;
+
+/// Diakrisis 59.T.1 — Vertical absoluteness: ∀ n ∈ ℕ ∪ {∞}, the
+/// no-go holds at every M-iteration depth. Proof: Axi-2 + Axi-7
+/// give 𝖬 ∈ End(⟪⟫) levelwise; T-2f* applies at each n.
+@framework(diakrisis, "Diakrisis 59.T.1 — vertical absoluteness over n ∈ ℕ ∪ {∞}")
+public axiom diakrisis_theorem_59_T_1_vertical() -> Bool ensures true;
+
+/// Diakrisis 59.T.1 ↔ MSFS Theorem 7.2 correspondence.
+@framework(msfs, "Diakrisis 59.T.1 = MSFS Theorem 7.2 (vertical axis)")
+public axiom diakrisis_59_T_1_msfs_7_2_correspondence() -> Bool ensures true;
+
+/// Diakrisis 69.T — Meta-vertical absoluteness via Fix(𝖬). The
+/// limit ordinal stabilizes the M-tower (Axi-4 λ-accessibility +
+/// Adámek-Rosický), so meta-iterations don't escape AFN-T.
+@framework(diakrisis, "Diakrisis 69.T — meta-vertical via Fix(𝖬)")
+public axiom diakrisis_theorem_69_T_meta_vertical() -> Bool ensures true;
+
+/// Diakrisis 69.T ↔ MSFS Theorem 7.3 correspondence.
+@framework(msfs, "Diakrisis 69.T = MSFS Theorem 7.3 (meta-vertical axis)")
+public axiom diakrisis_69_T_msfs_7_3_correspondence() -> Bool ensures true;
+
+/// Diakrisis 84.T — Lateral absoluteness over alternative
+/// categorical orderings. Each alt ordering reduces to (∞, n)-Cat
+/// via the Diakrisis ι-embedding (Axi-1 internal closure).
+@framework(diakrisis, "Diakrisis 84.T — lateral over alternative categorical orderings")
+public axiom diakrisis_theorem_84_T_lateral() -> Bool ensures true;
+
+/// Diakrisis 84.T ↔ MSFS Theorem 7.4 correspondence.
+@framework(msfs, "Diakrisis 84.T = MSFS Theorem 7.4 (lateral axis)")
+public axiom diakrisis_84_T_msfs_7_4_correspondence() -> Bool ensures true;
+
+/// Diakrisis 87.T — Completeness (Lawvere-scope conditional).
+/// Within the Lawvere-scope, every structural variation reduces
+/// to one of (horizontal, vertical, meta-vertical, lateral),
+/// sealing the five-axis absoluteness within Diakrisis's own
+/// metatheory.
+@framework(diakrisis, "Diakrisis 87.T — completeness within Lawvere-scope")
+public axiom diakrisis_theorem_87_T_completeness() -> Bool ensures true;
+
+/// Diakrisis 87.T ↔ MSFS Theorem 7.6 correspondence.
+@framework(msfs, "Diakrisis 87.T = MSFS Theorem 7.6 (completeness axis)")
+public axiom diakrisis_87_T_msfs_7_6_correspondence() -> Bool ensures true;

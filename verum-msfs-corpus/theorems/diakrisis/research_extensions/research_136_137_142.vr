@@ -1,0 +1,58 @@
+// =============================================================================
+// Diakrisis Stage D.8 — Research Extensions (136.T / 137.T / 142.T)
+// =============================================================================
+//
+// Source: A. Sereda, Diakrisis preprint research extensions —
+// 136.T (T-2f*** transfinite stratification), 137.T (weak-AFN-T
+// over complexity-typed bounded-arithmetic), 142.T (Eastern
+// non-classical traditions formalisation).
+//
+//   136.T — T-2f*** transfinite stratification: ordinal-valued
+//            modal depth `md^ω` extends T-2f* / T-2f** to all
+//            countable ordinals below ε_0. Foundation for the
+//            VVA-7 K-Refine-omega kernel rule.
+//   137.T — Weak-AFN-T over the complexity-typed bounded-arithmetic
+//            sub-stack: V_0 / V_1 / S^1_2 / V_NP / V_PH / IΔ_0
+//            stratification. Closes MSFS Q5 + grounds VVA-8 weak
+//            stratum classification.
+//   142.T — Eastern non-classical traditions formalisation: dialethic
+//            / paraconsistent / many-valued L_Abs candidates fall
+//            under T-2f* the same way classical candidates do —
+//            paraconsistent kernel-extractability suffices for
+//            AFN-T transfer (cf. MSFS Theorem B.2 paraconsistent
+//            extension).
+// =============================================================================
+
+module lib.theorems.diakrisis.research_extensions;
+
+/// Diakrisis 136.T — T-2f*** transfinite stratification. Ordinal-
+/// valued modal depth `md^ω` on the canonical-primitive structure;
+/// extends T-2f* / T-2f** to ordinals < ε_0.
+@framework(diakrisis, "Diakrisis 136.T — T-2f*** transfinite stratification (md^ω, ordinals < ε_0)")
+public axiom diakrisis_theorem_136_T_t_2f_star_star_star() -> Bool ensures true;
+
+/// Diakrisis 136.T grounds the Verum K-Refine-omega kernel rule.
+@framework(msfs, "Diakrisis 136.T grounds Verum K-Refine-omega (VVA-7 ordinal-valued depth)")
+public axiom diakrisis_136_T_kernel_K_refine_omega_ground() -> Bool ensures true;
+
+/// Diakrisis 137.T — Weak-AFN-T over the complexity-typed
+/// bounded-arithmetic sub-stack. The 6-layer ν^weak stratification
+/// AC^0 ⊂ LOGSPACE ⊂ P ⊂ NP ⊂ PH ⊂ IΔ_0 admits an analogue of
+/// AFN-T at each layer.
+@framework(diakrisis, "Diakrisis 137.T — Weak-AFN-T over Bounded-arithmetic sub-stack (V_0/V_1/S^1_2/V_NP/V_PH/IΔ_0)")
+public axiom diakrisis_theorem_137_T_weak_afnt() -> Bool ensures true;
+
+/// Diakrisis 137.T closes MSFS Q5 + grounds VVA-8 weak-stratum.
+@framework(msfs, "Diakrisis 137.T closes MSFS Q5 + grounds VVA-8 (complexity-typed strategy)")
+public axiom diakrisis_137_T_msfs_q5_kernel_vva_8_ground() -> Bool ensures true;
+
+/// Diakrisis 142.T — Eastern non-classical traditions formalisation.
+/// Dialethic / paraconsistent / many-valued L_Abs candidates fall
+/// under T-2f* via classical-kernel-extractability (cf. MSFS
+/// Theorem B.2 paraconsistent extension).
+@framework(diakrisis, "Diakrisis 142.T — Eastern non-classical traditions (paraconsistent / dialethic / many-valued)")
+public axiom diakrisis_theorem_142_T_eastern_non_classical() -> Bool ensures true;
+
+/// Diakrisis 142.T ↔ MSFS Theorem B.2 correspondence.
+@framework(msfs, "Diakrisis 142.T = MSFS Theorem B.2 (paraconsistent AFN-T transfer)")
+public axiom diakrisis_142_T_msfs_b_2_correspondence() -> Bool ensures true;

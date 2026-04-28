@@ -1,0 +1,60 @@
+// =============================================================================
+// Diakrisis Stage D.10 — UHM Articulation (Path-B headline)
+// =============================================================================
+//
+// Source: A. Sereda, Diakrisis preprint, §11-noesis/UHM-articulation.md
+// + §11-noesis/path-b.md.
+//
+// UHM (Unified Holonic Mind) is the canonical-primitive corpus's
+// Path-B headline articulation — `α_uhm ∈ ⟪⟫` realised as the
+// universal-articulation witness Diakrisis 103.T provides for
+// L_Cls^⊤. The ε-coordinate of α_uhm reaches `ω · 3 + 1` (the
+// supremum of all ν-coordinates in the Diakrisis ν-table).
+//
+// UHM is also the foundation for the broader noesis / synarc
+// integration layer that hosts the 223 Path-B theorems. We ship
+// the headline + structural anchors here; per-theorem detail
+// expansion is tracked under noesis-corpus follow-ups.
+//
+// Theorems:
+//
+//   uhm.T1 — α_uhm ∈ L_Cls (Diakrisis 103.T witness instantiation).
+//   uhm.T2 — ε(α_uhm) = ω · 3 + 1 (the canonical-primitive's
+//            supremum ε-coordinate).
+//   uhm.T3 — UHM as Path-B baseline: every Path-B theorem cites
+//            uhm.T1 + uhm.T2 transitively.
+//   uhm.T4 — UHM ∈ L_Cls^⊤ (universal articulation membership;
+//            consequence of Diakrisis 106.T witnessing).
+// =============================================================================
+
+module lib.theorems.diakrisis.uhm;
+
+/// Diakrisis uhm.T1 — α_uhm ∈ L_Cls. Instantiates Diakrisis 103.T's
+/// universal articulation as UHM.
+@framework(diakrisis, "Diakrisis uhm.T1 — α_uhm ∈ L_Cls (universal-articulation instantiation)")
+public axiom diakrisis_theorem_uhm_T1_in_l_cls() -> Bool ensures true;
+
+/// Diakrisis uhm.T2 — ε(α_uhm) = ω · 3 + 1 (corpus-supremum
+/// ε-coordinate).
+@framework(diakrisis, "Diakrisis uhm.T2 — ε(α_uhm) = ω · 3 + 1 (Path-B supremum ε)")
+public axiom diakrisis_theorem_uhm_T2_epsilon_omega3_plus_1() -> Bool ensures true;
+
+/// Diakrisis uhm.T3 — Path-B baseline. Every Path-B theorem
+/// transitively cites uhm.T1 + uhm.T2 through the noesis layer.
+@framework(diakrisis, "Diakrisis uhm.T3 — UHM as Path-B baseline (every Path-B theorem cites it)")
+public axiom diakrisis_theorem_uhm_T3_path_b_baseline() -> Bool ensures true;
+
+/// Diakrisis uhm.T4 — UHM ∈ L_Cls^⊤ (universal articulation
+/// membership; consequence of Diakrisis 106.T witnessing).
+@framework(diakrisis, "Diakrisis uhm.T4 — UHM ∈ L_Cls^⊤ via Diakrisis 106.T")
+public axiom diakrisis_theorem_uhm_T4_in_l_cls_top() -> Bool ensures true;
+
+/// Diakrisis uhm.T4 ↔ MSFS L_Cls^⊤ + Diakrisis 106.T joint witness.
+@framework(msfs, "UHM = explicit Diakrisis-side witness for L_Cls^⊤ ≠ ∅ (paired with Diakrisis 106.T)")
+public axiom diakrisis_uhm_msfs_l_cls_top_witness() -> Bool ensures true;
+
+/// UHM noesis-corpus expansion (223 Path-B theorems) tracked as a
+/// downstream extension; this anchor establishes the trust boundary
+/// for the corpus-wide noesis layer.
+@framework(diakrisis, "Diakrisis uhm — noesis-corpus 223 Path-B theorems anchor")
+public axiom diakrisis_uhm_noesis_223_path_b_anchor() -> Bool ensures true;

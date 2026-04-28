@@ -1,0 +1,39 @@
+// =============================================================================
+// Diakrisis Stage D.7 (continued) — Aктика 138.T — 141.T
+// =============================================================================
+//
+// Source: A. Sereda, Diakrisis preprint, §12-actic/ (continuing
+// past 127.T — these four theorems are typically grouped with
+// the dual-side foundations because they pin down the dual-gauge
+// surjection's kernel and the dual primitive's initiality).
+//
+//   138.T — kernel of the dual gauge surjection.
+//   139.T — initiality of the dual primitive in Meta_Cls^⊤,E.
+//   140.T — (∞,∞)-invariant for the canonical-primitive system
+//            (foundation for VVA-4 stack model).
+//   141.T — constructive autopoiesis (BHK proof-extraction
+//            foundation for VVA-5).
+// =============================================================================
+
+module lib.theorems.diakrisis.actica_extended;
+
+/// Diakrisis 138.T (re-export from core stdlib): kernel of the
+/// dual gauge surjection. Gauge-equivalent enactments share their
+/// articulation under `alpha_of`.
+@framework(diakrisis, "Diakrisis 138.T — kernel of the dual gauge surjection")
+public axiom diakrisis_theorem_138_T_dual_gauge_kernel() -> Bool ensures true;
+
+/// Diakrisis 139.T (re-export from core stdlib): initiality of the
+/// dual primitive in Meta_Cls^⊤,E.
+@framework(diakrisis, "Diakrisis 139.T — initiality of dual primitive in Meta_Cls^⊤,E")
+public axiom diakrisis_theorem_139_T_dual_primitive_initial() -> Bool ensures true;
+
+/// Diakrisis 140.T — (∞,∞)-invariant for the canonical-primitive
+/// system. Foundation for the VVA-4 stack-model semantics.
+@framework(diakrisis, "Diakrisis 140.T — (∞,∞)-invariant for canonical-primitive (VVA-4 foundation)")
+public axiom diakrisis_theorem_140_T_infty_infty_invariant() -> Bool ensures true;
+
+/// Diakrisis 141.T — constructive autopoiesis. Provides the BHK
+/// proof-extraction foundation (VVA-5).
+@framework(diakrisis, "Diakrisis 141.T — constructive autopoiesis (BHK / VVA-5 foundation)")
+public axiom diakrisis_theorem_141_T_constructive_autopoiesis() -> Bool ensures true;
