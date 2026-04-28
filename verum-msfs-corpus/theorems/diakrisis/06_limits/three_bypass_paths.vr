@@ -31,20 +31,48 @@
 
 module lib.theorems.diakrisis.three_bypass_paths;
 
-/// Diakrisis 98.T — Universe polymorphism bypass. Universe-poly
+mount core.math.absolute_layer.{LAbsCandidate};
+mount super.super.super.msfs.bypass_paths.{
+    msfs_theorem_8_1_universe_polymorphism,
+    msfs_theorem_8_2_reflective_tower,
+    msfs_corollary_8_8_intensional_no_new_axis,
+};
+
+/// **Diakrisis 98.T — Universe polymorphism bypass.** Universe-poly
 /// L_Abs candidates Morita-reduce to ι-images and fall under T-2f*.
+/// Operationally identical to MSFS Theorem 8.1.
+@verify(formal)
 @framework(diakrisis, "Diakrisis 98.T — universe-polymorphism bypass closure")
-public axiom diakrisis_theorem_98_T_universe_polymorphism() -> Bool ensures true;
+public theorem diakrisis_theorem_98_T_universe_polymorphism(
+    candidate: &LAbsCandidate,
+)
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+        apply msfs_theorem_8_1_universe_polymorphism(candidate);
+    };
 
 /// Diakrisis 98.T ↔ MSFS Theorem 8.1 correspondence.
 @framework(msfs, "Diakrisis 98.T = MSFS Theorem 8.1 (universe polymorphism)")
 public axiom diakrisis_98_T_msfs_8_1_correspondence() -> Bool ensures true;
 
-/// Diakrisis 99.T — Reflective tower bypass. The consistency-tower
-/// stabilizes at one additional inaccessible (Rathjen-Feferman);
+/// **Diakrisis 99.T — Reflective tower bypass.** The consistency-
+/// tower stabilizes at one additional inaccessible (Rathjen-Feferman);
 /// no L_Abs escape via this path.
+@verify(formal)
 @framework(diakrisis, "Diakrisis 99.T — reflective-tower bypass closure (Rathjen-Feferman bound)")
-public axiom diakrisis_theorem_99_T_reflective_tower() -> Bool ensures true;
+public theorem diakrisis_theorem_99_T_reflective_tower(
+    candidate: &LAbsCandidate,
+)
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+        apply msfs_theorem_8_2_reflective_tower(candidate);
+    };
 
 /// Diakrisis 99.T ↔ MSFS Theorem 8.2 correspondence.
 @framework(msfs, "Diakrisis 99.T = MSFS Theorem 8.2 (reflective tower)")
@@ -69,11 +97,21 @@ public axiom diakrisis_theorem_101_T_slice_locality() -> Bool ensures true;
 @framework(msfs, "Diakrisis 101.T = MSFS Theorem 8.7 (slice-locality)")
 public axiom diakrisis_101_T_msfs_8_7_correspondence() -> Bool ensures true;
 
-/// Diakrisis 102.T — Intensional refinement adds no new structural
-/// axis. Foundations distinguishable only at the intensional level
-/// share the same point of 𝔐. AFN-T α + β unchanged.
+/// **Diakrisis 102.T — Intensional refinement adds no new axis.**
+/// Foundations distinguishable only at the intensional level share
+/// the same point of 𝔐. AFN-T α + β unchanged.
+@verify(formal)
 @framework(diakrisis, "Diakrisis 102.T — intensional refinement adds no new axis")
-public axiom diakrisis_theorem_102_T_intensional_no_new_axis() -> Bool ensures true;
+public theorem diakrisis_theorem_102_T_intensional_no_new_axis(
+    candidate: &LAbsCandidate,
+)
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+        apply msfs_corollary_8_8_intensional_no_new_axis(candidate);
+    };
 
 /// Diakrisis 102.T ↔ MSFS Corollary 8.8 correspondence.
 @framework(msfs, "Diakrisis 102.T = MSFS Corollary 8.8 (intensional refinement)")
