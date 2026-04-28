@@ -61,30 +61,37 @@ module lib.theorems.diakrisis.formal_architecture;
 // Group 00 — Metacategory structure (Diakrisis §03/00, theorems 10.T-15.T)
 // =============================================================================
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 10.T — ⟪⟫ is a locally-small 2-category (Axi-1)")
 public axiom diakrisis_theorem_10_T_locally_small() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 11.T — ⟪⟫ is internally closed (Cartesian closure on End)")
 public axiom diakrisis_theorem_11_T_internal_closure() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 12.T — ι: End(⟪⟫) → ⟪⟫ functor existence")
 public axiom diakrisis_theorem_12_T_iota_existence() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 13.T — 𝖬 ∈ End(⟪⟫) carries 2-functor structure")
 public axiom diakrisis_theorem_13_T_M_2_functor() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 14.T — α_𝖬 := ι(𝖬) is the canonical M-representative")
 public axiom diakrisis_theorem_14_T_alpha_M_canonical() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 14.T2 — α_𝖬 is Yoneda-non-representable in LP-models (Axi-8 grounding)")
 public axiom diakrisis_theorem_14_T2_axi_8_witness() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 15.T — M's 2-natural-transformation laws (composition, identity)")
 public axiom diakrisis_theorem_15_T_M_naturality() -> Bool ensures true;
@@ -93,48 +100,59 @@ public axiom diakrisis_theorem_15_T_M_naturality() -> Bool ensures true;
 // Group 01 — ι-embedding (Diakrisis §03/01, theorems 16.T-22.T)
 // =============================================================================
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 16.T — ι is faithful (End-equivalence preserved)")
 public axiom diakrisis_theorem_16_T_iota_faithful() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 16.T10 — round-trip ι ∘ representable ≃ id (Theorem 16.10 in MSFS)")
 public axiom diakrisis_theorem_16_T10_round_trip() -> Bool ensures true;
 
 /// Diakrisis 16.T10 grounds the Verum K-Round-Trip kernel rule
 /// (round-trip 108.T algorithm).
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 16.T10 grounds Verum K-Round-Trip (round-trip canonicalization)")
 public axiom diakrisis_16_T10_kernel_K_round_trip_ground() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 17.T — ι is full up to gauge equivalence")
 public axiom diakrisis_theorem_17_T_iota_full_mod_gauge() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 17.T1 — effect Kleisli + ι-image composition (T2.2 ground)")
 public axiom diakrisis_theorem_17_T1_effect_kleisli() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 18.T — ι-image characterization (image as End-quotient)")
 public axiom diakrisis_theorem_18_T_image_characterization() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 19.T — ι is Yoneda-compatible on representable objects")
 public axiom diakrisis_theorem_19_T_yoneda_compatible() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 20.T — ι extends to (∞, n)-functor naturally")
 public axiom diakrisis_theorem_20_T_iota_infty_n_extension() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 21.T — ι preserves End-monoidal structure")
 public axiom diakrisis_theorem_21_T_iota_monoidal() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 21.T2 — Theorem 131.T-precursor stack-model lemma")
 public axiom diakrisis_theorem_21_T2_stack_model_precursor() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 22.T — ι-image stable under M-iteration (foundation for Fix(M))")
 public axiom diakrisis_theorem_22_T_image_M_stable() -> Bool ensures true;
@@ -143,18 +161,22 @@ public axiom diakrisis_theorem_22_T_image_M_stable() -> Bool ensures true;
 // Group 02 — Cohesion (Diakrisis §03/02, theorems 23.T-26.T)
 // =============================================================================
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 23.T — shape ∫: ⟪⟫ → S admits a left adjoint")
 public axiom diakrisis_theorem_23_T_shape_left_adjoint() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 24.T — flat ♭ ⊣ sharp ♯ (cohesive triple-adjunction)")
 public axiom diakrisis_theorem_24_T_flat_sharp_adjunction() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 25.T — ♭ ∫ A ≃ ∫ A on crisp objects")
 public axiom diakrisis_theorem_25_T_crisp_collapse() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 26.T — cohesive triple-adjunction grounds Schreiber DCCT")
 public axiom diakrisis_theorem_26_T_dcct_ground() -> Bool ensures true;
@@ -163,18 +185,22 @@ public axiom diakrisis_theorem_26_T_dcct_ground() -> Bool ensures true;
 // Group 03 — Fibration (Diakrisis §03/03, theorems 27.T-30.T)
 // =============================================================================
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 27.T — Grothendieck fibration p: F → ⟪⟫ via M-image")
 public axiom diakrisis_theorem_27_T_grothendieck_fibration() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 28.T — fibers as End-equivalence classes")
 public axiom diakrisis_theorem_28_T_fiber_equivalence_classes() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 29.T — opfibration symmetry via M ⊣ A precursor")
 public axiom diakrisis_theorem_29_T_opfibration_symmetry() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 30.T — pullback stability of M-image fibration")
 public axiom diakrisis_theorem_30_T_pullback_stability() -> Bool ensures true;
@@ -183,18 +209,22 @@ public axiom diakrisis_theorem_30_T_pullback_stability() -> Bool ensures true;
 // Group 04 — Gauge (Diakrisis §03/04, theorems 31.T-34.T)
 // =============================================================================
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 31.T — gauge equivalence ≡ Morita (definition lemma)")
 public axiom diakrisis_theorem_31_T_gauge_morita() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 32.T — gauge classes form a 2-quotient stack")
 public axiom diakrisis_theorem_32_T_gauge_quotient_stack() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 33.T — gauge respects M-iteration (M-stable equivalence)")
 public axiom diakrisis_theorem_33_T_gauge_M_stability() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 34.T — Aut_2(⟪⟫) acts on gauge classes (precursor to Max-2)")
 public axiom diakrisis_theorem_34_T_aut2_action() -> Bool ensures true;
@@ -203,18 +233,22 @@ public axiom diakrisis_theorem_34_T_aut2_action() -> Bool ensures true;
 // Group 05 — Modal interpretation (Diakrisis §03/05, theorems 35.T-38.T)
 // =============================================================================
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 35.T — M as Galois-connection lift to a modal □-operator")
 public axiom diakrisis_theorem_35_T_M_modal_box() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 36.T — A as ◇-operator dual to M (sublimation duality)")
 public axiom diakrisis_theorem_36_T_A_modal_diamond() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 37.T — 4-2 modal-axiom completeness on ⟪⟫")
 public axiom diakrisis_theorem_37_T_modal_axioms_complete() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 38.T — modal-depth function `md` foundation (precursor to T-α)")
 public axiom diakrisis_theorem_38_T_modal_depth_foundation() -> Bool ensures true;
@@ -223,18 +257,22 @@ public axiom diakrisis_theorem_38_T_modal_depth_foundation() -> Bool ensures tru
 // Group 06 — Duality precursor (Diakrisis §03/06, theorems 39.T-42.T)
 // =============================================================================
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 39.T — M ⊣ A biadjunction precursor (operator-level)")
 public axiom diakrisis_theorem_39_T_M_A_precursor() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 40.T — unit η: id_⟪⟫ ⇒ A∘M existence")
 public axiom diakrisis_theorem_40_T_unit_eta() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 41.T — counit ε: M∘A ⇒ id_E existence")
 public axiom diakrisis_theorem_41_T_counit_epsilon() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 42.T — triangle identities on (η, ε) (precursor to 124.T)")
 public axiom diakrisis_theorem_42_T_triangle_identities() -> Bool ensures true;
@@ -243,18 +281,22 @@ public axiom diakrisis_theorem_42_T_triangle_identities() -> Bool ensures true;
 // Group 07 — Model theory (Diakrisis §03/07, theorems 43.T-46.T)
 // =============================================================================
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 43.T — Lambek-Scott Syn ⊣ Mod internal version")
 public axiom diakrisis_theorem_43_T_lambek_scott_internal() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 44.T — Mod: ⟪⟫ → 2-Cat is accessible")
 public axiom diakrisis_theorem_44_T_mod_accessible() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 45.T — Mod respects gauge equivalence (Morita-invariant)")
 public axiom diakrisis_theorem_45_T_mod_gauge_invariant() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 46.T — Mod-image cardinality bounded by κ_2")
 public axiom diakrisis_theorem_46_T_mod_image_kappa_2() -> Bool ensures true;
@@ -263,14 +305,17 @@ public axiom diakrisis_theorem_46_T_mod_image_kappa_2() -> Bool ensures true;
 // Group 08 — Cardinal analysis (Diakrisis §03/08, theorems 47.T-49.T)
 // =============================================================================
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 47.T — |⟪⟫ / ≃_2| ≤ κ_2 (size bound)")
 public axiom diakrisis_theorem_47_T_carrier_size_bound() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 48.T — image(ρ) is U_2-small")
 public axiom diakrisis_theorem_48_T_rho_image_u_2_small() -> Bool ensures true;
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 49.T — Fix(𝖬) cardinality ≤ κ_2 (M-stable closure)")
 public axiom diakrisis_theorem_49_T_fix_M_size_bound() -> Bool ensures true;
@@ -279,12 +324,14 @@ public axiom diakrisis_theorem_49_T_fix_M_size_bound() -> Bool ensures true;
 // Group 09 — Computability (Diakrisis §03/09, theorem 50.T)
 // =============================================================================
 
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 50.T — Eff (Hyland) internal interpretation foundation")
 public axiom diakrisis_theorem_50_T_eff_internal() -> Bool ensures true;
 
 /// Diakrisis 50.T grounds MSFS Theorem 8.6 step (I-3) — the
 /// τ-invariant separating MLTT/ETT through the Eff-effective topos.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 50.T grounds MSFS Theorem 8.6 step I-3 (Eff τ-invariant)")
 public axiom diakrisis_50_T_msfs_8_6_i_3_ground() -> Bool ensures true;

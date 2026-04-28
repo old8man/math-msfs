@@ -1,0 +1,1185 @@
+{
+  "schema_version": 1,
+  "parsed_files": 27,
+  "skipped_files": 0,
+  "total_enact_sites": 196,
+  "missing_accessibility": 0,
+  "items": [
+    {
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_T_2f_star_comprehension_stratification",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_T_2f_star_star",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_T_alpha_depth_function",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_axi_0_non_empty",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_axi_1_internal_closure",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_axi_2_M_is_2_functor",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_axi_3_alpha_math_exists",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_axi_4_rho_internal_hom",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_axi_5_rho_nontrivial",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_axi_6_rho_M_non_commute",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_axi_7_self_articulability",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_axi_8_alpha_M_non_LP_representable",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_axi_9_ac_oc_biadjunction_premise",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_16_T10_kernel_K_round_trip_ground",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_50_T_msfs_8_6_i_3_ground",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_10_T_locally_small",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_11_T_internal_closure",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_12_T_iota_existence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_13_T_M_2_functor",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_14_T2_axi_8_witness",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_14_T_alpha_M_canonical",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_15_T_M_naturality",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_16_T10_round_trip",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_16_T_iota_faithful",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_17_T1_effect_kleisli",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_17_T_iota_full_mod_gauge",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_18_T_image_characterization",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_19_T_yoneda_compatible",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_20_T_iota_infty_n_extension",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_21_T2_stack_model_precursor",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_21_T_iota_monoidal",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_22_T_image_M_stable",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_23_T_shape_left_adjoint",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_24_T_flat_sharp_adjunction",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_25_T_crisp_collapse",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_26_T_dcct_ground",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_27_T_grothendieck_fibration",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_28_T_fiber_equivalence_classes",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_29_T_opfibration_symmetry",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_30_T_pullback_stability",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_31_T_gauge_morita",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_32_T_gauge_quotient_stack",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_33_T_gauge_M_stability",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_34_T_aut2_action",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_35_T_M_modal_box",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_36_T_A_modal_diamond",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_37_T_modal_axioms_complete",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_38_T_modal_depth_foundation",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_39_T_M_A_precursor",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_40_T_unit_eta",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_41_T_counit_epsilon",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_42_T_triangle_identities",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_43_T_lambek_scott_internal",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_44_T_mod_accessible",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_45_T_mod_gauge_invariant",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_46_T_mod_image_kappa_2",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_47_T_carrier_size_bound",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_48_T_rho_image_u_2_small",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_49_T_fix_M_size_bound",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_50_T_eff_internal",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_55_T_msfs_7_1_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_59_T_1_msfs_7_2_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_69_T_msfs_7_3_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_84_T_msfs_7_4_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_87_T_msfs_7_6_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr",
+      "item_kind": "theorem",
+      "item_name": "diakrisis_theorem_55_T_horizontal",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr",
+      "item_kind": "theorem",
+      "item_name": "diakrisis_theorem_59_T_1_vertical",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr",
+      "item_kind": "theorem",
+      "item_name": "diakrisis_theorem_69_T_meta_vertical",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr",
+      "item_kind": "theorem",
+      "item_name": "diakrisis_theorem_84_T_lateral",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr",
+      "item_kind": "theorem",
+      "item_name": "diakrisis_theorem_87_T_completeness",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_100_T_msfs_8_6_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_101_T_msfs_8_7_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_102_T_msfs_8_8_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_98_T_msfs_8_1_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_99_T_msfs_8_2_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_100_T_I_existence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_101_T_slice_locality",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr",
+      "item_kind": "theorem",
+      "item_name": "diakrisis_theorem_102_T_intensional_no_new_axis",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr",
+      "item_kind": "theorem",
+      "item_name": "diakrisis_theorem_98_T_universe_polymorphism",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr",
+      "item_kind": "theorem",
+      "item_name": "diakrisis_theorem_99_T_reflective_tower",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_103_T_msfs_q1_closure",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_104_T_msfs_9_3_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_105_T_kernel_K_refine_ground",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_106_T_l_cls_top_nonempty",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_103_T_universal_articulation",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_104_T_uniqueness",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_105_T_yanofsky_immunity",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_106_T_diakrisis_in_l_cls_top",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_131_T_kernel_K_universe_ascent_ground",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_133_T_msfs_q3_closure",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_134_T_msfs_q4_closure",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_135_T_msfs_q5_closure",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_128_T_bypass_exhaustive",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_129_T_lawvere_scope_inventory",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_130_T_axi_9_completeness",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_131_T_stack_model",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_132_T_universal_precursor",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_133_T_q3_closure",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_134_T_q4_closure",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_135_T_q5_closure",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_108_T_msfs_10_4_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_109_T_msfs_10_7_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_124_T_msfs_10_4_step_c_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_107_T_relative_consistency",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_108_T_ac_oc_morita_duality",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_109_T_dual_no_go",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_124_T_biadjunction_witness",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_125_T_universal_pair",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_126_T_gauge_alpha_projection",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_127_T_actica_completeness",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorems_110_to_120",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorems_121_to_123",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_138_to_141.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_138_T_dual_gauge_kernel",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_138_to_141.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_139_T_dual_primitive_initial",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_138_to_141.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_140_T_infty_infty_invariant",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/12_actic/actica_138_to_141.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_141_T_constructive_autopoiesis",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_18_T1_verum_coherent_ground",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_18_T3_audit_coherent_gate",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_18_T1_alpha_epsilon_duality",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_18_T2_finite_decidability",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_18_T3_corpus_coherence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/research_136_137_142.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_136_T_kernel_K_refine_omega_ground",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/research_136_137_142.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_137_T_msfs_q5_kernel_vva_8_ground",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/research_136_137_142.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_142_T_msfs_b_2_correspondence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/research_136_137_142.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_136_T_t_2f_star_star_star",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/research_136_137_142.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_137_T_weak_afnt",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/research_136_137_142.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_142_T_eastern_non_classical",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/uhm_articulation.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_uhm_T1_in_l_cls",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/uhm_articulation.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_uhm_T2_epsilon_omega3_plus_1",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/uhm_articulation.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_uhm_T3_path_b_baseline",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/uhm_articulation.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_theorem_uhm_T4_in_l_cls_top",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/uhm_articulation.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_uhm_msfs_l_cls_top_witness",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/diakrisis/research_extensions/uhm_articulation.vr",
+      "item_kind": "axiom",
+      "item_name": "diakrisis_uhm_noesis_223_path_b_anchor",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/01_introduction/conventions.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_stage_m_1_anchor",
+      "accessibility": "omega"
+    },
+    {
+      "file": "theorems/msfs/02_strata/proposition_2_2_2_3.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_stage_m_2_anchor",
+      "accessibility": "omega"
+    },
+    {
+      "file": "theorems/msfs/03_rich_s/lemma_3_4_anchor.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_stage_m_3_anchor",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/04_l_abs_conditions/definitions_4_1_to_4_4.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_stage_m_4_anchor",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/05_afnt_alpha/theorem_5_1.vr",
+      "item_kind": "theorem",
+      "item_name": "msfs_corollary_5_2_l_abs_empty",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/05_afnt_alpha/theorem_5_1.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_5_1_afnt_alpha",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/05_afnt_alpha/theorem_5_1.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_5_1_proof_template",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_proposition_6_2_proper_class_dichotomy",
+      "accessibility": "omega_2"
+    },
+    {
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_proposition_6_3_corollary",
+      "accessibility": "omega_2"
+    },
+    {
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_proposition_6_3_trajectory_space",
+      "accessibility": "omega_2"
+    },
+    {
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_6_1_afnt_beta",
+      "accessibility": "omega_2"
+    },
+    {
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_6_1_colim_in_s_s_global",
+      "accessibility": "omega_2"
+    },
+    {
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr",
+      "item_kind": "theorem",
+      "item_name": "msfs_theorem_6_1_operational_closure",
+      "accessibility": "omega_2"
+    },
+    {
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_definition_7_5_lawvere_scope",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr",
+      "item_kind": "theorem",
+      "item_name": "msfs_theorem_7_1_horizontal",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr",
+      "item_kind": "theorem",
+      "item_name": "msfs_theorem_7_2_vertical",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr",
+      "item_kind": "theorem",
+      "item_name": "msfs_theorem_7_3_meta_vertical",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr",
+      "item_kind": "theorem",
+      "item_name": "msfs_theorem_7_4_lateral",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr",
+      "item_kind": "theorem",
+      "item_name": "msfs_theorem_7_6_completeness",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr",
+      "item_kind": "theorem",
+      "item_name": "msfs_corollary_8_8_intensional_no_new_axis",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_definition_8_3_display_class",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_definition_8_4_display_2_category",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_definition_8_5_s_int",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr",
+      "item_kind": "theorem",
+      "item_name": "msfs_theorem_8_1_universe_polymorphism",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr",
+      "item_kind": "theorem",
+      "item_name": "msfs_theorem_8_2_reflective_tower",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_8_6_I_existence",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_8_7_slice_locality",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_corollary_9_5_plurality",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_definition_9_1_meta_cls",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_definition_9_2_meta_cls_top",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_9_3_meta_categoricity",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_9_4_structural_multiplicity",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_9_6_meta_classification_stabilization",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr",
+      "item_kind": "theorem",
+      "item_name": "msfs_theorem_9_6c_no_l_abs_escalation",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_corollary_10_5_conservativity",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_corollary_10_8_l_abs_E_empty",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_definition_10_1_E_category",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_definition_10_2_S_S_E",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_lemma_10_3_enactment_syntax_semantics",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_10_4_ac_oc_morita_duality",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_10_7_dual_boundary_lemma",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_10_9_dual_five_axis",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/11_no_go_series/theorem_11_1.vr",
+      "item_kind": "theorem",
+      "item_name": "msfs_theorem_11_1_subsumption",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/11_no_go_series/theorem_11_1.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_11_1_subsumption_anchor",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_consequence_cohesive",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_consequence_higher_topos",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_consequence_infinity_cosmoi",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_consequence_univalent_foundations",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_open_question_Q1_closed_in_diakrisis",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_open_question_Q2_open",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_open_question_Q3_closed_in_diakrisis",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_open_question_Q4_closed_in_diakrisis",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_open_question_Q5_closed_in_diakrisis",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_lemma_A_1_kelly_2_categorical",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_lemma_A_2_lurie_htt",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_lemma_A_3_riehl_verity",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_lemma_A_4_pronk_bicat_fractions",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_lemma_A_5_lawvere_fp",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_lemma_A_6_whitehead",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_lemma_A_8_adamek_rosicky",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_A_7_bergner_lurie_stabilization",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/appendix_b/theorem_B_2.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_definition_B_1_paraconsistent_rich_s",
+      "accessibility": "omega_1"
+    },
+    {
+      "file": "theorems/msfs/appendix_b/theorem_B_2.vr",
+      "item_kind": "axiom",
+      "item_name": "msfs_theorem_B_2_paraconsistent_afnt",
+      "accessibility": "omega_1"
+    }
+  ]
+}

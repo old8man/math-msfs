@@ -31,6 +31,7 @@ mount core.math.s_definable.{
 };
 
 /// Stage M.3 marker — `verum audit --coord` anchor.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Stage M.3 — Reasonable Rich-Metatheories + Lemma 3.4 (§3) anchor")
 public axiom msfs_stage_m_3_anchor() -> Bool

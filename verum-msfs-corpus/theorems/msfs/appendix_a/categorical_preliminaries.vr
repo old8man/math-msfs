@@ -22,6 +22,7 @@ module lib.theorems.msfs.categorical_preliminaries;
 /// Lemma A.1 — Kelly 1982 §1-§2: 2-categorical infrastructure
 /// (2-categories, 2-functors, lax / pseudo / strict natural
 /// transformations, modifications).
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Lemma A.1 — Kelly 1982 §1-§2 (2-categorical infrastructure)")
 public axiom msfs_lemma_A_1_kelly_2_categorical() -> Bool
@@ -30,6 +31,7 @@ public axiom msfs_lemma_A_1_kelly_2_categorical() -> Bool
 /// Lemma A.2 — Lurie HTT 2009: ∞-categorical infrastructure
 /// (quasi-categories, simplicial categories, Joyal model structure,
 /// straightening / unstraightening, ∞-Kan extensions).
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Lemma A.2 — Lurie HTT 2009 (∞-categorical infrastructure)")
 public axiom msfs_lemma_A_2_lurie_htt() -> Bool
@@ -37,6 +39,7 @@ public axiom msfs_lemma_A_2_lurie_htt() -> Bool
 
 /// Lemma A.3 — Riehl–Verity 2022: synthetic (∞, 1)-category theory
 /// via ∞-cosmoi. Used in §10 for the construction of E.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Lemma A.3 — Riehl–Verity 2022 (synthetic (∞,1)-category theory)")
 public axiom msfs_lemma_A_3_riehl_verity() -> Bool
@@ -46,6 +49,7 @@ public axiom msfs_lemma_A_3_riehl_verity() -> Bool
 /// 2-localization of a 2-category along a class of 1-morphisms
 /// satisfying the Bousfield-Pronk calculus (BF1)–(BF5). Used in
 /// Theorem 8.6 Step 8 for the Morita 2-localization.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Lemma A.4 — Pronk 1996 Theorem 21 (bicategory of fractions)")
 public axiom msfs_lemma_A_4_pronk_bicat_fractions() -> Bool
@@ -54,6 +58,7 @@ public axiom msfs_lemma_A_4_pronk_bicat_fractions() -> Bool
 /// Lemma A.5 — Lawvere 1969: fixed-point theorem at the 2-categorical
 /// level. Weakly point-surjective `e : A → Y^A` ⟹ every `f : Y → Y`
 /// has fixed point. Yanofsky's universal diagonal subsumes this.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Lemma A.5 — Lawvere 1969 (fixed-point theorem, 2-categorical)")
 public axiom msfs_lemma_A_5_lawvere_fp() -> Bool
@@ -63,6 +68,7 @@ public axiom msfs_lemma_A_5_lawvere_fp() -> Bool
 /// accessible (∞,∞)-categories is an `(∞,∞)`-equivalence iff
 /// `τ_{≤n}(Φ)` is an `(∞,n)`-equivalence for every `n ∈ ℕ`. Used
 /// in Theorem 9.6 Step 5 lift to (∞,∞).
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Lemma A.6 — Whitehead-type criterion for (∞,∞)-equivalences")
 public axiom msfs_lemma_A_6_whitehead() -> Bool
@@ -80,6 +86,7 @@ public axiom msfs_lemma_A_6_whitehead() -> Bool
 /// (meta-vertical axis), Theorem 9.6 (b.4) inclusions
 /// `Π_{(∞,∞)} ↪ Π_{(∞,∞+1)}` (post-audit I-18 justification: lifts
 /// via accessible-functor preservation).
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem A.7 — Bergner–Lurie (∞,∞)-stabilization (CRITICAL forward ref)")
 public axiom msfs_theorem_A_7_bergner_lurie_stabilization() -> Bool
@@ -90,6 +97,7 @@ public axiom msfs_theorem_A_7_bergner_lurie_stabilization() -> Bool
 /// categories under regular `λ ≤ κ`-filtered colimits +
 /// preservation under accessible reindexing. Used in Theorem 6.1
 /// (β-part Step 4) and Lemma 10.3 (post-audit C-9 + C-7 fixes).
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Lemma A.8 — Adámek–Rosický 1994 (accessible-categories infrastructure)")
 public axiom msfs_lemma_A_8_adamek_rosicky() -> Bool

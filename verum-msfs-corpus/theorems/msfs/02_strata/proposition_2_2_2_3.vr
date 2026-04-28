@@ -23,6 +23,7 @@ mount core.math.strata.{
 };
 
 /// Stage M.2 marker — `verum audit --coord` anchor.
+@accessibility(omega)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Stage M.2 — Stratified Hierarchy (§2) anchor")
 public axiom msfs_stage_m_2_anchor() -> Bool

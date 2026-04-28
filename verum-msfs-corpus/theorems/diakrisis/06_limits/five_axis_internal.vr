@@ -45,6 +45,7 @@ mount super.super.super.msfs.five_axis.{
 /// functor; correspondence to MSFS Theorem 7.1 is recorded
 /// separately. Operationally identical to MSFS 7.1.
 @verify(formal)
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 55.T — horizontal absoluteness over R-S")
 public theorem diakrisis_theorem_55_T_horizontal(
@@ -64,6 +65,7 @@ public theorem diakrisis_theorem_55_T_horizontal(
     };
 
 /// Diakrisis 55.T ↔ MSFS Theorem 7.1 correspondence.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 55.T = MSFS Theorem 7.1 (horizontal axis)")
 public axiom diakrisis_55_T_msfs_7_1_correspondence() -> Bool ensures true;
@@ -72,6 +74,7 @@ public axiom diakrisis_55_T_msfs_7_1_correspondence() -> Bool ensures true;
 /// the no-go holds at every M-iteration depth. Proof: Axi-2 + Axi-7
 /// give 𝖬 ∈ End(⟪⟫) levelwise; T-2f* applies at each n.
 @verify(formal)
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 59.T.1 — vertical absoluteness over n ∈ ℕ ∪ {∞}")
 public theorem diakrisis_theorem_59_T_1_vertical(
@@ -86,6 +89,7 @@ public theorem diakrisis_theorem_59_T_1_vertical(
     };
 
 /// Diakrisis 59.T.1 ↔ MSFS Theorem 7.2 correspondence.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 59.T.1 = MSFS Theorem 7.2 (vertical axis)")
 public axiom diakrisis_59_T_1_msfs_7_2_correspondence() -> Bool ensures true;
@@ -94,6 +98,7 @@ public axiom diakrisis_59_T_1_msfs_7_2_correspondence() -> Bool ensures true;
 /// The limit ordinal stabilizes the M-tower (Axi-4 λ-accessibility +
 /// Adámek-Rosický), so meta-iterations don't escape AFN-T.
 @verify(formal)
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 69.T — meta-vertical via Fix(𝖬)")
 public theorem diakrisis_theorem_69_T_meta_vertical(
@@ -108,6 +113,7 @@ public theorem diakrisis_theorem_69_T_meta_vertical(
     };
 
 /// Diakrisis 69.T ↔ MSFS Theorem 7.3 correspondence.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 69.T = MSFS Theorem 7.3 (meta-vertical axis)")
 public axiom diakrisis_69_T_msfs_7_3_correspondence() -> Bool ensures true;
@@ -116,6 +122,7 @@ public axiom diakrisis_69_T_msfs_7_3_correspondence() -> Bool ensures true;
 /// categorical orderings. Each alt ordering reduces to (∞, n)-Cat
 /// via the Diakrisis ι-embedding (Axi-1 internal closure).
 @verify(formal)
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 84.T — lateral over alternative categorical orderings")
 public theorem diakrisis_theorem_84_T_lateral(
@@ -130,6 +137,7 @@ public theorem diakrisis_theorem_84_T_lateral(
     };
 
 /// Diakrisis 84.T ↔ MSFS Theorem 7.4 correspondence.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 84.T = MSFS Theorem 7.4 (lateral axis)")
 public axiom diakrisis_84_T_msfs_7_4_correspondence() -> Bool ensures true;
@@ -140,6 +148,7 @@ public axiom diakrisis_84_T_msfs_7_4_correspondence() -> Bool ensures true;
 /// sealing the five-axis absoluteness within Diakrisis's own
 /// metatheory.
 @verify(formal)
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 87.T — completeness within Lawvere-scope")
 public theorem diakrisis_theorem_87_T_completeness(
@@ -154,6 +163,7 @@ public theorem diakrisis_theorem_87_T_completeness(
     };
 
 /// Diakrisis 87.T ↔ MSFS Theorem 7.6 correspondence.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 87.T = MSFS Theorem 7.6 (completeness axis)")
 public axiom diakrisis_87_T_msfs_7_6_correspondence() -> Bool ensures true;

@@ -93,6 +93,7 @@ mount core.math.absolute_layer.{
 /// lineage), `lurie_htt` (HTT 5.1.4 used by Lemma 3.4),
 /// `adamek_rosicky` (κ_1-accessibility of S_S^global). Recorded by
 /// `verum audit --framework-axioms`.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 5.1 — AFN-T α-part: ¬∃ X. (F_S) ∧ (Π_4) ∧ (Π_3-max)")
 public axiom msfs_theorem_5_1_afnt_alpha(
@@ -150,6 +151,7 @@ public axiom msfs_theorem_5_1_afnt_alpha(
 /// from the previous `@axiom ensures true` form because the
 /// inference 5.1 ⇒ 5.2 is now machine-checked, not paper-cited.
 @verify(formal)
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Corollary 5.2 — L_Abs == ∅ (AFN-T α-part headline)")
 public theorem msfs_corollary_5_2_l_abs_empty(
@@ -175,6 +177,7 @@ public theorem msfs_corollary_5_2_l_abs_empty(
 /// single named handle. Downstream theorems (Theorem 6.1, Theorem
 /// 7.1, Theorem 9.6 (c), Theorem 11.1) cite this for the
 /// "id_X-violates-Π_4" template.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 5.1 — proof template (Lemma 3.4 + id_X equivalence onto image)")
 public axiom msfs_theorem_5_1_proof_template() -> Bool

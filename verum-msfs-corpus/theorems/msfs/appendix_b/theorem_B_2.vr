@@ -23,6 +23,7 @@ mount core.math.rich_s.conditions.{RichS};
 ///   - **(Strong-neg)**: `\exists \sim. (p \wedge \sim p) \vdash_\sim \bot`,
 ///   - **(Classical-kernel-extractability)**: the largest classical
 ///     fragment `S'^*` of `S'` is consistent and itself in `\RS`.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Definition B.1 — Paraconsistent R-S with extractable classical kernel")
 public axiom msfs_definition_B_1_paraconsistent_rich_s() -> Bool
@@ -52,6 +53,7 @@ public axiom msfs_definition_B_1_paraconsistent_rich_s() -> Bool
 ///
 /// Conclusion: AFN-T transfers cleanly to paraconsistent
 /// Rich-metatheories with extractable classical kernels.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem B.2 — Paraconsistent AFN-T (transfer via classical kernel)")
 public axiom msfs_theorem_B_2_paraconsistent_afnt() -> Bool

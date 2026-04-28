@@ -42,6 +42,7 @@ mount super.super.super.msfs.bypass_paths.{
 /// L_Abs candidates Morita-reduce to ι-images and fall under T-2f*.
 /// Operationally identical to MSFS Theorem 8.1.
 @verify(formal)
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 98.T — universe-polymorphism bypass closure")
 public theorem diakrisis_theorem_98_T_universe_polymorphism(
@@ -56,6 +57,7 @@ public theorem diakrisis_theorem_98_T_universe_polymorphism(
     };
 
 /// Diakrisis 98.T ↔ MSFS Theorem 8.1 correspondence.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 98.T = MSFS Theorem 8.1 (universe polymorphism)")
 public axiom diakrisis_98_T_msfs_8_1_correspondence() -> Bool ensures true;
@@ -64,6 +66,7 @@ public axiom diakrisis_98_T_msfs_8_1_correspondence() -> Bool ensures true;
 /// tower stabilizes at one additional inaccessible (Rathjen-Feferman);
 /// no L_Abs escape via this path.
 @verify(formal)
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 99.T — reflective-tower bypass closure (Rathjen-Feferman bound)")
 public theorem diakrisis_theorem_99_T_reflective_tower(
@@ -78,6 +81,7 @@ public theorem diakrisis_theorem_99_T_reflective_tower(
     };
 
 /// Diakrisis 99.T ↔ MSFS Theorem 8.2 correspondence.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 99.T = MSFS Theorem 8.2 (reflective tower)")
 public axiom diakrisis_99_T_msfs_8_2_correspondence() -> Bool ensures true;
@@ -85,22 +89,26 @@ public axiom diakrisis_99_T_msfs_8_2_correspondence() -> Bool ensures true;
 /// Diakrisis 100.T — Display 2-categories I-functor existence.
 /// I: F^op → S_int with (I-1)..(I-4) properties (homotopy-invariant,
 /// gauge-covariant, strict refinement of Morita, 2-localization).
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 100.T — I: F^op → S_int existence (display 2-categories)")
 public axiom diakrisis_theorem_100_T_I_existence() -> Bool ensures true;
 
 /// Diakrisis 100.T ↔ MSFS Theorem 8.6 correspondence.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 100.T = MSFS Theorem 8.6 (I-existence)")
 public axiom diakrisis_100_T_msfs_8_6_correspondence() -> Bool ensures true;
 
 /// Diakrisis 101.T — Slice-locality of I via gauge-quotient.
 /// ∃ tilde_π: S_int → 𝔐 making the 2-cell diagram 2-commute.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 101.T — slice-locality of I (gauge-quotient)")
 public axiom diakrisis_theorem_101_T_slice_locality() -> Bool ensures true;
 
 /// Diakrisis 101.T ↔ MSFS Theorem 8.7 correspondence.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 101.T = MSFS Theorem 8.7 (slice-locality)")
 public axiom diakrisis_101_T_msfs_8_7_correspondence() -> Bool ensures true;
@@ -109,6 +117,7 @@ public axiom diakrisis_101_T_msfs_8_7_correspondence() -> Bool ensures true;
 /// Foundations distinguishable only at the intensional level share
 /// the same point of 𝔐. AFN-T α + β unchanged.
 @verify(formal)
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(diakrisis, "Diakrisis 102.T — intensional refinement adds no new axis")
 public theorem diakrisis_theorem_102_T_intensional_no_new_axis(
@@ -123,6 +132,7 @@ public theorem diakrisis_theorem_102_T_intensional_no_new_axis(
     };
 
 /// Diakrisis 102.T ↔ MSFS Corollary 8.8 correspondence.
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "Diakrisis 102.T = MSFS Corollary 8.8 (intensional refinement)")
 public axiom diakrisis_102_T_msfs_8_8_correspondence() -> Bool ensures true;

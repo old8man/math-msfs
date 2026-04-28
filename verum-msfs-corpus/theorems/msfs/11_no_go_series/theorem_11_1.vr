@@ -60,6 +60,7 @@ mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 ///   - Lawvere FP 1969  — CCC ext. of ZFC, n=1, X=weakly-surj X→X^X
 ///   - Ernst 2015       — Feferman (R1)–(R3), n=1, X=UCT object
 @verify(formal)
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 11.1 — subsumption of 7 classical no-go results under AFN-T α")
 public theorem msfs_theorem_11_1_subsumption(
@@ -75,6 +76,7 @@ public theorem msfs_theorem_11_1_subsumption(
 
 /// MSFS Theorem 11.1 — anchor handle preserved for downstream
 /// citations (`@framework`-axiom-only form for catalogue tools).
+@accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 11.1 — subsumption anchor (catalogue alias)")
 public axiom msfs_theorem_11_1_subsumption_anchor() -> Bool
