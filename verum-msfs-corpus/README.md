@@ -52,11 +52,11 @@ Legend: ⚪ axiom-placeholder · 🟡 in-progress · ✅ verified · ❌ blocked
 
 | Stage | Content | Theorems | Status |
 |---|---|---|---|
-| D.1 + D.2 | 13 axioms + 50 foundational (10.T–50.T) | 50 | ⚪ |
-| D.3 + D.4 | Five-axis (Diakrisis-internal) + Three bypass paths | 10 | ⚪ |
-| D.5 + D.6 | Maximality (Q1) + Q3 / Q4 / Q5 closures | 12 | ⚪ |
-| D.7 + D.8 | Aктика (107.T–127.T + 138.T–141.T) + Research extensions | 28 | ⚪ |
-| D.9 + D.10 | Operational coherence + UHM articulation | corpus-wide | ⚪ |
+| D.1 + D.2 | 13 axioms + 50 foundational (10.T–50.T) | 13 axioms shipped (50 thms anchored) | 🟡 |
+| D.3 + D.4 | Five-axis (Diakrisis-internal) + Three bypass paths | 10 | 🟡 |
+| D.5 + D.6 | Maximality (Q1) + Q3 / Q4 / Q5 closures | 12 | 🟡 |
+| D.7 + D.8 | Aктика (107.T–127.T + 138.T–141.T) + Research extensions | 28 | 🟡 |
+| D.9 + D.10 | Operational coherence + UHM articulation | corpus-wide | 🟡 |
 
 ### Cross-export
 
