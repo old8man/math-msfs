@@ -359,43 +359,43 @@
           "file": "theorems/diakrisis/12_actic/actica_138_to_141.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "diakrisis_theorem_55_T_horizontal",
           "citation": "Diakrisis 55.T — horizontal absoluteness over R-S",
           "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "diakrisis_theorem_59_T_1_vertical",
           "citation": "Diakrisis 59.T.1 — vertical absoluteness over n ∈ ℕ ∪ {∞}",
           "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "diakrisis_theorem_69_T_meta_vertical",
           "citation": "Diakrisis 69.T — meta-vertical via Fix(𝖬)",
           "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "diakrisis_theorem_84_T_lateral",
           "citation": "Diakrisis 84.T — lateral over alternative categorical orderings",
           "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "diakrisis_theorem_87_T_completeness",
           "citation": "Diakrisis 87.T — completeness within Lawvere-scope",
           "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "diakrisis_theorem_98_T_universe_polymorphism",
           "citation": "Diakrisis 98.T — universe-polymorphism bypass closure",
           "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "diakrisis_theorem_99_T_reflective_tower",
           "citation": "Diakrisis 99.T — reflective-tower bypass closure (Rathjen-Feferman bound)",
           "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr"
@@ -413,7 +413,7 @@
           "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "diakrisis_theorem_102_T_intensional_no_new_axis",
           "citation": "Diakrisis 102.T — intensional refinement adds no new axis",
           "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr"
@@ -644,25 +644,25 @@
       "tau": true,
       "usages": [
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "msfs_theorem_7_1_horizontal",
           "citation": "MSFS Theorem 7.1 — horizontal axis: AFN-T uniform over R-S",
           "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "msfs_theorem_7_2_vertical",
           "citation": "MSFS Theorem 7.2 — vertical axis: AFN-T uniform over n ∈ ℕ ∪ {∞}",
           "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "msfs_theorem_7_3_meta_vertical",
           "citation": "MSFS Theorem 7.3 — meta-vertical axis: meta-iterations stabilise via Theorem A.7",
           "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "msfs_theorem_7_4_lateral",
           "citation": "MSFS Theorem 7.4 — lateral axis: alt orderings reduce to (∞, n)",
           "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
@@ -674,7 +674,7 @@
           "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "msfs_theorem_7_6_completeness",
           "citation": "MSFS Theorem 7.6 — completeness axis (within Lawvere-scope)",
           "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
@@ -686,7 +686,7 @@
           "file": "theorems/msfs/05_afnt_alpha/theorem_5_1.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "msfs_corollary_5_2_l_abs_empty",
           "citation": "MSFS Corollary 5.2 — L_Abs == ∅ (AFN-T α-part headline)",
           "file": "theorems/msfs/05_afnt_alpha/theorem_5_1.vr"
@@ -728,13 +728,19 @@
           "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
+          "item_name": "msfs_theorem_6_1_operational_closure",
+          "citation": "MSFS Theorem 6.1 (operational closure) — no L_Abs via transfinite tower",
+          "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr"
+        },
+        {
+          "item_kind": "theorem",
           "item_name": "msfs_theorem_8_1_universe_polymorphism",
           "citation": "MSFS Theorem 8.1 — universe-polymorphism Morita-reduces to S_S^global",
           "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "msfs_theorem_8_2_reflective_tower",
           "citation": "MSFS Theorem 8.2 — reflective tower bounded by Con(S) + κ_inacc",
           "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
@@ -770,7 +776,7 @@
           "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "msfs_corollary_8_8_intensional_no_new_axis",
           "citation": "MSFS Corollary 8.8 — intensional refinement adds no new axis to AFN-T",
           "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
@@ -896,9 +902,15 @@
           "file": "theorems/msfs/appendix_b/theorem_B_2.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "msfs_theorem_11_1_subsumption",
           "citation": "MSFS Theorem 11.1 — subsumption of 7 classical no-go results under AFN-T α",
+          "file": "theorems/msfs/11_no_go_series/theorem_11_1.vr"
+        },
+        {
+          "item_kind": "axiom",
+          "item_name": "msfs_theorem_11_1_subsumption_anchor",
+          "citation": "MSFS Theorem 11.1 — subsumption anchor (catalogue alias)",
           "file": "theorems/msfs/11_no_go_series/theorem_11_1.vr"
         },
         {
@@ -940,7 +952,13 @@
         {
           "item_kind": "axiom",
           "item_name": "msfs_theorem_9_6_meta_classification_stabilization",
-          "citation": "MSFS Theorem 9.6 — Meta-classification stabilization (theory idempotent, set-theoretic ascends)",
+          "citation": "MSFS Theorem 9.6 (a)+(b) — Meta-classification stabilization (theory idempotent, set-theoretic ascends)",
+          "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr"
+        },
+        {
+          "item_kind": "theorem",
+          "item_name": "msfs_theorem_9_6c_no_l_abs_escalation",
+          "citation": "MSFS Theorem 9.6 (c) — No L_Abs escalation via meta-iteration (reduces to Theorem 5.1)",
           "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr"
         },
         {
