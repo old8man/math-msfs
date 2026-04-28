@@ -680,7 +680,7 @@
           "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
         },
         {
-          "item_kind": "axiom",
+          "item_kind": "theorem",
           "item_name": "msfs_theorem_5_1_afnt_alpha",
           "citation": "MSFS Theorem 5.1 — AFN-T α-part: ¬∃ X. (F_S) ∧ (Π_4) ∧ (Π_3-max)",
           "file": "theorems/msfs/05_afnt_alpha/theorem_5_1.vr"
@@ -2452,11 +2452,11 @@
       "item_name": "diakrisis_theorem_108_T_ac_oc_morita_duality",
       "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
       "inferred_framework": "diakrisis",
-      "inferred_nu": "0",
-      "inferred_nu_omega_coefficient": 0,
-      "inferred_nu_finite_offset": 0,
+      "inferred_nu": "ω+1",
+      "inferred_nu_omega_coefficient": 1,
+      "inferred_nu_finite_offset": 1,
       "inferred_tau": true,
-      "verify_strategy": null,
+      "verify_strategy": "coherent",
       "frameworks_cited": ["diakrisis"]
     },
     {
@@ -2464,11 +2464,11 @@
       "item_name": "diakrisis_theorem_109_T_dual_no_go",
       "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
       "inferred_framework": "diakrisis",
-      "inferred_nu": "0",
-      "inferred_nu_omega_coefficient": 0,
-      "inferred_nu_finite_offset": 0,
+      "inferred_nu": "ω+1",
+      "inferred_nu_omega_coefficient": 1,
+      "inferred_nu_finite_offset": 1,
       "inferred_tau": true,
-      "verify_strategy": null,
+      "verify_strategy": "coherent",
       "frameworks_cited": ["diakrisis"]
     },
     {
@@ -2596,11 +2596,11 @@
       "item_name": "diakrisis_18_T1_verum_coherent_ground",
       "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
       "inferred_framework": "msfs",
-      "inferred_nu": "0",
-      "inferred_nu_omega_coefficient": 0,
-      "inferred_nu_finite_offset": 0,
+      "inferred_nu": "ω+1",
+      "inferred_nu_omega_coefficient": 1,
+      "inferred_nu_finite_offset": 1,
       "inferred_tau": true,
-      "verify_strategy": null,
+      "verify_strategy": "coherent",
       "frameworks_cited": ["msfs"]
     },
     {
@@ -2608,11 +2608,11 @@
       "item_name": "diakrisis_18_T3_audit_coherent_gate",
       "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
       "inferred_framework": "msfs",
-      "inferred_nu": "0",
-      "inferred_nu_omega_coefficient": 0,
-      "inferred_nu_finite_offset": 0,
+      "inferred_nu": "ω+1",
+      "inferred_nu_omega_coefficient": 1,
+      "inferred_nu_finite_offset": 1,
       "inferred_tau": true,
-      "verify_strategy": null,
+      "verify_strategy": "coherent",
       "frameworks_cited": ["msfs"]
     },
     {
@@ -2620,11 +2620,11 @@
       "item_name": "diakrisis_theorem_18_T1_alpha_epsilon_duality",
       "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
       "inferred_framework": "diakrisis",
-      "inferred_nu": "0",
-      "inferred_nu_omega_coefficient": 0,
-      "inferred_nu_finite_offset": 0,
+      "inferred_nu": "ω+1",
+      "inferred_nu_omega_coefficient": 1,
+      "inferred_nu_finite_offset": 1,
       "inferred_tau": true,
-      "verify_strategy": null,
+      "verify_strategy": "coherent",
       "frameworks_cited": ["diakrisis"]
     },
     {
@@ -2632,11 +2632,11 @@
       "item_name": "diakrisis_theorem_18_T2_finite_decidability",
       "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
       "inferred_framework": "diakrisis",
-      "inferred_nu": "0",
-      "inferred_nu_omega_coefficient": 0,
-      "inferred_nu_finite_offset": 0,
+      "inferred_nu": "ω+1",
+      "inferred_nu_omega_coefficient": 1,
+      "inferred_nu_finite_offset": 1,
       "inferred_tau": true,
-      "verify_strategy": null,
+      "verify_strategy": "coherent",
       "frameworks_cited": ["diakrisis"]
     },
     {
@@ -2644,11 +2644,11 @@
       "item_name": "diakrisis_theorem_18_T3_corpus_coherence",
       "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
       "inferred_framework": "diakrisis",
-      "inferred_nu": "0",
-      "inferred_nu_omega_coefficient": 0,
-      "inferred_nu_finite_offset": 0,
+      "inferred_nu": "ω+1",
+      "inferred_nu_omega_coefficient": 1,
+      "inferred_nu_finite_offset": 1,
       "inferred_tau": true,
-      "verify_strategy": null,
+      "verify_strategy": "coherent",
       "frameworks_cited": ["diakrisis"]
     },
     {
@@ -2856,15 +2856,15 @@
       "frameworks_cited": ["msfs"]
     },
     {
-      "item_kind": "axiom",
+      "item_kind": "theorem",
       "item_name": "msfs_theorem_5_1_afnt_alpha",
       "file": "theorems/msfs/05_afnt_alpha/theorem_5_1.vr",
       "inferred_framework": "msfs",
-      "inferred_nu": "0",
-      "inferred_nu_omega_coefficient": 0,
+      "inferred_nu": "ω",
+      "inferred_nu_omega_coefficient": 1,
       "inferred_nu_finite_offset": 0,
       "inferred_tau": true,
-      "verify_strategy": null,
+      "verify_strategy": "formal",
       "frameworks_cited": ["msfs"]
     },
     {
@@ -3268,11 +3268,11 @@
       "item_name": "msfs_theorem_10_4_ac_oc_morita_duality",
       "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
       "inferred_framework": "msfs",
-      "inferred_nu": "0",
-      "inferred_nu_omega_coefficient": 0,
-      "inferred_nu_finite_offset": 0,
+      "inferred_nu": "ω+1",
+      "inferred_nu_omega_coefficient": 1,
+      "inferred_nu_finite_offset": 1,
       "inferred_tau": true,
-      "verify_strategy": null,
+      "verify_strategy": "coherent",
       "frameworks_cited": ["msfs"]
     },
     {
@@ -3280,11 +3280,11 @@
       "item_name": "msfs_theorem_10_7_dual_boundary_lemma",
       "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
       "inferred_framework": "msfs",
-      "inferred_nu": "0",
-      "inferred_nu_omega_coefficient": 0,
-      "inferred_nu_finite_offset": 0,
+      "inferred_nu": "ω+1",
+      "inferred_nu_omega_coefficient": 1,
+      "inferred_nu_finite_offset": 1,
       "inferred_tau": true,
-      "verify_strategy": null,
+      "verify_strategy": "coherent",
       "frameworks_cited": ["msfs"]
     },
     {
@@ -3292,11 +3292,11 @@
       "item_name": "msfs_theorem_10_9_dual_five_axis",
       "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
       "inferred_framework": "msfs",
-      "inferred_nu": "0",
-      "inferred_nu_omega_coefficient": 0,
-      "inferred_nu_finite_offset": 0,
+      "inferred_nu": "ω+1",
+      "inferred_nu_omega_coefficient": 1,
+      "inferred_nu_finite_offset": 1,
       "inferred_tau": true,
-      "verify_strategy": null,
+      "verify_strategy": "coherent",
       "frameworks_cited": ["msfs"]
     },
     {

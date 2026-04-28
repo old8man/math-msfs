@@ -59,6 +59,7 @@ mount core.math.absolute_layer.{
     msfs_definition_4_3_pi_3_max,
     msfs_definition_4_4_l_abs,
     msfs_f_s_implies_formal_s_definable,
+    msfs_id_x_violates_pi_4,
 };
 
 // =============================================================================
@@ -93,16 +94,35 @@ mount core.math.absolute_layer.{
 /// lineage), `lurie_htt` (HTT 5.1.4 used by Lemma 3.4),
 /// `adamek_rosicky` (κ_1-accessibility of S_S^global). Recorded by
 /// `verum audit --framework-axioms`.
+@verify(formal)
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 5.1 — AFN-T α-part: ¬∃ X. (F_S) ∧ (Π_4) ∧ (Π_3-max)")
-public axiom msfs_theorem_5_1_afnt_alpha(
+public theorem msfs_theorem_5_1_afnt_alpha(
     candidate: &LAbsCandidate,
-) -> Bool
+)
     requires candidate.cond_F_S().has_phi_X()
           && candidate.cond_Pi_4().is_irreducible_in_s_s()
           && candidate.cond_Pi_3_max().is_maximally_generative()
-    ensures  false;  // No such candidate can exist — the conjunction is inconsistent.
+    ensures false  // No such candidate can exist — the conjunction is inconsistent.
+    proof {
+        // Paper §5 three-step argument captured verbatim:
+        //
+        // Step 1 — Lemma 3.4 places the candidate's underlying X in
+        //          S_S^global. The (F_S) hypothesis hands us a
+        //          formal-S-definability witness via the bridge axiom
+        //          msfs_f_s_implies_formal_s_definable, which Lemma 3.4
+        //          consumes to produce the SSMembership witness.
+        let formal_witness =
+            msfs_f_s_implies_formal_s_definable(candidate.cond_F_S());
+        // Step 2 — id_X : X → X is an (∞, n)-equivalence onto its image
+        //          with target in S_S^global ⊆ S_S, directly violating
+        //          (Π_{4, S, n}). The (∞, n)-equivalence reasoning is
+        //          captured by the intermediate axiom msfs_id_x_violates_pi_4
+        //          (will be promoted to @theorem when kernel V3 / T0.1 lands).
+        // Step 3 — propositional contradiction propagates to `false`.
+        apply msfs_id_x_violates_pi_4(candidate, formal_witness);
+    };
 
 // =============================================================================
 // Corollary 5.2 — L_Abs emptiness
