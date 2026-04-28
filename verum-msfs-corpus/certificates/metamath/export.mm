@@ -181,26 +181,26 @@ ax-diakrisis_theorem_140_T_infty_infty_invariant $a wff diakrisis_theorem_140_T_
 $( axiom — diakrisis — Diakrisis 141.T — constructive autopoiesis (BHK / VVA-5 foundation) :: theorems/diakrisis/12_actic/actica_138_to_141.vr $)
 ax-diakrisis_theorem_141_T_constructive_autopoiesis $a wff diakrisis_theorem_141_T_constructive_autopoiesis $.
 
-$( axiom — diakrisis — Diakrisis 55.T — horizontal absoluteness over R-S :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-ax-diakrisis_theorem_55_T_horizontal $a wff diakrisis_theorem_55_T_horizontal $.
+$( theorem — diakrisis — Diakrisis 55.T — horizontal absoluteness over R-S :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
+th-diakrisis_theorem_55_T_horizontal $p wff diakrisis_theorem_55_T_horizontal $= ? $.
 
-$( axiom — diakrisis — Diakrisis 59.T.1 — vertical absoluteness over n ∈ ℕ ∪ {∞} :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-ax-diakrisis_theorem_59_T_1_vertical $a wff diakrisis_theorem_59_T_1_vertical $.
+$( theorem — diakrisis — Diakrisis 59.T.1 — vertical absoluteness over n ∈ ℕ ∪ {∞} :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
+th-diakrisis_theorem_59_T_1_vertical $p wff diakrisis_theorem_59_T_1_vertical $= ? $.
 
-$( axiom — diakrisis — Diakrisis 69.T — meta-vertical via Fix(𝖬) :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-ax-diakrisis_theorem_69_T_meta_vertical $a wff diakrisis_theorem_69_T_meta_vertical $.
+$( theorem — diakrisis — Diakrisis 69.T — meta-vertical via Fix(𝖬) :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
+th-diakrisis_theorem_69_T_meta_vertical $p wff diakrisis_theorem_69_T_meta_vertical $= ? $.
 
-$( axiom — diakrisis — Diakrisis 84.T — lateral over alternative categorical orderings :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-ax-diakrisis_theorem_84_T_lateral $a wff diakrisis_theorem_84_T_lateral $.
+$( theorem — diakrisis — Diakrisis 84.T — lateral over alternative categorical orderings :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
+th-diakrisis_theorem_84_T_lateral $p wff diakrisis_theorem_84_T_lateral $= ? $.
 
-$( axiom — diakrisis — Diakrisis 87.T — completeness within Lawvere-scope :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
-ax-diakrisis_theorem_87_T_completeness $a wff diakrisis_theorem_87_T_completeness $.
+$( theorem — diakrisis — Diakrisis 87.T — completeness within Lawvere-scope :: theorems/diakrisis/06_limits/five_axis_internal.vr $)
+th-diakrisis_theorem_87_T_completeness $p wff diakrisis_theorem_87_T_completeness $= ? $.
 
-$( axiom — diakrisis — Diakrisis 98.T — universe-polymorphism bypass closure :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
-ax-diakrisis_theorem_98_T_universe_polymorphism $a wff diakrisis_theorem_98_T_universe_polymorphism $.
+$( theorem — diakrisis — Diakrisis 98.T — universe-polymorphism bypass closure :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
+th-diakrisis_theorem_98_T_universe_polymorphism $p wff diakrisis_theorem_98_T_universe_polymorphism $= ? $.
 
-$( axiom — diakrisis — Diakrisis 99.T — reflective-tower bypass closure (Rathjen-Feferman bound) :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
-ax-diakrisis_theorem_99_T_reflective_tower $a wff diakrisis_theorem_99_T_reflective_tower $.
+$( theorem — diakrisis — Diakrisis 99.T — reflective-tower bypass closure (Rathjen-Feferman bound) :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
+th-diakrisis_theorem_99_T_reflective_tower $p wff diakrisis_theorem_99_T_reflective_tower $= ? $.
 
 $( axiom — diakrisis — Diakrisis 100.T — I: F^op → S_int existence (display 2-categories) :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
 ax-diakrisis_theorem_100_T_I_existence $a wff diakrisis_theorem_100_T_I_existence $.
@@ -208,8 +208,8 @@ ax-diakrisis_theorem_100_T_I_existence $a wff diakrisis_theorem_100_T_I_existenc
 $( axiom — diakrisis — Diakrisis 101.T — slice-locality of I (gauge-quotient) :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
 ax-diakrisis_theorem_101_T_slice_locality $a wff diakrisis_theorem_101_T_slice_locality $.
 
-$( axiom — diakrisis — Diakrisis 102.T — intensional refinement adds no new axis :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
-ax-diakrisis_theorem_102_T_intensional_no_new_axis $a wff diakrisis_theorem_102_T_intensional_no_new_axis $.
+$( theorem — diakrisis — Diakrisis 102.T — intensional refinement adds no new axis :: theorems/diakrisis/06_limits/three_bypass_paths.vr $)
+th-diakrisis_theorem_102_T_intensional_no_new_axis $p wff diakrisis_theorem_102_T_intensional_no_new_axis $= ? $.
 
 $( axiom — diakrisis — Diakrisis Axi-0 — ⟪⟫ ≠ ∅ (non-emptiness of the articulation 2-category) :: theorems/diakrisis/02_canonical_primitive/axiomatics.vr $)
 ax-diakrisis_axi_0_non_empty $a wff diakrisis_axi_0_non_empty $.
@@ -320,29 +320,29 @@ $( axiom — diakrisis — Diakrisis 135.T — Q5 closure (weak-stratum sub-stac
 ax-diakrisis_theorem_135_T_q5_closure $a wff diakrisis_theorem_135_T_q5_closure $.
 
 $( ==== framework: msfs ==== $)
-$( axiom — msfs — MSFS Theorem 7.1 — horizontal axis: AFN-T uniform over R-S :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
-ax-msfs_theorem_7_1_horizontal $a wff msfs_theorem_7_1_horizontal $.
+$( theorem — msfs — MSFS Theorem 7.1 — horizontal axis: AFN-T uniform over R-S :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
+th-msfs_theorem_7_1_horizontal $p wff msfs_theorem_7_1_horizontal $= ? $.
 
-$( axiom — msfs — MSFS Theorem 7.2 — vertical axis: AFN-T uniform over n ∈ ℕ ∪ {∞} :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
-ax-msfs_theorem_7_2_vertical $a wff msfs_theorem_7_2_vertical $.
+$( theorem — msfs — MSFS Theorem 7.2 — vertical axis: AFN-T uniform over n ∈ ℕ ∪ {∞} :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
+th-msfs_theorem_7_2_vertical $p wff msfs_theorem_7_2_vertical $= ? $.
 
-$( axiom — msfs — MSFS Theorem 7.3 — meta-vertical axis: meta-iterations stabilise via Theorem A.7 :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
-ax-msfs_theorem_7_3_meta_vertical $a wff msfs_theorem_7_3_meta_vertical $.
+$( theorem — msfs — MSFS Theorem 7.3 — meta-vertical axis: meta-iterations stabilise via Theorem A.7 :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
+th-msfs_theorem_7_3_meta_vertical $p wff msfs_theorem_7_3_meta_vertical $= ? $.
 
-$( axiom — msfs — MSFS Theorem 7.4 — lateral axis: alt orderings reduce to (∞, n) :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
-ax-msfs_theorem_7_4_lateral $a wff msfs_theorem_7_4_lateral $.
+$( theorem — msfs — MSFS Theorem 7.4 — lateral axis: alt orderings reduce to (∞, n) :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
+th-msfs_theorem_7_4_lateral $p wff msfs_theorem_7_4_lateral $= ? $.
 
 $( axiom — msfs — MSFS Definition 7.5 — Lawvere-scope LS :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
 ax-msfs_definition_7_5_lawvere_scope $a wff msfs_definition_7_5_lawvere_scope $.
 
-$( axiom — msfs — MSFS Theorem 7.6 — completeness axis (within Lawvere-scope) :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
-ax-msfs_theorem_7_6_completeness $a wff msfs_theorem_7_6_completeness $.
+$( theorem — msfs — MSFS Theorem 7.6 — completeness axis (within Lawvere-scope) :: theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr $)
+th-msfs_theorem_7_6_completeness $p wff msfs_theorem_7_6_completeness $= ? $.
 
 $( axiom — msfs — MSFS Theorem 5.1 — AFN-T α-part: ¬∃ X. (F_S) ∧ (Π_4) ∧ (Π_3-max) :: theorems/msfs/05_afnt_alpha/theorem_5_1.vr $)
 ax-msfs_theorem_5_1_afnt_alpha $a wff msfs_theorem_5_1_afnt_alpha $.
 
-$( axiom — msfs — MSFS Corollary 5.2 — L_Abs == ∅ (AFN-T α-part headline) :: theorems/msfs/05_afnt_alpha/theorem_5_1.vr $)
-ax-msfs_corollary_5_2_l_abs_empty $a wff msfs_corollary_5_2_l_abs_empty $.
+$( theorem — msfs — MSFS Corollary 5.2 — L_Abs == ∅ (AFN-T α-part headline) :: theorems/msfs/05_afnt_alpha/theorem_5_1.vr $)
+th-msfs_corollary_5_2_l_abs_empty $p wff msfs_corollary_5_2_l_abs_empty $= ? $.
 
 $( axiom — msfs — MSFS Theorem 5.1 — proof template (Lemma 3.4 + id_X equivalence onto image) :: theorems/msfs/05_afnt_alpha/theorem_5_1.vr $)
 ax-msfs_theorem_5_1_proof_template $a wff msfs_theorem_5_1_proof_template $.
@@ -362,11 +362,14 @@ ax-msfs_proposition_6_3_trajectory_space $a wff msfs_proposition_6_3_trajectory_
 $( axiom — msfs — MSFS Proposition 6.3 (corollary) — trajectory-tower colimits in S_S^global :: theorems/msfs/06_afnt_beta/theorem_6_1.vr $)
 ax-msfs_proposition_6_3_corollary $a wff msfs_proposition_6_3_corollary $.
 
-$( axiom — msfs — MSFS Theorem 8.1 — universe-polymorphism Morita-reduces to S_S^global :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
-ax-msfs_theorem_8_1_universe_polymorphism $a wff msfs_theorem_8_1_universe_polymorphism $.
+$( theorem — msfs — MSFS Theorem 6.1 (operational closure) — no L_Abs via transfinite tower :: theorems/msfs/06_afnt_beta/theorem_6_1.vr $)
+th-msfs_theorem_6_1_operational_closure $p wff msfs_theorem_6_1_operational_closure $= ? $.
 
-$( axiom — msfs — MSFS Theorem 8.2 — reflective tower bounded by Con(S) + κ_inacc :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
-ax-msfs_theorem_8_2_reflective_tower $a wff msfs_theorem_8_2_reflective_tower $.
+$( theorem — msfs — MSFS Theorem 8.1 — universe-polymorphism Morita-reduces to S_S^global :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
+th-msfs_theorem_8_1_universe_polymorphism $p wff msfs_theorem_8_1_universe_polymorphism $= ? $.
+
+$( theorem — msfs — MSFS Theorem 8.2 — reflective tower bounded by Con(S) + κ_inacc :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
+th-msfs_theorem_8_2_reflective_tower $p wff msfs_theorem_8_2_reflective_tower $= ? $.
 
 $( axiom — msfs — MSFS Definition 8.3 — display class :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
 ax-msfs_definition_8_3_display_class $a wff msfs_definition_8_3_display_class $.
@@ -383,8 +386,8 @@ ax-msfs_theorem_8_6_I_existence $a wff msfs_theorem_8_6_I_existence $.
 $( axiom — msfs — MSFS Theorem 8.7 — slice-locality of I via gauge-quotient :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
 ax-msfs_theorem_8_7_slice_locality $a wff msfs_theorem_8_7_slice_locality $.
 
-$( axiom — msfs — MSFS Corollary 8.8 — intensional refinement adds no new axis to AFN-T :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
-ax-msfs_corollary_8_8_intensional_no_new_axis $a wff msfs_corollary_8_8_intensional_no_new_axis $.
+$( theorem — msfs — MSFS Corollary 8.8 — intensional refinement adds no new axis to AFN-T :: theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr $)
+th-msfs_corollary_8_8_intensional_no_new_axis $p wff msfs_corollary_8_8_intensional_no_new_axis $= ? $.
 
 $( axiom — msfs — MSFS Stage M.4 — L_Abs Conditions (§4) anchor :: theorems/msfs/04_l_abs_conditions/definitions_4_1_to_4_4.vr $)
 ax-msfs_stage_m_4_anchor $a wff msfs_stage_m_4_anchor $.
@@ -446,8 +449,11 @@ ax-msfs_definition_B_1_paraconsistent_rich_s $a wff msfs_definition_B_1_paracons
 $( axiom — msfs — MSFS Theorem B.2 — Paraconsistent AFN-T (transfer via classical kernel) :: theorems/msfs/appendix_b/theorem_B_2.vr $)
 ax-msfs_theorem_B_2_paraconsistent_afnt $a wff msfs_theorem_B_2_paraconsistent_afnt $.
 
-$( axiom — msfs — MSFS Theorem 11.1 — subsumption of 7 classical no-go results under AFN-T α :: theorems/msfs/11_no_go_series/theorem_11_1.vr $)
-ax-msfs_theorem_11_1_subsumption $a wff msfs_theorem_11_1_subsumption $.
+$( theorem — msfs — MSFS Theorem 11.1 — subsumption of 7 classical no-go results under AFN-T α :: theorems/msfs/11_no_go_series/theorem_11_1.vr $)
+th-msfs_theorem_11_1_subsumption $p wff msfs_theorem_11_1_subsumption $= ? $.
+
+$( axiom — msfs — MSFS Theorem 11.1 — subsumption anchor (catalogue alias) :: theorems/msfs/11_no_go_series/theorem_11_1.vr $)
+ax-msfs_theorem_11_1_subsumption_anchor $a wff msfs_theorem_11_1_subsumption_anchor $.
 
 $( axiom — msfs — MSFS Stage M.1 — Conventions and Notation (§1) anchor :: theorems/msfs/01_introduction/conventions.vr $)
 ax-msfs_stage_m_1_anchor $a wff msfs_stage_m_1_anchor $.
@@ -467,8 +473,11 @@ ax-msfs_theorem_9_4_structural_multiplicity $a wff msfs_theorem_9_4_structural_m
 $( axiom — msfs — MSFS Corollary 9.5 — L_Cls is structurally plural :: theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr $)
 ax-msfs_corollary_9_5_plurality $a wff msfs_corollary_9_5_plurality $.
 
-$( axiom — msfs — MSFS Theorem 9.6 — Meta-classification stabilization (theory idempotent, set-theoretic ascends) :: theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr $)
+$( axiom — msfs — MSFS Theorem 9.6 (a)+(b) — Meta-classification stabilization (theory idempotent, set-theoretic ascends) :: theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr $)
 ax-msfs_theorem_9_6_meta_classification_stabilization $a wff msfs_theorem_9_6_meta_classification_stabilization $.
+
+$( theorem — msfs — MSFS Theorem 9.6 (c) — No L_Abs escalation via meta-iteration (reduces to Theorem 5.1) :: theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr $)
+th-msfs_theorem_9_6c_no_l_abs_escalation $p wff msfs_theorem_9_6c_no_l_abs_escalation $= ? $.
 
 $( axiom — msfs — MSFS Stage M.3 — Reasonable Rich-Metatheories + Lemma 3.4 (§3) anchor :: theorems/msfs/03_rich_s/lemma_3_4_anchor.vr $)
 ax-msfs_stage_m_3_anchor $a wff msfs_stage_m_3_anchor $.
