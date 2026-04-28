@@ -1,0 +1,53 @@
+{
+  "theorems": [
+    {
+      "name": "msfs_theorem_10_4_ac_oc_morita_duality",
+      "kind": "axiom",
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "status": "Decidable",
+      "triggers": ["MSFS Theorem 10.4 — AC/OC Morita Duality (FLAGSHIP)"]
+    },
+    {
+      "name": "msfs_theorem_10_7_dual_boundary_lemma",
+      "kind": "axiom",
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "status": "Decidable",
+      "triggers": ["MSFS Theorem 10.7 — Dual Boundary Lemma (Diakrisis 109.T)"]
+    },
+    {
+      "name": "diakrisis_theorem_108_T_ac_oc_morita_duality",
+      "kind": "axiom",
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "status": "Decidable",
+      "triggers": ["Diakrisis 108.T — AC/OC Morita Duality (FLAGSHIP, M ⊣ A biadjunction)"]
+    },
+    {
+      "name": "diakrisis_108_T_msfs_10_4_correspondence",
+      "kind": "axiom",
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "status": "Decidable",
+      "triggers": ["Diakrisis 108.T = MSFS Theorem 10.4 (AC/OC Morita Duality)"]
+    },
+    {
+      "name": "diakrisis_theorem_109_T_dual_no_go",
+      "kind": "axiom",
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "status": "Decidable",
+      "triggers": ["Diakrisis 109.T — dual no-go for absolute practice (L_Abs^E ≡ ∅)"]
+    },
+    {
+      "name": "diakrisis_109_T_msfs_10_7_correspondence",
+      "kind": "axiom",
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "status": "Decidable",
+      "triggers": ["Diakrisis 109.T = MSFS Theorem 10.7 (Dual Boundary Lemma)"]
+    },
+    {
+      "name": "diakrisis_axi_9_ac_oc_biadjunction_premise",
+      "kind": "axiom",
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "status": "Decidable",
+      "triggers": ["Diakrisis Axi-9 — AC/OC duality premise (108.T): canonical M ⊣ A biadjunction"]
+    }
+  ]
+}

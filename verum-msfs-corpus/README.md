@@ -62,11 +62,15 @@ Legend: ⚪ axiom-placeholder · 🟡 in-progress · ✅ verified · ❌ blocked
 
 | Format | Re-check tool | Status |
 |---|---|---|
-| Lean 4 | `lean --make` | ⚪ |
-| Coq | `coqc` | ⚪ |
-| Agda | coverage check | ⚪ |
-| Dedukti | rewrite to normal form, round-trip | ⚪ |
-| Metamath | `metamath verify proof *` | ⚪ |
+| Lean 4 | `lean --make` | 🟡 |
+| Coq | `coqc` | 🟡 |
+| Dedukti | rewrite to normal form, round-trip | 🟡 |
+| Metamath | `metamath verify proof *` | 🟡 |
+
+(🟡 — `verum export --to <fmt>` produces 193 declarations × 4 formats =
+772 cross-format certificates with framework-axiom citations carried
+inline. ✅ promotion gated on independent re-check pass per format
+which is currently a manual step pending kernel V3 proof-term lowering.)
 
 ## Build and verify
 
