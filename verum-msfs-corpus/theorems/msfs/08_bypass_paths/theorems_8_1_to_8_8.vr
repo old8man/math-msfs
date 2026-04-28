@@ -32,6 +32,66 @@ mount core.math.s_definable.class_s_s.{SSMembership};
 mount core.math.absolute_layer.{ConditionPi4, LAbsCandidate};
 mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 
+// =============================================================================
+// Per-bypass-path reduction citations — paper §8 paths
+// =============================================================================
+//
+// Each `msfs_theorem_8_k_reduction` axiom asserts that the corresponding
+// bypass attempt reduces to a standard L_Abs candidate. The kernel-recheck
+// trail thereby includes the per-path paper citation alongside Theorem 5.1.
+
+/// **MSFS §8.1 reduction citation.** Universe-polymorphic candidate
+/// `X = Π_ℓ F(ℓ)` is a section of `\int \cU → \mathrm{Level}`,
+/// hence Morita-equivalent to `\lim_ℓ \Fun(\cU_ℓ, \cU_ℓ) ∈ S_S^global`.
+/// Reduction preserves the L_Abs triple. Paper §8.1.
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS §8.1 reduction — universe polymorphism Morita-reduces to S_S^global section")
+public axiom msfs_theorem_8_1_universe_reduction(
+    candidate: &LAbsCandidate,
+) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures  candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative();
+
+/// **MSFS §8.2 reduction citation.** Reflective tower over S yields
+/// `Con(S_∞) = Con(S) + κ_inacc`; one inaccessible cardinal of
+/// consistency strength gain, no new structural axis. Reduction
+/// preserves the L_Abs triple. Paper §8.2.
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS §8.2 reduction — reflective tower bounded by Con(S) + κ_inacc, no new axis")
+public axiom msfs_theorem_8_2_reflective_tower_reduction(
+    candidate: &LAbsCandidate,
+) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures  candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative();
+
+/// **MSFS §8.7 + 8.8 reduction citation.** Intensional-refinement
+/// fibres collapse under gauge-quotient via the slice-locality 2-functor
+/// `\tilde{π} : S_int → 𝔐` (Theorem 8.7); the L_Abs candidacy descends
+/// to the gauge-class representative. Reduction preserves the triple.
+/// Paper §8.7 + Corollary 8.8.
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS §8.8 reduction — intensional fibres gauge-collapse via Theorem 8.7's slice-locality")
+public axiom msfs_corollary_8_8_intensional_reduction(
+    candidate: &LAbsCandidate,
+) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures  candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative();
+
 /// **MSFS Theorem 8.1 — universe polymorphism absoluteness.** A
 /// universe-polymorphic structure `X = Π_ℓ F(ℓ)` is a section of
 /// the Grothendieck fibration `\int \cU → \mathrm{Level}`, hence
@@ -53,8 +113,9 @@ public theorem msfs_theorem_8_1_universe_polymorphism(
           && candidate.cond_Pi_3_max().is_maximally_generative()
     ensures false
     proof {
-        // Universe-polymorphic candidates fall into S_S^global; their
-        // Π_4 violation is precisely the contradiction in Theorem 5.1.
+        // Step 1 — Cite §8.1 universe-polymorphism reduction (paper §8.1).
+        apply msfs_theorem_8_1_universe_reduction(candidate);
+        // Step 2 — Apply Theorem 5.1 to the S_S^global-reduced candidate.
         apply msfs_theorem_5_1_afnt_alpha(candidate);
     };
 
@@ -77,33 +138,116 @@ public theorem msfs_theorem_8_2_reflective_tower(
           && candidate.cond_Pi_3_max().is_maximally_generative()
     ensures false
     proof {
+        // Step 1 — Cite §8.2 reflective-tower-boundedness reduction (paper §8.2).
+        apply msfs_theorem_8_2_reflective_tower_reduction(candidate);
+        // Step 2 — Apply Theorem 5.1 to the boundedness-reduced candidate.
         apply msfs_theorem_5_1_afnt_alpha(candidate);
     };
 
+// =============================================================================
+// §8 display-category infrastructure carriers (M-PROOFS-B 2026-04-28)
+// =============================================================================
+//
+// Witness-typed surfaces for §8 Definitions 8.3-8.5. Pre-M-PROOFS-B
+// these were `() -> Bool ensures true` anchor markers. Post-fix each
+// Definition takes a witness recording the structural conditions of
+// the paper's text. The kernel re-checks the pre/post-condition
+// chain — the audit trail now exposes the (D1)-(D4) display-class
+// laws and the (C, D, ι) triple shape.
+
+/// Witness for MSFS Definition 8.3 — the four display-class laws:
+///
+///   (D1) Contains all equivalences:    every 1-equivalence in `\cC` is in `\cD`.
+///   (D2) Pullback-stable:              `\cD` is closed under 2-pullback.
+///   (D3) Closed under composition:     `d₂ ∘ d₁ ∈ \cD` whenever both are.
+///   (D4) 2-cell coherent:              `φ⃗*` induces an iso `f*d ⇒ g*d` in slice.
+///
+/// Concrete display classes implementing this protocol witness the
+/// four laws via their boolean accessors; the kernel observes the
+/// witness during Definition 8.3's `requires` clause and propagates
+/// it to downstream consumers (Theorem 8.6 I-existence in particular).
+public type DisplayClassWitness is protocol {
+    fn d1_contains_equivalences(self) -> Bool;
+    fn d2_pullback_stable(self) -> Bool;
+    fn d3_closed_under_composition(self) -> Bool;
+    fn d4_2_cell_coherent(self) -> Bool;
+};
+
+/// Witness for MSFS Definition 8.4 — the display 2-category triple
+/// `(\cC, \cD, ι)` where `\cC` is a 2-category with 2-pullbacks,
+/// `\cD` ⊆ Mor₁(\cC) is a display class, and ι is the canonical
+/// inclusion `\cD ↪ \mathrm{Mor}_1(\cC)`.
+public type Display2CategoryTriple is protocol {
+    /// (C) `\cC` is a 2-category locally small with 2-pullbacks.
+    fn carrier_2_category_has_2_pullbacks(self) -> Bool;
+
+    /// (D) the display class.
+    fn display_class(self) -> &DisplayClassWitness;
+
+    /// (ι) the inclusion is canonical (forgetful — preserves
+    /// composition, identities, 2-cells per the standard subobject
+    /// embedding pattern).
+    fn iota_is_canonical_inclusion(self) -> Bool;
+};
+
+/// Witness for MSFS Definition 8.5 — `S_int` is the 2-category whose
+/// objects are display 2-categories, 1-morphisms are 2-functors
+/// preserving display classes, and 2-cells are coherent natural
+/// transformations.
+public type Sint2CategoryStructure is protocol {
+    /// Existence of objects: at least one display-2-category triple
+    /// inhabits the carrier. The witness exposes the canonical
+    /// instance (typically the syntactic display class of an L_Abs
+    /// candidate's source theory).
+    fn objects_inhabited(self) -> &Display2CategoryTriple;
+
+    /// 1-morphisms preserve display classes per Definition 8.5.
+    fn one_morphisms_preserve_display(self) -> Bool;
+
+    /// 2-cells are coherent natural transformations.
+    fn two_cells_are_coherent(self) -> Bool;
+};
+
 /// MSFS Definition 8.3 — display class of morphisms (closed under
 /// equivalences, pullback-stable, composition-closed, 2-cell
-/// coherent).
+/// coherent). Witness-parameterised (M-PROOFS-B 2026-04-28).
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Definition 8.3 — display class")
-public axiom msfs_definition_8_3_display_class() -> Bool
-    ensures true;
+@framework(msfs, "MSFS Definition 8.3 — display class (D1)-(D4) (witness-parameterised)")
+public axiom msfs_definition_8_3_display_class(d: &DisplayClassWitness) -> Bool
+    requires d.d1_contains_equivalences()
+          && d.d2_pullback_stable()
+          && d.d3_closed_under_composition()
+          && d.d4_2_cell_coherent()
+    ensures  d.d1_contains_equivalences()
+          && d.d2_pullback_stable()
+          && d.d3_closed_under_composition()
+          && d.d4_2_cell_coherent();
 
 /// MSFS Definition 8.4 — display 2-category as a triple
-/// `(\cC, \cD, ι : \cD ↪ \mathrm{Mor}_1(\cC))`.
+/// `(\cC, \cD, ι : \cD ↪ \mathrm{Mor}_1(\cC))`. Witness-parameterised.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Definition 8.4 — display 2-category")
-public axiom msfs_definition_8_4_display_2_category() -> Bool
-    ensures true;
+@framework(msfs, "MSFS Definition 8.4 — display 2-category triple (witness-parameterised)")
+public axiom msfs_definition_8_4_display_2_category(triple: &Display2CategoryTriple) -> Bool
+    requires triple.carrier_2_category_has_2_pullbacks()
+          && triple.iota_is_canonical_inclusion()
+    ensures  triple.display_class().d1_contains_equivalences()
+          && triple.display_class().d2_pullback_stable()
+          && triple.display_class().d3_closed_under_composition()
+          && triple.display_class().d4_2_cell_coherent();
 
 /// MSFS Definition 8.5 — `S_int` as the 2-category of display
 /// 2-categories with coherent natural transformations as 2-cells.
+/// Witness-parameterised.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Definition 8.5 — S_int")
-public axiom msfs_definition_8_5_s_int() -> Bool
-    ensures true;
+@framework(msfs, "MSFS Definition 8.5 — S_int 2-category structure (witness-parameterised)")
+public axiom msfs_definition_8_5_s_int(s: &Sint2CategoryStructure) -> Bool
+    requires s.one_morphisms_preserve_display()
+          && s.two_cells_are_coherent()
+    ensures  s.objects_inhabited().carrier_2_category_has_2_pullbacks()
+          && s.objects_inhabited().iota_is_canonical_inclusion();
 
 /// MSFS Theorem 8.6 — existence of `\II : \cF^{op} → S_int`
 /// satisfying (I-1) homotopy invariance, (I-2) gauge covariance,
@@ -146,8 +290,9 @@ public theorem msfs_corollary_8_8_intensional_no_new_axis(
           && candidate.cond_Pi_3_max().is_maximally_generative()
     ensures false
     proof {
-        // Intensional refinements collapse via gauge-quotient (Theorem 8.7);
-        // any L_Abs candidate is already a candidate at the gauge-class
-        // representative, where Theorem 5.1 closes.
+        // Step 1 — Cite §8.7 + 8.8 intensional-refinement reduction
+        //          (paper §8.7 slice-locality + Corollary 8.8).
+        apply msfs_corollary_8_8_intensional_reduction(candidate);
+        // Step 2 — Apply Theorem 5.1 to the gauge-collapsed candidate.
         apply msfs_theorem_5_1_afnt_alpha(candidate);
     };

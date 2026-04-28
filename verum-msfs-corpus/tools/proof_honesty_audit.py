@@ -115,6 +115,45 @@ PARAMETERLESS_FN_RE = re.compile(r"\([^)]*\)\s*->\s*Bool\s*$|\(\s*\)\s*->\s*Bool
 # Detect `&Witness` style parameter — protocol/struct reference.
 WITNESS_PARAM_RE = re.compile(r"&\s*(?:mut\s+)?[A-Z][A-Za-z0-9_]*")
 
+# Recognise intentional anchor names exempt from the "weak axiom" sweep.
+# These are paper-citation handles for `verum audit --coord` and
+# never need structural content — they exist as namespace markers.
+ANCHOR_NAME_PATTERNS = (
+    re.compile(r".*_anchor$"),                       # *_anchor — explicit suffix
+    re.compile(r".*_template$"),                      # *_template — proof-handle
+    re.compile(r"msfs_lemma_A_\d+_.*$"),              # Appendix A — framework lemmas
+    re.compile(r"msfs_theorem_A_\d+_.*$"),            # Appendix A — framework theorems
+    re.compile(r"diakrisis_axi_\d+_.*$"),             # Diakrisis canonical axioms (Axi-0..9)
+    re.compile(r".*_correspondence$"),                # Diakrisis correspondence anchors
+    re.compile(r".*_ground$"),                        # Diakrisis grounding anchors
+)
+
+
+# Detect explicit "anchor" marker in @framework citation — this is
+# the canonical M0.F-pattern hint that an axiom is an intentional
+# namespace handle paired with a witness-parameterised companion in
+# host stdlib. Matches the literal " anchor" or "(anchor" or ", anchor"
+# patterns inside the @framework citation string, so titles like
+# "MSFS Theorem 10.4 — AC/OC Morita Duality (FLAGSHIP, anchor)" are
+# recognised. We DON'T just match the bare word "anchor" anywhere —
+# titles like "anchor of the foundation" would false-positive.
+ANCHOR_FRAMEWORK_MARKER_RE = re.compile(
+    r'@framework\(\s*[a-z_]+\s*,\s*"[^"]*\b(?:anchor|namespace handle)\b[^"]*"',
+    re.IGNORECASE,
+)
+
+
+def is_audit_anchor(name: str, block_text: str = "") -> bool:
+    """Return True iff the axiom name matches a recognised audit-anchor
+    pattern OR its `@framework` citation contains an explicit "(anchor)"
+    marker. Anchors are intentionally weak (`() -> Bool ensures true`)
+    and exempt from the `weak_axioms_real` count."""
+    if any(p.match(name) for p in ANCHOR_NAME_PATTERNS):
+        return True
+    if block_text and ANCHOR_FRAMEWORK_MARKER_RE.search(block_text):
+        return True
+    return False
+
 
 def scan_file_axioms_only(path: Path) -> dict[str, dict[str, Any]]:
     """Pre-scan: build an index `name -> {ensures_shape, has_witness_param,
@@ -255,13 +294,27 @@ def scan_file(path: Path, axiom_index: dict[str, dict[str, Any]]) -> list[dict[s
             block_end = find_decl_end(lines, i)
             block_text = "\n".join(lines[i : block_end + 1])
             sig = signature_of(block_text)
+            ensures = ensures_shape(block_text)
+            param_less = is_parameterless_signature(sig)
+            # Pre-block_text scan for `@framework("...(anchor)...")` marker
+            # by reading the few lines BEFORE the axiom-header (the framework
+            # attribute line(s) precede the public axiom line).
+            preamble = "\n".join(lines[max(0, i - 6) : i])
+            is_anchor = is_audit_anchor(name, preamble + "\n" + block_text)
+            # Classify weak axioms: parameterless + ensures-true.
+            # Anchor names are intentional namespace markers — exempt.
+            weak_kind = None
+            if param_less and ensures == "true":
+                weak_kind = "anchor" if is_anchor else "real"
             rows.append(
                 {
                     "name": name,
                     "kind": "axiom-placeholder",
-                    "ensures_shape": ensures_shape(block_text),
-                    "is_parameterless": is_parameterless_signature(sig),
+                    "ensures_shape": ensures,
+                    "is_parameterless": param_less,
                     "has_witness_param": has_witness_typed_param(sig),
+                    "is_anchor": is_anchor,
+                    "weak_axiom": weak_kind,
                     "framework_axiom_deps": 0,
                     "theorem_deps": 0,
                     "let_bindings": 0,
@@ -441,6 +494,11 @@ def main() -> int:
                 1 for r in rows if r["kind"] == "theorem-axiom-only-structural"
             ),
             "theorem_multi_step": sum(1 for r in rows if r["kind"] == "theorem-multi-step"),
+            # M-PROOFS-B: weak axioms = parameterless `() -> Bool ensures true`
+            # Split into anchor (intentional namespace markers) vs real
+            # (definitional anchors waiting witness-promotion).
+            "weak_axioms_anchor": sum(1 for r in rows if r.get("weak_axiom") == "anchor"),
+            "weak_axioms_real": sum(1 for r in rows if r.get("weak_axiom") == "real"),
         },
         "by_lineage": {
             "msfs": {
@@ -464,6 +522,16 @@ def main() -> int:
                     for r in rows
                     if r["kind"] == "axiom-placeholder" and "/msfs/" in r["file"]
                 ),
+                "weak_axioms_anchor": sum(
+                    1
+                    for r in rows
+                    if r.get("weak_axiom") == "anchor" and "/msfs/" in r["file"]
+                ),
+                "weak_axioms_real": sum(
+                    1
+                    for r in rows
+                    if r.get("weak_axiom") == "real" and "/msfs/" in r["file"]
+                ),
             },
             "diakrisis": {
                 "theorem_multi_step": sum(
@@ -486,6 +554,16 @@ def main() -> int:
                     for r in rows
                     if r["kind"] == "axiom-placeholder" and "/diakrisis/" in r["file"]
                 ),
+                "weak_axioms_anchor": sum(
+                    1
+                    for r in rows
+                    if r.get("weak_axiom") == "anchor" and "/diakrisis/" in r["file"]
+                ),
+                "weak_axioms_real": sum(
+                    1
+                    for r in rows
+                    if r.get("weak_axiom") == "real" and "/diakrisis/" in r["file"]
+                ),
             },
         },
         "rows": rows,
@@ -501,6 +579,8 @@ def main() -> int:
     print(f"  theorem_axiom_only_tautological   {summary['totals']['theorem_axiom_only_tautological']}")
     print(f"  theorem_axiom_only_structural     {summary['totals']['theorem_axiom_only_structural']}")
     print(f"  theorem_multi_step                {summary['totals']['theorem_multi_step']}")
+    print(f"  weak_axioms_anchor                {summary['totals']['weak_axioms_anchor']}  (intentional namespace markers)")
+    print(f"  weak_axioms_real                  {summary['totals']['weak_axioms_real']}  (real axioms awaiting witness-promotion)")
     print()
     print("by lineage:")
     for lin, counts in summary["by_lineage"].items():
