@@ -1,0 +1,3082 @@
+{
+  "schema_version": 2,
+  "scanned_files": 25,
+  "axiom_index_size": 324,
+  "totals": {
+    "axiom_placeholder": 85,
+    "theorem_no_proof_body": 0,
+    "theorem_trivial_true": 0,
+    "theorem_axiom_only_tautological": 0,
+    "theorem_axiom_only_structural": 65,
+    "theorem_multi_step": 69
+  },
+  "by_lineage": {
+    "msfs": {
+      "theorem_multi_step": 16,
+      "theorem_axiom_only_structural": 13,
+      "theorem_axiom_only_tautological": 0,
+      "axiom_placeholder": 53
+    },
+    "diakrisis": {
+      "theorem_multi_step": 53,
+      "theorem_axiom_only_structural": 52,
+      "theorem_axiom_only_tautological": 0,
+      "axiom_placeholder": 32
+    }
+  },
+  "rows": [
+    {
+      "name": "diakrisis_axi_0_non_empty",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_axi_1_internal_closure",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_axi_2_M_is_2_functor",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_axi_3_alpha_math_exists",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_axi_4_rho_internal_hom",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_axi_5_rho_nontrivial",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_axi_6_rho_M_non_commute",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_axi_7_self_articulability",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_axi_8_alpha_M_non_LP_representable",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_axi_9_ac_oc_biadjunction_premise",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_T_alpha_depth_function",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_T_2f_star_comprehension_stratification",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_T_2f_star_star",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_T_2f_star_comprehension_stratification"
+      ],
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_axi_base_layer_satisfaction",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 4,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 6,
+      "apply_targets": [
+        "diakrisis_axi_0_non_empty",
+        "diakrisis_axi_1_internal_closure",
+        "diakrisis_axi_2_M_is_2_functor",
+        "diakrisis_axi_3_alpha_math_exists"
+      ],
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_axi_realisation_layer_satisfaction",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 6,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 8,
+      "apply_targets": [
+        "diakrisis_axi_4_rho_internal_hom",
+        "diakrisis_axi_5_rho_nontrivial",
+        "diakrisis_axi_6_rho_M_non_commute",
+        "diakrisis_axi_7_self_articulability",
+        "diakrisis_axi_8_alpha_M_non_LP_representable",
+        "diakrisis_axi_9_ac_oc_biadjunction_premise"
+      ],
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_extension_layer_satisfaction",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 3,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 5,
+      "apply_targets": [
+        "diakrisis_T_alpha_depth_function",
+        "diakrisis_T_2f_star_comprehension_stratification",
+        "diakrisis_T_2f_star_star"
+      ],
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_canonical_primitive_satisfaction",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 3,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 5,
+      "apply_targets": [
+        "diakrisis_axi_base_layer_satisfaction",
+        "diakrisis_axi_realisation_layer_satisfaction",
+        "diakrisis_extension_layer_satisfaction"
+      ],
+      "file": "theorems/diakrisis/02_canonical_primitive/axiomatics.vr"
+    },
+    {
+      "name": "diakrisis_theorem_10_T_locally_small",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_1_internal_closure"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_11_T_internal_closure",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_1_internal_closure"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_12_T_iota_existence",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_2_M_is_2_functor"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_13_T_M_2_functor",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_2_M_is_2_functor"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_14_T_alpha_M_canonical",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_axi_2_M_is_2_functor",
+        "diakrisis_axi_7_self_articulability"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_14_T2_axi_8_witness",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_axi_2_M_is_2_functor",
+        "diakrisis_axi_8_alpha_M_non_LP_representable"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_15_T_M_naturality",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_2_M_is_2_functor"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_16_T_iota_faithful",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_1_internal_closure"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_16_T10_round_trip",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_16_T10_kernel_K_round_trip_ground",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_17_T_iota_full_mod_gauge",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_axi_1_internal_closure",
+        "diakrisis_axi_2_M_is_2_functor"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_17_T1_effect_kleisli",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_2_M_is_2_functor"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_18_T_image_characterization",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_17_T_iota_full_mod_gauge"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_19_T_yoneda_compatible",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_1_internal_closure"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_20_T_iota_infty_n_extension",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_axi_2_M_is_2_functor",
+        "diakrisis_theorem_15_T_M_naturality"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_21_T_iota_monoidal",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_axi_1_internal_closure",
+        "diakrisis_axi_2_M_is_2_functor"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_21_T2_stack_model_precursor",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_22_T_image_M_stable",
+        "diakrisis_theorem_18_T_image_characterization"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_22_T_image_M_stable",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_axi_2_M_is_2_functor",
+        "diakrisis_axi_7_self_articulability"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_23_T_shape_left_adjoint",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_4_rho_internal_hom"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_24_T_flat_sharp_adjunction",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_23_T_shape_left_adjoint"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_25_T_crisp_collapse",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_24_T_flat_sharp_adjunction",
+        "diakrisis_axi_7_self_articulability"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_26_T_dcct_ground",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_24_T_flat_sharp_adjunction"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_27_T_grothendieck_fibration",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_axi_1_internal_closure",
+        "diakrisis_axi_2_M_is_2_functor"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_28_T_fiber_equivalence_classes",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_27_T_grothendieck_fibration",
+        "diakrisis_theorem_18_T_image_characterization"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_29_T_opfibration_symmetry",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_27_T_grothendieck_fibration",
+        "diakrisis_theorem_39_T_M_A_precursor"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_30_T_pullback_stability",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_27_T_grothendieck_fibration",
+        "diakrisis_axi_1_internal_closure"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_31_T_gauge_morita",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_1_internal_closure"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_32_T_gauge_quotient_stack",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_31_T_gauge_morita"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_33_T_gauge_M_stability",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_22_T_image_M_stable",
+        "diakrisis_theorem_31_T_gauge_morita"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_34_T_aut2_action",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_32_T_gauge_quotient_stack"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_35_T_M_modal_box",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_2_M_is_2_functor"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_36_T_A_modal_diamond",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_axi_2_M_is_2_functor",
+        "diakrisis_axi_9_ac_oc_biadjunction_premise"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_37_T_modal_axioms_complete",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_35_T_M_modal_box",
+        "diakrisis_theorem_36_T_A_modal_diamond"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_38_T_modal_depth_foundation",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_axi_2_M_is_2_functor",
+        "diakrisis_T_alpha_depth_function"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_39_T_M_A_precursor",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_axi_2_M_is_2_functor",
+        "diakrisis_axi_9_ac_oc_biadjunction_premise"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_40_T_unit_eta",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_39_T_M_A_precursor"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_41_T_counit_epsilon",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_39_T_M_A_precursor"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_42_T_triangle_identities",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_40_T_unit_eta",
+        "diakrisis_theorem_41_T_counit_epsilon"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_43_T_lambek_scott_internal",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_axi_2_M_is_2_functor",
+        "diakrisis_axi_4_rho_internal_hom"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_44_T_mod_accessible",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_43_T_lambek_scott_internal"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_45_T_mod_gauge_invariant",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_31_T_gauge_morita",
+        "diakrisis_theorem_44_T_mod_accessible"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_46_T_mod_image_kappa_2",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_44_T_mod_accessible"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_47_T_carrier_size_bound",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_32_T_gauge_quotient_stack",
+        "diakrisis_axi_4_rho_internal_hom"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_48_T_rho_image_u_2_small",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_4_rho_internal_hom"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_49_T_fix_M_size_bound",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_22_T_image_M_stable",
+        "diakrisis_theorem_47_T_carrier_size_bound"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_50_T_eff_internal",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 5,
+      "apply_targets": [
+        "diakrisis_axi_1_internal_closure",
+        "diakrisis_axi_4_rho_internal_hom",
+        "diakrisis_theorem_39_T_M_A_precursor"
+      ],
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_50_T_msfs_8_6_i_3_ground",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/03_formal_architecture/foundational_10_to_50.vr"
+    },
+    {
+      "name": "diakrisis_theorem_55_T_horizontal",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_55_T_msfs_7_1_correspondence",
+        "msfs_theorem_7_1_horizontal"
+      ],
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
+    },
+    {
+      "name": "diakrisis_55_T_msfs_7_1_correspondence",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
+    },
+    {
+      "name": "diakrisis_theorem_59_T_1_vertical",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_59_T_1_msfs_7_2_correspondence",
+        "msfs_theorem_7_2_vertical"
+      ],
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
+    },
+    {
+      "name": "diakrisis_59_T_1_msfs_7_2_correspondence",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
+    },
+    {
+      "name": "diakrisis_theorem_69_T_meta_vertical",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_69_T_msfs_7_3_correspondence",
+        "msfs_theorem_7_3_meta_vertical"
+      ],
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
+    },
+    {
+      "name": "diakrisis_69_T_msfs_7_3_correspondence",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
+    },
+    {
+      "name": "diakrisis_theorem_84_T_lateral",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_84_T_msfs_7_4_correspondence",
+        "msfs_theorem_7_4_lateral"
+      ],
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
+    },
+    {
+      "name": "diakrisis_84_T_msfs_7_4_correspondence",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
+    },
+    {
+      "name": "diakrisis_theorem_87_T_completeness",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_87_T_msfs_7_6_correspondence",
+        "msfs_theorem_7_6_completeness"
+      ],
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
+    },
+    {
+      "name": "diakrisis_87_T_msfs_7_6_correspondence",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/06_limits/five_axis_internal.vr"
+    },
+    {
+      "name": "diakrisis_theorem_98_T_universe_polymorphism",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_98_T_msfs_8_1_correspondence",
+        "msfs_theorem_8_1_universe_polymorphism"
+      ],
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr"
+    },
+    {
+      "name": "diakrisis_98_T_msfs_8_1_correspondence",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr"
+    },
+    {
+      "name": "diakrisis_theorem_99_T_reflective_tower",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_99_T_msfs_8_2_correspondence",
+        "msfs_theorem_8_2_reflective_tower"
+      ],
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr"
+    },
+    {
+      "name": "diakrisis_99_T_msfs_8_2_correspondence",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr"
+    },
+    {
+      "name": "diakrisis_theorem_100_T_I_existence",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr"
+    },
+    {
+      "name": "diakrisis_100_T_msfs_8_6_correspondence",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr"
+    },
+    {
+      "name": "diakrisis_theorem_101_T_slice_locality",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr"
+    },
+    {
+      "name": "diakrisis_101_T_msfs_8_7_correspondence",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr"
+    },
+    {
+      "name": "diakrisis_theorem_102_T_intensional_no_new_axis",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_102_T_msfs_8_8_correspondence",
+        "msfs_corollary_8_8_intensional_no_new_axis"
+      ],
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr"
+    },
+    {
+      "name": "diakrisis_102_T_msfs_8_8_correspondence",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/06_limits/three_bypass_paths.vr"
+    },
+    {
+      "name": "diakrisis_theorem_103_T_universal_articulation",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 3,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 5,
+      "apply_targets": [
+        "diakrisis_axi_1_internal_closure",
+        "diakrisis_axi_2_M_is_2_functor",
+        "diakrisis_axi_7_self_articulability"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr"
+    },
+    {
+      "name": "diakrisis_103_T_msfs_q1_closure",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_103_T_universal_articulation"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_104_T_uniqueness",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_103_T_universal_articulation",
+        "diakrisis_axi_1_internal_closure"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr"
+    },
+    {
+      "name": "diakrisis_104_T_msfs_9_3_correspondence",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_104_T_uniqueness"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_105_T_yanofsky_immunity",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_T_2f_star_comprehension_stratification",
+        "diakrisis_axi_7_self_articulability"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr"
+    },
+    {
+      "name": "diakrisis_105_T_kernel_K_refine_ground",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_105_T_yanofsky_immunity"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_106_T_diakrisis_in_l_cls_top",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 3,
+      "let_bindings": 0,
+      "proof_body_lines": 5,
+      "apply_targets": [
+        "diakrisis_theorem_103_T_universal_articulation",
+        "diakrisis_theorem_104_T_uniqueness",
+        "diakrisis_theorem_105_T_yanofsky_immunity"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr"
+    },
+    {
+      "name": "diakrisis_106_T_l_cls_top_nonempty",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_106_T_diakrisis_in_l_cls_top"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/maximality_103_to_106.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_128_T_bypass_exhaustive",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_9_ac_oc_biadjunction_premise"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_129_T_lawvere_scope_inventory",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_1_internal_closure"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_130_T_axi_9_completeness",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_128_T_bypass_exhaustive",
+        "diakrisis_theorem_129_T_lawvere_scope_inventory"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr"
+    },
+    {
+      "name": "diakrisis_theorem_131_T_stack_model",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_axi_4_rho_internal_hom",
+        "diakrisis_axi_9_ac_oc_biadjunction_premise"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr"
+    },
+    {
+      "name": "diakrisis_131_T_kernel_K_universe_ascent_ground",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_131_T_stack_model"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_132_T_universal_precursor",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_22_T_image_M_stable",
+        "diakrisis_theorem_130_T_axi_9_completeness"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr"
+    },
+    {
+      "name": "diakrisis_theorem_133_T_q3_closure",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 3,
+      "let_bindings": 0,
+      "proof_body_lines": 5,
+      "apply_targets": [
+        "diakrisis_theorem_128_T_bypass_exhaustive",
+        "diakrisis_theorem_129_T_lawvere_scope_inventory",
+        "diakrisis_theorem_130_T_axi_9_completeness"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr"
+    },
+    {
+      "name": "diakrisis_133_T_msfs_q3_closure",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_133_T_q3_closure"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_134_T_q4_closure",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_131_T_stack_model",
+        "diakrisis_theorem_47_T_carrier_size_bound"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr"
+    },
+    {
+      "name": "diakrisis_134_T_msfs_q4_closure",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_134_T_q4_closure"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_135_T_q5_closure",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_9_ac_oc_biadjunction_premise"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_135_T_msfs_q5_closure",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_135_T_q5_closure"
+      ],
+      "file": "theorems/diakrisis/06_limits_maximality/open_q_closures.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_107_T_relative_consistency",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_4_rho_internal_hom"
+      ],
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_108_T_ac_oc_morita_duality",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_axi_9_ac_oc_biadjunction_premise",
+        "diakrisis_theorem_42_T_triangle_identities"
+      ],
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr"
+    },
+    {
+      "name": "diakrisis_108_T_msfs_10_4_correspondence",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_108_T_ac_oc_morita_duality"
+      ],
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_109_T_dual_no_go",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_108_T_ac_oc_morita_duality"
+      ],
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_109_T_msfs_10_7_correspondence",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_109_T_dual_no_go"
+      ],
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorems_110_to_120",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 6,
+      "apply_targets": [
+        "diakrisis_axi_1_internal_closure",
+        "diakrisis_axi_2_M_is_2_functor",
+        "diakrisis_theorem_22_T_image_M_stable",
+        "diakrisis_theorem_31_T_gauge_morita"
+      ],
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr"
+    },
+    {
+      "name": "diakrisis_theorems_121_to_123",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 4,
+      "let_bindings": 0,
+      "proof_body_lines": 6,
+      "apply_targets": [
+        "diakrisis_theorem_39_T_M_A_precursor",
+        "diakrisis_theorem_40_T_unit_eta",
+        "diakrisis_theorem_41_T_counit_epsilon",
+        "diakrisis_theorem_42_T_triangle_identities"
+      ],
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr"
+    },
+    {
+      "name": "diakrisis_theorem_124_T_biadjunction_witness",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_42_T_triangle_identities"
+      ],
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_124_T_msfs_10_4_step_c_correspondence",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_124_T_biadjunction_witness"
+      ],
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_125_T_universal_pair",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_axi_2_M_is_2_functor",
+        "diakrisis_theorem_108_T_ac_oc_morita_duality"
+      ],
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr"
+    },
+    {
+      "name": "diakrisis_theorem_126_T_gauge_alpha_projection",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_31_T_gauge_morita",
+        "diakrisis_theorem_108_T_ac_oc_morita_duality"
+      ],
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr"
+    },
+    {
+      "name": "diakrisis_theorem_127_T_actica_completeness",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_108_T_ac_oc_morita_duality"
+      ],
+      "file": "theorems/diakrisis/12_actic/actica_107_to_127.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_138_T_dual_gauge_kernel",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/12_actic/actica_138_to_141.vr"
+    },
+    {
+      "name": "diakrisis_theorem_139_T_dual_primitive_initial",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/12_actic/actica_138_to_141.vr"
+    },
+    {
+      "name": "diakrisis_theorem_140_T_infty_infty_invariant",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/12_actic/actica_138_to_141.vr"
+    },
+    {
+      "name": "diakrisis_theorem_141_T_constructive_autopoiesis",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/12_actic/actica_138_to_141.vr"
+    },
+    {
+      "name": "diakrisis_theorem_18_T1_alpha_epsilon_duality",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_axi_9_ac_oc_biadjunction_premise"
+      ],
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_18_T1_verum_coherent_ground",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_18_T1_alpha_epsilon_duality"
+      ],
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_18_T2_finite_decidability",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_124_T_biadjunction_witness"
+      ],
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_18_T3_corpus_coherence",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 3,
+      "let_bindings": 0,
+      "proof_body_lines": 5,
+      "apply_targets": [
+        "diakrisis_theorem_18_T1_alpha_epsilon_duality",
+        "diakrisis_theorem_18_T2_finite_decidability",
+        "diakrisis_theorem_108_T_ac_oc_morita_duality"
+      ],
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr"
+    },
+    {
+      "name": "diakrisis_18_T3_audit_coherent_gate",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_18_T3_corpus_coherence"
+      ],
+      "file": "theorems/diakrisis/research_extensions/operational_coherence.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_136_T_t_2f_star_star_star",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 3,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 5,
+      "apply_targets": [
+        "diakrisis_T_alpha_depth_function",
+        "diakrisis_T_2f_star_comprehension_stratification",
+        "diakrisis_T_2f_star_star"
+      ],
+      "file": "theorems/diakrisis/research_extensions/research_136_137_142.vr"
+    },
+    {
+      "name": "diakrisis_136_T_kernel_K_refine_omega_ground",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_136_T_t_2f_star_star_star"
+      ],
+      "file": "theorems/diakrisis/research_extensions/research_136_137_142.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_137_T_weak_afnt",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_extension_layer_satisfaction"
+      ],
+      "file": "theorems/diakrisis/research_extensions/research_136_137_142.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_137_T_msfs_q5_kernel_vva_8_ground",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_137_T_weak_afnt"
+      ],
+      "file": "theorems/diakrisis/research_extensions/research_136_137_142.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_142_T_eastern_non_classical",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_T_alpha_depth_function",
+        "diakrisis_T_2f_star_comprehension_stratification"
+      ],
+      "file": "theorems/diakrisis/research_extensions/research_136_137_142.vr"
+    },
+    {
+      "name": "diakrisis_142_T_msfs_b_2_correspondence",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_142_T_eastern_non_classical"
+      ],
+      "file": "theorems/diakrisis/research_extensions/research_136_137_142.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_uhm_T1_in_l_cls",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_103_T_universal_articulation"
+      ],
+      "file": "theorems/diakrisis/research_extensions/uhm_articulation.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_uhm_T2_epsilon_omega3_plus_1",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_T_alpha_depth_function"
+      ],
+      "file": "theorems/diakrisis/research_extensions/uhm_articulation.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_theorem_uhm_T3_path_b_baseline",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "diakrisis_theorem_uhm_T1_in_l_cls",
+        "diakrisis_theorem_uhm_T2_epsilon_omega3_plus_1"
+      ],
+      "file": "theorems/diakrisis/research_extensions/uhm_articulation.vr"
+    },
+    {
+      "name": "diakrisis_theorem_uhm_T4_in_l_cls_top",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_106_T_diakrisis_in_l_cls_top"
+      ],
+      "file": "theorems/diakrisis/research_extensions/uhm_articulation.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_uhm_msfs_l_cls_top_witness",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "diakrisis_theorem_uhm_T4_in_l_cls_top"
+      ],
+      "file": "theorems/diakrisis/research_extensions/uhm_articulation.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "diakrisis_uhm_noesis_223_path_b_anchor",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/diakrisis/research_extensions/uhm_articulation.vr"
+    },
+    {
+      "name": "msfs_stage_m_1_anchor",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/01_introduction/conventions.vr"
+    },
+    {
+      "name": "msfs_stage_m_2_anchor",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/02_strata/proposition_2_2_2_3.vr"
+    },
+    {
+      "name": "msfs_proposition_2_2_iv_l_abs_empty",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "msfs_corollary_5_2_l_abs_empty"
+      ],
+      "file": "theorems/msfs/02_strata/proposition_2_2_2_3.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "msfs_proposition_2_3_corollary_cls_not_in_l_abs",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "msfs_proposition_2_2_iv_l_abs_empty"
+      ],
+      "file": "theorems/msfs/02_strata/proposition_2_2_2_3.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "msfs_proposition_2_2_iii_clsmax_strict_above_abs",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "msfs_proposition_2_2_iv_l_abs_empty"
+      ],
+      "file": "theorems/msfs/02_strata/proposition_2_2_2_3.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "msfs_proposition_2_2_iii_fnd_strict_above_cls",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "msfs_proper_inclusion_fnd_cls"
+      ],
+      "file": "theorems/msfs/02_strata/proposition_2_2_2_3.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "msfs_proposition_2_2_iii_cls_strict_above_clsmax",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "msfs_proper_inclusion_cls_clsmax"
+      ],
+      "file": "theorems/msfs/02_strata/proposition_2_2_2_3.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "msfs_proposition_2_2_iii_clsmax_strict_above_abs_witness",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "msfs_proper_inclusion_clsmax_abs"
+      ],
+      "file": "theorems/msfs/02_strata/proposition_2_2_2_3.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "msfs_stage_m_3_anchor",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/03_rich_s/lemma_3_4_anchor.vr"
+    },
+    {
+      "name": "msfs_stage_m_4_anchor",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/04_l_abs_conditions/definitions_4_1_to_4_4.vr"
+    },
+    {
+      "name": "msfs_theorem_5_1_afnt_alpha",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 2,
+      "theorem_deps": 0,
+      "let_bindings": 2,
+      "proof_body_lines": 8,
+      "apply_targets": [
+        "msfs_lemma_3_4_outputs_in_s_s_global",
+        "msfs_id_x_violates_pi_4"
+      ],
+      "file": "theorems/msfs/05_afnt_alpha/theorem_5_1.vr"
+    },
+    {
+      "name": "msfs_corollary_5_2_l_abs_empty",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/05_afnt_alpha/theorem_5_1.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "msfs_theorem_5_1_refined_view",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 1,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/05_afnt_alpha/theorem_5_1.vr"
+    },
+    {
+      "name": "msfs_theorem_5_1_proof_template",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/05_afnt_alpha/theorem_5_1.vr"
+    },
+    {
+      "name": "msfs_theorem_6_1_afnt_beta",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "none",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr"
+    },
+    {
+      "name": "msfs_theorem_6_1_colim_in_s_s_global",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr"
+    },
+    {
+      "name": "msfs_proposition_6_2_proper_class_dichotomy",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr"
+    },
+    {
+      "name": "msfs_proposition_6_3_trajectory_space",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr"
+    },
+    {
+      "name": "msfs_proposition_6_3_corollary",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr"
+    },
+    {
+      "name": "msfs_theorem_6_1_beta_tower_reduction",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr"
+    },
+    {
+      "name": "msfs_theorem_6_1_operational_closure",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "msfs_theorem_6_1_beta_tower_reduction",
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/06_afnt_beta/theorem_6_1.vr"
+    },
+    {
+      "name": "msfs_theorem_7_1_horizontal_reduction",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
+    },
+    {
+      "name": "msfs_theorem_7_2_vertical_reduction",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
+    },
+    {
+      "name": "msfs_theorem_7_3_meta_vertical_reduction",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
+    },
+    {
+      "name": "msfs_theorem_7_4_lateral_reduction",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
+    },
+    {
+      "name": "msfs_theorem_7_6_completeness_reduction",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
+    },
+    {
+      "name": "msfs_theorem_7_1_horizontal",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "msfs_theorem_7_1_horizontal_reduction",
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
+    },
+    {
+      "name": "msfs_theorem_7_2_vertical",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "msfs_theorem_7_2_vertical_reduction",
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
+    },
+    {
+      "name": "msfs_theorem_7_3_meta_vertical",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "msfs_theorem_7_3_meta_vertical_reduction",
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
+    },
+    {
+      "name": "msfs_theorem_7_4_lateral",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "msfs_theorem_7_4_lateral_reduction",
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
+    },
+    {
+      "name": "msfs_definition_7_5_lawvere_scope",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
+    },
+    {
+      "name": "msfs_theorem_7_6_completeness",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "msfs_theorem_7_6_completeness_reduction",
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/07_five_axis/theorems_7_1_to_7_6.vr"
+    },
+    {
+      "name": "msfs_theorem_8_1_universe_reduction",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
+    },
+    {
+      "name": "msfs_theorem_8_2_reflective_tower_reduction",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
+    },
+    {
+      "name": "msfs_corollary_8_8_intensional_reduction",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
+    },
+    {
+      "name": "msfs_theorem_8_1_universe_polymorphism",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "msfs_theorem_8_1_universe_reduction",
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
+    },
+    {
+      "name": "msfs_theorem_8_2_reflective_tower",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "msfs_theorem_8_2_reflective_tower_reduction",
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
+    },
+    {
+      "name": "msfs_definition_8_3_display_class",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
+    },
+    {
+      "name": "msfs_definition_8_4_display_2_category",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
+    },
+    {
+      "name": "msfs_definition_8_5_s_int",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
+    },
+    {
+      "name": "msfs_theorem_8_6_I_existence",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
+    },
+    {
+      "name": "msfs_theorem_8_7_slice_locality",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
+    },
+    {
+      "name": "msfs_corollary_8_8_intensional_no_new_axis",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "msfs_corollary_8_8_intensional_reduction",
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/08_bypass_paths/theorems_8_1_to_8_8.vr"
+    },
+    {
+      "name": "msfs_theorem_9_6c_meta_iteration_reduction",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr"
+    },
+    {
+      "name": "msfs_definition_9_1_meta_cls",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr"
+    },
+    {
+      "name": "msfs_definition_9_2_meta_cls_top",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr"
+    },
+    {
+      "name": "msfs_theorem_9_3_meta_categoricity",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr"
+    },
+    {
+      "name": "msfs_theorem_9_4_structural_multiplicity",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr"
+    },
+    {
+      "name": "msfs_corollary_9_5_plurality",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr"
+    },
+    {
+      "name": "msfs_theorem_9_6_meta_classification_stabilization",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr"
+    },
+    {
+      "name": "msfs_theorem_9_6c_no_l_abs_escalation",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "msfs_theorem_9_6c_meta_iteration_reduction",
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/09_meta_classification/theorems_9_3_9_4_9_6.vr"
+    },
+    {
+      "name": "msfs_definition_10_1_E_category",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr"
+    },
+    {
+      "name": "msfs_definition_10_2_S_S_E",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr"
+    },
+    {
+      "name": "msfs_lemma_10_3_enactment_syntax_semantics",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr"
+    },
+    {
+      "name": "msfs_theorem_10_4_ac_oc_morita_duality",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr"
+    },
+    {
+      "name": "msfs_corollary_10_5_conservativity",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "predicate",
+      "has_witness_param": true,
+      "framework_axiom_deps": 1,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "msfs_corollary_10_5_conservativity_anchor"
+      ],
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "msfs_theorem_10_7_dual_boundary_lemma",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "msfs_theorem_10_4_ac_oc_morita_duality_witness",
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr"
+    },
+    {
+      "name": "msfs_corollary_10_8_l_abs_E_empty",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "msfs_theorem_10_7_dual_boundary_lemma"
+      ],
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "msfs_theorem_10_9_dual_five_axis",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "msfs_theorem_10_4_ac_oc_morita_duality_witness",
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/10_ac_oc_duality/theorems_10_1_to_10_9.vr"
+    },
+    {
+      "name": "msfs_theorem_11_1_subsumption_reduction",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/11_no_go_series/theorem_11_1.vr"
+    },
+    {
+      "name": "msfs_theorem_11_1_subsumption",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 2,
+      "let_bindings": 0,
+      "proof_body_lines": 4,
+      "apply_targets": [
+        "msfs_theorem_11_1_subsumption_reduction",
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/11_no_go_series/theorem_11_1.vr"
+    },
+    {
+      "name": "msfs_theorem_11_1_subsumption_anchor",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/11_no_go_series/theorem_11_1.vr"
+    },
+    {
+      "name": "msfs_consequence_univalent_foundations",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "msfs_consequence_higher_topos",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "msfs_consequence_cohesive",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "msfs_consequence_infinity_cosmoi",
+      "kind": "theorem-axiom-only-structural",
+      "ensures_shape": "false",
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 3,
+      "apply_targets": [
+        "msfs_theorem_5_1_afnt_alpha"
+      ],
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr",
+      "tautological_target": false
+    },
+    {
+      "name": "msfs_open_question_Q1_closed_in_diakrisis",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr"
+    },
+    {
+      "name": "msfs_open_question_Q2_open",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr"
+    },
+    {
+      "name": "msfs_open_question_Q3_closed_in_diakrisis",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr"
+    },
+    {
+      "name": "msfs_open_question_Q4_closed_in_diakrisis",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr"
+    },
+    {
+      "name": "msfs_open_question_Q5_closed_in_diakrisis",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/12_consequences/diagnostics_and_open_q.vr"
+    },
+    {
+      "name": "msfs_lemma_A_1_kelly_2_categorical",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr"
+    },
+    {
+      "name": "msfs_lemma_A_2_lurie_htt",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr"
+    },
+    {
+      "name": "msfs_lemma_A_3_riehl_verity",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr"
+    },
+    {
+      "name": "msfs_lemma_A_4_pronk_bicat_fractions",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr"
+    },
+    {
+      "name": "msfs_lemma_A_5_lawvere_fp",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr"
+    },
+    {
+      "name": "msfs_lemma_A_6_whitehead",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr"
+    },
+    {
+      "name": "msfs_theorem_A_7_bergner_lurie_stabilization",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr"
+    },
+    {
+      "name": "msfs_lemma_A_8_adamek_rosicky",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr"
+    },
+    {
+      "name": "msfs_appendix_A_categorical_preliminaries_full",
+      "kind": "theorem-multi-step",
+      "ensures_shape": "true",
+      "has_witness_param": false,
+      "framework_axiom_deps": 7,
+      "theorem_deps": 1,
+      "let_bindings": 0,
+      "proof_body_lines": 10,
+      "apply_targets": [
+        "msfs_lemma_A_1_kelly_2_categorical",
+        "msfs_lemma_A_2_lurie_htt",
+        "msfs_lemma_A_3_riehl_verity",
+        "msfs_lemma_A_4_pronk_bicat_fractions",
+        "msfs_lemma_A_5_lawvere_fp",
+        "msfs_lemma_A_6_whitehead",
+        "msfs_theorem_A_7_bergner_lurie_stabilization",
+        "msfs_lemma_A_8_adamek_rosicky"
+      ],
+      "file": "theorems/msfs/appendix_a/categorical_preliminaries.vr"
+    },
+    {
+      "name": "msfs_definition_B_1_paraconsistent_rich_s",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/appendix_b/theorem_B_2.vr"
+    },
+    {
+      "name": "msfs_theorem_B_2_paraconsistent_afnt",
+      "kind": "axiom-placeholder",
+      "ensures_shape": "true",
+      "is_parameterless": true,
+      "has_witness_param": false,
+      "framework_axiom_deps": 0,
+      "theorem_deps": 0,
+      "let_bindings": 0,
+      "proof_body_lines": 0,
+      "file": "theorems/msfs/appendix_b/theorem_B_2.vr"
+    }
+  ]
+}
