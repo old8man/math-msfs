@@ -118,9 +118,52 @@ public axiom msfs_theorem_5_1_afnt_alpha(
 /// 7.1–7.6) shows the result is uniform across all 5 structural
 /// axes; the no-go subsumption (Theorem 11.1) places Cantor,
 /// Russell, Gödel, Tarski, Lawvere FP, and Ernst as specialisations.
+///
+/// # Proof structure (machine-verified deduction from Theorem 5.1)
+///
+/// The corollary is the contrapositive of the joint condition's
+/// internal consistency:
+///
+///   1. By Definition 4.4, `X ∈ L_Abs(S, n)` iff there exists
+///      witnesses for `(F_S) ∧ (Π_{4,S,n}) ∧ (Π_{3-max,S,n})` over
+///      the same X.
+///   2. Theorem 5.1 (applied universally over the candidate space)
+///      states `¬∃ X. (F_S ∧ Π_4 ∧ Π_3-max)`.
+///   3. Therefore for every (S, n), `L_Abs(S, n) == ∅`.
+///
+/// The kernel re-checks this deduction: `Theorem 5.1` is the only
+/// MSFS-corpus axiom invoked; the rest is propositional unfolding.
+/// Step (1) is a Definition-4.4 unfolding (kernel β-reduces it);
+/// step (2) is `apply msfs_theorem_5_1_afnt_alpha` against the
+/// witness; step (3) is `contradiction`. The `@verify(formal)`
+/// strategy dispatches the obligation through the SMT portfolio
+/// after the lemma-application step, which closes via propositional
+/// classical logic (Theorem 5.1 says `false` ⇒ anything follows).
+///
+/// **Important honesty caveat (2026-04-28).** Theorem 5.1 itself is
+/// still postulated (`@axiom`) at this stage — the kernel-level
+/// proof reconstruction of 5.1 from Lemma 3.4 + (∞,n)-equivalence
+/// reasoning is V2 work tracked under #62 / M0.7. So Corollary 5.2
+/// is *conditionally* machine-verified: given Theorem 5.1, the
+/// kernel mechanically derives 5.2. This is a meaningful upgrade
+/// from the previous `@axiom ensures true` form because the
+/// inference 5.1 ⇒ 5.2 is now machine-checked, not paper-cited.
+@verify(formal)
 @framework(msfs, "MSFS Corollary 5.2 — L_Abs == ∅ (AFN-T α-part headline)")
-public axiom msfs_corollary_5_2_l_abs_empty() -> Bool
-    ensures true;  // L_Abs == ∅ — proven by Theorem 5.1 applied through Definition 4.4.
+public theorem msfs_corollary_5_2_l_abs_empty(
+    candidate: &LAbsCandidate,
+)
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false  // L_Abs is empty: the candidate cannot exist.
+    proof {
+        // Direct application of Theorem 5.1 — the joint conjunction
+        // `(F_S) ∧ (Π_4) ∧ (Π_3-max)` is internally inconsistent on
+        // any candidate satisfying our `requires` clause, so the
+        // ensures `false` follows by the lemma's own ensures.
+        apply msfs_theorem_5_1_afnt_alpha(candidate);
+    };
 
 // =============================================================================
 // Operational bridge to MSFS §6 (β-part) and §7 (five-axis)
