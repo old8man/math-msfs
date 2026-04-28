@@ -1,0 +1,287 @@
+// =============================================================================
+// Diakrisis dispatch smoke — Sprint 5 (#204): D.7 + D.8 + D.9 + D.10 + research
+// =============================================================================
+//
+// Closes the entire Diakrisis dispatch matrix at 10 of 10 stages (100%).
+//
+//   D.7 Аktica (12_actic/actica_107_to_127.vr) — Theorems 107.T-127.T
+//        covering the AC/OC duality machinery: 108.T (Morita duality
+//        — preprint-blocked at kernel reconstruction), 109.T (dual
+//        no-go), 124.T (biadjunction witness), 125.T (universal pair),
+//        126.T (gauge α-projection), 127.T (Аktica completeness).
+//        Each cited theorem ships with an _msfs_correspondence axiom
+//        bridging it to the MSFS §10 / §11 counterpart.
+//
+//   D.8 Аktica extended (12_actic/actica_138_to_141.vr) — Theorems
+//        138.T-141.T covering dual gauge kernel, dual primitive
+//        initial, (∞,∞)-invariant, constructive autopoiesis.
+//
+//   D.9 Operational coherence (research_extensions/operational_coherence.vr)
+//        — Theorems 18.T₁ (α-ε duality), 18.T₂ (finite decidability),
+//        18.T₃ (corpus coherence) + Verum coherent ground + audit
+//        coherent gate.
+//
+//   D.10 UHM articulation (research_extensions/uhm_articulation.vr)
+//        — UHM T₁/T₂/T₃/T₄ establishing UHM ∈ L_Cls^top with
+//        ε(UHM) at ω³+1, path-b baseline, plus MSFS L_Cls^top
+//        witness corollary + noesis 223 path-b anchor.
+//
+//   Research (research_extensions/research_136_137_142.vr) —
+//        Theorems 136.T (T-2f**), 137.T (weak AFN-T), 142.T (eastern
+//        non-classical) plus kernel-rule grounds (K-Refine-omega,
+//        VVA-8 ground) + MSFS B.2 correspondence.
+//
+// After Sprint 5 the corpus dispatch matrix covers 24 of 24 sections
+// (MSFS 14 + Diakrisis 10 = 24, 100%).
+// =============================================================================
+
+module tests.smoke.diakrisis_dispatch_sprint5;
+
+// D.7 Аktica
+mount lib.theorems.diakrisis.actica.{
+    diakrisis_theorem_107_T_relative_consistency,
+    diakrisis_theorem_108_T_ac_oc_morita_duality,
+    diakrisis_108_T_msfs_10_4_correspondence,
+    diakrisis_theorem_109_T_dual_no_go,
+    diakrisis_109_T_msfs_10_7_correspondence,
+    diakrisis_theorems_110_to_120,
+    diakrisis_theorems_121_to_123,
+    diakrisis_theorem_124_T_biadjunction_witness,
+    diakrisis_124_T_msfs_10_4_step_c_correspondence,
+    diakrisis_theorem_125_T_universal_pair,
+    diakrisis_theorem_126_T_gauge_alpha_projection,
+    diakrisis_theorem_127_T_actica_completeness,
+};
+
+// D.8 Аktica extended
+mount lib.theorems.diakrisis.actica_extended.{
+    diakrisis_theorem_138_T_dual_gauge_kernel,
+    diakrisis_theorem_139_T_dual_primitive_initial,
+    diakrisis_theorem_140_T_infty_infty_invariant,
+    diakrisis_theorem_141_T_constructive_autopoiesis,
+};
+
+// D.9 Operational coherence
+mount lib.theorems.diakrisis.operational_coherence.{
+    diakrisis_theorem_18_T1_alpha_epsilon_duality,
+    diakrisis_18_T1_verum_coherent_ground,
+    diakrisis_theorem_18_T2_finite_decidability,
+    diakrisis_theorem_18_T3_corpus_coherence,
+    diakrisis_18_T3_audit_coherent_gate,
+};
+
+// D.10 UHM articulation
+mount lib.theorems.diakrisis.uhm.{
+    diakrisis_theorem_uhm_T1_in_l_cls,
+    diakrisis_theorem_uhm_T2_epsilon_omega3_plus_1,
+    diakrisis_theorem_uhm_T3_path_b_baseline,
+    diakrisis_theorem_uhm_T4_in_l_cls_top,
+    diakrisis_uhm_msfs_l_cls_top_witness,
+    diakrisis_uhm_noesis_223_path_b_anchor,
+};
+
+// Research extensions
+mount lib.theorems.diakrisis.research_extensions.{
+    diakrisis_theorem_136_T_t_2f_star_star_star,
+    diakrisis_136_T_kernel_K_refine_omega_ground,
+    diakrisis_theorem_137_T_weak_afnt,
+    diakrisis_137_T_msfs_q5_kernel_vva_8_ground,
+    diakrisis_theorem_142_T_eastern_non_classical,
+    diakrisis_142_T_msfs_b_2_correspondence,
+};
+
+// =============================================================================
+// D.7 Аktica — Theorems 107.T through 127.T
+// =============================================================================
+
+@test
+fn test_actica_relative_consistency_107_T() {
+    assert(diakrisis_theorem_107_T_relative_consistency(),
+           "107.T — relative consistency (AC/OC sound w.r.t. Diakrisis foundation)");
+}
+
+@test
+fn test_actica_morita_duality_108_T() {
+    // FLAGSHIP: 108.T — AC/OC Morita duality. Preprint-blocked at
+    // kernel-level reconstruction (VVA §A.Z.5 item 6); anchored at
+    // reachability + bridged to MSFS Theorem 10.4.
+    assert(diakrisis_theorem_108_T_ac_oc_morita_duality(),
+           "108.T — AC/OC Morita duality (preprint-blocked)");
+    assert(diakrisis_108_T_msfs_10_4_correspondence(),
+           "108.T ↔ MSFS Theorem 10.4");
+}
+
+@test
+fn test_actica_dual_no_go_109_T() {
+    // 109.T — dual no-go (Dual-AFN-T). DC-side analogue of MSFS
+    // Theorem 10.7's Dual Boundary Lemma.
+    assert(diakrisis_theorem_109_T_dual_no_go(),
+           "109.T — dual no-go (Dual-AFN-T)");
+    assert(diakrisis_109_T_msfs_10_7_correspondence(),
+           "109.T ↔ MSFS Theorem 10.7");
+}
+
+@test
+fn test_actica_extension_block_110_to_123() {
+    assert(diakrisis_theorems_110_to_120(),
+           "110.T-120.T extension block (Аktica internal lemmata)");
+    assert(diakrisis_theorems_121_to_123(),
+           "121.T-123.T extension block (gauge group machinery)");
+}
+
+@test
+fn test_actica_biadjunction_witness_124_T() {
+    // 124.T — biadjunction witness (the constructive instance of
+    // the AC ↔ OC biadjunction whose existence Axi-9 axiomatised).
+    assert(diakrisis_theorem_124_T_biadjunction_witness(),
+           "124.T — biadjunction witness (Axi-9 inhabitant)");
+    assert(diakrisis_124_T_msfs_10_4_step_c_correspondence(),
+           "124.T ↔ MSFS Theorem 10.4 step (c)");
+}
+
+@test
+fn test_actica_universal_pair_and_gauge_125_to_127_T() {
+    assert(diakrisis_theorem_125_T_universal_pair(),
+           "125.T — universal AC/OC pair");
+    assert(diakrisis_theorem_126_T_gauge_alpha_projection(),
+           "126.T — gauge α-projection");
+    assert(diakrisis_theorem_127_T_actica_completeness(),
+           "127.T — Аktica completeness");
+}
+
+// =============================================================================
+// D.8 Аktica extended — Theorems 138.T through 141.T
+// =============================================================================
+
+@test
+fn test_actica_extended_dual_gauge_kernel_138_T() {
+    assert(diakrisis_theorem_138_T_dual_gauge_kernel(),
+           "138.T — dual gauge kernel");
+}
+
+@test
+fn test_actica_extended_dual_primitive_initial_139_T() {
+    assert(diakrisis_theorem_139_T_dual_primitive_initial(),
+           "139.T — dual primitive initial");
+}
+
+@test
+fn test_actica_extended_infty_infty_invariant_140_T() {
+    // 140.T — (∞, ∞)-invariant under dual gauge group action.
+    assert(diakrisis_theorem_140_T_infty_infty_invariant(),
+           "140.T — (∞,∞)-invariant under dual gauge");
+}
+
+@test
+fn test_actica_extended_constructive_autopoiesis_141_T() {
+    // 141.T — constructive autopoiesis (Maturana-Varela rendering
+    // inside Аktica's gauge-quotient).
+    assert(diakrisis_theorem_141_T_constructive_autopoiesis(),
+           "141.T — constructive autopoiesis (Maturana-Varela)");
+}
+
+// =============================================================================
+// D.9 Operational Coherence — Theorems 18.T₁/T₂/T₃ + grounds
+// =============================================================================
+
+@test
+fn test_operational_coherence_alpha_epsilon_duality_18_T1() {
+    // 18.T₁ — α-ε duality at the operational level + Verum-coherent
+    // ground (the gate `verum audit --coherent` enforces).
+    assert(diakrisis_theorem_18_T1_alpha_epsilon_duality(),
+           "18.T₁ — α-ε duality (operational)");
+    assert(diakrisis_18_T1_verum_coherent_ground(),
+           "18.T₁ → Verum coherent ground (audit gate)");
+}
+
+@test
+fn test_operational_coherence_finite_decidability_18_T2() {
+    // 18.T₂ — finite-axiomatisation case is decidable. Distinct
+    // from the lurie_htt / schreiber_dcct semi-decidable case.
+    assert(diakrisis_theorem_18_T2_finite_decidability(),
+           "18.T₂ — finite-axiomatisation decidability");
+}
+
+@test
+fn test_operational_coherence_corpus_coherence_18_T3() {
+    // 18.T₃ — corpus coherence: every (Fw, ν, τ) coordinate in
+    // the corpus is coherent under α-ε round-trip + audit gate.
+    assert(diakrisis_theorem_18_T3_corpus_coherence(),
+           "18.T₃ — corpus coherence");
+    assert(diakrisis_18_T3_audit_coherent_gate(),
+           "18.T₃ → audit-coherent gate (verum audit --coherent)");
+}
+
+// =============================================================================
+// D.10 UHM Articulation — UHM ∈ L_Cls^top
+// =============================================================================
+
+@test
+fn test_uhm_in_l_cls_T1() {
+    // UHM T₁ — UHM ∈ L_Cls (R1-R5 satisfaction).
+    assert(diakrisis_theorem_uhm_T1_in_l_cls(),
+           "UHM T₁ — UHM ∈ L_Cls (R1-R5 satisfaction)");
+}
+
+@test
+fn test_uhm_epsilon_omega3_plus_1_T2() {
+    // UHM T₂ — UHM articulation depth ε at ω³ + 1.
+    assert(diakrisis_theorem_uhm_T2_epsilon_omega3_plus_1(),
+           "UHM T₂ — ε(UHM) = ω³ + 1");
+}
+
+@test
+fn test_uhm_path_b_baseline_T3() {
+    assert(diakrisis_theorem_uhm_T3_path_b_baseline(),
+           "UHM T₃ — path-b baseline");
+}
+
+@test
+fn test_uhm_in_l_cls_top_T4() {
+    // FLAGSHIP: UHM T₄ — UHM ∈ L_Cls^top + MSFS L_Cls^top witness
+    // corollary. Together with Diakrisis 106.T this gives TWO
+    // independent witnesses that L_Cls^top is non-empty.
+    assert(diakrisis_theorem_uhm_T4_in_l_cls_top(),
+           "UHM T₄ — UHM ∈ L_Cls^top");
+    assert(diakrisis_uhm_msfs_l_cls_top_witness(),
+           "UHM → MSFS L_Cls^top witness corollary");
+    assert(diakrisis_uhm_noesis_223_path_b_anchor(),
+           "UHM → noesis 223 path-b anchor");
+}
+
+// =============================================================================
+// Research Extensions — 136.T / 137.T / 142.T
+// =============================================================================
+
+@test
+fn test_research_t_2f_star_star_star_136_T() {
+    // 136.T — T-2f*** (omega-iterated depth-stratified
+    // comprehension). Together with 105.T's T-2f* and 131.T's
+    // T-2f**, gives the full kernel-rule ladder:
+    //   T-2f*    →  K-Refine
+    //   T-2f**   →  K-Universe-Ascent
+    //   T-2f***  →  K-Refine-omega
+    assert(diakrisis_theorem_136_T_t_2f_star_star_star(),
+           "136.T — T-2f*** (ω-iterated depth-stratification)");
+    assert(diakrisis_136_T_kernel_K_refine_omega_ground(),
+           "136.T → K-Refine-omega kernel-rule ground");
+}
+
+@test
+fn test_research_weak_afnt_137_T() {
+    // 137.T — weak AFN-T. Closes MSFS Q5 with VVA-8 ground.
+    assert(diakrisis_theorem_137_T_weak_afnt(),
+           "137.T — weak AFN-T");
+    assert(diakrisis_137_T_msfs_q5_kernel_vva_8_ground(),
+           "137.T → MSFS Q5 closure + VVA-8 kernel ground");
+}
+
+@test
+fn test_research_eastern_non_classical_142_T() {
+    // 142.T — eastern non-classical extension. AFN-T survives
+    // intuitionistic + paraconsistent + relevance variations.
+    assert(diakrisis_theorem_142_T_eastern_non_classical(),
+           "142.T — eastern non-classical (intuit + paracon + rel)");
+    assert(diakrisis_142_T_msfs_b_2_correspondence(),
+           "142.T ↔ MSFS Theorem B.2 (paraconsistent AFN-T)");
+}
