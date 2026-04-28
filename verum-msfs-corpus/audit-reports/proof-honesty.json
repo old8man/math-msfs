@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
   "scanned_files": 25,
-  "axiom_index_size": 325,
+  "axiom_index_size": 332,
   "totals": {
     "axiom_placeholder": 86,
     "theorem_no_proof_body": 0,
@@ -10,7 +10,7 @@
     "theorem_axiom_only_structural": 65,
     "theorem_multi_step": 70,
     "weak_axioms_anchor": 35,
-    "weak_axioms_real": 9
+    "weak_axioms_real": 7
   },
   "by_lineage": {
     "msfs": {
@@ -19,7 +19,7 @@
       "theorem_axiom_only_tautological": 0,
       "axiom_placeholder": 54,
       "weak_axioms_anchor": 30,
-      "weak_axioms_real": 2
+      "weak_axioms_real": 0
     },
     "diakrisis": {
       "theorem_multi_step": 53,
@@ -2681,11 +2681,11 @@
     {
       "name": "msfs_theorem_8_6_I_existence",
       "kind": "axiom-placeholder",
-      "ensures_shape": "true",
-      "is_parameterless": true,
-      "has_witness_param": false,
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
       "is_anchor": false,
-      "weak_axiom": "real",
+      "weak_axiom": null,
       "framework_axiom_deps": 0,
       "theorem_deps": 0,
       "let_bindings": 0,
@@ -2695,11 +2695,11 @@
     {
       "name": "msfs_theorem_8_7_slice_locality",
       "kind": "axiom-placeholder",
-      "ensures_shape": "true",
-      "is_parameterless": true,
-      "has_witness_param": false,
+      "ensures_shape": "predicate",
+      "is_parameterless": false,
+      "has_witness_param": true,
       "is_anchor": false,
-      "weak_axiom": "real",
+      "weak_axiom": null,
       "framework_axiom_deps": 0,
       "theorem_deps": 0,
       "let_bindings": 0,
