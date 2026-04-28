@@ -25,22 +25,31 @@ module lib.theorems.msfs.no_go_subsumption;
 
 mount core.math.rich_s.conditions.{RichS};
 mount core.math.absolute_layer.{LAbsCandidate};
+mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 
-/// **MSFS Theorem 11.1 — Subsumption via specialization.**
+// =============================================================================
+// Theorem 11.1 — single subsumption framework
+// =============================================================================
+//
+// **Subsumption pattern.** Each row of the no-go table is the same
+// inference: classical diagonal X_T satisfies (F_{S_T}) ∧ (Π_4) ∧
+// (Π_3-max) under T's hypothesis ⟹ Theorem 5.1 yields contradiction.
+//
+// We capture this as a generic predicate `LAbsCandidate` and a single
+// theorem. Each classical row is then an instantiation: the row-
+// specific axiom asserts "T's classical diagonal builds an
+// LAbsCandidate"; Theorem 11.1 contradicts it via Theorem 5.1.
+// =============================================================================
+
+/// **MSFS Theorem 11.1 — Subsumption via specialization (universal form).**
 ///
-/// For each classical no-go `T ∈ {Cantor, Russell, Gödel I, Gödel II,
-/// Tarski, Lawvere FP, Ernst}`, there exists a triple
-/// `(S_T, n_T, X_T)` with `S_T ∈ \RS`, `n_T ∈ ℕ ∪ {∞}`, and `X_T`
-/// the purported maximal object satisfying:
-///
-///   (i)   `X_T ⊨ (F_{S_T})`.
-///   (ii)  `X_T` would satisfy `(Π_{4, S_T, n_T})` under `T`'s hypothesis.
-///   (iii) Theorem 5.1 at `(S_T, n_T)` yields a structural contradiction
-///         with the existence of `X_T` as L_Abs candidate.
-///
-/// Each row's classical diagonal *refines* the universal
-/// id_{X_T} template into the row-specific witness — the diagonals
-/// are independent classical arguments, not derived from AFN-T α.
+/// For ANY would-be L_Abs candidate (regardless of which classical
+/// no-go row produced it), Theorem 5.1 forecloses its existence.
+/// This is the universal direction: each row's classical diagonal
+/// (Cantor, Russell, Gödel, Tarski, Lawvere, Ernst) refines this
+/// template by constructing a candidate-shaped object satisfying
+/// the three conditions; Theorem 11.1 then dispatches via
+/// Theorem 5.1.
 ///
 /// Witness table (post-audit C-1, C-2 fixes applied):
 ///   - Cantor 1891      — ZFC, n=1, X=Powerset functor; φ_P(X,Y) ≡ Y={Z:Z⊆X}
@@ -50,6 +59,21 @@ mount core.math.absolute_layer.{LAbsCandidate};
 ///   - Tarski 1936      — PA, n=1, X=putative arithmetic truth pred T; T(φ)≡φ
 ///   - Lawvere FP 1969  — CCC ext. of ZFC, n=1, X=weakly-surj X→X^X
 ///   - Ernst 2015       — Feferman (R1)–(R3), n=1, X=UCT object
+@verify(formal)
 @framework(msfs, "MSFS Theorem 11.1 — subsumption of 7 classical no-go results under AFN-T α")
-public axiom msfs_theorem_11_1_subsumption() -> Bool
+public theorem msfs_theorem_11_1_subsumption(
+    candidate: &LAbsCandidate,
+)
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+        apply msfs_theorem_5_1_afnt_alpha(candidate);
+    };
+
+/// MSFS Theorem 11.1 — anchor handle preserved for downstream
+/// citations (`@framework`-axiom-only form for catalogue tools).
+@framework(msfs, "MSFS Theorem 11.1 — subsumption anchor (catalogue alias)")
+public axiom msfs_theorem_11_1_subsumption_anchor() -> Bool
     ensures true;

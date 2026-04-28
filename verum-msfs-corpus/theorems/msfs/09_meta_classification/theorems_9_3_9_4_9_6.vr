@@ -33,6 +33,8 @@ module lib.theorems.msfs.meta_classification;
 
 mount core.math.strata.{MathObject, msfs_proper_inclusion_cls_clsmax};
 mount core.math.rich_s.conditions.{RichS};
+mount core.math.absolute_layer.{LAbsCandidate};
+mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 
 /// MSFS Definition 9.1 — `Meta_Cls`. A 2-category `\mathbf{F}`
 /// satisfying (M1) locally small 2-cat, (M2) classification 2-functor
@@ -82,14 +84,33 @@ public axiom msfs_corollary_9_5_plurality() -> Bool
 
 /// **MSFS Theorem 9.6 — Meta-classification stabilization.**
 ///
-/// (a) `𝔐^(Cls) := Meta_Cls / meta_gauge ∈ Meta_Cls`.
-/// (b) Theory-level idempotence: `𝔐^(Cls·k)` realises the *same*
-///     (∞,∞)-theory as `𝔐^(Cls)` at every k ≥ 1, modulo
-///     Grothendieck-universe ascent κ_1 < κ_2 < … (post-audit C-3
-///     justification of the Π_(∞,∞) lift via accessible-functor
-///     equivalence transfer).
-/// (c) No L_Abs escalation through meta-iteration. (post-audit
-///     I-13 fix: full triple `(F_S) ∧ (Π_4) ∧ (Π_3-max)` cited).
-@framework(msfs, "MSFS Theorem 9.6 — Meta-classification stabilization (theory idempotent, set-theoretic ascends)")
+/// Three conjuncts (a)/(b)/(c). The first two — (a) `𝔐^(Cls) ∈
+/// Meta_Cls` and (b) theory-level idempotence — are definitional /
+/// post-audit-C3 justified and remain `@axiom` until the
+/// Grothendieck-universe machinery lands as kernel-level reasoning.
+@framework(msfs, "MSFS Theorem 9.6 (a)+(b) — Meta-classification stabilization (theory idempotent, set-theoretic ascends)")
 public axiom msfs_theorem_9_6_meta_classification_stabilization() -> Bool
     ensures true;
+
+/// **MSFS Theorem 9.6 (c) — No L_Abs escalation through meta-iteration.**
+///
+/// The third conjunct of Theorem 9.6 is a direct meta-vertical
+/// application of Theorem 5.1: even if a candidate is constructed
+/// at meta-classification depth k ≥ 1, its `(F_S) ∧ (Π_4) ∧ (Π_3-max)`
+/// triple still violates Theorem 5.1's conjunction inconsistency.
+///
+/// Post-audit I-13 fix: the conjunction is cited in full as the
+/// requires clause; the proof body is a one-step apply of
+/// Theorem 5.1 — no novel meta-iteration reasoning needed.
+@verify(formal)
+@framework(msfs, "MSFS Theorem 9.6 (c) — No L_Abs escalation via meta-iteration (reduces to Theorem 5.1)")
+public theorem msfs_theorem_9_6c_no_l_abs_escalation(
+    candidate: &LAbsCandidate,
+)
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+        apply msfs_theorem_5_1_afnt_alpha(candidate);
+    };

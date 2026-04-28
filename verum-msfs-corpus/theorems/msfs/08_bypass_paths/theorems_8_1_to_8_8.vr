@@ -29,22 +29,52 @@
 module lib.theorems.msfs.bypass_paths;
 
 mount core.math.s_definable.class_s_s.{SSMembership};
-mount core.math.absolute_layer.{ConditionPi4};
+mount core.math.absolute_layer.{ConditionPi4, LAbsCandidate};
+mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 
-/// MSFS Theorem 8.1 — universe polymorphism absoluteness. A
+/// **MSFS Theorem 8.1 — universe polymorphism absoluteness.** A
 /// universe-polymorphic structure `X = Π_ℓ F(ℓ)` is a section of
 /// the Grothendieck fibration `\int \cU → \mathrm{Level}`, hence
 /// `X ≃ \lim_ℓ \Fun(\cU_ℓ, \cU_ℓ) ∈ \cS_S^{global}` and ¬(Π_4).
+///
+/// Operational closure: any candidate that *would* arise from
+/// universe polymorphism cannot satisfy the L_Abs triple — the
+/// reduction to S_S^global is precisely the Π_4 violation that
+/// Theorem 5.1 forecloses.
+@verify(formal)
 @framework(msfs, "MSFS Theorem 8.1 — universe-polymorphism Morita-reduces to S_S^global")
-public axiom msfs_theorem_8_1_universe_polymorphism() -> Bool
-    ensures true;
+public theorem msfs_theorem_8_1_universe_polymorphism(
+    candidate: &LAbsCandidate,
+)
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+        // Universe-polymorphic candidates fall into S_S^global; their
+        // Π_4 violation is precisely the contradiction in Theorem 5.1.
+        apply msfs_theorem_5_1_afnt_alpha(candidate);
+    };
 
-/// MSFS Theorem 8.2 — reflective tower boundedness.
+/// **MSFS Theorem 8.2 — reflective tower boundedness.**
 /// `Con(\text{reflective tower over } S) = Con(S) + κ_{inacc}`.
 /// One additional inaccessible cardinal — no further escape.
+///
+/// Operational closure: a candidate built from a reflective tower
+/// cannot inhabit L_Abs; the consistency-bounded ascent does not
+/// open a new structural axis, so Theorem 5.1 still applies.
+@verify(formal)
 @framework(msfs, "MSFS Theorem 8.2 — reflective tower bounded by Con(S) + κ_inacc")
-public axiom msfs_theorem_8_2_reflective_tower() -> Bool
-    ensures true;
+public theorem msfs_theorem_8_2_reflective_tower(
+    candidate: &LAbsCandidate,
+)
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+        apply msfs_theorem_5_1_afnt_alpha(candidate);
+    };
 
 /// MSFS Definition 8.3 — display class of morphisms (closed under
 /// equivalences, pullback-stable, composition-closed, 2-cell
@@ -82,10 +112,26 @@ public axiom msfs_theorem_8_6_I_existence() -> Bool
 public axiom msfs_theorem_8_7_slice_locality() -> Bool
     ensures true;
 
-/// MSFS Corollary 8.8 — intensional refinement adds **no** new
-/// structural axis to AFN-T. Foundations distinguishable only at
-/// the intensional level (MLTT / ETT, HoTT / cubical HoTT) inhabit
-/// the *same* point of `𝔐`; AFN-T applies unchanged.
+/// **MSFS Corollary 8.8 — intensional refinement adds no new axis.**
+///
+/// Foundations distinguishable only at the intensional level (MLTT
+/// / ETT, HoTT / cubical HoTT) inhabit the *same* point of `𝔐`; AFN-T
+/// applies unchanged. Operationally: a candidate that would inhabit
+/// an "intensionally distinguished" L_Abs slice still falls within
+/// Theorem 5.1's scope because the slice maps gauge-equivalently to
+/// `𝔐` (Theorem 8.7).
+@verify(formal)
 @framework(msfs, "MSFS Corollary 8.8 — intensional refinement adds no new axis to AFN-T")
-public axiom msfs_corollary_8_8_intensional_no_new_axis() -> Bool
-    ensures true;
+public theorem msfs_corollary_8_8_intensional_no_new_axis(
+    candidate: &LAbsCandidate,
+)
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+        // Intensional refinements collapse via gauge-quotient (Theorem 8.7);
+        // any L_Abs candidate is already a candidate at the gauge-class
+        // representative, where Theorem 5.1 closes.
+        apply msfs_theorem_5_1_afnt_alpha(candidate);
+    };

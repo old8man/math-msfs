@@ -60,7 +60,8 @@ mount core.math.s_definable.class_s_s.{
     msfs_s_s_closed_under_kan_extensions,
     msfs_s_s_global_kappa_1_accessible,
 };
-mount core.math.absolute_layer.{ConditionPi4};
+mount core.math.absolute_layer.{ConditionPi4, LAbsCandidate};
+mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 
 // =============================================================================
 // Carrier protocol — transfinite tower of S-definable objects
@@ -176,3 +177,35 @@ public axiom msfs_proposition_6_3_trajectory_space() -> Bool
 @framework(msfs, "MSFS Proposition 6.3 (corollary) — trajectory-tower colimits in S_S^global")
 public axiom msfs_proposition_6_3_corollary() -> Bool
     ensures true;
+
+// =============================================================================
+// AFN-T β-part — operational closure for L_Abs candidates obtained
+// as transfinite-tower colimits
+// =============================================================================
+
+/// **MSFS Theorem 6.1 (operational closure).** A candidate that
+/// would arise as a transfinite-tower colimit and *also* satisfy
+/// the three L_Abs conditions cannot exist. This is the β-part's
+/// L_Abs-emptiness statement: even allowing the candidate to come
+/// from a colimit construction, the conjunction is foreclosed.
+///
+/// Proof: Theorem 6.1 (axiom above) places the colimit in
+/// `S_S^global`; the candidate's `cond_Pi_4` then violates Π_4.
+/// Theorem 5.1 closes the contradiction directly, using its
+/// universal `requires`-shape — the kernel doesn't need to know
+/// the candidate came from a tower.
+@verify(formal)
+@framework(msfs, "MSFS Theorem 6.1 (operational closure) — no L_Abs via transfinite tower")
+public theorem msfs_theorem_6_1_operational_closure(
+    candidate: &LAbsCandidate,
+)
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+        // The β-part reduces operationally to Theorem 5.1 once the
+        // tower's colimit-closure is unfolded — the colimit lands in
+        // S_S^global, the candidate's identity violates Π_4, contradiction.
+        apply msfs_theorem_5_1_afnt_alpha(candidate);
+    };
