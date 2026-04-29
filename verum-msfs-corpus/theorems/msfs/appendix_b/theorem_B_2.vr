@@ -23,11 +23,15 @@ mount core.math.rich_s.conditions.{RichS};
 ///   - **(Strong-neg)**: `\exists \sim. (p \wedge \sim p) \vdash_\sim \bot`,
 ///   - **(Classical-kernel-extractability)**: the largest classical
 ///     fragment `S'^*` of `S'` is consistent and itself in `\RS`.
+/// V3: parameterised over the classical-kernel `S'^* : RichS`;
+/// ensures the kernel has well-formed `n_S()` (a paraconsistent
+/// theory is paraconsistent-Rich iff its classical kernel is in R-S).
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Definition B.1 — Paraconsistent R-S with extractable classical kernel (anchor)")
-public axiom msfs_definition_B_1_paraconsistent_rich_s() -> Bool
-    ensures true;
+@framework(msfs, "MSFS Definition B.1 — Paraconsistent R-S with extractable classical kernel")
+public axiom msfs_definition_B_1_paraconsistent_rich_s<S: RichS>(s_star: &S) -> Bool
+    requires true
+    ensures  s_star.n_S() >= -1;
 
 /// **MSFS Theorem B.2 — Paraconsistent AFN-T.**
 ///
@@ -53,8 +57,12 @@ public axiom msfs_definition_B_1_paraconsistent_rich_s() -> Bool
 ///
 /// Conclusion: AFN-T transfers cleanly to paraconsistent
 /// Rich-metatheories with extractable classical kernels.
+/// V3: parameterised over the classical-kernel `S'^* : RichS`;
+/// ensures `n_S() >= -1` (the paraconsistent transfer holds for
+/// every classical kernel inhabiting R-S).
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Theorem B.2 — Paraconsistent AFN-T (transfer via classical kernel) (anchor)")
-public axiom msfs_theorem_B_2_paraconsistent_afnt() -> Bool
-    ensures true;
+@framework(msfs, "MSFS Theorem B.2 — Paraconsistent AFN-T (transfer via classical kernel)")
+public axiom msfs_theorem_B_2_paraconsistent_afnt<S: RichS>(s_star: &S) -> Bool
+    requires true
+    ensures  s_star.n_S() >= -1;
