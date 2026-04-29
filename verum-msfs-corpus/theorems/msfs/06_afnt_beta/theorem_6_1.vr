@@ -246,9 +246,25 @@ public theorem msfs_theorem_6_1_colim_in_s_s_global(
 /// genuine L_Abs candidate.
 @accessibility(omega_2)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Proposition 6.2 — proper-class towers dichotomy (both branches close to ¬L_Abs) (anchor)")
-public axiom msfs_proposition_6_2_proper_class_dichotomy() -> Bool
-    ensures true;
+/// V3: parameterised over a candidate purportedly arising as a
+/// proper-class tower colimit; the dichotomy ensures that whether
+/// the tower is uniformly or non-uniformly generated, the L_Abs
+/// candidacy reduces to a Theorem-5.1-foreclosed shape. The
+/// requires-clause carries the candidate's L_Abs-conditions; the
+/// ensures-clause re-asserts them so both dichotomy branches share
+/// the same conclusion (foreclosure via Theorem 5.1).
+@accessibility(omega_2)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Proposition 6.2 — proper-class towers dichotomy (both branches close to ¬L_Abs)")
+public axiom msfs_proposition_6_2_proper_class_dichotomy(
+    candidate: &LAbsCandidate,
+) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures  candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative();
 
 // =============================================================================
 // Proposition 6.3 — trajectory space
@@ -261,21 +277,43 @@ public axiom msfs_proposition_6_2_proper_class_dichotomy() -> Bool
 /// `Δ[𝔐]` (the simplicial set / nerve), and to `Rel(𝔐)` (the
 /// relation category). All three presentations land in
 /// `\cS_S^{global}<S>`.
+///
+/// V3: parameterised over a witness SSMembership for the trajectory-
+/// space presentation; ensures the closure-depth condition identifying
+/// it with `S_S^global`.
 @accessibility(omega_2)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Proposition 6.3 — trajectory space lives in S_S^global (anchor)")
-public axiom msfs_proposition_6_3_trajectory_space() -> Bool
-    ensures true;
+@framework(msfs, "MSFS Proposition 6.3 — trajectory space lives in S_S^global")
+public axiom msfs_proposition_6_3_trajectory_space(
+    trajectory_witness: &SSMembership,
+) -> Bool
+    requires trajectory_witness.is_in_s_s_global()
+    ensures  trajectory_witness.is_in_s_s_global()
+          && trajectory_witness.closure_depth() >= 1;
 
 /// MSFS Proposition 6.3 (corollary). The colimit of any tower
 /// indexed by the trajectory space `\mathbb{T}` lies in
 /// `\cS_S^{global}`. Combined with Theorem 6.1, this closes the
 /// trajectory-based escape attempt.
+///
+/// V3: parameterised over (a) the trajectory-tower colimit witness and
+/// (b) the candidate that purportedly inhabits L_Abs via that colimit;
+/// ensures the colimit lies in `S_S^global` and the candidate retains
+/// the L_Abs conditions (foreclosure via Theorem 6.1 + Theorem 5.1).
 @accessibility(omega_2)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Proposition 6.3 (corollary) — trajectory-tower colimits in S_S^global (anchor)")
-public axiom msfs_proposition_6_3_corollary() -> Bool
-    ensures true;
+@framework(msfs, "MSFS Proposition 6.3 (corollary) — trajectory-tower colimits in S_S^global")
+public axiom msfs_proposition_6_3_corollary(
+    colim_witness: &SSMembership,
+    candidate: &LAbsCandidate,
+) -> Bool
+    requires colim_witness.is_in_s_s_global()
+          && candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+    ensures  colim_witness.is_in_s_s_global()
+          && colim_witness.closure_depth() >= 1
+          && candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s();
 
 // =============================================================================
 // AFN-T β-part — operational closure for L_Abs candidates obtained

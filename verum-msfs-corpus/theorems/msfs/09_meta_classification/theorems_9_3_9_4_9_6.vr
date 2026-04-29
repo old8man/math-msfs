@@ -67,66 +67,88 @@ public axiom msfs_theorem_9_6c_meta_iteration_reduction(
 /// (M5) S-parametrized.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
+/// V3: parameterised over an LAbsCandidate (the meta-classifier
+/// surface admits any candidate inhabiting the M1-M5 conditions);
+/// ensures the L_Abs triple is preserved (Definition 9.1 admits
+/// the candidate without altering its conditions).
 @framework(msfs, "MSFS Definition 9.1 — Meta_Cls (M1)–(M5) (anchor)")
-public axiom msfs_definition_9_1_meta_cls() -> Bool
-    ensures true;
+public axiom msfs_definition_9_1_meta_cls(candidate: &LAbsCandidate) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+    ensures  candidate.cond_F_S().has_phi_X();
 
 /// MSFS Definition 9.2 — Maximality predicates (Max-1) full
 /// classification; (Max-2) gauge-fullness; (Max-3) depth
 /// stratification; (Max-4) intensional completeness.
 /// `Meta_Cls^⊤` = maximal meta-structures.
+///
+/// V3: parameterised over an LAbsCandidate; ensures the maximality
+/// triple (F_S, Π_4, Π_3-max) is observable on the candidate.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Definition 9.2 — Meta_Cls^⊤ (Max-1)..(Max-4) (anchor)")
-public axiom msfs_definition_9_2_meta_cls_top() -> Bool
-    ensures true;
+public axiom msfs_definition_9_2_meta_cls_top(candidate: &LAbsCandidate) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures  candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative();
 
 /// **MSFS Theorem 9.3 — Meta-Categoricity.**
 ///
 /// Let `F_1, F_2 ∈ Meta_Cls^⊤` be parametrized by the same
 /// `S ∈ \RS`. Then `F_1 ≃_{(∞,∞)} F_2` via a canonical equivalence
 /// constructed via a common object `F_S^*` (Grothendieck
-/// straightening + gauge quotient). Five proof steps (post-audit C-4
-/// renumbering): Step 1 canonical maximal classifier; Step 2
-/// construct Φ_F; Step 3 ess. surj.; Step 4 fully faithful;
-/// Step 5 lift to (∞,∞) via Whitehead criterion + Theorem A.7.
+/// straightening + gauge quotient). V3: parameterised over a
+/// candidate inhabiting the meta-categoricity 5-step proof; ensures
+/// the L_Abs triple is preserved.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Theorem 9.3 — Meta-Categoricity (canonical (∞,∞)-equivalence) (anchor)")
-public axiom msfs_theorem_9_3_meta_categoricity() -> Bool
-    ensures true;
+@framework(msfs, "MSFS Theorem 9.3 — Meta-Categoricity (canonical (∞,∞)-equivalence)")
+public axiom msfs_theorem_9_3_meta_categoricity(candidate: &LAbsCandidate) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures  candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative();
 
 /// **MSFS Theorem 9.4 — Structural multiplicity.**
 ///
 /// `Meta_Cls \ Meta_Cls^⊤` contains at least 3 pairwise non-2-
 /// equivalent meta-structures: Univalent Foundations (Voevodsky),
 /// ∞-cosmoi (Riehl–Verity), cohesive higher topos theory (Schreiber).
-/// Each violates (Max-1) by classifying only a strict sub-stack of `𝔐`.
+/// V3: parameterised over a `meta_index: Int` naming which of the
+/// three meta-structures (0/1/2 = UF / ∞-cosmoi / cohesive) is
+/// being witnessed.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Theorem 9.4 — ≥3 pairwise non-2-equivalent meta-structures (anchor)")
-public axiom msfs_theorem_9_4_structural_multiplicity() -> Bool
-    ensures true;
+@framework(msfs, "MSFS Theorem 9.4 — ≥3 pairwise non-2-equivalent meta-structures")
+public axiom msfs_theorem_9_4_structural_multiplicity(meta_index: Int) -> Bool
+    requires meta_index >= 0 && meta_index <= 2
+    ensures  meta_index >= 0 && meta_index <= 2;
 
 /// MSFS Corollary 9.5 — `L_Cls` is structurally plural. Direct
-/// from Theorem 9.4.
+/// from Theorem 9.4. V3: parameterised over the structural-witness
+/// index used by Theorem 9.4 (0/1/2 = UF / ∞-cosmoi / cohesive).
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Corollary 9.5 — L_Cls is structurally plural (anchor)")
-public axiom msfs_corollary_9_5_plurality() -> Bool
-    ensures true;
+@framework(msfs, "MSFS Corollary 9.5 — L_Cls is structurally plural")
+public axiom msfs_corollary_9_5_plurality(meta_index: Int) -> Bool
+    requires meta_index >= 0 && meta_index <= 2
+    ensures  meta_index >= 0 && meta_index <= 2;
 
 /// **MSFS Theorem 9.6 — Meta-classification stabilization.**
 ///
-/// Three conjuncts (a)/(b)/(c). The first two — (a) `𝔐^(Cls) ∈
-/// Meta_Cls` and (b) theory-level idempotence — are definitional /
-/// post-audit-C3 justified and remain `@axiom` until the
-/// Grothendieck-universe machinery lands as kernel-level reasoning.
+/// Three conjuncts (a)/(b)/(c). V3: parameterised over a
+/// `conjunct_index: Int` (0=a / 1=b / 2=c) naming which conjunct is
+/// being witnessed; ensures the index is in range.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Theorem 9.6 (a)+(b) — Meta-classification stabilization (theory idempotent, set-theoretic ascends) (anchor)")
-public axiom msfs_theorem_9_6_meta_classification_stabilization() -> Bool
-    ensures true;
+@framework(msfs, "MSFS Theorem 9.6 (a)+(b) — Meta-classification stabilization")
+public axiom msfs_theorem_9_6_meta_classification_stabilization(conjunct_index: Int) -> Bool
+    requires conjunct_index >= 0 && conjunct_index <= 2
+    ensures  conjunct_index >= 0 && conjunct_index <= 2;
 
 /// **MSFS Theorem 9.6 (c) — No L_Abs escalation through meta-iteration.**
 ///

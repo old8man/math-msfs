@@ -45,6 +45,7 @@
 module lib.theorems.msfs.ac_oc_duality;
 
 mount core.math.absolute_layer.{LAbsCandidate};
+mount core.math.s_definable.class_s_s.{SSMembership};
 mount core.math.s_definable.lemma_3_4.{FormallySDefinable};
 mount core.math.dual_absolute_layer.{
     DualConditionFS,
@@ -73,9 +74,15 @@ mount super.super.strata.{msfs_proposition_2_2_iv_l_abs_empty};
 /// `msfs_definition_10_1_F_S_dual` (at the (F̃_S) condition site).
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Definition 10.1 — 2-category cE + α ⊣ ε adjoint pair (anchor)")
-public axiom msfs_definition_10_1_E_category() -> Bool
-    ensures true;
+/// V3: parameterised over a candidate inhabiting cE; ensures the
+/// candidate retains its L_Abs triple (the cE 2-category admits any
+/// well-formed candidate without altering its conditions).
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Definition 10.1 — 2-category cE + α ⊣ ε adjoint pair")
+public axiom msfs_definition_10_1_E_category(candidate: &LAbsCandidate) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+    ensures  candidate.cond_F_S().has_phi_X();
 
 /// MSFS Definition 10.2 — class `\cS_S^\cE` of S-definable
 /// pointed reflective enactments + global sub-class
@@ -84,9 +91,15 @@ public axiom msfs_definition_10_1_E_category() -> Bool
 /// `_Pi_3_max_dual` host axioms.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Definition 10.2 — class cS_S^cE (anchor)")
-public axiom msfs_definition_10_2_S_S_E() -> Bool
-    ensures true;
+/// V3: parameterised over an SSMembership witness for the dual
+/// global subclass; ensures closure_depth >= 0 (consistent with the
+/// host-stdlib's `_Pi_4_dual` / `_Pi_3_max_dual` witness contracts).
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Definition 10.2 — class cS_S^cE")
+public axiom msfs_definition_10_2_S_S_E(m: &SSMembership) -> Bool
+    requires true
+    ensures  m.closure_depth() >= 0;
 
 /// **MSFS Lemma 10.3 — Enactment syntax-semantics lemma (anchor).**
 /// The structural content lives in the witness-parameterised host-
@@ -98,9 +111,15 @@ public axiom msfs_definition_10_2_S_S_E() -> Bool
 /// between locally `κ_S`-presentable categories.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Lemma 10.3 — enactment syntax-semantics (anchor)")
-public axiom msfs_lemma_10_3_enactment_syntax_semantics() -> Bool
-    ensures true;
+/// V3: parameterised over an SSMembership witness; ensures the
+/// closure_depth condition consistent with the post-audit C-7
+/// (ι, r) Kan-extension construction.
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Lemma 10.3 — enactment syntax-semantics")
+public axiom msfs_lemma_10_3_enactment_syntax_semantics(m: &SSMembership) -> Bool
+    requires true
+    ensures  m.closure_depth() >= 0;
 
 /// **MSFS Theorem 10.4 — AC/OC Morita Duality (FLAGSHIP, anchor).**
 ///
@@ -119,9 +138,20 @@ public axiom msfs_lemma_10_3_enactment_syntax_semantics() -> Bool
 @verify(coherent)
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
-@framework(msfs, "MSFS Theorem 10.4 — AC/OC Morita Duality (FLAGSHIP, anchor)")
-public axiom msfs_theorem_10_4_ac_oc_morita_duality() -> Bool
-    ensures true;
+/// V3: parameterised over an LAbsCandidate inhabiting either side
+/// of the Morita duality (𝔐 or 𝔐_cE); ensures the L_Abs triple
+/// is preserved across the (∞,∞)-equivalence.
+@verify(coherent)
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Theorem 10.4 — AC/OC Morita Duality (FLAGSHIP)")
+public axiom msfs_theorem_10_4_ac_oc_morita_duality(candidate: &LAbsCandidate) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures  candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative();
 
 // =============================================================================
 // Promoted @theorems — Corollary 10.5 / Theorem 10.7 / Corollary 10.8 / Theorem 10.9

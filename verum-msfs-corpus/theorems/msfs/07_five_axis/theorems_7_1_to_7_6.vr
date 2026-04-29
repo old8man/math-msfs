@@ -250,13 +250,22 @@ public theorem msfs_theorem_7_4_lateral(
 /// MSFS Definition 7.5 — Lawvere-scope `LS`. Foundations admitting
 /// syntactic 1-categorical and semantic 2-categorical structure
 /// connected by a Lambek-style adjunction realisable as `(∞, n)`-cats.
-/// Definitional anchor — kept as `@axiom` because it introduces a
-/// new mathematical object rather than asserting a deductive claim.
+/// Definitional anchor — introduces a new mathematical object rather
+/// than asserting a deductive claim.
+///
+/// V3: parameterised over a candidate `S: RichS` whose syntactic
+/// category is alleged to inhabit LS; ensures the witness has
+/// well-formed `n_S()` (the categorical level the LS membership
+/// hinges on). The full Lambek-adjunction realisability claim is
+/// the Definition 7.5 catalogue boundary; V4 will produce the
+/// explicit (∞, n)-realisation witness.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Definition 7.5 — Lawvere-scope LS (anchor)")
-public axiom msfs_definition_7_5_lawvere_scope() -> Bool
-    ensures true;
+public axiom msfs_definition_7_5_lawvere_scope<S: RichS>(s: &S) -> Bool
+    requires true
+    ensures  // the LS membership demands well-formed categorical level
+        s.n_S() >= -1;
 
 /// **MSFS Theorem 7.6 — completeness axis (conditional on LS).**
 /// Any structural variation of `F ∈ LS` reduces to one of the four

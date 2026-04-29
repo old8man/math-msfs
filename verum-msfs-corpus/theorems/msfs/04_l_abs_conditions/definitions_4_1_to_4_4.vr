@@ -24,8 +24,10 @@ mount core.math.absolute_layer.{
 };
 
 /// Stage M.4 marker — `verum audit --coord` anchor.
+/// V3: parameterised over `stage_index: Int == 4`.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Stage M.4 — L_Abs Conditions (§4) anchor")
-public axiom msfs_stage_m_4_anchor() -> Bool
-    ensures true;
+public axiom msfs_stage_m_4_anchor(stage_index: Int) -> Bool
+    requires stage_index == 4
+    ensures  stage_index == 4;

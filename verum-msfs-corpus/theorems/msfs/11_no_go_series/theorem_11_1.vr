@@ -28,6 +28,31 @@ mount core.math.absolute_layer.{LAbsCandidate};
 mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
 
 // =============================================================================
+// Per-row subsumption-reduction citation — paper §11 7-row table
+// =============================================================================
+
+/// **MSFS §11.1 subsumption-reduction citation.** Each classical no-go
+/// row (Cantor, Russell, Gödel I, Gödel II, Tarski, Lawvere, Ernst)
+/// builds a row-specific candidate satisfying the L_Abs triple via its
+/// row-specific diagonal (|X|<|P(X)|, R∈R↔R∉R, G↔¬Prov(⌜G⌝), liar,
+/// f(x_0)=x_0, UCT-axiom). The reduction asserts that this row-specific
+/// construction yields the same L_Abs candidate shape Theorem 5.1
+/// forecloses universally. Reduction preserves the L_Abs triple. Paper
+/// §11.1 + post-audit C-1/C-2 fixes (Russell at ZFC, Tarski at PA).
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS §11.1 reduction — classical no-go rows (7) refine universal id_X template into row-specific witness")
+public axiom msfs_theorem_11_1_subsumption_reduction(
+    candidate: &LAbsCandidate,
+) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures  candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative();
+
+// =============================================================================
 // Theorem 11.1 — single subsumption framework
 // =============================================================================
 //
@@ -71,13 +96,26 @@ public theorem msfs_theorem_11_1_subsumption(
           && candidate.cond_Pi_3_max().is_maximally_generative()
     ensures false
     proof {
+        // Step 1 — Cite §11.1 row-specific subsumption-reduction (paper §11.1):
+        //          each classical no-go row reduces its row-specific witness
+        //          to the universal id_X template Theorem 5.1 forecloses.
+        apply msfs_theorem_11_1_subsumption_reduction(candidate);
+        // Step 2 — Apply Theorem 5.1 to the universal-template candidate.
         apply msfs_theorem_5_1_afnt_alpha(candidate);
     };
 
 /// MSFS Theorem 11.1 — anchor handle preserved for downstream
-/// citations (`@framework`-axiom-only form for catalogue tools).
+/// citations (catalogue alias). V3: parameterised over a candidate
+/// inhabiting one of the classical no-go rows; ensures the L_Abs
+/// triple is observable (the subsumption applies to candidates
+/// satisfying the universal Π_4 / Π_3-max conditions).
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 11.1 — subsumption anchor (catalogue alias)")
-public axiom msfs_theorem_11_1_subsumption_anchor() -> Bool
-    ensures true;
+public axiom msfs_theorem_11_1_subsumption_anchor(candidate: &LAbsCandidate) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures  candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative();

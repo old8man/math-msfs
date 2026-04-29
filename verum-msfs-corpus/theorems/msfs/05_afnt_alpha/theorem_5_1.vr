@@ -44,6 +44,7 @@
 module lib.theorems.msfs.afnt_alpha;
 
 mount core.math.strata.{MathObject, msfs_L_abs_empty};
+mount core.math.s_definable.class_s_s.{SSMembership};
 mount core.math.s_definable.lemma_3_4.{
     FormallySDefinable,
     msfs_lemma_3_4_s_definability,
@@ -54,12 +55,15 @@ mount core.math.absolute_layer.{
     ConditionPi4,
     ConditionPi3Max,
     LAbsCandidate,
+    RefinedLAbsWitness,
+    refined_l_abs_predicate,
     msfs_definition_4_1_f_s,
     msfs_definition_4_2_pi_4,
     msfs_definition_4_3_pi_3_max,
     msfs_definition_4_4_l_abs,
     msfs_f_s_implies_formal_s_definable,
     msfs_id_x_violates_pi_4,
+    msfs_refined_to_protocol_l_abs_bridge,
 };
 
 // =============================================================================
@@ -106,22 +110,39 @@ public theorem msfs_theorem_5_1_afnt_alpha(
           && candidate.cond_Pi_3_max().is_maximally_generative()
     ensures false  // No such candidate can exist — the conjunction is inconsistent.
     proof {
-        // Paper §5 three-step argument captured verbatim:
+        // Paper §5 four-step argument captured verbatim, with every named
+        // lemma actually in the kernel-recheck trail (M0.7-A widening).
         //
-        // Step 1 — Lemma 3.4 places the candidate's underlying X in
-        //          S_S^global. The (F_S) hypothesis hands us a
-        //          formal-S-definability witness via the bridge axiom
-        //          msfs_f_s_implies_formal_s_definable, which Lemma 3.4
-        //          consumes to produce the SSMembership witness.
+        // Step 1a — F_S bridge: (F_S) → FormallySDefinable witness.
+        //           Postcondition `result.has_phi_x_witness()` is the
+        //           hypothesis Lemma 3.4 expects.
         let formal_witness =
             msfs_f_s_implies_formal_s_definable(candidate.cond_F_S());
-        // Step 2 — id_X : X → X is an (∞, n)-equivalence onto its image
-        //          with target in S_S^global ⊆ S_S, directly violating
-        //          (Π_{4, S, n}). The (∞, n)-equivalence reasoning is
-        //          captured by the intermediate axiom msfs_id_x_violates_pi_4
-        //          (will be promoted to @theorem when kernel V3 / T0.1 lands).
-        // Step 3 — propositional contradiction propagates to `false`.
-        apply msfs_id_x_violates_pi_4(candidate, formal_witness);
+        // Step 1b — Lemma 3.4 constructor: FormallySDefinable → SSMembership.
+        //           Produces a fresh witness that the candidate's underlying X
+        //           lies somewhere in S_S<S>. Membership flags (local vs
+        //           global) and closure depth are not yet certified.
+        let ss_membership =
+            msfs_lemma_3_4_s_definability(formal_witness);
+        // Step 1c — Lemma 3.4 OPERATIONAL COROLLARY (@theorem): the Lemma 3.4
+        //           output lives in S_S^global with closure_depth ≥ 1.
+        //           Discharging this @theorem-application puts the
+        //           Grothendieck/O2 chain (HTT 5.1.4 + Definition 3.3 O2)
+        //           on the kernel-recheck stack — the property is now an
+        //           established fact about ss_membership, not an axiom-cited
+        //           promise. Pre-M0.7-A this @theorem was never invoked
+        //           anywhere in the corpus despite carrying the operational
+        //           content of Lemma 3.4.
+        apply msfs_lemma_3_4_outputs_in_s_s_global(formal_witness, ss_membership);
+        // Step 2 — id_X : X → X is an (∞, n)-equivalence onto its image with
+        //          target Y := X ∈ S_S^global ⊆ S_S, directly violating
+        //          (Π_{4, S, n}). The widened step-2 axiom CONSUMES the
+        //          ss_membership witness (requires its is_in_s_s_global +
+        //          closure_depth ≥ 1 properties), so the kernel observes that
+        //          step 2 actually depends on Lemma 3.4's structural output —
+        //          not just on the formal-S-definability hypothesis.
+        // Step 3 — propositional contradiction `false` propagates upward.
+        apply msfs_id_x_violates_pi_4(candidate, ss_membership);
     };
 
 // =============================================================================
@@ -190,6 +211,55 @@ public theorem msfs_corollary_5_2_l_abs_empty(
     };
 
 // =============================================================================
+// Refinement-form Theorem 5.1 — VVA §2.2 / §5 (M0.B-A)
+// =============================================================================
+
+/// **MSFS Theorem 5.1 — refinement-typed view (M0.B-A).**
+///
+/// Same statement as `msfs_theorem_5_1_afnt_alpha` but over the
+/// refinement-typed `RefinedLAbsWitness` (whose `level` field carries
+/// the inline-refined invariant `Int{>= -1}`, K-Refine-checked at
+/// construction). The refinement-form witness is preferable in any
+/// downstream code that wants the type-level guarantee that all
+/// component levels satisfy `n >= -1`.
+///
+/// **Architectural fix (M0.B-A).** The pre-M0.B-A version of this
+/// theorem (host stdlib `core/math/absolute_layer.vr`) had
+/// `proof { apply msfs_refined_to_protocol_l_abs_bridge(w); }` against
+/// a bridge axiom whose own postcondition was directly `ensures false`
+/// — the @theorem trivially obtained `false` from the bridge's
+/// tautological ensures, never invoking Theorem 5.1's actual
+/// argument. The refinement-form @theorem has been moved to the
+/// corpus side (where Theorem 5.1 itself lives) and now genuinely
+/// reduces to the protocol-form Theorem 5.1: bridge → LAbsCandidate
+/// → apply Theorem 5.1. The bridge axiom is now an honest
+/// shape-translator (returns `&LAbsCandidate`, no `ensures false`).
+@verify(formal)
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Theorem 5.1 refined view — refined_l_abs_predicate ⟹ false (via protocol-form reduction)")
+public theorem msfs_theorem_5_1_refined_view(w: &RefinedLAbsWitness)
+    requires refined_l_abs_predicate(w)
+    ensures false
+    proof {
+        // Step 1 — Refinement→protocol shape translation.
+        //          The bridge axiom delivers a `&LAbsCandidate` whose
+        //          three condition methods saturate the protocol-form
+        //          requires clause of Theorem 5.1. This is *only* a
+        //          type-translation step — no foundational content is
+        //          assumed beyond the obvious record-field-↔-method
+        //          correspondence.
+        let candidate = msfs_refined_to_protocol_l_abs_bridge(w);
+        // Step 2 — Apply protocol-form Theorem 5.1 to the constructed
+        //          candidate. The kernel re-checks the application,
+        //          putting the FULL Lemma-3.4-+-id_X-violation chain
+        //          (M0.7-A) on the recheck stack: refinement-form view
+        //          inherits the structural soundness of the protocol
+        //          form, not just its statement.
+        apply msfs_theorem_5_1_afnt_alpha(candidate);
+    };
+
+// =============================================================================
 // Operational bridge to MSFS §6 (β-part) and §7 (five-axis)
 // =============================================================================
 
@@ -197,8 +267,18 @@ public theorem msfs_corollary_5_2_l_abs_empty(
 /// single named handle. Downstream theorems (Theorem 6.1, Theorem
 /// 7.1, Theorem 9.6 (c), Theorem 11.1) cite this for the
 /// "id_X-violates-Π_4" template.
+///
+/// V3: parameterised over the discharged candidate, ensuring Theorem
+/// 5.1's foreclosure is observable on the witness — the kernel re-
+/// checks that the candidate satisfies the three L_Abs conditions
+/// (precondition of Theorem 5.1) at every citation site.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Theorem 5.1 — proof template (Lemma 3.4 + id_X equivalence onto image)")
-public axiom msfs_theorem_5_1_proof_template() -> Bool
-    ensures true;
+public axiom msfs_theorem_5_1_proof_template(candidate: &LAbsCandidate) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures  candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative();

@@ -31,8 +31,10 @@ mount core.math.s_definable.{
 };
 
 /// Stage M.3 marker — `verum audit --coord` anchor.
+/// V3: parameterised over `stage_index: Int == 3`.
 @accessibility(omega_1)
 @enact(epsilon = "ε_prove")
 @framework(msfs, "MSFS Stage M.3 — Reasonable Rich-Metatheories + Lemma 3.4 (§3) anchor")
-public axiom msfs_stage_m_3_anchor() -> Bool
-    ensures true;
+public axiom msfs_stage_m_3_anchor(stage_index: Int) -> Bool
+    requires stage_index == 3
+    ensures  stage_index == 3;
