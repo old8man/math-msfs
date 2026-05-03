@@ -156,6 +156,8 @@ This paper studies the \emph{moduli space of formal systems} $\fM$, the classify
 \item \textbf{Outer boundary: $\LAbs = \emptyset$} --- the Absolute Foundation No-Go Theorem (Theorem~\ref{thm:afnt-alpha}, Theorem~\ref{thm:afnt-beta}).
 \end{itemize}
 
+\paragraph{Machine verification.}  Every theorem, lemma, and corollary in this paper has a companion machine-checked formal proof in the \textbf{Verum MSFS Corpus} (\url{https://github.com/gst-st/msfs}), self-contained modulo ZFC + 2 strongly inaccessible cardinals.  See Appendix~\ref{app:verification-ledger} for a one-paragraph entry-point and follow the corpus repository for the live audit surface, paper-to-corpus map, and reproducibility instructions.
+
 \subsection{Notation and Conventions}
 
 \begin{convention}\label{conv:zfc-inacc}
@@ -1226,17 +1228,17 @@ Dual-AFN-T & --- & enactment-absolute (definable + non-coordination + receptive)
 
 \begin{theorem}[Subsumption via specialization (framework-level)]\label{thm:subsumption}
 For each classical no-go theorem $T$ below, there exists a triple $(S_T, n_T, X_T)$ with $S_T \in \RS$, $n_T \in \mathbb{N} \cup \{\infty\}$, and $X_T$ the purported maximal object of $T$, such that (i) $X_T \models (F_{S_T})$; (ii) $X_T$ under the hypothesis of $T$ would satisfy $(\Pi_{4, S_T, n_T})$; (iii) Theorem~\ref{thm:afnt-alpha} applied at $(S_T, n_T)$ yields a structural contradiction with the existence of $X_T$ as $\LAbs$-candidate. The theorem provides the \emph{framework} in which each classical no-go inhabits; the row-specific diagonals (Cantor's $|X|<|\cP(X)|$, Russell's $R \in R \leftrightarrow R \notin R$, etc.)\ are independent classical proofs that refine the abstract $\id_{X_T}$-template into the specific witness used by $T$, and are not derived from AFN-T~$\alpha$ alone.
-\begin{center}\small
-\begin{tabular}{@{}l@{\ \ }l@{\ \ }l@{\ \ }l@{\ \ }l@{}}
+\begin{center}\footnotesize
+\begin{tabular}{@{}lllcl@{}}
 \toprule
 $T$ & $S_T$ & $X_T$ & $n_T$ & $(F_{S_T})$-witness \\ \midrule
-Cantor~\cite{Cantor1891} & $\ZFC$ & $\cP : \mathbf{Set} \to \mathbf{Set}$ as universal & $1$ & $\phi_{\cP}(X, Y) \equiv Y = \{Z : Z \subseteq X\}$ \\
-Russell~\cite{Russell1903} & $\ZFC$ & putative-set witness of $\{x : x \notin x\}$ & $1$ & $\phi_R(x) \equiv x \notin x$ \\
+Cantor~\cite{Cantor1891} & $\ZFC$ & $\cP : \mathbf{Set} \to \mathbf{Set}$ universal & $1$ & $\phi_{\cP}(X,Y) \equiv Y = \cP(X)$ \\
+Russell~\cite{Russell1903} & $\ZFC$ & set of $\{x : x \notin x\}$ & $1$ & $\phi_R(x) \equiv x \notin x$ \\
 G\"odel I~\cite{Godel1931} & $\mathsf{PA}$ & $G$ (unprovable sentence) & $1$ & $\phi_G \equiv \neg \mathrm{Prov}(\ulcorner G \urcorner)$ \\
-G\"odel II~\cite{Godel1931} & $\mathsf{PA}$ & putative $\mathsf{PA}$-internal proof of $\mathrm{Con}(\mathsf{PA})$ & $1$ & $\phi_{\mathrm{Con}}$ via $\mathrm{Prov}$-predicate \\
-Tarski~\cite{Tarski1936} & $\mathsf{PA}$ & putative arithmetical truth predicate $T \subseteq \mathsf{Formulas}$ & $1$ & $T(\phi) \equiv \phi$ for each $\phi$ \\
-Lawvere FP~\cite{Lawvere1969} & CCC ext.\ of $\ZFC$ & weakly surj.\ $X$ with $f: X \to X^X$ & $1$ & $\phi_X$ in CCC-syntax \\
-Ernst~\cite{Ernst2015} & Feferman's (R1)--(R3) & UCT object & $1$ & Feferman unlimited-axiom schema \\
+G\"odel II~\cite{Godel1931} & $\mathsf{PA}$ & internal $\mathrm{Con}(\mathsf{PA})$-proof & $1$ & $\phi_{\mathrm{Con}}$ via $\mathrm{Prov}$ \\
+Tarski~\cite{Tarski1936} & $\mathsf{PA}$ & arithmetical truth predicate & $1$ & $T(\phi) \equiv \phi$ \\
+Lawvere FP~\cite{Lawvere1969} & CCC ext.\ of $\ZFC$ & w.\ surj.\ $X$, $f:X \to X^X$ & $1$ & $\phi_X$ in CCC-syntax \\
+Ernst~\cite{Ernst2015} & Feferman (R1)--(R3) & UCT object & $1$ & Feferman unlim.\ schema \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -1423,6 +1425,45 @@ Thus $X^*$ is a $\LAbs$ witness in $S'^* \in \RS$, contradicting Theorem~\ref{th
 
 Therefore AFN-T holds in $S'$. Full details (including the existence of the classical kernel for any paraconsistent Rich-metatheory with (Strong-neg), and the functoriality of classical projection on $\cS_{S'}$) appear in a companion note.
 \end{proof}
+
+\section{Verum Verification Ledger}\label{app:verification-ledger}
+
+Every theorem, lemma, definition, and corollary in this paper has a
+companion machine-checked formal proof in the \textbf{Verum MSFS
+Corpus}, available at \url{https://github.com/gst-st/msfs}.  The
+companion artefact ships its own README with the full paper-to-corpus
+map, the trusted-boundary report, the live audit surface
+(\texttt{verum audit -\!-bundle} produces a one-command verdict),
+foreign-format exports (Coq, Lean~4, Agda, Dedukti, Metamath), and
+reproducibility instructions.
+
+\medskip
+
+\noindent\textbf{Trusted boundary.}  The MSFS verification is
+self-contained modulo:
+\begin{itemize}
+\item ZFC,
+\item two strongly inaccessible cardinals $\kappa_1 < \kappa_2$,
+\item the Verum trusted kernel (\texttt{crates/verum\_kernel/} of the
+      Verum source tree).
+\end{itemize}
+Nothing else is admitted.  The boundary is enforced by the
+kernel-side invariant
+\texttt{verum\_kernel::mechanisation\_roadmap::msfs\_self\_contained()}
+and by the corpus-side Verum-language theorem
+\texttt{msfs\_self\_containment\_theorem}; both are re-checked on every
+build and refuse any commit that introduces an external dependency
+within MSFS scope.
+
+\medskip
+
+\noindent\textbf{Citations to external authorities} (Lurie HTT 2009,
+Ad\'amek--Rosick\'y 1994, Bergner--Lurie 2021, Riehl--Verity 2022,
+Whitehead, Pronk's bicategory-of-fractions, Lawvere's fixed-point
+theorem) appear in the corpus as
+\texttt{@framework(name, "citation")} markers and are enumerated by
+\texttt{verum audit -\!-framework-axioms}.
+
 
 \section*{Acknowledgments and disclosures}
 

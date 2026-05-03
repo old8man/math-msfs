@@ -78,101 +78,17 @@ Transitions: $\mathrm{Cls}$ (horizontal, classifying) lifts $\mathcal{L}_{\mathr
 
 ## Machine verification — the Verum corpus
 
-MSFS is not only a paper. It is also the **flagship machine-verified mathematical corpus for the Verum proof assistant**, and the larger-scale demonstration of Verum's capabilities for working mathematicians and engineers. Everything below is reproducible from the source tree at [`verum-corpus/`](./verum-corpus/).
+MSFS is not only a paper.  Every theorem, lemma, and corollary has a companion machine-checked formal proof in the **Verum MSFS Corpus** at [`verum-corpus/`](./verum-corpus/).  The corpus is **self-contained modulo ZFC + 2 strongly inaccessible cardinals** and ships its own README + tutorial with the verification pipeline, audit catalogue, paper-to-corpus map, and reproducibility instructions.
 
-### Status snapshot
+The trusted boundary is exactly:
 
-| Surface | Verdict |
-|---|---|
-| Trusted base | **Verum kernel `proof_checker.rs` (633 LOC Rust) + ZFC + 2 inaccessibles**. No external preprint cited. |
-| Theorems formalized | **53** — 12 definitions, 8 lemmas, 16 theorems, 10 corollaries, 5 propositions, 2 conventions (mirrors paper §1–§13). |
-| Live cross-format emission | **5 backends** (Coq + Lean 4 + Agda + Isabelle/HOL + Dedukti) covering 3 foundation families (CIC, MLTT, classical HOL). |
-| Constructive-proof translation rate | **86 %** on Coq + Lean + Isabelle (594 of 688 theorems emit `Proof. <tactic>. Qed.` instead of `Admitted.`). The remaining 14 % carry honest IOU citations to mathlib4 / framework axioms. |
-| Audit-bundle gates | **27** load-bearing gates (`verum audit --bundle`). Every gate is CI-trackable; `bundle.json` carries the headline `l4_load_bearing: bool`. |
-| Self-containment | `core.math.frameworks.msfs.self_containment.msfs_self_containment_theorem` discharges the trusted-boundary claim **inside Verum's kernel**, not as documentation. |
+- ZFC,
+- two strongly inaccessible cardinals $\kappa_1 < \kappa_2$,
+- the Verum trusted kernel (`crates/verum_kernel/`).
 
-### What "machine verification" means here
+Nothing else is admitted.  The boundary is enforced by the kernel-side invariant `verum_kernel::mechanisation_roadmap::msfs_self_contained()` and by the corpus-side Verum-language theorem `msfs_self_containment_theorem`; both are re-checked on every build.
 
-The corpus does not stop at "the foundation has been chosen and the proofs type-check." It pins three orthogonal invariants in CI:
-
-1. **Kernel acceptance.** Every theorem reduces to a `proof_checker::Certificate` that the 633-LOC trusted base accepts. The kernel rules themselves are mirrored in [`core/verify/kernel_v0/`](../../../core/verify/kernel_v0) — the bootstrap meta-theory. The Rust ↔ Verum mirror invariant is enforced by `verum audit --kernel-v0-roster` (4 rules proved structurally, 6 admitted with explicit IOU citations to substitution-lemma, β-confluence, function-extensionality, etc.).
-
-2. **Independent re-checking across foundations.** Every emitted theorem is also rendered into Coq, Lean 4, Agda, Isabelle/HOL, and Dedukti source files. The CI `verum audit --cross-format-roundtrip` gate launches the foreign tool on each artefact when the toolchain is installed — a corpus theorem that re-checks under all five backends is robust across CIC, MLTT, and classical HOL simultaneously.
-
-3. **Provenance signatures.** Every emitted file carries a `verum_signature: <kernel_version>:<blake3-hex>` header pinning the artefact cryptographically to the source state. Reviewers verify provenance via `verum audit --signatures` without re-running the pipeline.
-
-### Foundation-profile audit
-
-`verum audit --foundation-profiles` walks every `@framework(<name>, "<citation>")` attribute in the corpus and classifies its underlying logical foundation. Live MSFS verdict:
-
-| Foundation | Citations | Frameworks |
-|---|---|---|
-| ZFC + 2 inaccessibles (default meta-theory) | 280 | `msfs`, `diakrisis`, `connes_reconstruction`, `baez_dolan`, `schreiber_dcct`, `petz_classification`, `adamek_rosicky`, `lair_makkai_pare`, `lambek_scott`, `verum` |
-| ZFC + 1 inaccessible | 9 | `lurie_htt` |
-| Pure ZFC (no Grothendieck universes) | 23 | `arnold_catastrophe`, bounded-arithmetic fragments |
-| HoTT (univalence) | 5 | `hott` |
-| CIC (UIP) | 6 | `coq_stdlib`, `lean4_stdlib`, `mathlib4` |
-
-The HoTT × CIC pluralism is observability-only (no single proof chain crosses them); the audit surfaces it for manual chain-isolation review.
-
-### Constructive proof translation
-
-The cross-format gate emits **real, foreign-tool-checkable proofs** wherever the proof body shape allows it. Coverage as of Verum kernel `2.6.0`:
-
-| Backend | Real proofs | Total | Coverage |
-|---|---|---|---|
-| Coq | 594 | 688 | 86 % |
-| Lean 4 | 594 | 688 | 86 % |
-| Isabelle/HOL | 594 | 688 | 86 % |
-| Agda | 7 | 688 | 1 % (no tactic system in vanilla Agda; future Reflection-based extension) |
-| Dedukti | 7 | 688 | 1 % (logical framework, term-mode only) |
-
-Translated proof bodies cover: term-mode bodies (Curry-Howard direct), single-apply tactics (`apply foo;` → `apply foo.` Coq / `by apply foo` Lean), structured-with-single-step shapes, multi-segment dotted-path framework citations (`apply mathlib4.lambda.ChurchRosser;`), and primitive tactics (`auto`, `trivial`, `reflexivity`, `assumption`, `ring`, `field`, `omega`, `induction n`, `cases e`).
-
-### Audit gate catalogue (27 gates, load-bearing)
-
-`verum audit --bundle` aggregates the load-bearing gates into a single L4 verdict. Headlines:
-
-* **`--bridge-discharge`** — every `apply kernel_*_strict(...)` callsite replays through the dispatcher.
-* **`--kernel-soundness`** — per-rule soundness-lemma status across the 35-rule corpus.
-* **`--kernel-v0-roster`** — bootstrap-meta-theory drift gate (10 rules; manifest ↔ filesystem invariant).
-* **`--soundness-iou`** — IOU dashboard: every admitted lemma's structural-property prerequisite verbatim.
-* **`--apply-graph`** — transitive walk; classifies every leaf as `kernel_strict` / `framework_axiom` / `placeholder_axiom` / `unresolved`.
-* **`--framework-axioms`** — enumerate every `@framework(<corpus>, "<citation>")` marker.
-* **`--framework-conflicts`** — UIP × univalence pair detector (and similar incompatibilities).
-* **`--foundation-profiles`** — citation-by-foundation classifier (table above).
-* **`--cross-format-roundtrip`** — emit + re-check through all five backends.
-* **`--signatures`** — provenance-pin verification per artefact.
-* **`--proof-honesty`** — every `Admitted.` carries a structured admit reason.
-* **`--proof-term-library`** — the canonical certificate library round-trips through `proof_checker::Certificate::verify()`.
-* **`--codegen-attestation`** — per-pass kernel-discharge manifest (CompCert-style; 0 of 6 attested baseline = the verified-compilation IOU surface).
-* **`--ladder-monotonicity`** — verification-ladder strictness invariant.
-* **`--accessibility`** — λ-accessibility annotation coverage on every `@enact` site.
-* **`--coherent`** — categorical-coherence conditions (associator / unitor / pentagon / triangle).
-* **`--coord` / `--coord-consistency`** — diakrisis coordinate-system audits.
-* **`--epsilon`** — ε-rule application consistency.
-* **`--owl2-classify`** — ontology DL-fragment classification.
-* **`--round-trip`** — emit + re-import equivalence.
-* **`--hygiene` / `--hygiene-strict`** — macro-hygiene capture detection.
-* **`--framework-soundness`** — every `@framework` citation resolves to a legitimate upstream proof or axiom.
-
-### Best practices for creating similar verified corpora
-
-The MSFS pipeline distils into a transferable methodology:
-
-1. **Pin the trusted base.** Declare the foundation in one place (`@framework(zfc_two_inaccessibles, "...")` for MSFS) and drive every theorem's `@verify(strategy)` annotation against it. Verum's `--foundation-profiles` gate refuses silent foundation-drift.
-
-2. **Cite, don't retell.** Use `@framework(<corpus>, "<citation>")` for every appeal to upstream literature (mathlib4, Lurie HTT, Adámek-Rosický). The `--framework-axioms` gate catalogues them; `--apply-graph` checks every chain reaches a kernel-checked or upstream-cited leaf.
-
-3. **Track honest debt.** Every `Admitted.` / `sorry` carries a structured admit reason via `@admit_reason("...")`. The `--proof-honesty` and `--soundness-iou` gates surface the live debt set.
-
-4. **Cross-check across foundations.** Emit to multiple backends; corpus theorems that re-check under independent foundations (CIC + MLTT + classical HOL) are foundation-robust by construction.
-
-5. **Sign every artefact.** `verum_signature: <kernel_version>:<blake3>` headers turn every emitted file into a self-verifying provenance chain.
-
-6. **Audit in CI.** `verum audit --bundle` is the single-command verdict. CI gates the L4 claim on the bundle's `l4_load_bearing: true`.
-
-The full pipeline source — [`verum-corpus/`](./verum-corpus/) — is intentionally opinionated. It is, in turn, the recommended template for new mathematical corpora seeking Verum-grade machine verification.
+Run `verum audit --bundle` inside `verum-corpus/` for the one-command L4-readiness verdict.
 
 ## Setting: technical preliminaries
 

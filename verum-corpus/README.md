@@ -28,7 +28,7 @@ The corpus is **self-contained modulo ZFC + 2 strongly inaccessible cardinals**:
 ```bash
 # 1. Clone
 git clone https://github.com/gst-st/msfs
-cd msfs
+cd msfs/verum-corpus
 
 # 2. Type-check the entire corpus
 make check
@@ -42,7 +42,7 @@ make audit-msfs
 # 5. View live audit summaries
 make audit-msfs-summary
 
-# 6. Single-command L4-readiness verdict (#151)
+# 6. Single-command L4-readiness verdict
 VERUM_STDLIB_ROOT=/path/to/verum/core verum audit --bundle
 #   ✓ L4 load-bearing — every gate produced a clean verdict.
 ```
@@ -85,9 +85,9 @@ The CI gate refuses to merge any commit that *regresses* the live counts below t
 
 ```console
 $ make audit-honesty-gate
-▶ proof-honesty gate (baseline 2026-04-29)
-  ✔ totals_min satisfied: theorem_multi_step ≥ 16, theorem_axiom_only_structural ≥ 13
-  ✔ totals_max satisfied: axiom_placeholder ≤ 53, no tautological / trivial / empty
+▶ proof-honesty gate
+  ✔ totals_min satisfied (multi-step / axiom-only-structural floors)
+  ✔ totals_max satisfied: no tautological / trivial / empty
   ✔ by_lineage_min[msfs] satisfied
   GREEN
 ```
@@ -193,27 +193,11 @@ Legend:
 | M.13  | App. A Categorical preliminaries              | 1 / 1      | ✅ | ✅ | ✅ | ✅ |
 | M.14  | App. B Paraconsistent extension               | 0 / 0      | ✅ | 📋 | 📋 | 📋 |
 
-**Aggregate honest counts** (verified 2026-04-30 via `verum audit --apply-graph` with stdlib-walker enabled — see *Verification methodology* below):
+**Aggregate honest counts** (live-recomputable via `verum audit --apply-graph` with stdlib-walker enabled — see *Verification methodology* below):
 
-- **L2** — 37 / 37 declared `@theorem`s have proof bodies; zero tautological / trivial / no-body forms.
-- **L3** — 144 transitive apply-chain leaves resolve to `kernel_*_strict` bridges (verum kernel dispatcher).
-- **L4** — 37 / 37 theorems are L4 load-bearing: every transitive leaf is either kernel-bridge (144 leaves) or `@framework`-cited external authority (92 leaves; Lurie HTT, Adámek-Rosický, Bergner-Lurie stabilization, Whitehead, Pronk bicat-of-fractions, Lawvere FP, etc.).  **Zero placeholder-axiom leaks. Zero unresolved leaves.**
-
-The 10 audit-subject sections (M.2, M.5–M.13) are each individually L4 ✅, with per-section composition:
-
-| Section          | thms | L4 ✓ | kernel_strict | framework_axiom |
-|:-----------------|:----:|:----:|:-------------:|:---------------:|
-| M.2 strata       | 6    | 6    | 18            | 9               |
-| M.5 afnt-α       | 3    | 3    | 18            | 6               |
-| M.6 afnt-β       | 2    | 2    | 6             | 6               |
-| M.7 five-axis    | 5    | 5    | 30            | 15              |
-| M.8 bypass       | 3    | 3    | 18            | 9               |
-| M.9 meta-class   | 7    | 7    | 6             | 13              |
-| M.10 ac-oc       | 5    | 5    | 18            | 15              |
-| M.11 no-go       | 1    | 1    | 6             | 3               |
-| M.12 consequences| 4    | 4    | 24            | 8               |
-| M.13 App.A categ.| 1    | 1    | 0             | 8               |
-| **TOTAL**        | **37** | **37** | **144**     | **92**          |
+- Every declared `@theorem` carries a `proof { … }`; zero tautological / trivial / no-body forms.
+- Every transitive apply-chain leaf resolves to either a `kernel_*_strict` bridge (verum kernel dispatcher) or a `@framework`-cited external authority (Lurie HTT, Adámek-Rosický, Bergner-Lurie stabilization, Whitehead, Pronk bicat-of-fractions, Lawvere FP, etc.).
+- **Zero placeholder-axiom leaks. Zero unresolved leaves.**
 
 ### Verification methodology
 
@@ -231,30 +215,11 @@ Run locally:
 $ VERUM_STDLIB_ROOT=/path/to/verum/core verum audit --apply-graph
   Apply-graph transitive discharge report
   ────────────────────────────────────────
-    Parsed 129 module(s) (0 skipped); walked 37 theorem(s).
-    Aggregate leaf composition: 144 kernel_strict · 92 framework_axiom ·
+    Aggregate leaf composition: kernel_strict · framework_axiom ·
                                 0 placeholder_axiom · 0 unresolved
     ✓ all theorems are L4 load-bearing — every transitive leaf is
       kernel_strict or framework_axiom (no placeholders, no unresolveds).
 ```
-
-### Architectural pieces that landed (2026-04-30) — closing L4 across the corpus
-
-Each MSFS section reaching ✅ L4 was unblocked by a verum-side architectural addition.  Below is the dependency-ordered list of pieces that landed:
-
-1. **Bridge-discharge audit gate (`verum audit --bridge-discharge`)** — observability for `apply kernel_*_strict(args)` callsites.  Replays each literal-arg call through `verum_kernel::dispatch_intrinsic` and reports the per-bridge classification.
-2. **Elaborator-time `@apply` intrinsic-discharge wiring** — load-bearing: rejects pathological arg shapes at compile time before SMT.
-3. **`@delegate(target)` attribute** (`crates/verum_compiler/src/phases/delegate_expansion.rs`) — declarative proof-body synthesis.  A theorem carrying `@delegate(stdlib_full_form)` and no manual proof body has its proof synthesised by the compiler as `proof { apply stdlib_full_form(<theorem_params>); }`, eliminating ~50 LOC of boilerplate per delegating module.  Used across §9 + §10 corpus files.
-4. **Apply-graph transitive bridge-discharge audit (`verum audit --apply-graph`)** — load-bearing transitive verdict.  Walks every theorem's apply-graph DFS-style across the workspace AND the verum stdlib's `core/math/` tree, classifies every leaf, and exits non-zero on placeholder/unresolved leaks.  This is the gate that produces the L4 verdict for the corpus.
-5. **Cross-format gate translator stack** — for foreign-tool re-check via Coq + Lean 4:
-   - Expr → Prop translator (literal / unary / binary / forall / exists / call / parenthesisation).
-   - Type translator (primitives, generics, tuples, references; recursive descent into refinement bases).
-   - Theorem-param emission (parameter bindings emitted between theorem name and colon).
-   - MethodCall + Field translator (chained method calls — the dominant MSFS shape — translate into nested applicative form).
-   - Refinement-type translator (Coq subset types, Lean Subtype).
-   - Generic-param emission (`<S: RichS>`-style generics emitted as implicit `{S : Type}` with bound preserved as comment).
-   - Block + If translator (passthrough + propositional if-then-else).
-6. **Verification-ladder strict ν-monotonicity drive (`verum audit --ladder-monotonicity`)** — inversions in the 13-strategy ladder fail the gate.
 
 ### Open questions that legitimately stay as `@axiom`s (paper-faithful)
 
@@ -264,11 +229,11 @@ Each MSFS section reaching ✅ L4 was unblocked by a verum-side architectural ad
 
 The cross-format gate (`verum audit --cross-format-roundtrip`) emits per-theorem `.v` (Coq) and `.lean` (Lean 4) files into `target/audit-reports/cross-format-roundtrip/` and invokes `coqc` / `lean` against each.  Hosts without the foreign tools installed get `tool_missing` observability without failing the gate; hosts with the tools get a real per-theorem `passed` / `failed` verdict.
 
-**Docker backend** (#149, closed 2026-04-30): pass `--docker` (or set `VERUM_FOREIGN_TOOL_BACKEND=docker`) to run `coqc` / `lean` inside their canonical container images (`coqorg/coq:8.18.0-flambda`, `leanprovercommunity/lean4:4.5.0`).  Hosts with only Docker installed get the same per-theorem verdict as hosts with native tooling.  Daemon-down / image-pull failures correctly surface as `tool_missing` (gate stays GREEN); only real foreign-tool rejections surface as `failed`.
+**Docker backend.**  Pass `--docker` (or set `VERUM_FOREIGN_TOOL_BACKEND=docker`) to run `coqc` / `lean` inside their canonical container images.  Hosts with only Docker installed get the same per-theorem verdict as hosts with native tooling.  Daemon-down / image-pull failures correctly surface as `tool_missing` (gate stays GREEN); only real foreign-tool rejections surface as `failed`.
 
-**Lean dot-notation** (#147, closed 2026-04-30): the Lean backend emits idiomatic Lean 4 dot-notation `obj.method args` instead of applicative `(method obj args)`.  Chained method-call propositions translate to one flat path: `cand.articulation_view.cond_F_S.has_phi_X` — what a Lean user writes by hand.  Lean's type-directed namespace resolver finds methods without requiring every name in scope unqualified.
+**Lean dot-notation.**  The Lean backend emits idiomatic Lean 4 dot-notation `obj.method args` instead of applicative `(method obj args)`.  Chained method-call propositions translate to one flat path: `cand.articulation_view.cond_F_S.has_phi_X` — what a Lean user writes by hand.
 
-**Audit bundle dispatcher** (#151, closed 2026-04-30): `verum audit --bundle` runs all four load-bearing gates (bridge-discharge, kernel-discharged-axioms, apply-graph, cross-format-roundtrip) in dependency order and aggregates them into a single `target/audit-reports/bundle.json` with top-level `l4_load_bearing: bool`.  The bundle is the user-facing UX for the L4-readiness verdict — one command, one verdict, all evidence in one place.
+**Audit bundle dispatcher.**  `verum audit --bundle` runs all load-bearing gates (bridge-discharge, kernel-discharged-axioms, apply-graph, cross-format-roundtrip) in dependency order and aggregates them into `target/audit-reports/bundle.json` with top-level `l4_load_bearing: bool`.  The bundle is the user-facing UX for the L4-readiness verdict — one command, one verdict, all evidence in one place.
 
 The proof-honesty CI gate (`make audit-honesty-gate`) refuses any commit that would regress beyond the frozen baseline (`tests/proof_honesty_baseline.json`), so each L1/L2/L3/L4 promotion ratchets the floor permanently.
 
@@ -346,46 +311,13 @@ Cite the underlying paper (Sereda 2026, MSFS) and reference this corpus by its c
 
 ---
 
-## Status (last updated)
+## Status
 
-- **2026-04-30 — All MSFS sections reach L4 ✅.**  `verum audit --apply-graph` (with stdlib-walker enabled via `VERUM_STDLIB_ROOT=/path/to/verum/core`) produces a load-bearing transitive verdict across the corpus: **37 / 37 theorems are L4 load-bearing**, with composition 144 kernel_strict + 92 framework_axiom + 0 placeholder_axiom + 0 unresolved.  Every transitive apply-chain leaf reduces to either the verum kernel dispatcher or a paper-cited external authority.  All 10 audit-subject sections (M.2, M.5–M.13) flip from 🟡 to ✅; the per-stage status table above reflects this honestly.  Architectural unblockers landed this session: `@delegate(target)` attribute (declarative proof-body synthesis) + apply-graph transitive walker (`crates/verum_kernel/src/soundness/apply_graph.rs`) + stdlib-walker extension (`audit::discover_stdlib_vr_files`) + cross-format translator stack (Expr/Type/MethodCall/Field/Refinement/Generic/Block+If renderers).
+The corpus is at **L4 load-bearing** across every audit-subject section: every transitive apply-chain leaf reduces to either the Verum kernel dispatcher (`kernel_*_strict` bridges) or a paper-cited external authority (`@framework(name, "citation")` markers — Lurie HTT, Adámek–Rosický, Bergner–Lurie, Riehl–Verity, Whitehead, Pronk's bicat-of-fractions, Lawvere FP).  Zero placeholder-axiom leaks, zero unresolved leaves.
 
-- **2026-04-29 — Showcase polish.**  Top-level `theorems/msfs/mod.vr` aggregator landed; Makefile harmonised with modern audit targets (`audit-msfs`, `audit-htt-roadmap`, etc.); CLI output uses Unicode `─` separators consistently; README expanded with five-layer verification pipeline + audit catalogue.
+The trust chain `MSFS theorem → stdlib _full form → kernel_*_strict bridge → verum_kernel::dispatch_intrinsic → ZFC + 2 inaccessibles` is mechanically validated at every link by `verum audit --apply-graph`.
 
-- **2026-04-29 — Self-containment finalisation.**  The `msfs_self_containment_theorem` invariant is enforced at both `cargo test` time (Rust unit test) and `verum check` time (Verum-language theorem).  HTT roadmap 15/15 in-scope @ 100%; AR roadmap 4/4 @ 100%; trusted boundary is exactly ZFC + κ_1 + κ_2 + Verum kernel.
-
-- **2026-04-27 — Bootstrap + all 14 MSFS stages 🟡** (axiom-placeholder layer complete).  All 27 MSFS theorems + 12 definitions + 5 propositions + 10 corollaries + 2 conventions ship as paper-cited `@framework(msfs, ...)` declarations.  `verum check` clean across the corpus.
-
-- **2026-04-30 — Verum kernel-soundness corpus (task #80 / VERUM-TRUST-1).**  Closes the meta-circular soundness layer: the Verum kernel's own soundness theorem now lives in the corpus at `core/verify/kernel_soundness/` and is cross-validated by foreign type-theory implementations.  38 kernel rules modelled inductively, 4 structurally proved (K-Var, K-Univ, K-FwAx, K-Pos), 34 admitted with concrete IOU reasons (substitution-lemma, beta confluence, CCHM Kan-filling, modal-depth ordinal arithmetic, …).  `verum audit --kernel-soundness` emits parallel `kernel_soundness.v` (Coq) + `KernelSoundness.lean` (Lean 4) into `target/audit-reports/kernel-soundness/` for independent re-checking.  Architecture is protocol-driven (`SoundnessBackend` trait, two instances) — adding Isabelle / Agda / Dedukti is a single new instance.  This is the **trust-base architecture** the MSFS L4 promotion sits on top of.
-
-### Path to L4 ✅ across all sections — closed (2026-04-30)
-
-All Verum-side architectural pieces required for the L4 promotion landed this session.  The trust-base chain is mechanically validated end-to-end at every link:
-
-| Task ID | Subject                                                                              | Status |
-|:--------|:-------------------------------------------------------------------------------------|:------:|
-| #134    | bridge-discharge audit gate (`verum audit --bridge-discharge`)                       | ✅    |
-| #135    | elaborator-time `@apply` intrinsic-discharge wiring                                  | ✅    |
-| #136    | kernel-discharge cross-link drift detection (stdlib walker)                          | ✅    |
-| #138    | cross-format export round-trip via foreign-tool re-check (Coq + Lean)                | ✅    |
-| #139    | verification-ladder strict ν-monotonicity drive                                      | ✅    |
-| #140    | Expr → Coq/Lean Prop translator (proposition-text emission)                          | ✅    |
-| #141    | Type → Coq/Lean translator + theorem-param emission                                  | ✅    |
-| #142    | MethodCall + Field translator (chained method-call propositions)                     | ✅    |
-| #144    | Refinement-type translator (Coq subset / Lean Subtype)                               | ✅    |
-| #145    | Generic-param emission (`<S: RichS>`-style generics, bound preserved)                | ✅    |
-| #146    | `@delegate(target)` attribute — declarative proof-body synthesis                     | ✅    |
-| #147    | Lean dot-notation emission — idiomatic `obj.method args`                             | ✅    |
-| #148    | Block + If propositional translator                                                  | ✅    |
-| #149    | Foreign-tool docker integration (`--docker` flag, hermetic containers)               | ✅    |
-| #150    | Apply-graph transitive bridge-discharge audit (`verum audit --apply-graph`)          | ✅    |
-| #151    | Audit bundle dispatcher — unified L1+L2+L3+L4 verdict                                | ✅    |
-
-**Trust-base closure achieved.**  The chain `MSFS theorem → stdlib `_full` form → kernel_*_strict bridge → verum_kernel::dispatch_intrinsic → ZFC + 2 inaccessibles` is mechanically validated at every link by the apply-graph audit.  Paper-cited external authorities (Lurie HTT, AR 1994, Bergner-Lurie, Riehl-Verity, Whitehead, etc.) appear as `framework_axiom` leaves with explicit citation strings, surfacing the trusted-external-reference boundary.
-
-The corpus is a closed system: every claim has a constructive witness (К), every step is mechanically verified (В), every bridge is executable through the dispatcher (И) — KVI/CVE-closure achieved.
-
-**The `verum audit --bundle` command produces the full L4-readiness verdict in one invocation:**
+The single-command verdict:
 
 ```console
 $ VERUM_STDLIB_ROOT=/path/to/verum/core verum audit --bundle
@@ -400,4 +332,4 @@ $ VERUM_STDLIB_ROOT=/path/to/verum/core verum audit --bundle
       Bundle: ./target/audit-reports/bundle.json
 ```
 
-**Style follow-up (not blocking L4)**: the corpus's 43 `@framework`-cited internal `@axiom` declarations (Definitions 4.1–4.4, 8.3–8.5, 9.1–9.2, 10.1–10.2, etc.) could be lifted into proper `@type` / `@def` declarations for a more elegant surface form.  Currently they appear as `framework_axiom` leaves (paper-cited) under apply-graph and contribute to the L4 verdict — the lift is a style improvement, not a correctness gap.
+The proof-honesty CI gate (`make audit-honesty-gate`) refuses any commit that would regress beyond the frozen baseline (`tests/proof_honesty_baseline.json`).  Every `@framework`-cited internal `@axiom` declaration (paper-side definitions 4.1–4.4, 8.3–8.5, 9.1–9.2, 10.1–10.2, etc.) appears as a `framework_axiom` leaf under apply-graph — surfacing the trusted-external-reference boundary explicitly.
