@@ -1,0 +1,140 @@
+// =============================================================================
+// theorems.msfs — MSFS corpus aggregator (top-level module)
+// =============================================================================
+//
+// Single import point for downstream consumers. Mounting
+//
+// mount lib.theorems.msfs.{...};
+//
+// gives access to every public theorem, lemma, definition, and corollary
+// across the 14 paper sections + 2 appendices. Per-section files live
+// in subdirectories named `<NN>_<topic>/` mirroring the paper's table of
+// contents; each declares its own module path
+// `lib.theorems.msfs.<canonical_name>` (e.g. `afnt_alpha`, `five_axis`,
+// `meta_classification`) so the section's exports are reachable both
+// individually and through this aggregator.
+//
+// **Per-section coverage** (mirroring paper.tex):
+//
+// ┌─────────────────────────────────┬──────────────────────────────────┐
+// │ Paper section │ Section module path │
+// ├─────────────────────────────────┼──────────────────────────────────┤
+// │ §1 Introduction / conventions │ lib.theorems.msfs.introduction │
+// │ §2 Stratified hierarchy │ lib.theorems.msfs.strata │
+// │ §3 Reasonable Rich-metatheories │ lib.theorems.msfs.rich_s_anchor │
+// │ §4 L_Abs conditions │ lib.theorems.msfs.l_abs_conditions │
+// │ §5 AFN-T α-part │ lib.theorems.msfs.afnt_alpha │
+// │ §6 AFN-T β-part │ lib.theorems.msfs.afnt_beta │
+// │ §7 Five-axis absoluteness │ lib.theorems.msfs.five_axis │
+// │ §8 Three bypass paths │ lib.theorems.msfs.bypass_paths │
+// │ §9 Meta-classification │ lib.theorems.msfs.meta_classification │
+// │ §10 AC/OC duality │ lib.theorems.msfs.ac_oc_duality │
+// │ §11 No-go subsumption │ lib.theorems.msfs.no_go_series │
+// │ §12 Consequences + Open Q │ lib.theorems.msfs.consequences │
+// │ App.A Categorical preliminaries │ lib.theorems.msfs.appendix_a │
+// │ App.B Paraconsistent extension │ lib.theorems.msfs.appendix_b │
+// └─────────────────────────────────┴──────────────────────────────────┘
+//
+// **Self-containment endpoint.** The companion theorem
+// `core.math.frameworks.msfs.self_containment.msfs_self_containment_theorem`
+// (host stdlib) certifies that no MSFS proof body in this aggregator
+// transitively depends on anything outside ZFC + 2 strongly inaccessible
+// cardinals. Run `verum audit --self-recognition` to inspect the
+// trusted-base decomposition.
+// =============================================================================
+
+@arch_module(
+    foundation: Foundation.ZfcTwoInacc,
+    stratum: MsfsStratum.LFnd,
+    lifecycle: Lifecycle.Theorem("v0.1"),
+)
+module lib.theorems.msfs;
+
+// Sections §1, §3, §4 are pure corpus-side import surfaces — their
+// structural content lives in the host stdlib (`core.math.frameworks
+// .msfs.{baseline, key_symbols, strcat}`, `core.math.rich_s`,
+// `core.math.s_definable`, `core.math.absolute_layer`). No re-exports
+// are needed at this layer.
+
+// Section §2 — Stratified hierarchy (L_Fnd / L_Cls / L_Cls_top / L_Abs)
+mount lib.theorems.msfs.strata.{
+    msfs_proposition_2_2_iv_l_abs_empty,
+    msfs_proposition_2_3_corollary_cls_not_in_l_abs,
+    msfs_proposition_2_2_iii_clsmax_strict_above_abs,
+    msfs_proposition_2_2_iii_fnd_strict_above_cls,
+    msfs_proposition_2_2_iii_cls_strict_above_clsmax,
+    msfs_proposition_2_2_iii_clsmax_strict_above_abs_witness,
+};
+
+// Section §5 — AFN-T α-part (Theorem 5.1, Corollary 5.2)
+mount lib.theorems.msfs.afnt_alpha.{
+    msfs_theorem_5_1_afnt_alpha,
+    msfs_corollary_5_2_l_abs_empty,
+};
+
+// Section §6 — AFN-T β-part (Theorem 6.1, transfinite limits)
+mount lib.theorems.msfs.afnt_beta.{
+    TransfiniteSDefinableTower,
+    msfs_theorem_6_1_afnt_beta,
+    msfs_theorem_6_1_step_1_seed_witness,
+    msfs_theorem_6_1_step_2_diagram_s_indexed,
+    msfs_theorem_6_1_colim_in_s_s_global,
+    msfs_proposition_6_2_proper_class_dichotomy,
+    msfs_proposition_6_3_trajectory_space,
+};
+
+// Section §7 — Five-axis absoluteness (Theorems 7.1–7.6)
+mount lib.theorems.msfs.five_axis.{
+    msfs_theorem_7_1_horizontal_reduction,
+    msfs_theorem_7_2_vertical_reduction,
+    msfs_theorem_7_3_meta_vertical_reduction,
+    msfs_theorem_7_4_lateral_reduction,
+    msfs_theorem_7_6_completeness_reduction,
+    msfs_theorem_7_1_horizontal,
+    msfs_theorem_7_2_vertical,
+};
+
+// Section §8 — Three bypass paths (universe / reflective / display)
+mount lib.theorems.msfs.bypass_paths.{
+    DisplayClassWitness,
+    Display2CategoryTriple,
+    msfs_theorem_8_1_universe_reduction,
+    msfs_theorem_8_2_reflective_tower_reduction,
+    msfs_corollary_8_8_intensional_reduction,
+    msfs_theorem_8_1_universe_polymorphism,
+    msfs_theorem_8_2_reflective_tower,
+};
+
+// Section §9 — Meta-classification (Theorems 9.3, 9.4, 9.6)
+mount lib.theorems.msfs.meta_classification.{
+    msfs_theorem_9_6c_meta_iteration_reduction,
+    msfs_definition_9_1_meta_cls,
+    msfs_definition_9_2_meta_cls_top,
+    msfs_theorem_9_3_meta_categoricity,
+    msfs_theorem_9_4_structural_multiplicity,
+    msfs_corollary_9_5_plurality,
+    msfs_theorem_9_6_meta_classification_stabilization,
+};
+
+// Section §10 — AC/OC duality (Theorems 10.1–10.9)
+mount lib.theorems.msfs.ac_oc_duality.{
+    msfs_definition_10_1_E_category,
+    msfs_definition_10_2_S_S_E,
+    msfs_lemma_10_3_enactment_syntax_semantics,
+    msfs_theorem_10_4_ac_oc_morita_duality,
+    msfs_corollary_10_5_conservativity,
+    msfs_theorem_10_7_dual_boundary_lemma,
+    msfs_corollary_10_8_l_abs_E_empty,
+};
+
+// Section §11 — No-go series subsumption (Theorem 11.1)
+mount lib.theorems.msfs.no_go_series.{};
+
+// Section §12 — Consequences + open questions
+mount lib.theorems.msfs.consequences.{};
+
+// Appendix A — Categorical preliminaries (Lemmas A.1–A.8 + Theorem A.7)
+mount lib.theorems.msfs.categorical_preliminaries.{};
+
+// Appendix B — Paraconsistent extension (Theorem B.2)
+mount lib.theorems.msfs.appendix_b.{};

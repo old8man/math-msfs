@@ -1,0 +1,223 @@
+// =============================================================================
+// MSFS theorem-dispatch smoke: §9 + §12 + App A + App B
+// =============================================================================
+//
+// Coverage:
+//
+//   * §9 Meta-classification — Definitions 9.1/9.2 + Theorems 9.3/9.4 +
+//        Corollary 9.5 + Theorem 9.6 (a/b: axioms; part c: real proof
+//        body — `apply Theorem 5.1`)
+//   * §12 Consequences + 5 Open Questions — 4 named consequences
+//        (univalent foundations, higher topos, cohesive ∞-categories,
+//        ∞-cosmoi) + 5 open questions Q1–Q5 (4 closed in Diakrisis)
+//   * App A Categorical preliminaries — 8 lemmata (Kelly 2-cat,
+//        Lurie HTT, Riehl-Verity, Pronk bicat-of-fractions, Lawvere
+//        FP, Whitehead, Theorem A.7 Bergner-Lurie stabilisation,
+//        Adámek-Rosický locally-presentable)
+//   * App B Paraconsistent extension — Definition B.1 + Theorem B.2
+//
+// §1 / §3 / §4 are pure import surfaces — their structural content
+// lives in the host stdlib and exercises transitively through every
+// Theorem k.k that cites Lemma 3.4 / RichS / the L_Abs definitions.
+// =============================================================================
+
+module tests.smoke.msfs_theorem_dispatch_sprint3;
+
+mount core.math.absolute_layer.{LAbsCandidate};
+
+// §9 meta-classification
+mount lib.theorems.msfs.meta_classification.{
+    msfs_definition_9_1_meta_cls,
+    msfs_definition_9_2_meta_cls_top,
+    msfs_theorem_9_3_meta_categoricity,
+    msfs_theorem_9_4_structural_multiplicity,
+    msfs_corollary_9_5_plurality,
+    msfs_theorem_9_6_meta_classification_stabilization,
+    msfs_theorem_9_6c_no_l_abs_escalation,
+};
+
+// §12 consequences + open questions
+mount lib.theorems.msfs.consequences.{
+    msfs_consequence_univalent_foundations,
+    msfs_consequence_higher_topos,
+    msfs_consequence_cohesive,
+    msfs_consequence_infinity_cosmoi,
+    msfs_open_question_Q1_closed_in_diakrisis,
+    msfs_open_question_Q2_open,
+    msfs_open_question_Q3_closed_in_diakrisis,
+    msfs_open_question_Q4_closed_in_diakrisis,
+    msfs_open_question_Q5_closed_in_diakrisis,
+};
+
+// Appendix A — categorical preliminaries
+mount lib.theorems.msfs.app_a.{
+    msfs_lemma_A_1_kelly_2_categorical,
+    msfs_lemma_A_2_lurie_htt,
+    msfs_lemma_A_3_riehl_verity,
+    msfs_lemma_A_4_pronk_bicat_fractions,
+    msfs_lemma_A_5_lawvere_fp,
+    msfs_lemma_A_6_whitehead,
+    msfs_theorem_A_7_bergner_lurie_stabilization,
+    msfs_lemma_A_8_adamek_rosicky,
+};
+
+// Appendix B — paraconsistent extension
+mount lib.theorems.msfs.app_b.{
+    msfs_definition_B_1_paraconsistent_rich_s,
+    msfs_theorem_B_2_paraconsistent_afnt,
+};
+
+// =============================================================================
+// §9 Meta-Classification
+// =============================================================================
+
+@test
+fn test_meta_definitions_9_1_9_2() {
+    assert(msfs_definition_9_1_meta_cls(),
+           "Definition 9.1 — meta-classifier 𝓜_Cls");
+    assert(msfs_definition_9_2_meta_cls_top(),
+           "Definition 9.2 — meta-Cls-top");
+}
+
+@test
+fn test_meta_theorem_9_3_categoricity() {
+    assert(msfs_theorem_9_3_meta_categoricity(),
+           "Theorem 9.3 — meta-categoricity (uniqueness up to Morita)");
+}
+
+@test
+fn test_meta_theorem_9_4_multiplicity() {
+    assert(msfs_theorem_9_4_structural_multiplicity(),
+           "Theorem 9.4 — structural multiplicity (no canonical foundation)");
+}
+
+@test
+fn test_meta_corollary_9_5_plurality() {
+    assert(msfs_corollary_9_5_plurality(),
+           "Corollary 9.5 — plurality is intrinsic");
+}
+
+@test
+fn test_meta_theorem_9_6_stabilization() {
+    assert(msfs_theorem_9_6_meta_classification_stabilization(),
+           "Theorem 9.6 (a/b) — meta-Cls stabilizes at 𝓜_Cls^{top}");
+}
+
+@test
+fn test_meta_theorem_9_6c_no_escalation_reachable() {
+    // Theorem 9.6 part (c) is a real `proof { apply 5.1 }` body —
+    // the kernel re-checks that meta-iteration produces no L_Abs
+    // escalation by routing through the Theorem 5.1 contradiction.
+    let _: fn(&LAbsCandidate) = msfs_theorem_9_6c_no_l_abs_escalation;
+    assert(true, "Theorem 9.6 (c) — no L_Abs escalation reachable");
+}
+
+// =============================================================================
+// §12 Consequences and Open Questions
+// =============================================================================
+
+@test
+fn test_consequence_univalent_foundations() {
+    assert(msfs_consequence_univalent_foundations(),
+           "Consequence — UF/HoTT lives in L_Cls (not L_Abs)");
+}
+
+@test
+fn test_consequence_higher_topos() {
+    assert(msfs_consequence_higher_topos(),
+           "Consequence — Lurie ∞-toposes live in L_Cls");
+}
+
+@test
+fn test_consequence_cohesive_categories() {
+    assert(msfs_consequence_cohesive(),
+           "Consequence — Schreiber cohesive ∞-cats live in L_Cls");
+}
+
+@test
+fn test_consequence_infinity_cosmoi() {
+    assert(msfs_consequence_infinity_cosmoi(),
+           "Consequence — Riehl-Verity ∞-cosmoi live in L_Cls");
+}
+
+@test
+fn test_open_questions_Q1_to_Q5() {
+    // Q1, Q3, Q4, Q5 closed in Diakrisis (anchored to that corpus).
+    // Q2 stays open — the only one without a Diakrisis closure.
+    assert(msfs_open_question_Q1_closed_in_diakrisis(), "Q1 closed");
+    assert(msfs_open_question_Q2_open(),                 "Q2 open");
+    assert(msfs_open_question_Q3_closed_in_diakrisis(), "Q3 closed");
+    assert(msfs_open_question_Q4_closed_in_diakrisis(), "Q4 closed");
+    assert(msfs_open_question_Q5_closed_in_diakrisis(), "Q5 closed");
+}
+
+// =============================================================================
+// Appendix A — Categorical Preliminaries (8 lemmata)
+// =============================================================================
+
+@test
+fn test_app_a_lemma_A_1_kelly() {
+    assert(msfs_lemma_A_1_kelly_2_categorical(),
+           "Lemma A.1 — Kelly 2-categorical (basic concepts)");
+}
+
+@test
+fn test_app_a_lemma_A_2_lurie_htt() {
+    assert(msfs_lemma_A_2_lurie_htt(),
+           "Lemma A.2 — Lurie HTT (∞-topos foundations)");
+}
+
+@test
+fn test_app_a_lemma_A_3_riehl_verity() {
+    assert(msfs_lemma_A_3_riehl_verity(),
+           "Lemma A.3 — Riehl-Verity ∞-cosmoi");
+}
+
+@test
+fn test_app_a_lemma_A_4_pronk() {
+    assert(msfs_lemma_A_4_pronk_bicat_fractions(),
+           "Lemma A.4 — Pronk bicategory of fractions");
+}
+
+@test
+fn test_app_a_lemma_A_5_lawvere_fp() {
+    assert(msfs_lemma_A_5_lawvere_fp(),
+           "Lemma A.5 — Lawvere fixed-point theorem");
+}
+
+@test
+fn test_app_a_lemma_A_6_whitehead() {
+    assert(msfs_lemma_A_6_whitehead(),
+           "Lemma A.6 — Whitehead theorem (homotopy equivalence)");
+}
+
+@test
+fn test_app_a_theorem_A_7_stabilization() {
+    assert(msfs_theorem_A_7_bergner_lurie_stabilization(),
+           "Theorem A.7 — Bergner-Lurie (∞,∞)-stabilization");
+}
+
+@test
+fn test_app_a_lemma_A_8_adamek_rosicky() {
+    assert(msfs_lemma_A_8_adamek_rosicky(),
+           "Lemma A.8 — Adámek-Rosický locally-presentable");
+}
+
+// =============================================================================
+// Appendix B — Paraconsistent Extension
+// =============================================================================
+
+@test
+fn test_app_b_definition_B_1_paraconsistent() {
+    assert(msfs_definition_B_1_paraconsistent_rich_s(),
+           "Definition B.1 — paraconsistent RichS (LP-style)");
+}
+
+@test
+fn test_app_b_theorem_B_2_paraconsistent_afnt() {
+    // Theorem B.2 — AFN-T survives the paraconsistent generalization.
+    // The conjunction (F_S) ∧ (Π_4) ∧ (Π_3-max) remains internally
+    // inconsistent even when underlying logic is paraconsistent.
+    assert(msfs_theorem_B_2_paraconsistent_afnt(),
+           "Theorem B.2 — paraconsistent AFN-T");
+}

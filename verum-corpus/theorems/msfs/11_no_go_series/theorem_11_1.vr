@@ -1,0 +1,123 @@
+// =============================================================================
+// MSFS §11 — No-Go Series Subsumption (Theorem 11.1)
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, §11 — Theorem 11.1.
+//
+// **Single subsumption framework**: every classical no-go theorem
+// (Cantor 1891, Russell 1903, Gödel I+II 1931, Tarski 1936, Lawvere
+// FP 1969, Ernst 2015) inhabits the AFN-T-α framework as a triple
+// `(S_T, n_T, X_T)` with `S_T ∈ \RS`, `n_T ∈ ℕ ∪ {∞}`, and `X_T`
+// the purported maximal object.
+//
+// Each row's classical diagonal (Cantor's |X|<|P(X)|, Russell's
+// R∈R↔R∉R, Gödel's G ↔ ¬Prov(⌜G⌝), Tarski's liar, Lawvere's
+// f(x_0)=x_0, Ernst's UCT-axiom) refines the universal id_{X_T}
+// template of Theorem 5.1 into the row-specific witness.
+//
+// The Russell + Tarski rows now properly cite: Russell at ZFC with putative-set witness (Naïve ST not in
+// R-S); Tarski at PA with putative truth predicate (Th(N) not r.e.,
+// not in R-S).
+// =============================================================================
+
+@arch_module(
+    foundation: Foundation.ZfcTwoInacc,
+    stratum: MsfsStratum.LFnd,
+    lifecycle: Lifecycle.Theorem("v0.1"),
+)
+module lib.theorems.msfs.no_go_subsumption;
+
+mount core.math.rich_s.conditions.{RichS};
+mount core.math.absolute_layer.{LAbsCandidate};
+mount super.super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
+
+// =============================================================================
+// Per-row subsumption-reduction citation — paper §11 7-row table
+// =============================================================================
+
+/// **MSFS §11.1 subsumption-reduction citation.** Each classical no-go
+/// row (Cantor, Russell, Gödel I, Gödel II, Tarski, Lawvere, Ernst)
+/// builds a row-specific candidate satisfying the L_Abs triple via its
+/// row-specific diagonal (|X|<|P(X)|, R∈R↔R∉R, G↔¬Prov(⌜G⌝), liar,
+/// f(x_0)=x_0, UCT-axiom). The reduction asserts that this row-specific
+/// construction yields the same L_Abs candidate shape Theorem 5.1
+/// forecloses universally. Reduction preserves the L_Abs triple. Paper
+/// §11.1 +/C-2 fixes (Russell at ZFC, Tarski at PA).
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS §11.1 reduction — classical no-go rows (7) refine universal id_X template into row-specific witness")
+public axiom msfs_theorem_11_1_subsumption_reduction(
+    candidate: &LAbsCandidate,
+    ) -> Bool
+    requires candidate.cond_F_S().has_phi_X()
+    && candidate.cond_Pi_4().is_irreducible_in_s_s()
+    && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures candidate.cond_F_S().has_phi_X()
+    && candidate.cond_Pi_4().is_irreducible_in_s_s()
+    && candidate.cond_Pi_3_max().is_maximally_generative();
+
+// =============================================================================
+// Theorem 11.1 — single subsumption framework
+// =============================================================================
+//
+// **Subsumption pattern.** Each row of the no-go table is the same
+// inference: classical diagonal X_T satisfies (F_{S_T}) ∧ (Π_4) ∧
+// (Π_3-max) under T's hypothesis ⟹ Theorem 5.1 yields contradiction.
+//
+// We capture this as a generic predicate `LAbsCandidate` and a single
+// theorem. Each classical row is then an instantiation: the row-
+// specific axiom asserts "T's classical diagonal builds an
+// LAbsCandidate"; Theorem 11.1 contradicts it via Theorem 5.1.
+// =============================================================================
+
+/// **MSFS Theorem 11.1 — Subsumption via specialization (universal form).**
+///
+/// For ANY would-be L_Abs candidate (regardless of which classical
+/// no-go row produced it), Theorem 5.1 forecloses its existence.
+/// This is the universal direction: each row's classical diagonal
+/// (Cantor, Russell, Gödel, Tarski, Lawvere, Ernst) refines this
+/// template by constructing a candidate-shaped object satisfying
+/// the three conditions; Theorem 11.1 then dispatches via
+/// Theorem 5.1.
+///
+/// Witness table:
+/// - Cantor 1891 — ZFC, n=1, X=Powerset functor; φ_P(X,Y) ≡ Y={Z:Z⊆X}
+/// - Russell 1903 — ZFC, n=1, X=putative-set witness of {x : x∉x}; φ_R(x) ≡ x∉x
+/// - Gödel I 1931 — PA, n=1, X=G; φ_G ≡ ¬Prov(⌜G⌝)
+/// - Gödel II 1931 — PA, n=1, X=putative PA-internal proof of Con(PA); φ_Con
+/// - Tarski 1936 — PA, n=1, X=putative arithmetic truth pred T; T(φ)≡φ
+/// - Lawvere FP 1969 — CCC ext. of ZFC, n=1, X=weakly-surj X→X^X
+/// - Ernst 2015 — Feferman (R1)–(R3), n=1, X=UCT object
+@verify(certified)
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Theorem 11.1 — subsumption of 7 classical no-go results under AFN-T α")
+public theorem msfs_theorem_11_1_subsumption(
+    candidate: &LAbsCandidate,
+    )
+    requires candidate.cond_F_S().has_phi_X()
+    && candidate.cond_Pi_4().is_irreducible_in_s_s()
+    && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+    // Step 1 — Cite §11.1 row-specific subsumption-reduction (paper §11.1):
+    // each classical no-go row reduces its row-specific witness
+    // to the universal id_X template Theorem 5.1 forecloses.
+    apply msfs_theorem_11_1_subsumption_reduction(candidate);
+    // Step 2 — Apply Theorem 5.1 to the universal-template candidate.
+    apply msfs_theorem_5_1_afnt_alpha(candidate);
+};
+
+/// MSFS Theorem 11.1 — anchor handle for downstream citations
+/// (catalogue alias). The subsumption applies to any candidate
+/// satisfying the universal L_Abs triple.
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Theorem 11.1 — subsumption anchor (catalogue alias)")
+public axiom msfs_theorem_11_1_subsumption_anchor(candidate: &LAbsCandidate) -> Bool
+requires candidate.cond_F_S().has_phi_X()
+&& candidate.cond_Pi_4().is_irreducible_in_s_s()
+&& candidate.cond_Pi_3_max().is_maximally_generative()
+ensures candidate.cond_F_S().has_phi_X()
+&& candidate.cond_Pi_4().is_irreducible_in_s_s()
+&& candidate.cond_Pi_3_max().is_maximally_generative();

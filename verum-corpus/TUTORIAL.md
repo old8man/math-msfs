@@ -848,7 +848,7 @@ regressed" without re-running the audit; the recommended pattern is
 
 **`@admit_reason` missing on `Admitted.`** — when a proof body
 delegates to a stub axiom without recording why the stub remains,
-the `proof_honesty_audit.py` baseline gate (`make audit-honesty-gate`)
+the `verum audit --proof-honesty` baseline gate (`make audit-honesty-gate`)
 classifies it as `theorem_axiom_only_tautological` and refuses to
 merge.  Fix: either remove the stub by writing the real proof, or
 attach a `@framework(msfs, "explicit reason and citation")` lineage

@@ -79,7 +79,7 @@ $ verum verify
 
 ### Layer 3 — Proof-honesty gate
 
-The `proof_honesty_audit.py` tool walks every `.vr` theorem file and classifies each `@theorem` declaration as one of: `multi_step` (proof body cites named lemmas), `axiom_only_structural` (single witness-typed axiom application), `axiom_only_tautological` (axiom application against an `ensures true` axiom — **forbidden**), `trivial_true` (empty proof body — **forbidden**), or `no_proof_body` (no `proof { … }` clause — **forbidden**).
+`verum audit --proof-honesty` walks every `.vr` theorem file and classifies each `@theorem` declaration as one of: `multi_step` (proof body cites named lemmas), `axiom_only_structural` (single witness-typed axiom application), `axiom_only_tautological` (axiom application against an `ensures true` axiom — **forbidden**), `trivial_true` (empty proof body — **forbidden**), or `no_proof_body` (no `proof { … }` clause — **forbidden**).
 
 The CI gate refuses to merge any commit that *regresses* the live counts below the frozen baseline (`tests/proof_honesty_baseline.json`).
 
@@ -322,8 +322,6 @@ verum-corpus/
 ├── certificates/{coq, lean, agda, dedukti, metamath}/
 ├── exports/{coq, lean, agda, dedukti, metamath}/
 ├── audit-reports/              JSON audit outputs (gitignored)
-├── tools/
-│   └── proof_honesty_audit.py  baseline gate
 ├── src/lib.vr                  cog probe entry point
 ├── verum.toml                  project manifest
 ├── Makefile                    CI / build / audit shortcuts

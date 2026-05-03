@@ -1,0 +1,18 @@
+// =============================================================================
+// verum-corpus — bootstrap-stage smoke test
+// =============================================================================
+//
+// Confirms the cog type-checks and the test pipeline (`verum test`) works.
+// Stage-specific tests live in tests/smoke/, tests/integration/,
+// tests/regression/.
+//
+// NOTE: explicit mount is required — see T6.0.4 (tests/ should auto-mount
+// crate root, but currently does not).
+// =============================================================================
+
+mount lib.{corpus_probe};
+
+@test
+fn test_corpus_probe_typechecks() {
+    assert(corpus_probe(), "lib.vr corpus_probe must compile and run");
+}

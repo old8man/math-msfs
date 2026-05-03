@@ -1,0 +1,30 @@
+{
+  "_comment": "MSFS proof-honesty baseline (schema v2). The native `verum audit --proof-honesty` classifier distinguishes structural vs tautological axiom-only @theorems. The CI gate re-runs the audit and refuses to merge any commit that REGRESSES below these counts.",
+  "_audit_command": "verum audit --proof-honesty",
+  "_baseline_date": "2026-04-29",
+  "_baseline_iteration": "MSFS-only baseline (msfs_self_containment_theorem invariant active)",
+  "schema_version": 2,
+  "totals_min": {
+    "_invariant": "running totals must satisfy: total[k] >= totals_min[k] for monotone metrics, total[k] <= totals_max[k] for the trivial counters.",
+    "theorem_multi_step":             16,
+    "theorem_axiom_only_structural":  13
+  },
+  "totals_max": {
+    "axiom_placeholder":              53,
+    "theorem_no_proof_body":           0,
+    "theorem_trivial_true":            0,
+    "theorem_axiom_only_tautological": 0
+  },
+  "by_lineage_min": {
+    "msfs": {
+      "theorem_multi_step":            16,
+      "theorem_axiom_only_structural": 13
+    }
+  },
+  "by_lineage_max": {
+    "msfs": {
+      "axiom_placeholder":              53,
+      "theorem_axiom_only_tautological": 0
+    }
+  }
+}

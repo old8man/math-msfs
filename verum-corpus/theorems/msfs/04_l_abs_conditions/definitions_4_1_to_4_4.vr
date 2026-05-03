@@ -1,0 +1,30 @@
+// =============================================================================
+// MSFS §4 — L_Abs Conditions
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, §4 — Definitions 4.1–4.4.
+//
+// The structural content (`F_S`, `Π_4`, `Π_3-max`, `L_Abs`
+// membership) lives in the host stdlib at
+// `core.math.absolute_layer`. This file is the corpus-side import
+// surface.
+// =============================================================================
+
+@arch_module(
+    foundation: Foundation.ZfcTwoInacc,
+    stratum: MsfsStratum.LFnd,
+    lifecycle: Lifecycle.Theorem("v0.1"),
+)
+module lib.theorems.msfs.l_abs_conditions;
+
+mount core.math.absolute_layer.{
+ ConditionFS,
+ ConditionPi4,
+ ConditionPi3Max,
+ LAbsCandidate,
+ msfs_definition_4_1_f_s,
+ msfs_definition_4_2_pi_4,
+ msfs_definition_4_3_pi_3_max,
+ msfs_definition_4_4_l_abs,
+ msfs_f_s_implies_formal_s_definable,
+};

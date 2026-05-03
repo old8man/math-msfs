@@ -1,0 +1,34 @@
+// =============================================================================
+// verum-corpus — entry point
+// =============================================================================
+//
+// This crate is a *proof corpus*, not a runtime library.  It mechanises the
+// **MSFS preprint** (Sereda 2026) and is **self-contained modulo ZFC + 2
+// strongly inaccessible cardinals** per the
+// `core.math.frameworks.msfs.self_containment.msfs_self_containment_theorem`
+// invariant in the host stdlib.
+//
+// The verified content lives under:
+//
+//   • theorems/msfs/      — MSFS theorems by paper section
+//                           (01_introduction, 02_strata, 03_rich_s,
+//                           04_l_abs_conditions, 05_afnt_alpha,
+//                           06_afnt_beta, 07_five_axis, 08_bypass_paths,
+//                           09_meta_classification, 10_ac_oc_duality,
+//                           11_no_go_series, 12_consequences,
+//                           appendix_a, appendix_b).
+//
+// `lib.vr` exists so the project type-checks as a cog and so
+// `verum check`, `verum build`, `verum test`, `verum audit`, and
+// `verum export` operate at the project level.
+//
+// Verification status and stage progress live in README.md.
+// See https://verum.lang/docs/verification/proof-corpora for the workflow.
+// =============================================================================
+
+/// Probe used by smoke tests to confirm the cog is type-checkable.
+/// Returns the corpus identifier as a stable boolean witness — the actual
+/// identification metadata travels through verum.toml.
+public fn corpus_probe() -> Bool {
+    true
+}

@@ -1,0 +1,188 @@
+// =============================================================================
+// MSFS §12 — Consequences and Open Questions
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, §12.
+//
+// Four diagnostic theorems + five explicit open-question registrations.
+//
+// Diagnostics determine which member of `(F_S), (Π_4), (Π_3-max)` is
+// the actual obstruction for each candidate L_Cls meta-structure:
+// - Univalent Foundations — passes (F_S), passes (Π_4) conditional,
+// fails (Π_3-max) (limited to HoTT-adjacent).
+// - Higher Topos Theory — passes (F_S), fails (Π_3-max).
+// - Cohesive ∞-Topos — passes (F_S), fails (Π_3-max).
+// - ∞-Cosmoi — passes (F_S), fails (Π_3-max).
+//
+// Open questions (Q1–Q5) — Q1, Q3, Q4, Q5 closed in the Diakrisis
+// extension corpus; Q2 remains open.
+//
+// * **Diagnostics 12.1-12.4** — promoted to candidate-parameterised
+// @theorems demonstrating the diagnostic claim: even if the L_Cls
+// candidate were an L_Abs candidate (impossible by Theorem 5.1),
+// the foreclosure would still fire. The proof body cites
+// Theorem 5.1 directly; the diagnostic interpretation lives in the
+// framework citation.
+// * **Open questions Q1-Q5** — promoted to witness-parameterised
+// @theorems (or @axiom for the genuine open Q2) over a typed
+// `&OpenQuestion` carrier with `OpenQuestionStatus` sum-type
+// status. `verum audit --open-questions` (future #8/#9 follow-up)
+// can enumerate every registration uniformly.
+// =============================================================================
+
+@arch_module(
+    foundation: Foundation.ZfcTwoInacc,
+    stratum: MsfsStratum.LFnd,
+    lifecycle: Lifecycle.Theorem("v0.1"),
+)
+module lib.theorems.msfs.consequences;
+
+mount core.math.absolute_layer.{LAbsCandidate};
+mount core.math.open_question.{OpenQuestion, OpenQuestionStatus};
+mount super.afnt_alpha.{msfs_theorem_5_1_afnt_alpha};
+
+// =============================================================================
+// Diagnostics 12.1-12.4 — L_Cls meta-structure obstruction analysis
+// =============================================================================
+
+/// **MSFS Consequence 12.1 — Univalent Foundations diagnostic.**
+/// Voevodsky's Univalent Foundations passes (F_S)
+/// (HoTT is formally definable in MLTT + univalence) and conditional
+/// (Π_4) (irreducibility within the HoTT-adjacent stratum), but FAILS
+/// (Π_3-max): UF is not maximally generative — there exist sub-foundations
+/// (e.g., classical ZFC) without an `(∞, n)`-functor F → UF that's an
+/// equivalence onto image. Hence UF cannot inhabit L_Abs even
+/// conditionally. The diagnostic conclusion is the same as Theorem 5.1's
+/// universal foreclosure: any putative L_Cls-structure meeting the
+/// L_Abs triple's hypotheses violates the conjunction.
+@verify(certified)
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS §12 — Univalent Foundations diagnostic: passes (F_S, Π_4 cond.); fails (Π_3-max)")
+public theorem msfs_consequence_univalent_foundations(
+    candidate: &LAbsCandidate,
+    )
+    requires candidate.cond_F_S().has_phi_X()
+    && candidate.cond_Pi_4().is_irreducible_in_s_s()
+    && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+    // Diagnostic specialisation: UF *would* pass (F_S) ∧ (Π_4)
+    // conditionally, but fails (Π_3-max). If a candidate satisfies
+    // the full triple anyway (the requires clause), Theorem 5.1
+    // forecloses regardless of which condition fails first.
+    apply msfs_theorem_5_1_afnt_alpha(candidate);
+};
+
+/// **MSFS Consequence 12.2 — Higher Topos Theory diagnostic.**
+/// HTT (Lurie) passes (F_S) but fails (Π_3-max):
+/// HTT classifies sheaf-theoretic structure but not the full M_stack.
+/// Same diagnostic shape as 12.1.
+@verify(certified)
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS §12 — Higher Topos Theory diagnostic: passes (F_S); fails (Π_3-max)")
+public theorem msfs_consequence_higher_topos(
+    candidate: &LAbsCandidate,
+    )
+    requires candidate.cond_F_S().has_phi_X()
+    && candidate.cond_Pi_4().is_irreducible_in_s_s()
+    && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+    apply msfs_theorem_5_1_afnt_alpha(candidate);
+};
+
+/// **MSFS Consequence 12.3 — Cohesive ∞-Topos diagnostic.**
+/// Schreiber's cohesive ∞-topos framework passes
+/// (F_S) but fails (Π_3-max): cohesive ∞-topoi classify
+/// differential-geometric structure but not all foundations.
+@verify(certified)
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS §12 — Cohesive ∞-Topos diagnostic: passes (F_S); fails (Π_3-max)")
+public theorem msfs_consequence_cohesive(
+    candidate: &LAbsCandidate,
+    )
+    requires candidate.cond_F_S().has_phi_X()
+    && candidate.cond_Pi_4().is_irreducible_in_s_s()
+    && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+    apply msfs_theorem_5_1_afnt_alpha(candidate);
+};
+
+/// **MSFS Consequence 12.4 — ∞-Cosmoi diagnostic.**
+/// Riehl-Verity's ∞-cosmoi pass (F_S) but fail (Π_3-max): ∞-cosmoi
+/// classify (∞, 1)-categorical structure but not foundations
+/// outside the (∞, 1) range.
+@verify(certified)
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS §12 — ∞-Cosmoi diagnostic: passes (F_S); fails (Π_3-max)")
+public theorem msfs_consequence_infinity_cosmoi(
+    candidate: &LAbsCandidate,
+    )
+    requires candidate.cond_F_S().has_phi_X()
+    && candidate.cond_Pi_4().is_irreducible_in_s_s()
+    && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+    apply msfs_theorem_5_1_afnt_alpha(candidate);
+};
+
+// =============================================================================
+// Open questions Q1-Q5 — typed-witness registrations
+// =============================================================================
+
+/// **MSFS Q1 — Existence of maximal meta-framework.**
+/// Closed in Diakrisis (Theorems
+/// 103.T-106.T: universal articulation witness; Diakrisis ∈ L_Cls^⊤).
+/// The witness must register identifier "Q1" and an `OqClosed` status
+/// with the closing reference cited; the @axiom registers the
+/// `is_closed()` claim against the typed witness.
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Q1 — closed in Diakrisis 103.T-106.T")
+public axiom msfs_open_question_Q1_closed_in_diakrisis(q: &OpenQuestion) -> Bool
+requires q.identifier().eq("Q1")
+ensures q.is_closed();
+
+/// **MSFS Q2 — Completeness of the meta-framework list (genuinely open).**
+/// This @axiom registers Q2's open status. There is no @theorem
+/// promotion possible — `is_open()` is an *honest* terminal state
+/// not derivable from any closing argument.
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Q2 — completeness of meta-framework list — OPEN")
+public axiom msfs_open_question_Q2_open(q: &OpenQuestion) -> Bool
+requires q.identifier().eq("Q2")
+ensures q.is_open();
+
+/// **MSFS Q3 — Exhaustiveness of bypass paths.**
+/// Closed in Diakrisis Theorem 133.T. Same registration pattern as Q1.
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Q3 — closed in Diakrisis 133.T")
+public axiom msfs_open_question_Q3_closed_in_diakrisis(q: &OpenQuestion) -> Bool
+requires q.identifier().eq("Q3")
+ensures q.is_closed();
+
+/// **MSFS Q4 — Consistency strength minimality.**
+/// Closed in Diakrisis Theorem 134.T:
+/// ZFC + 1-inacc counterexample shows ZFC + 2-inacc is tight.
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Q4 — closed in Diakrisis 134.T")
+public axiom msfs_open_question_Q4_closed_in_diakrisis(q: &OpenQuestion) -> Bool
+requires q.identifier().eq("Q4")
+ensures q.is_closed();
+
+/// **MSFS Q5 — Sub-stack of weak R-S.**
+/// Closed in Diakrisis Theorem 137.T. Same pattern as Q1/Q3/Q4.
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Q5 — closed in Diakrisis 137.T")
+public axiom msfs_open_question_Q5_closed_in_diakrisis(q: &OpenQuestion) -> Bool
+requires q.identifier().eq("Q5")
+ensures q.is_closed();

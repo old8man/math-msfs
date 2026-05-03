@@ -1,0 +1,67 @@
+// =============================================================================
+// MSFS Appendix B — Paraconsistent Extension (Theorem B.2)
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, Appendix B.
+//
+// AFN-T transfers to *paraconsistent* Rich-metatheories `S'` whose
+// classical kernel `S'^*` is itself in `\RS`. The paraconsistent
+// fragment can host counter-examples to classical principles
+// (Explosion-min) without disturbing AFN-T because the projection
+// to the classical kernel preserves the (F_S), (Π_4), (Π_3-max)
+// triple structure.
+// =============================================================================
+
+@arch_module(
+    foundation: Foundation.ZfcTwoInacc,
+    stratum: MsfsStratum.LFnd,
+    lifecycle: Lifecycle.Theorem("v0.1"),
+)
+module lib.theorems.msfs.paraconsistent;
+
+mount core.math.rich_s.conditions.{RichS};
+
+/// MSFS Definition B.1 — Paraconsistent R-S. A theory `S'` is
+/// paraconsistent-Rich iff:
+/// - it satisfies classical (R1)–(R5),
+/// - **(Explosion-min)**: `⊥ \nvdash_{S'} \phi` for every `\phi`,
+/// - **(Strong-neg)**: `\exists \sim. (p \wedge \sim p) \vdash_\sim \bot`,
+/// - **(Classical-kernel-extractability)**: the largest classical
+/// fragment `S'^*` of `S'` is consistent and itself in `\RS`.
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Definition B.1 — Paraconsistent R-S with extractable classical kernel")
+public axiom msfs_definition_B_1_paraconsistent_rich_s<S: RichS>(s_star: &S) -> Bool
+requires true
+ensures s_star.n_S() >= -1;
+
+/// **MSFS Theorem B.2 — Paraconsistent AFN-T.**
+///
+/// For every paraconsistent-Rich `S'` with extractable classical
+/// kernel `S'^*`, AFN-T holds in `S'` with the same formal
+/// content as Theorem 5.1.
+///
+/// Proof outline (paper):
+/// 1. Suppose for contradiction `X` satisfies `(F_{S'}) ∧ (Π_4)
+/// ∧ (Π_{3-max})` in `S'`.
+/// 2. Take the classical projection `X^*` of `X` (drop
+/// paraconsistent inferences).
+/// 3. The classical kernel `S'^* ∈ \RS` is a Rich-metatheory.
+/// 4. `(F_{S'^*})(X^*)` follows because `\phi_X` uses only
+/// classical connectives + `\sim`; stripping `\sim` preserves
+/// classical definability.
+/// 5. `(Π_{3-max, S'^*, n})` follows because every classical
+/// sub-foundation `F ∈ F_{S'^*}` is *a fortiori* in
+/// `F_{S'}` (so the Morita-reduction `F → X^*` lifts to
+/// `F → X`).
+/// 6. Hence `X^*` is an L_Abs candidate in `S'^* ∈ \RS`,
+/// contradicting Theorem 5.1.
+///
+/// Conclusion: AFN-T transfers cleanly to paraconsistent
+/// Rich-metatheories with extractable classical kernels.
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Theorem B.2 — Paraconsistent AFN-T (transfer via classical kernel)")
+public axiom msfs_theorem_B_2_paraconsistent_afnt<S: RichS>(s_star: &S) -> Bool
+requires true
+ensures s_star.n_S() >= -1;

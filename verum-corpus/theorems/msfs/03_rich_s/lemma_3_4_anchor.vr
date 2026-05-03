@@ -1,0 +1,38 @@
+// =============================================================================
+// MSFS §3 — Reasonable Rich-Metatheories + Lemma 3.4
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, §3.
+//
+// The structural content (RichS protocol + R1–R5 + 13 example
+// admissions + 6 violation witnesses + Proposition 3.2 independence
+// + Class S_S + Lemma 3.4) lives in the host stdlib at
+// `core.math.rich_s` + `core.math.s_definable`. This file is the
+// corpus-side import surface; downstream theorems reach the §3
+// vocabulary through this module.
+//
+// Lemma 3.4 is the technical core of every AFN-T result — Theorems
+// 5.1, 6.1, 7.1, 9.6 (c), 10.7, and 11.1 all cite it.
+// =============================================================================
+
+@arch_module(
+    foundation: Foundation.ZfcTwoInacc,
+    stratum: MsfsStratum.LFnd,
+    lifecycle: Lifecycle.Theorem("v0.1"),
+)
+module lib.theorems.msfs.rich_s_anchor;
+
+mount core.math.rich_s.{
+ RichS,
+ msfs_rich_s_class_definition,
+ msfs_proposition_3_2_r_independence,
+ msfs_zfc_in_rich_s,
+ msfs_mltt_in_rich_s,
+ msfs_hott_in_rich_s,
+};
+mount core.math.s_definable.{
+ msfs_s_s_local_base,
+ msfs_s_s_global_kappa_1_accessible,
+ msfs_lemma_3_4_s_definability,
+ msfs_lemma_3_4_outputs_in_s_s_global,
+};

@@ -1,0 +1,173 @@
+// =============================================================================
+// MSFS §2 — Stratified Hierarchy
+// =============================================================================
+//
+// Source: A. Sereda, MSFS preprint, §2.
+//
+// The structural content (Definition 2.1 strata enum, Proposition
+// 2.2, Proposition 2.3) lives in the host stdlib at
+// `core.math.strata`. This file states the candidate-parameterised
+// theorems that derive each Proposition's content from Theorem 5.1 +
+// the host stdlib axioms.
+// =============================================================================
+
+@arch_module(
+    foundation: Foundation.ZfcTwoInacc,
+    stratum: MsfsStratum.LFnd,
+    lifecycle: Lifecycle.Theorem("v0.1"),
+)
+module lib.theorems.msfs.strata;
+
+mount core.math.strata.{
+    Stratum,
+    StrictInclusionWitness,
+    msfs_strata_class_definable,
+    msfs_proper_inclusion_fnd_cls,
+    msfs_proper_inclusion_cls_clsmax,
+    msfs_proper_inclusion_clsmax_abs,
+    msfs_L_abs_empty,
+    msfs_no_horizontal_collapse,
+    msfs_cls_not_in_l_abs,
+};
+mount core.math.absolute_layer.{LAbsCandidate};
+mount super.afnt_alpha.{msfs_corollary_5_2_l_abs_empty};
+
+// =============================================================================
+// MSFS Proposition 2.2 (iv) — L_Abs == ∅
+// =============================================================================
+
+/// **MSFS Proposition 2.2 (iv) — L_Abs == ∅.**
+///
+/// Universal-form claim: every candidate satisfying the L_Abs triple
+/// produces a contradiction. Reduces to Corollary 5.2, which chains
+/// to Theorem 5.1's full Lemma-3.4-+-id_X-violation argument; every
+/// step lives on the kernel-recheck stack.
+@verify(certified)
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Proposition 2.2 (iv) — L_Abs == ∅")
+public theorem msfs_proposition_2_2_iv_l_abs_empty(
+    candidate: &LAbsCandidate,
+)
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+        apply msfs_corollary_5_2_l_abs_empty(candidate);
+    };
+
+// =============================================================================
+// MSFS Proposition 2.3 corollary — Cls(L_Fnd) ≠ L_Abs
+// =============================================================================
+
+/// **MSFS Proposition 2.3 corollary — Cls(L_Fnd) ≠ L_Abs.**
+///
+/// "The classifier of foundations is not an inhabitant of the empty
+/// stratum." Vacuously true given Proposition 2.2 (iv): any candidate
+/// putatively in both L_Cls and L_Abs satisfies the L_Abs triple,
+/// which Proposition 2.2 (iv) forecloses. §10 (AC/OC duality) cites
+/// this as a targeting fact for the dual side.
+@verify(certified)
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Proposition 2.3 corollary — Cls(L_Fnd) ≠ L_Abs")
+public theorem msfs_proposition_2_3_corollary_cls_not_in_l_abs(
+    candidate: &LAbsCandidate,
+)
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+        apply msfs_proposition_2_2_iv_l_abs_empty(candidate);
+    };
+
+// =============================================================================
+// MSFS Proposition 2.2 (iii) — strict inclusions across the stratification
+// =============================================================================
+
+/// **MSFS Proposition 2.2 (iii) — L_Cls_top ⊋ L_Abs (vacuous form).**
+///
+/// `L_Cls_top` properly contains `L_Abs` because `L_Abs == ∅` and
+/// `L_Cls_top` is non-empty by Diakrisis 103.T (universal articulation
+/// witness). At the LAbsCandidate carrier this reduces to Proposition
+/// 2.2 (iv): any putative L_Abs inhabitant would simultaneously have to
+/// be in L_Cls_top, but no L_Abs inhabitant exists.
+@verify(certified)
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Proposition 2.2 (iii) — L_Cls_top ⊋ L_Abs (vacuous form)")
+public theorem msfs_proposition_2_2_iii_clsmax_strict_above_abs(
+    candidate: &LAbsCandidate,
+)
+    requires candidate.cond_F_S().has_phi_X()
+          && candidate.cond_Pi_4().is_irreducible_in_s_s()
+          && candidate.cond_Pi_3_max().is_maximally_generative()
+    ensures false
+    proof {
+        apply msfs_proposition_2_2_iv_l_abs_empty(candidate);
+    };
+
+/// **MSFS Proposition 2.2 (iii) — L_Fnd ⊋ L_Cls.**
+///
+/// Witnessed by an exhibitor (canonically: AffineLogic + ! satisfying
+/// R1–R5 but failing M3 accessibility) that inhabits L_Fnd without
+/// inhabiting L_Cls. The kernel re-checks the witness's two flags
+/// through the parameterised axiom.
+@verify(certified)
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Proposition 2.2 (iii) — L_Fnd ⊋ L_Cls")
+public theorem msfs_proposition_2_2_iii_fnd_strict_above_cls(
+    w: &StrictInclusionWitness,
+)
+    requires w.outer_stratum_tag().eq("L_Fnd")
+          && w.inner_stratum_tag().eq("L_Cls")
+    ensures  w.exhibitor_in_outer_stratum()
+          && w.exhibitor_not_in_inner_stratum()
+    proof {
+        apply msfs_proper_inclusion_fnd_cls(w);
+    };
+
+/// **MSFS Proposition 2.2 (iii) — L_Cls ⊋ L_Cls_top.**
+///
+/// Strictness witnessed by ∞-cosmoi (Riehl–Verity): satisfies
+/// (M1)–(M5) but fails Max-1 — its classification image is a strict
+/// sub-stack of `M_stack`.
+@verify(certified)
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Proposition 2.2 (iii) — L_Cls ⊋ L_Cls_top")
+public theorem msfs_proposition_2_2_iii_cls_strict_above_clsmax(
+    w: &StrictInclusionWitness,
+)
+    requires w.outer_stratum_tag().eq("L_Cls")
+          && w.inner_stratum_tag().eq("L_Cls_top")
+    ensures  w.exhibitor_in_outer_stratum()
+          && w.exhibitor_not_in_inner_stratum()
+    proof {
+        apply msfs_proper_inclusion_cls_clsmax(w);
+    };
+
+/// **MSFS Proposition 2.2 (iii) — L_Cls_top ⊋ L_Abs (typed-witness form).**
+///
+/// Companion to the candidate-based vacuous form: callers carrying a
+/// generic `&StrictInclusionWitness` with the right tags invoke this
+/// theorem; callers with an L_Abs candidate use the vacuous form
+/// (any L_Abs candidate trivially witnesses strict inclusion via
+/// emptiness).
+@verify(certified)
+@accessibility(omega_1)
+@enact(epsilon = "ε_prove")
+@framework(msfs, "MSFS Proposition 2.2 (iii) — L_Cls_top ⊋ L_Abs (typed-witness form)")
+public theorem msfs_proposition_2_2_iii_clsmax_strict_above_abs_witness(
+    w: &StrictInclusionWitness,
+)
+    requires w.outer_stratum_tag().eq("L_Cls_top")
+          && w.inner_stratum_tag().eq("L_Abs")
+    ensures  w.exhibitor_in_outer_stratum()
+          && w.exhibitor_not_in_inner_stratum()
+    proof {
+        apply msfs_proper_inclusion_clsmax_abs(w);
+    };
