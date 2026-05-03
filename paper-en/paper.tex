@@ -1262,10 +1262,10 @@ AFN-T imposes a uniform structural bound on every current foundational programme
 \item \textbf{Categorical logic}: classification of foundational systems by $(\infty, n)$-categories and their meta-structures has an upper bound at $\LCls$, aligning with Barwick--Schommer-Pries~\cite{BarwickSchommerPries2021} unicity.
 \end{itemize}
 
-\paragraph{Diagnostic: which $\LAbs$ condition fails for specific candidates?} For each well-known candidate sometimes informally described as ``absolute'', the precise failure mode within AFN-T's formal framework can be identified.
+\paragraph{Diagnostic: which $\LAbs$ condition fails for specific candidates?} For each candidate $X$ that has been put forward in the literature as a candidate for the absolute meta-foundational role, the precise failure mode within AFN-T's formal framework is identified by checking which member of the triple $(F_S) \wedge (\Pi_{4, S, n}) \wedge (\Pi_{3\text{-max}, S, n})$ is violated.
 \begin{itemize}\setlength{\itemsep}{1pt}
 \item \emph{Univalent Foundations (UF)}: passes $(F_S)$ (formally definable as HoTT + univalence axiom schema), passes $(\Pi_{4, S, n})$ conditionally (not Morita-reducible to $\ZFC$-internal structures, in the forward direction), but \emph{fails $(\Pi_{3\text{-max}, S, n})$}: UF does not classify Rich-foundations outside the HoTT-adjacent family (e.g., it does not classify ZFC-specific cardinal arithmetic or noncommutative-geometric spectral triples by Morita reduction). Hence UF $\in \LCls \setminus \LClsMax$.
-\item \emph{Higher topos theory (Lurie)}: passes $(F_S)$, fails $(\Pi_{3\text{-max}})$ for essentially the same reason: classifies categorical structures of HoTT-compatible shape but does not subsume foundations outside this class.
+\item \emph{Higher topos theory (Lurie)}: passes $(F_S)$, fails $(\Pi_{3\text{-max}, S, n})$: classifies categorical structures of HoTT-compatible shape but does not admit a classification functor onto Rich-foundations outside that class (e.g.\ first-order set theories without a HoTT-style internal language).
 \item \emph{Cohesive framework (Schreiber)}: passes $(F_S)$, fails $(\Pi_{3\text{-max}})$; additionally the cohesion axioms specialize to geometric contexts, further restricting the classification image.
 \item \emph{$\infty$-cosmoi (Riehl--Verity)}: passes $(F_S)$ (axiomatized in $\ZFC + 2\text{-inacc}$), fails $(\Pi_{3\text{-max}})$; they classify $(\infty, 1)$-categorical structures, not the full $\fM$.
 \item \emph{Any hypothetical candidate $X$ satisfying $(F_S) \wedge (\Pi_{3\text{-max}})$}: by Theorem~\ref{thm:afnt-alpha}, $X$ then fails $(\Pi_{4, S, n})$: if $X$ were both formally definable (via $(F_S)$) and maximally generative (via $(\Pi_{3\text{-max}})$), then by Lemma~\ref{lem:SS-membership} $X \in \cS_S^{\mathrm{global}}$ and $\id_X$ would realize a Morita reduction to an $\cS_S$-target, contradicting $(\Pi_{4, S, n})$.
@@ -1325,11 +1325,11 @@ A category $\cC$ is \textbf{locally $\lambda$-presentable} if it is cocomplete a
 
 Reference: Ad\'amek--Rosick\'y~\cite{AdamekRosicky1994} for accessibility theory.
 
-\begin{lemma}[Lair--Makkai--Par\'e representation, informal]\label{lem:lair}
+\begin{lemma}[Lair--Makkai--Par\'e representation]\label{lem:lair}
 Every accessible category is $2$-categorically equivalent to the $2$-category of models of a small sketch; equivalently, to the $2$-category of models of an accessible $2$-theory.
 \end{lemma}
 
-Reference: Lair~\cite{Lair1981} (original French version for $1$-categorical sketches); Makkai--Par\'e~\cite{MakkaiPare1989} Chapter 3 (systematic development, including the $2$-categorical sketch/theory correspondence); Ad\'amek--Rosick\'y~\cite{AdamekRosicky1994} Chapter 2 (accessibility-theoretic treatment).
+\noindent\emph{Reference for the proof.} Lair~\cite{Lair1981} ($1$-categorical sketches, original French source); Makkai--Par\'e~\cite{MakkaiPare1989} Chapter~3 (systematic development, including the $2$-categorical sketch/theory correspondence); Ad\'amek--Rosick\'y~\cite{AdamekRosicky1994} Chapter~2 (accessibility-theoretic treatment).  The lemma is used in this paper only through these references.
 
 \subsection{Display Map Categories}
 
